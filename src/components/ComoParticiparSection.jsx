@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './ComoParticiparSection.css'
 import './RegrasPareamentoSection.css'
+import './TrustedConnectionSection.css'
 
 // Função para quebrar texto em parágrafos separados por pontos
 const splitByPeriod = (text) => {
@@ -31,6 +32,25 @@ const regrasChecagem = [
     chatPermitido: '16-17, 18',
     equipesPermitidas: '16-17, 18',
     trustedConnection: 'Necessária para equipe com 13-15'
+  }
+]
+
+const qaItems = [
+  {
+    question: 'Quem cria?',
+    answer: 'O próprio usuário (jovem) com permissão da família, dentro da plataforma Roblox.'
+  },
+  {
+    question: 'Onde é criada?',
+    answer: 'No próprio Roblox, dentro da conta do usuário, após o age-check.'
+  },
+  {
+    question: 'Quando é criada?',
+    answer: 'Antes da Jam. Nunca durante. A Jam não cria nem gerencia isso.'
+  },
+  {
+    question: 'Quando importa na Jam?',
+    answer: 'Exatamente em UM caso: permitir equipe entre 13-15 e 18.'
   }
 ]
 
@@ -102,31 +122,53 @@ function ComoParticiparSection() {
                       {splitByPeriod(step.description)}
                     </div>
                     {step.number === 4 && (
-                      <div className="checagem-idade-wrapper">
-                        <h3 className="checagem-idade-title">Checagem de Idade</h3>
-                        <div className="regras-table-wrapper">
-                          <table className="regras-table">
-                            <thead>
-                              <tr>
-                                <th>Faixa etária</th>
-                                <th>Chat permitido (Roblox)</th>
-                                <th>Equipes permitidas (Jam)</th>
-                                <th>Trusted Connection</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              {regrasChecagem.map((regra, index) => (
-                                <tr key={index}>
-                                  <td className="faixa-etaria" data-label="Faixa etária">{regra.faixaEtaria}</td>
-                                  <td data-label="Chat permitido (Roblox)">{regra.chatPermitido}</td>
-                                  <td data-label="Equipes permitidas (Jam)">{regra.equipesPermitidas}</td>
-                                  <td data-label="Trusted Connection">{regra.trustedConnection}</td>
+                      <>
+                        <div className="checagem-idade-wrapper">
+                          <h3 className="checagem-idade-title">Checagem de Idade</h3>
+                          <div className="regras-table-wrapper">
+                            <table className="regras-table">
+                              <thead>
+                                <tr>
+                                  <th>Faixa etária</th>
+                                  <th>Chat permitido (Roblox)</th>
+                                  <th>Equipes permitidas (Jam)</th>
+                                  <th>Trusted Connection</th>
                                 </tr>
-                              ))}
-                            </tbody>
-                          </table>
+                              </thead>
+                              <tbody>
+                                {regrasChecagem.map((regra, index) => (
+                                  <tr key={index}>
+                                    <td className="faixa-etaria" data-label="Faixa etária">{regra.faixaEtaria}</td>
+                                    <td data-label="Chat permitido (Roblox)">{regra.chatPermitido}</td>
+                                    <td data-label="Equipes permitidas (Jam)">{regra.equipesPermitidas}</td>
+                                    <td data-label="Trusted Connection">{regra.trustedConnection}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
-                      </div>
+                        <div className="conexao-confiavel-wrapper">
+                          <h3 className="conexao-confiavel-title">Conexão Confiável</h3>
+                          <div className="trusted-connection-intro">
+                            <p className="step-description-paragraph">
+                              Um vínculo seguro entre duas contas que informa ao Roblox que essas pessoas se conhecem na vida real e podem conversar e interagir mesmo estando em faixas etárias que normalmente não conversam.
+                            </p>
+                          </div>
+                          <div className="qa-grid">
+                            {qaItems.map((item, index) => (
+                              <div key={index} className="qa-card">
+                                <div className="qa-question">
+                                  <h3>{item.question}</h3>
+                                </div>
+                                <div className="qa-answer">
+                                  <p>{item.answer}</p>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </>
                     )}
                   </div>
                 )}

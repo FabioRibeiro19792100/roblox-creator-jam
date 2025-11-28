@@ -37,11 +37,6 @@ function Header() {
               </a>
             </li>
             <li>
-              <a href="#trusted-connection" onClick={(e) => { e.preventDefault(); scrollToSection('trusted-connection') }}>
-                Trusted Connection
-              </a>
-            </li>
-            <li>
               <a href="#desafio-jam" onClick={(e) => { e.preventDefault(); scrollToSection('desafio-jam') }}>
                 Desafio
               </a>
