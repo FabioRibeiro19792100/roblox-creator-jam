@@ -51,7 +51,13 @@ function RegrasJamSection() {
     {
       numero: 5,
       titulo: 'Convivência e comportamento',
-      descricao: 'Durante toda a Jam, os participantes seguem: Termos de Uso do Roblox, Padrões da Comunidade, regras de participação da Jam. Os canais oficiais da Jam são moderados, com DMs desativadas.'
+      descricao: 'Durante toda a Jam, os participantes seguem:',
+      topicos: [
+        'Termos de Uso do Roblox',
+        'Padrões da Comunidade',
+        'regras de participação da Jam'
+      ],
+      descricaoFinal: 'Os canais oficiais da Jam são moderados, com DMs desativadas.'
     },
     {
       numero: 6,
@@ -64,7 +70,7 @@ function RegrasJamSection() {
     <section id="regras-jam" className="regras-jam-section">
       <div className="regras-jam-container">
         <h2 className="regras-jam-title">
-          Regras da<br />Jam
+          Regras
         </h2>
         
         <div className="regras-jam-content">
@@ -76,6 +82,20 @@ function RegrasJamSection() {
               </div>
               <div className="regra-conteudo">
                 {splitByPeriod(regra.descricao)}
+                
+                {regra.topicos && (
+                  <ul className="lista-itens">
+                    {regra.topicos.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+                
+                {regra.descricaoFinal && (
+                  <div className="regra-descricao-final">
+                    {splitByPeriod(regra.descricaoFinal)}
+                  </div>
+                )}
                 
                 {regra.permitido && (
                   <div className="regra-listas">

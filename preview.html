@@ -1498,6 +1498,18 @@
             margin-bottom: 0;
         }
 
+        .regra-descricao-final {
+            margin-top: 1rem;
+        }
+
+        .regra-descricao-final .regra-descricao {
+            margin: 0 0 0.5rem 0;
+        }
+
+        .regra-descricao-final .regra-descricao:last-of-type {
+            margin-bottom: 0;
+        }
+
         /* Tablet */
         @media (min-width: 768px) {
             .regras-jam-container {
@@ -1589,9 +1601,9 @@
 
         /* Entrega do Desafio Section */
         .entrega-desafio-section {
-            background: #c0c0c0;
+            background: #ffffff;
             background-image: 
-                radial-gradient(circle, #a0a0a0 1px, transparent 1px);
+                radial-gradient(circle, #e3f2fd 1px, transparent 1px);
             background-size: 30px 30px;
             padding: 0;
             position: relative;
@@ -2761,7 +2773,7 @@
                     <li><a href="#escolha-tema" onclick="event.preventDefault(); scrollToSection('escolha-tema')">Temas</a></li>
                     <li><a href="#trusted-connection" onclick="event.preventDefault(); scrollToSection('trusted-connection')">Trusted Connection</a></li>
                     <li><a href="#desafio-jam" onclick="event.preventDefault(); scrollToSection('desafio-jam')">Desafio</a></li>
-                    <li><a href="#regras-jam" onclick="event.preventDefault(); scrollToSection('regras-jam')">Regras da Jam</a></li>
+                    <li><a href="#regras-jam" onclick="event.preventDefault(); scrollToSection('regras-jam')">Regras</a></li>
                     <li><a href="#entrega-desafio" onclick="event.preventDefault(); scrollToSection('entrega-desafio')">Entrega</a></li>
                     <li><a href="#premiacao" onclick="event.preventDefault(); scrollToSection('premiacao')">Premiação</a></li>
                     <li><a href="#datas-canais" onclick="event.preventDefault(); scrollToSection('datas-canais')">Datas e Canais</a></li>
@@ -3078,7 +3090,7 @@
     <section id="regras-jam" class="regras-jam-section">
         <div class="regras-jam-container">
             <h2 class="regras-jam-title">
-                Regras da<br />Jam
+                Regras
             </h2>
             
             <div class="regras-jam-content">
@@ -3161,8 +3173,15 @@
                         <h3 class="regra-titulo">Convivência e comportamento</h3>
                     </div>
                     <div class="regra-conteudo">
-                        <p class="regra-descricao">Durante toda a Jam, os participantes seguem: Termos de Uso do Roblox, Padrões da Comunidade, regras de participação da Jam.</p>
-                        <p class="regra-descricao">Os canais oficiais da Jam são moderados, com DMs desativadas.</p>
+                        <p class="regra-descricao">Durante toda a Jam, os participantes seguem:</p>
+                        <ul class="lista-itens">
+                            <li>Termos de Uso do Roblox</li>
+                            <li>Padrões da Comunidade</li>
+                            <li>regras de participação da Jam</li>
+                        </ul>
+                        <div class="regra-descricao-final">
+                            <p class="regra-descricao">Os canais oficiais da Jam são moderados, com DMs desativadas.</p>
+                        </div>
                     </div>
                 </div>
 

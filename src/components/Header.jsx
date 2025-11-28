@@ -53,7 +53,7 @@ function Header() {
             </li>
             <li>
               <a href="#regras-jam" onClick={(e) => { e.preventDefault(); scrollToSection('regras-jam') }}>
-                Regras da Jam
+                Regras
               </a>
             </li>
             <li>

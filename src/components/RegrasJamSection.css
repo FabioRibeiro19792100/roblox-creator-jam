@@ -148,6 +148,18 @@
   margin-bottom: 0;
 }
 
+.regra-descricao-final {
+  margin-top: 1rem;
+}
+
+.regra-descricao-final .regra-descricao {
+  margin: 0 0 0.5rem 0;
+}
+
+.regra-descricao-final .regra-descricao:last-of-type {
+  margin-bottom: 0;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
   .regras-jam-container {
