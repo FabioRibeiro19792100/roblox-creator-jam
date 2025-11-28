@@ -72,7 +72,7 @@ const steps = [
   },
   {
     number: 4,
-    title: 'Forme seu time de trabalho',
+    title: 'Forme seu time de trabalho (conexões confiáveis)',
     description: 'O sistema forma automaticamente as equipes com base na faixa etária oficial do Roblox do participante, tema escolhido, preferência (solo ou equipe) e vínculos familiares existentes (Conexão Confiável). Cada pessoa é colocada em uma equipe apropriada para sua faixa etária.'
   },
   {
