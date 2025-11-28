@@ -18,8 +18,8 @@ function App() {
       <HeroSection />
       <ComoParticiparSection />
       <RegrasPareamentoSection />
-      <EscolhaTemaSection />
       <TrustedConnectionSection />
+      <EscolhaTemaSection />
       <DesafioJamSection />
       <EntregaDesafioSection />
       <PremiacaoSection />
