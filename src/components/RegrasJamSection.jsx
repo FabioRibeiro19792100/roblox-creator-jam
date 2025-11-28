@@ -1,6 +1,16 @@
 import './RegrasJamSection.css'
 
 function RegrasJamSection() {
+  // Função para quebrar texto em parágrafos separados por pontos
+  const splitByPeriod = (text) => {
+    if (!text) return null
+    const sentences = text.split('.').filter(s => s.trim().length > 0)
+    return sentences.map((sentence, index) => (
+      <p key={index} className="regra-descricao">
+        {sentence.trim()}.
+      </p>
+    ))
+  }
   const regras = [
     {
       numero: 1,
@@ -65,7 +75,7 @@ function RegrasJamSection() {
                 <h3 className="regra-titulo">{regra.titulo}</h3>
               </div>
               <div className="regra-conteudo">
-                <p className="regra-descricao">{regra.descricao}</p>
+                {splitByPeriod(regra.descricao)}
                 
                 {regra.permitido && (
                   <div className="regra-listas">
@@ -90,7 +100,9 @@ function RegrasJamSection() {
                     )}
                     
                     {regra.observacao && (
-                      <p className="regra-observacao">{regra.observacao}</p>
+                      <div className="regra-observacao-wrapper">
+                        {splitByPeriod(regra.observacao)}
+                      </div>
                     )}
                   </div>
                 )}

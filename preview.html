@@ -1426,10 +1426,14 @@
             font-size: 1.05rem;
             line-height: 1.6;
             color: #555;
-            margin: 0 0 1rem 0;
+            margin: 0 0 0.5rem 0;
             text-decoration: underline;
             text-underline-offset: 0.3em;
             text-decoration-thickness: 1px;
+        }
+
+        .regra-descricao:last-of-type {
+            margin-bottom: 1rem;
         }
 
         .regra-listas {
@@ -1460,7 +1464,7 @@
         }
 
         .lista-itens li {
-            font-size: 0.95rem;
+            font-size: 0.75rem;
             line-height: 1.6;
             color: #555;
             margin: 0 0 0.5rem 0;
@@ -1469,7 +1473,7 @@
         }
 
         .lista-itens li::before {
-            content: '•';
+            content: '-';
             position: absolute;
             left: 0;
             color: #000;
@@ -1480,15 +1484,18 @@
             margin-bottom: 0;
         }
 
-        .regra-observacao {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #555;
+        .regra-observacao-wrapper {
             margin: 1rem 0 0 0;
+        }
+
+        .regra-observacao-wrapper .regra-descricao {
+            font-size: 0.95rem;
             font-style: italic;
-            text-decoration: underline;
-            text-underline-offset: 0.3em;
-            text-decoration-thickness: 1px;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .regra-observacao-wrapper .regra-descricao:last-of-type {
+            margin-bottom: 0;
         }
 
         /* Tablet */
@@ -1524,10 +1531,10 @@
             }
 
             .lista-itens li {
-                font-size: 1rem;
+                font-size: 0.85rem;
             }
 
-            .regra-observacao {
+            .regra-observacao-wrapper .regra-descricao {
                 font-size: 1rem;
             }
         }
@@ -1565,10 +1572,10 @@
             }
 
             .lista-itens li {
-                font-size: 1.05rem;
+                font-size: 0.9rem;
             }
 
-            .regra-observacao {
+            .regra-observacao-wrapper .regra-descricao {
                 font-size: 1.05rem;
             }
         }
@@ -3081,7 +3088,8 @@
                         <h3 class="regra-titulo">Criação durante as 72 horas</h3>
                     </div>
                     <div class="regra-conteudo">
-                        <p class="regra-descricao">O projeto deve ser feito dentro do período oficial da Jam e seguir o tema escolhido. Experiências criadas totalmente antes ou depois desse período não entram na avaliação.</p>
+                        <p class="regra-descricao">O projeto deve ser feito dentro do período oficial da Jam e seguir o tema escolhido.</p>
+                        <p class="regra-descricao">Experiências criadas totalmente antes ou depois desse período não entram na avaliação.</p>
                     </div>
                 </div>
 
@@ -3117,7 +3125,10 @@
                                 </ul>
                             </div>
                             
-                            <p class="regra-observacao">O que você precisa informar na submissão: nome do recurso, de onde você pegou, link da fonte (se houver). Regra simples: Use o que for permitido, mas seja transparente.</p>
+                            <div class="regra-observacao-wrapper">
+                                <p class="regra-descricao">O que você precisa informar na submissão: nome do recurso, de onde você pegou, link da fonte (se houver).</p>
+                                <p class="regra-descricao">Regra simples: Use o que for permitido, mas seja transparente.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3128,7 +3139,9 @@
                         <h3 class="regra-titulo">Equipes de 1 a 5 pessoas</h3>
                     </div>
                     <div class="regra-conteudo">
-                        <p class="regra-descricao">Cada equipe pode ter entre 1 e 5 participantes. Participar sozinho também vale. A formação final das equipes segue as regras da Jam (faixa etária, autorização e preferências).</p>
+                        <p class="regra-descricao">Cada equipe pode ter entre 1 e 5 participantes.</p>
+                        <p class="regra-descricao">Participar sozinho também vale.</p>
+                        <p class="regra-descricao">A formação final das equipes segue as regras da Jam (faixa etária, autorização e preferências).</p>
                     </div>
                 </div>
 
@@ -3148,7 +3161,8 @@
                         <h3 class="regra-titulo">Convivência e comportamento</h3>
                     </div>
                     <div class="regra-conteudo">
-                        <p class="regra-descricao">Durante toda a Jam, os participantes seguem: Termos de Uso do Roblox, Padrões da Comunidade, regras de participação da Jam. Os canais oficiais da Jam são moderados, com DMs desativadas.</p>
+                        <p class="regra-descricao">Durante toda a Jam, os participantes seguem: Termos de Uso do Roblox, Padrões da Comunidade, regras de participação da Jam.</p>
+                        <p class="regra-descricao">Os canais oficiais da Jam são moderados, com DMs desativadas.</p>
                     </div>
                 </div>
 
@@ -3158,7 +3172,8 @@
                         <h3 class="regra-titulo">Ambiente seguro</h3>
                     </div>
                     <div class="regra-conteudo">
-                        <p class="regra-descricao">Toda a comunicação oficial ocorre no Discord da Jam, no canal da sua equipe e nos canais públicos. Logs ficam ativos para manter tudo seguro.</p>
+                        <p class="regra-descricao">Toda a comunicação oficial ocorre no Discord da Jam, no canal da sua equipe e nos canais públicos.</p>
+                        <p class="regra-descricao">Logs ficam ativos para manter tudo seguro.</p>
                     </div>
                 </div>
             </div>
