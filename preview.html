@@ -1466,16 +1466,28 @@
 
         .regra-listas {
             margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .regra-permitido,
         .regra-nao-permitido {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
+            flex: 1;
         }
 
-        .regra-permitido:last-child,
-        .regra-nao-permitido:last-child {
-            margin-bottom: 0;
+        @media (min-width: 768px) {
+            .regra-listas {
+                flex-direction: row;
+                gap: 2rem;
+            }
+            
+            .regra-permitido,
+            .regra-nao-permitido {
+                flex: 1;
+                min-width: 0;
+            }
         }
 
         .lista-titulo {
