@@ -1,85 +1,76 @@
-# RobloxJam
+# Roblox Creator Jam
 
-Projeto RobloxJam criado com **Vite + React** e design responsivo mobile-first.
+Landing page responsiva para o evento Roblox Creator Jam, desenvolvida com Vite + React.
 
-## 🚀 Tecnologias
+## 🚀 Como executar
 
-- **Vite** - Build tool rápida e moderna
-- **React 18** - Biblioteca JavaScript para interfaces
-- **CSS3** - Estilos responsivos mobile-first
+### Pré-requisitos
+- Node.js instalado (versão 16 ou superior)
+- npm ou yarn
 
-## 📁 Estrutura do Projeto
+### Instalação
 
-```
-RobloxJam/
-├── src/
-│   ├── App.jsx          # Componente principal
-│   ├── App.css          # Estilos do App
-│   ├── main.jsx         # Entry point
-│   └── index.css        # Estilos globais
-├── index.html           # HTML principal
-├── vite.config.js       # Configuração do Vite
-├── package.json         # Dependências
-└── README.md            # Este arquivo
+1. Clone o repositório:
+```bash
+git clone https://github.com/SEU_USUARIO/roblox-creator-jam.git
+cd roblox-creator-jam
 ```
 
-## 🛠️ Instalação
-
-1. Instale as dependências:
+2. Instale as dependências:
 ```bash
 npm install
 ```
 
-## 🎯 Como usar
-
-### Desenvolvimento
+3. Execute o projeto em modo de desenvolvimento:
 ```bash
 npm run dev
 ```
-O servidor iniciará em `http://localhost:3000`
+
+4. Abra o navegador em `http://localhost:5173`
 
 ### Build para produção
+
 ```bash
 npm run build
 ```
 
-### Preview da build
-```bash
-npm run preview
+Os arquivos otimizados estarão na pasta `dist/`.
+
+## 📁 Estrutura do projeto
+
+```
+RobloxJam/
+├── src/
+│   ├── components/      # Componentes React
+│   ├── App.jsx          # Componente principal
+│   └── main.jsx         # Ponto de entrada
+├── public/              # Arquivos estáticos
+├── index.html           # HTML principal
+└── package.json         # Dependências
 ```
 
-## 📱 Design Responsivo
+## 🎨 Seções
 
-O projeto foi desenvolvido com abordagem **mobile-first**, otimizado para:
+- Hero Section
+- Como Participar (Accordion)
+- Regras de Pareamento
+- Escolha do Tema
+- Trusted Connection
+- O Desafio da JAM
+- Entrega do Desafio
+- Premiação
+- Datas e Canais
+- Footer
 
-- 📱 **Mobile** (< 768px) - Layout em coluna única
-- 📱 **Tablet** (768px - 1024px) - Layout adaptado
-- 💻 **Desktop** (> 1024px) - Layout completo
+## 🛠️ Tecnologias
 
-## ✨ Recursos
+- React 18
+- Vite
+- CSS3 (Mobile-first, responsivo)
 
-- ✅ Design responsivo mobile-first
-- ✅ CSS moderno com variáveis CSS
-- ✅ Componentes React funcionais
-- ✅ Hover effects e transições suaves
-- ✅ Otimizado para dispositivos touch
-- ✅ Hot Module Replacement (HMR)
+## 📱 Responsividade
 
-## 🎨 Customização
-
-As cores e estilos podem ser facilmente customizados através das variáveis CSS em `src/index.css`:
-
-```css
-:root {
-  --primary-color: #667eea;
-  --secondary-color: #764ba2;
-  /* ... */
-}
-```
-
-## 📝 Próximos passos
-
-- Adicione suas funcionalidades
-- Crie novos componentes
-- Integre APIs
-- Adicione testes
+O projeto é totalmente responsivo, com breakpoints para:
+- Mobile (< 768px)
+- Tablet (≥ 768px)
+- Desktop (≥ 1024px)
