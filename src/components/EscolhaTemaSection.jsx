@@ -48,7 +48,7 @@ function EscolhaTemaSection() {
     <section id="escolha-tema" className="escolha-tema-section">
       <div className="escolha-tema-container">
         <h2 className="escolha-tema-title">
-          Escolha<br />do tema
+          Qual vai ser<br />o tema da Jam?
         </h2>
         
         <div className="escolha-tema-content">
