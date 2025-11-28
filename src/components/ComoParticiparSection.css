@@ -141,37 +141,43 @@
 .checagem-idade-wrapper {
   margin-top: 2rem;
   padding-top: 2rem;
+  padding-left: 56px;
   border-top: 1px solid #ddd;
 }
 
 .checagem-idade-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #000;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1rem 0;
 }
 
 .conexao-confiavel-wrapper {
   margin-top: 3rem;
   padding-top: 3rem;
+  padding-left: 56px;
   border-top: 1px solid #ddd;
 }
 
 .conexao-confiavel-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #000;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1rem 0;
 }
 
 .conexao-confiavel-wrapper .trusted-connection-intro {
   margin-bottom: 2rem;
 }
 
+.conexao-confiavel-wrapper .trusted-connection-intro .step-description-paragraph {
+  font-size: 0.9rem;
+}
+
 .conexao-confiavel-wrapper .qa-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1rem;
   width: 100%;
 }
 
@@ -191,7 +197,7 @@
 }
 
 .conexao-confiavel-wrapper .qa-question h3 {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: #000;
   margin: 0;
@@ -202,17 +208,15 @@
 
 .conexao-confiavel-wrapper .qa-answer {
   background: transparent;
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 0.75rem;
 }
 
 .conexao-confiavel-wrapper .qa-answer p {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.5;
   color: #333;
   margin: 0;
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
-  text-decoration-thickness: 1px;
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
@@ -314,6 +318,24 @@
 
   .step-description {
     padding-left: 76px;
+  }
+
+  .checagem-idade-wrapper,
+  .conexao-confiavel-wrapper {
+    padding-left: 76px;
+  }
+
+  .checagem-idade-title,
+  .conexao-confiavel-title {
+    font-size: 1.4rem;
+  }
+
+  .conexao-confiavel-wrapper .qa-question h3 {
+    font-size: 0.95rem;
+  }
+
+  .conexao-confiavel-wrapper .qa-answer p {
+    font-size: 0.95rem;
   }
 
   .step-description p {
