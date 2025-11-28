@@ -294,6 +294,16 @@
             line-height: 1.4;
         }
 
+        .step-arrow {
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #666;
+            line-height: 1;
+            min-width: 24px;
+            text-align: center;
+        }
+
         .step-icon {
             flex-shrink: 0;
             color: #666;
@@ -2299,11 +2309,7 @@
                         <button class="step-header" onclick="toggleStep(1)">
                             <span class="step-number">1</span>
                             <span class="step-title">Crie sua conta Roblox</span>
-                            <span class="step-icon">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
+                            <span class="step-arrow" id="arrow-1">+</span>
                         </button>
                         <div class="step-content">
                             <div class="step-description">
@@ -2316,11 +2322,7 @@
                         <button class="step-header" onclick="toggleStep(2)">
                             <span class="step-number">2</span>
                             <span class="step-title">Faça sua inscrição</span>
-                            <span class="step-icon">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
+                            <span class="step-arrow" id="arrow-1">+</span>
                         </button>
                         <div class="step-content">
                             <div class="step-description">
@@ -2333,11 +2335,7 @@
                         <button class="step-header" onclick="toggleStep(3)">
                             <span class="step-number">3</span>
                             <span class="step-title">Aguarde a autorização familiar</span>
-                            <span class="step-icon">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
+                            <span class="step-arrow" id="arrow-1">+</span>
                         </button>
                         <div class="step-content">
                             <div class="step-description">
@@ -2350,11 +2348,7 @@
                         <button class="step-header" onclick="toggleStep(4)">
                             <span class="step-number">4</span>
                             <span class="step-title">Forme seu time de trabalho</span>
-                            <span class="step-icon">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
+                            <span class="step-arrow" id="arrow-1">+</span>
                         </button>
                         <div class="step-content">
                             <div class="step-description">
@@ -2367,11 +2361,7 @@
                         <button class="step-header" onclick="toggleStep(5)">
                             <span class="step-number">5</span>
                             <span class="step-title">Entre no Discord da Jam</span>
-                            <span class="step-icon">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
+                            <span class="step-arrow" id="arrow-1">+</span>
                         </button>
                         <div class="step-content">
                             <div class="step-description">
@@ -2384,11 +2374,7 @@
                         <button class="step-header" onclick="toggleStep(6)">
                             <span class="step-number">6</span>
                             <span class="step-title">Crie sua experiência no Roblox Studio</span>
-                            <span class="step-icon">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
+                            <span class="step-arrow" id="arrow-1">+</span>
                         </button>
                         <div class="step-content">
                             <div class="step-description">
@@ -2774,15 +2760,21 @@
         function toggleStep(stepNumber) {
             const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
             const isOpen = stepItem.classList.contains('step-open');
+            const arrow = stepItem.querySelector('.step-arrow');
             
-            // Fecha todos os outros steps
+            // Fecha todos os outros steps e reseta suas setas
             document.querySelectorAll('.step-item').forEach(item => {
                 item.classList.remove('step-open');
+                const itemArrow = item.querySelector('.step-arrow');
+                if (itemArrow) itemArrow.textContent = '+';
             });
             
             // Abre o step clicado se não estava aberto
             if (!isOpen) {
                 stepItem.classList.add('step-open');
+                if (arrow) arrow.textContent = '−';
+            } else {
+                if (arrow) arrow.textContent = '+';
             }
         }
 
