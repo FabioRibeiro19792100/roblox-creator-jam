@@ -42,7 +42,7 @@
 .regras-table {
   width: 100%;
   border-collapse: collapse;
-  background: #fff;
+  background: transparent;
   font-size: 0.9rem;
 }
 

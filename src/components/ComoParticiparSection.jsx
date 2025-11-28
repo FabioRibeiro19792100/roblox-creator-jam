@@ -2,6 +2,17 @@ import { useState } from 'react'
 import './ComoParticiparSection.css'
 import './RegrasPareamentoSection.css'
 
+// Função para quebrar texto em parágrafos separados por pontos
+const splitByPeriod = (text) => {
+  if (!text) return null
+  const sentences = text.split('.').filter(s => s.trim().length > 0)
+  return sentences.map((sentence, index) => (
+    <p key={index} className="step-description-paragraph">
+      {sentence.trim()}.
+    </p>
+  ))
+}
+
 const regrasChecagem = [
   {
     faixaEtaria: '13-15',
@@ -88,7 +99,7 @@ function ComoParticiparSection() {
                 {openStep === step.number && (
                   <div className="step-content">
                     <div className="step-description">
-                      <p>{step.description}</p>
+                      {splitByPeriod(step.description)}
                     </div>
                     {step.number === 4 && (
                       <div className="checagem-idade-wrapper">

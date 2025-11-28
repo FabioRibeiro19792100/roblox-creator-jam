@@ -329,10 +329,19 @@
             padding: 1rem 1.5rem 1.5rem 1.5rem;
         }
 
-        .step-description p {
+        .step-description p,
+        .step-description-paragraph {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 0 0 0.5rem 0;
             text-decoration: underline;
             text-underline-offset: 0.3em;
             text-decoration-thickness: 1px;
+        }
+
+        .step-description-paragraph:last-of-type {
+            margin-bottom: 0;
         }
 
         .checagem-idade-wrapper {
@@ -641,7 +650,7 @@
         .regras-table {
             width: 100%;
             border-collapse: collapse;
-            background: #fff;
+            background: transparent;
             font-size: 0.95rem;
         }
 
@@ -2847,7 +2856,9 @@
                         </button>
                         <div class="step-content">
                             <div class="step-description">
-                                <p>Os participantes precisam ter entre 13 e 18 anos e possuir uma conta Roblox. A conta e o nome de usuário podem ser criados via mobile. Se for auxiliar na criação do jogo, é necessário um computador com Roblox Studio instalado.</p>
+                                <p class="step-description-paragraph">Os participantes precisam ter entre 13 e 18 anos e possuir uma conta Roblox.</p>
+                                <p class="step-description-paragraph">A conta e o nome de usuário podem ser criados via mobile.</p>
+                                <p class="step-description-paragraph">Se for auxiliar na criação do jogo, é necessário um computador com Roblox Studio instalado.</p>
                             </div>
                         </div>
                     </div>
@@ -2860,7 +2871,8 @@
                         </button>
                         <div class="step-content">
                             <div class="step-description">
-                                <p>Os participantes devem preencher um formulário oficial informando seu nome de usuário Roblox, o tema que deseja trabalhar, se prefere participar individualmente ou em equipe, e o e-mail do responsável. A inscrição é individual.</p>
+                                <p class="step-description-paragraph">Os participantes devem preencher um formulário oficial informando seu nome de usuário Roblox, o tema que deseja trabalhar, se prefere participar individualmente ou em equipe, e o e-mail do responsável.</p>
+                                <p class="step-description-paragraph">A inscrição é individual.</p>
                             </div>
                         </div>
                     </div>
@@ -2873,7 +2885,9 @@
                         </button>
                         <div class="step-content">
                             <div class="step-description">
-                                <p>O responsável recebe um e-mail com um código de confirmação. Após autorizar, a participação em equipe é habilitada. Sem autorização, a participação é no modo individual.</p>
+                                <p class="step-description-paragraph">O responsável recebe um e-mail com um código de confirmação.</p>
+                                <p class="step-description-paragraph">Após autorizar, a participação em equipe é habilitada.</p>
+                                <p class="step-description-paragraph">Sem autorização, a participação é no modo individual.</p>
                             </div>
                         </div>
                     </div>
@@ -2886,7 +2900,8 @@
                         </button>
                         <div class="step-content">
                             <div class="step-description">
-                                <p>O sistema forma automaticamente as equipes com base na faixa etária oficial do Roblox do participante, tema escolhido, preferência (solo ou equipe) e vínculos familiares existentes (Conexão Confiável). Cada pessoa é colocada em uma equipe apropriada para sua faixa etária.</p>
+                                <p class="step-description-paragraph">O sistema forma automaticamente as equipes com base na faixa etária oficial do Roblox do participante, tema escolhido, preferência (solo ou equipe) e vínculos familiares existentes (Conexão Confiável).</p>
+                                <p class="step-description-paragraph">Cada pessoa é colocada em uma equipe apropriada para sua faixa etária.</p>
                             </div>
                             <div class="checagem-idade-wrapper">
                                 <h3 class="checagem-idade-title">Checagem de Idade</h3>
@@ -2934,7 +2949,8 @@
                         </button>
                         <div class="step-content">
                             <div class="step-description">
-                                <p>Os participantes recebem um link de acesso ao servidor oficial do Discord, que contém anúncios da Jam, tutoriais, canais de perguntas e respostas e um canal privado da equipe. A comunicação da Jam ocorre lá em um ambiente moderado e seguro.</p>
+                                <p class="step-description-paragraph">Os participantes recebem um link de acesso ao servidor oficial do Discord, que contém anúncios da Jam, tutoriais, canais de perguntas e respostas e um canal privado da equipe.</p>
+                                <p class="step-description-paragraph">A comunicação da Jam ocorre lá em um ambiente moderado e seguro.</p>
                             </div>
                         </div>
                     </div>
@@ -2947,7 +2963,8 @@
                         </button>
                         <div class="step-content">
                             <div class="step-description">
-                                <p>Com sua equipe, os participantes desenvolvem uma experiência representando o tema escolhido. Cada grupo trabalha em seu próprio projeto e pode publicar a experiência quando estiver pronta.</p>
+                                <p class="step-description-paragraph">Com sua equipe, os participantes desenvolvem uma experiência representando o tema escolhido.</p>
+                                <p class="step-description-paragraph">Cada grupo trabalha em seu próprio projeto e pode publicar a experiência quando estiver pronta.</p>
                             </div>
                         </div>
                     </div>
