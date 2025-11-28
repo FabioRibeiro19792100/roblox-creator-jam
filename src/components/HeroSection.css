@@ -24,6 +24,22 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
+}
+
+/* Fallback caso vídeo não carregue */
+.hero-video-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  background-image: 
+    radial-gradient(circle, #e3f2fd 1px, transparent 1px);
+  background-size: 30px 30px;
+  z-index: -1;
 }
 
 /* Overlay escuro para contraste */

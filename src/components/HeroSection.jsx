@@ -8,6 +8,16 @@ function HeroSection() {
     }
   }
 
+  // Debug: verificar se vídeo carregou
+  const handleVideoLoad = () => {
+    console.log('Vídeo carregado com sucesso!')
+  }
+
+  const handleVideoError = (e) => {
+    console.error('Erro ao carregar vídeo:', e)
+    console.log('Tentando carregar de:', '/videos/1.mp4')
+  }
+
   return (
     <section id="hero" className="hero-section">
       {/* Vídeo de background */}
@@ -18,8 +28,12 @@ function HeroSection() {
           loop
           muted
           playsInline
+          preload="auto"
+          onLoadedData={handleVideoLoad}
+          onError={handleVideoError}
         >
           <source src="/videos/1.mp4" type="video/mp4" />
+          Seu navegador não suporta vídeos.
         </video>
         {/* Overlay escuro para contraste */}
         <div className="hero-video-overlay"></div>
