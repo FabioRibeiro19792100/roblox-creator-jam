@@ -343,11 +343,13 @@
 @media (max-width: 767px) {
   .datas-canais-table-wrapper {
     display: block;
+    overflow-x: visible;
   }
 
   .datas-canais-table {
     display: block;
     width: 100%;
+    table-layout: auto;
   }
 
   .datas-canais-table thead {
@@ -365,10 +367,10 @@
     background: #fff;
     border: none;
     border-radius: 0;
-    padding: 0;
+    padding: 1rem 0;
     box-shadow: none;
     border-bottom: 1px solid #d0d0d0;
-    padding-bottom: 1rem;
+    height: auto !important;
   }
 
   .datas-canais-table tbody tr:last-child {
@@ -378,13 +380,17 @@
 
   .datas-canais-table tbody td {
     display: block;
-    padding: 0.75rem 0;
+    padding: 0.5rem 0;
     border: none;
     text-align: left;
+    background: transparent !important;
+    width: 100% !important;
+    height: auto !important;
+    font-size: 0.9rem;
   }
 
   .datas-canais-table tbody td:not(:last-child) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .datas-canais-table tbody td::before {
@@ -392,16 +398,34 @@
     font-weight: 700;
     color: #000;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     font-size: 0.85rem;
   }
 
   .datas-canais-table .etapa-cell {
-    background: transparent;
+    background: transparent !important;
     font-size: 1.1rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0;
-    border-bottom: none;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .datas-canais-table .etapa-cell::before {
+    display: none;
+  }
+
+  .datas-canais-table tbody td:nth-child(2),
+  .datas-canais-table tbody td:nth-child(3),
+  .datas-canais-table tbody td:nth-child(4) {
+    color: #555;
+    font-weight: 400;
+  }
+
+  .datas-canais-table tbody td:nth-child(2) {
+    font-weight: 700;
+    color: #000;
   }
 }
 
