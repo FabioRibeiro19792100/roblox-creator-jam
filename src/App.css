@@ -1,0 +1,54 @@
+.app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Placeholder sections para scroll suave */
+.section-placeholder {
+  min-height: 60vh;
+  padding: 4rem 1.5rem;
+  background: #f8f9fa;
+  scroll-margin-top: 80px;
+}
+
+.section-placeholder:nth-child(even) {
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-placeholder h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.section-placeholder p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+@media (min-width: 768px) {
+  .section-placeholder {
+    padding: 5rem 2rem;
+    scroll-margin-top: 90px;
+  }
+
+  .section-placeholder h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-placeholder {
+    padding: 6rem 3rem;
+    scroll-margin-top: 100px;
+  }
+
+  .section-placeholder h2 {
+    font-size: 3rem;
+  }
+}

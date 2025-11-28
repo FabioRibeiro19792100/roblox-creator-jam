@@ -1,0 +1,222 @@
+.regras-pareamento-section {
+  background: #ffffff;
+  background-image: 
+    radial-gradient(circle, #e3f2fd 1px, transparent 1px);
+  background-size: 30px 30px;
+  padding: 0;
+  position: relative;
+}
+
+.regras-pareamento-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 0 1.5rem;
+}
+
+.regras-pareamento-title {
+  background: transparent;
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: none;
+  padding: 0;
+  width: 100%;
+  margin: 0 0 3rem 0;
+  letter-spacing: -1px;
+  line-height: 0.95;
+  border: none;
+}
+
+.regras-pareamento-content {
+  padding: 0 0 4rem 0;
+}
+
+.regras-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.regras-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+.regras-table thead {
+  background: transparent;
+}
+
+.regras-table th {
+  padding: 0.75rem 1rem 1rem 0;
+  text-align: left;
+  font-weight: 700;
+  color: #000;
+  border-bottom: 1px solid #d0d0d0;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.regras-table td {
+  padding: 0.875rem 1rem 0.875rem 0;
+  border: none;
+  color: #333;
+  line-height: 1.5;
+}
+
+.regras-table tbody tr {
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.regras-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.regras-table tbody tr:hover {
+  background: transparent;
+}
+
+.regras-table .faixa-etaria {
+  font-weight: 700;
+  background: transparent;
+  color: #000;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .regras-pareamento-container {
+    padding: 5rem 2rem 0 2rem;
+  }
+
+  .regras-pareamento-title {
+    font-size: 3.5rem;
+    margin: 0 0 3.5rem 0;
+  }
+
+  .regras-pareamento-content {
+    padding: 0 0 5rem 0;
+  }
+
+  .regras-table {
+    font-size: 1rem;
+  }
+
+  .regras-table th {
+    padding: 0.875rem 1.25rem 1.125rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #d0d0d0;
+  }
+
+  .regras-table td {
+    padding: 1rem 1.25rem 1rem 0;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .regras-pareamento-container {
+    padding: 6rem 2rem 0 2rem;
+  }
+
+  .regras-pareamento-title {
+    font-size: 4.5rem;
+    margin: 0 0 4rem 0;
+  }
+
+  .regras-pareamento-content {
+    padding: 0 0 6rem 0;
+  }
+
+  .regras-table {
+    font-size: 1.05rem;
+  }
+
+  .regras-table th {
+    padding: 1rem 1.5rem 1.25rem 0;
+    font-size: 1.15rem;
+    border-bottom: 1px solid #d0d0d0;
+  }
+
+  .regras-table td {
+    padding: 1.125rem 1.5rem 1.125rem 0;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .regras-pareamento-title {
+    font-size: 5.5rem;
+  }
+}
+
+/* Mobile: Cards layout */
+@media (max-width: 767px) {
+  .regras-table-wrapper {
+    display: block;
+  }
+
+  .regras-table {
+    display: block;
+    width: 100%;
+  }
+
+  .regras-table thead {
+    display: none;
+  }
+
+  .regras-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .regras-table tbody tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #d0d0d0;
+    padding-bottom: 1rem;
+  }
+
+  .regras-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .regras-table tbody td {
+    display: block;
+    padding: 0.75rem 0;
+    border: none;
+    text-align: left;
+  }
+
+  .regras-table tbody td:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  .regras-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #000;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .regras-table .faixa-etaria {
+    background: transparent;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+}
+

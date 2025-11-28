@@ -1,0 +1,3108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Creator Jam - Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #000;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .nav {
+            display: none;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-list li a:hover {
+            color: #ccc;
+        }
+
+        .nav-list li a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-list li a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 24px;
+            height: 18px;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            background-image: radial-gradient(circle, #e3f2fd 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 80px 0 0;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero-title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .title-roblox {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #000;
+            margin: 0;
+            line-height: 0.95;
+            letter-spacing: -1px;
+        }
+
+        .title-creator-jam {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #666;
+            margin: 0;
+            line-height: 0.95;
+            letter-spacing: -1px;
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            background: #000;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: none;
+            padding: 1rem 2rem;
+            padding-left: 20px;
+            cursor: pointer;
+            border-radius: 0;
+            display: inline-block;
+            transition: all 0.2s ease;
+            box-shadow: none;
+            text-align: left;
+            width: 100%;
+        }
+
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: none;
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .hero-description {
+            max-width: 600px;
+            margin-top: 1rem;
+        }
+
+        .hero-description p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        /* Como Participar Section */
+        .como-participar-section {
+            background: #e0e0e0;
+            background-image:
+                radial-gradient(circle, #b0b0b0 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .como-participar-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 0 1.5rem;
+        }
+
+        .como-participar-title {
+            background: transparent;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: none;
+            padding: 0;
+            width: 100%;
+            margin: 0 0 2rem 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+            border: none;
+        }
+
+        .como-participar-content {
+            padding: 0 0 2rem 0;
+        }
+
+        /* Steps Accordion */
+        .steps-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .step-item {
+            background: #ffffff;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .step-item.step-open {
+            background: #fafafa;
+        }
+
+        .step-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            transition: background 0.2s ease;
+        }
+
+        .step-header:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #666;
+            line-height: 1;
+            min-width: 40px;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            flex: 1;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .step-icon {
+            flex-shrink: 0;
+            color: #666;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-open .step-icon {
+            transform: rotate(180deg);
+        }
+
+        .step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .step-open .step-content {
+            max-height: 500px;
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+        }
+
+        .step-description {
+            padding-left: 56px;
+            padding-top: 0;
+        }
+
+        .step-description p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 0;
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 767px) {
+            .nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-open {
+                max-height: 400px;
+                padding: 1rem 0;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 0;
+                padding: 0 1.5rem;
+            }
+
+            .nav-list li {
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .nav-list li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-list li a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1rem;
+                color: #fff;
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .nav {
+                display: block;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+
+            .header-container {
+                padding: 1.25rem 2rem;
+            }
+
+            .hero-section {
+                padding: 100px 0 0;
+            }
+
+            .hero-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+
+            .title-roblox {
+                font-size: 3.5rem;
+            }
+
+            .title-creator-jam {
+                font-size: 3.5rem;
+            }
+
+            .cta-button {
+                font-size: 1.75rem;
+                padding: 1.25rem 2.5rem;
+                padding-left: 20px;
+                width: auto;
+            }
+
+            .como-participar-container {
+                padding: 5rem 2rem 0 2rem;
+            }
+
+            .como-participar-title {
+                padding: 0;
+                font-size: 3.5rem;
+                margin: 0 0 2.5rem 0;
+            }
+
+            .como-participar-content {
+                padding: 0 0 3rem 0;
+            }
+
+            .step-header {
+                padding: 1.5rem 2rem;
+            }
+
+            .step-number {
+                font-size: 2.5rem;
+                min-width: 50px;
+            }
+
+            .step-title {
+                font-size: 1.4rem;
+            }
+
+            .step-content {
+                padding: 0 2rem;
+            }
+
+            .step-open .step-content {
+                padding: 1rem 2rem 2rem 2rem;
+            }
+
+            .step-description {
+                padding-left: 66px;
+            }
+
+            .step-description p {
+                font-size: 1.15rem;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .header-container {
+                padding: 1.5rem 2rem;
+            }
+
+            .nav-list {
+                gap: 2.5rem;
+            }
+
+            .nav-list li a {
+                font-size: 1.1rem;
+            }
+
+            .hero-section {
+                padding: 120px 0 0;
+            }
+
+            .hero-container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+
+            .title-roblox {
+                font-size: 4.5rem;
+            }
+
+            .title-creator-jam {
+                font-size: 4.5rem;
+            }
+
+            .cta-button {
+                font-size: 2rem;
+                padding: 1.5rem 3rem;
+                padding-left: 20px;
+                width: auto;
+            }
+
+            .hero-description {
+                max-width: 700px;
+            }
+
+            .hero-description p {
+                font-size: 1.4rem;
+                text-underline-offset: 0.4em;
+            }
+
+            .como-participar-container {
+                padding: 6rem 2rem 0 2rem;
+            }
+
+            .como-participar-title {
+                padding: 0;
+                font-size: 4.5rem;
+                margin: 0 0 3rem 0;
+            }
+
+            .como-participar-content {
+                padding: 0 0 4rem 0;
+            }
+
+            .step-header {
+                padding: 1.75rem 2.5rem;
+            }
+
+            .step-number {
+                font-size: 3rem;
+                min-width: 60px;
+            }
+
+            .step-title {
+                font-size: 1.5rem;
+            }
+
+            .step-content {
+                padding: 0 2.5rem;
+            }
+
+            .step-open .step-content {
+                padding: 1rem 2.5rem 2.5rem 2.5rem;
+            }
+
+            .step-description {
+                padding-left: 76px;
+            }
+
+            .step-description p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .title-roblox {
+                font-size: 5.5rem;
+            }
+
+            .title-creator-jam {
+                font-size: 5.5rem;
+            }
+
+            .como-participar-title {
+                font-size: 5.5rem;
+            }
+
+            .cta-button {
+                font-size: 2.25rem;
+                padding: 1.75rem 3.5rem;
+                padding-left: 20px;
+                width: auto;
+            }
+        }
+
+        /* Regras de Pareamento Section */
+        .regras-pareamento-section {
+            background: #ffffff;
+            background-image: 
+                radial-gradient(circle, #e3f2fd 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .regras-pareamento-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 0 1.5rem;
+        }
+
+        .regras-pareamento-title {
+            background: transparent;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: none;
+            padding: 0;
+            width: 100%;
+            margin: 0 0 3rem 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+            border: none;
+        }
+
+        .regras-pareamento-content {
+            padding: 0 0 4rem 0;
+        }
+
+        .regras-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .regras-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            font-size: 0.95rem;
+        }
+
+        .regras-table thead {
+            background: transparent;
+        }
+
+        .regras-table th {
+            padding: 0.75rem 1rem 1rem 0;
+            text-align: left;
+            font-weight: 700;
+            color: #000;
+            border-bottom: 1px solid #d0d0d0;
+            font-size: 1rem;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .regras-table td {
+            padding: 0.875rem 1rem 0.875rem 0;
+            border: none;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .regras-table tbody tr {
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        .regras-table tbody tr:last-child {
+            border-bottom: none;
+        }
+
+        .regras-table tbody tr:hover {
+            background: transparent;
+        }
+
+        .regras-table .faixa-etaria {
+            font-weight: 700;
+            background: transparent;
+            color: #000;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .regras-pareamento-container {
+                padding: 5rem 2rem 0 2rem;
+            }
+
+            .regras-pareamento-title {
+                font-size: 3.5rem;
+                margin: 0 0 3.5rem 0;
+            }
+
+            .regras-pareamento-content {
+                padding: 0 0 5rem 0;
+            }
+
+            .regras-table {
+                font-size: 1rem;
+            }
+
+            .regras-table th {
+                padding: 0.875rem 1.25rem 1.125rem 0;
+                font-size: 1.1rem;
+                border-bottom: 1px solid #d0d0d0;
+            }
+
+            .regras-table td {
+                padding: 1rem 1.25rem 1rem 0;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .regras-pareamento-container {
+                padding: 6rem 2rem 0 2rem;
+            }
+
+            .regras-pareamento-title {
+                font-size: 4.5rem;
+                margin: 0 0 4rem 0;
+            }
+
+            .regras-pareamento-content {
+                padding: 0 0 6rem 0;
+            }
+
+            .regras-table {
+                font-size: 1.05rem;
+            }
+
+            .regras-table th {
+                padding: 1rem 1.5rem 1.25rem 0;
+                font-size: 1.15rem;
+                border-bottom: 1px solid #d0d0d0;
+            }
+
+            .regras-table td {
+                padding: 1.125rem 1.5rem 1.125rem 0;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .regras-pareamento-title {
+                font-size: 5.5rem;
+            }
+        }
+
+        /* Mobile: Cards layout */
+        @media (max-width: 767px) {
+            .regras-table-wrapper {
+                display: block;
+            }
+
+            .regras-table {
+                display: block;
+                width: 100%;
+            }
+
+            .regras-table thead {
+                display: none;
+            }
+
+            .regras-table tbody {
+                display: block;
+                width: 100%;
+            }
+
+            .regras-table tbody tr {
+                display: block;
+                margin-bottom: 1.5rem;
+                background: #fff;
+                border: none;
+                border-radius: 0;
+                padding: 0;
+                box-shadow: none;
+                border-bottom: 1px solid #d0d0d0;
+                padding-bottom: 1rem;
+            }
+
+            .regras-table tbody tr:last-child {
+                margin-bottom: 0;
+            }
+
+            .regras-table tbody td {
+                display: block;
+                padding: 0.75rem 0;
+                border: none;
+                text-align: left;
+            }
+
+            .regras-table tbody td:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+
+            .regras-table tbody td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: #000;
+                display: block;
+                margin-bottom: 0.5rem;
+                font-size: 0.85rem;
+                text-transform: none;
+                letter-spacing: 0;
+            }
+
+            .regras-table .faixa-etaria {
+                background: transparent;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+
+        }
+
+        /* Escolha do Tema Section */
+        .escolha-tema-section {
+            background: #e0e0e0;
+            background-image:
+                radial-gradient(circle, #b0b0b0 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .escolha-tema-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 0 1.5rem;
+        }
+
+        .escolha-tema-title {
+            background: transparent;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: none;
+            padding: 0;
+            width: 100%;
+            margin: 0 0 2rem 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+            border: none;
+        }
+
+        .escolha-tema-content {
+            padding: 0 0 4rem 0;
+        }
+
+        .escolha-tema-intro {
+            margin-bottom: 2.5rem;
+        }
+
+        .escolha-tema-intro p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0 0 0.5rem 0;
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        .escolha-tema-intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .temas-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .tema-card {
+            background: #fff;
+            padding: 1.35rem 1.5rem;
+            border: none;
+        }
+
+        .tema-nome {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0 0 0.75rem 0;
+            line-height: 1.3;
+        }
+
+        .tema-descricao {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .escolha-tema-container {
+                padding: 5rem 2rem 0 2rem;
+            }
+
+            .escolha-tema-title {
+                font-size: 3.5rem;
+                margin: 0 0 2.5rem 0;
+            }
+
+            .escolha-tema-content {
+                padding: 0 0 5rem 0;
+            }
+
+            .escolha-tema-intro {
+                margin-bottom: 3rem;
+            }
+
+            .escolha-tema-intro p {
+                font-size: 1.3rem;
+                text-underline-offset: 0.35em;
+            }
+
+            .temas-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .tema-card {
+                padding: 1.8rem 2rem;
+            }
+
+            .tema-nome {
+                font-size: 1.4rem;
+                margin-bottom: 1rem;
+            }
+
+            .tema-descricao {
+                font-size: 1rem;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .escolha-tema-container {
+                padding: 6rem 2rem 0 2rem;
+            }
+
+            .escolha-tema-title {
+                font-size: 4.5rem;
+                margin: 0 0 3rem 0;
+            }
+
+            .escolha-tema-content {
+                padding: 0 0 6rem 0;
+            }
+
+            .escolha-tema-intro {
+                margin-bottom: 3.5rem;
+            }
+
+            .escolha-tema-intro p {
+                font-size: 1.4rem;
+                text-underline-offset: 0.4em;
+            }
+
+            .temas-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+
+            .tema-card {
+                padding: 2.25rem 2.5rem;
+            }
+
+            .tema-nome {
+                font-size: 1.5rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .tema-descricao {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .escolha-tema-title {
+                font-size: 5.5rem;
+            }
+        }
+
+        }
+
+        /* Trusted Connection Section */
+        .trusted-connection-section {
+            background: #ffffff;
+            background-image: 
+                radial-gradient(circle, #e3f2fd 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .trusted-connection-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 0 1.5rem;
+        }
+
+        .trusted-connection-title {
+            background: transparent;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: none;
+            padding: 0;
+            width: 100%;
+            margin: 0 0 2rem 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+            border: none;
+        }
+
+        .trusted-connection-content {
+            padding: 0 0 4rem 0;
+        }
+
+        .trusted-connection-intro {
+            margin-bottom: 2.5rem;
+        }
+
+        .trusted-connection-intro p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        .qa-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .qa-card {
+            display: flex;
+            flex-direction: column;
+            border: none;
+            min-width: 0;
+            height: 100%;
+        }
+
+        .qa-question {
+            background: transparent;
+            border-bottom: 1px solid #000;
+            padding: 0.75rem 1rem 0.625rem 1rem;
+            flex-shrink: 0;
+        }
+
+        .qa-question h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .qa-answer {
+            background: #fff;
+            padding: 0.75rem 1rem;
+        }
+
+        .qa-answer p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .trusted-connection-container {
+                padding: 5rem 2rem 0 2rem;
+            }
+
+            .trusted-connection-title {
+                font-size: 3.5rem;
+                margin: 0 0 2.5rem 0;
+            }
+
+            .trusted-connection-content {
+                padding: 0 0 5rem 0;
+            }
+
+            .trusted-connection-intro {
+                margin-bottom: 3rem;
+            }
+
+            .trusted-connection-intro p {
+                font-size: 1.3rem;
+                text-underline-offset: 0.35em;
+            }
+
+            .qa-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                grid-auto-rows: 1fr;
+            }
+            
+            .qa-card {
+                display: flex;
+            }
+
+            .qa-question {
+                padding: 0.875rem 1.25rem 0.75rem 1.25rem;
+            }
+
+            .qa-question h3 {
+                font-size: 1rem;
+            }
+
+            .qa-answer {
+                padding: 0.875rem 1.25rem;
+            }
+
+            .qa-answer p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .trusted-connection-container {
+                padding: 6rem 2rem 0 2rem;
+            }
+
+            .trusted-connection-title {
+                font-size: 4.5rem;
+                margin: 0 0 3rem 0;
+            }
+
+            .trusted-connection-content {
+                padding: 0 0 6rem 0;
+            }
+
+            .trusted-connection-intro {
+                margin-bottom: 3.5rem;
+            }
+
+            .trusted-connection-intro p {
+                font-size: 1.4rem;
+                text-underline-offset: 0.4em;
+            }
+
+            .qa-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+                grid-auto-rows: 1fr;
+            }
+            
+            .qa-card {
+                display: flex;
+            }
+
+            .qa-question {
+                padding: 1rem 1.5rem 0.875rem 1.5rem;
+            }
+
+            .qa-question h3 {
+                font-size: 1.05rem;
+            }
+
+            .qa-answer {
+                padding: 1rem 1.5rem;
+            }
+
+            .qa-answer p {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .trusted-connection-title {
+                font-size: 5.5rem;
+            }
+        }
+
+        /* Desafio da JAM Section */
+        .desafio-jam-section {
+            background: #e0e0e0;
+            background-image:
+                radial-gradient(circle, #b0b0b0 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .desafio-jam-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 0 1.5rem;
+        }
+
+        .desafio-jam-header {
+            margin-bottom: 3rem;
+        }
+
+        .desafio-jam-title {
+            background: transparent;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: none;
+            padding: 0;
+            width: 100%;
+            margin: 0 0 2rem 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+            border: none;
+        }
+
+        .desafio-jam-intro {
+            margin-top: 2rem;
+        }
+
+        .desafio-jam-intro p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        .desafio-jam-content {
+            padding: 0 0 4rem 0;
+        }
+
+        .prototipos-subtitle {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0 0 2rem 0;
+            line-height: 1.2;
+        }
+
+        .prototipos-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .prototipo-card {
+            width: 100%;
+        }
+
+        .prototipo-placeholder {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #000;
+            border-radius: 4px;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .desafio-jam-container {
+                padding: 5rem 2rem 0 2rem;
+            }
+
+            .desafio-jam-title {
+                font-size: 3.5rem;
+                margin: 0 0 2.5rem 0;
+            }
+
+            .desafio-jam-header {
+                margin-bottom: 4rem;
+            }
+
+            .desafio-jam-intro {
+                margin-top: 2.5rem;
+            }
+
+            .desafio-jam-intro p {
+                font-size: 1.3rem;
+                text-underline-offset: 0.35em;
+            }
+
+            .desafio-jam-content {
+                padding: 0 0 5rem 0;
+            }
+
+            .prototipos-subtitle {
+                font-size: 1.75rem;
+                margin: 0 0 2.5rem 0;
+            }
+
+            .prototipos-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .desafio-jam-container {
+                padding: 6rem 2rem 0 2rem;
+            }
+
+            .desafio-jam-title {
+                font-size: 4.5rem;
+                margin: 0 0 3rem 0;
+            }
+
+            .desafio-jam-header {
+                margin-bottom: 5rem;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: start;
+            }
+
+            .desafio-jam-intro {
+                margin-top: 1.5rem;
+            }
+
+            .desafio-jam-intro p {
+                font-size: 1.4rem;
+                text-underline-offset: 0.4em;
+            }
+
+            .desafio-jam-content {
+                padding: 0 0 6rem 0;
+            }
+
+            .prototipos-subtitle {
+                font-size: 2rem;
+                margin: 0 0 3rem 0;
+            }
+
+            .prototipos-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .desafio-jam-title {
+                font-size: 5.5rem;
+            }
+        }
+
+        /* Entrega do Desafio Section */
+        .entrega-desafio-section {
+            background: #ffffff;
+            background-image: 
+                radial-gradient(circle, #e3f2fd 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .entrega-desafio-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 0 1.5rem;
+        }
+
+        .entrega-desafio-title {
+            background: transparent;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: none;
+            padding: 0;
+            width: 100%;
+            margin: 0 0 2rem 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+            border: none;
+        }
+
+        .entrega-desafio-content {
+            padding: 0 0 4rem 0;
+        }
+
+        .entrega-desafio-intro {
+            margin-bottom: 3rem;
+        }
+
+        .entrega-desafio-intro p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        .entrega-desafio-intro p strong {
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .entregas-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .entrega-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: transparent;
+            padding: 2rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            height: 100%;
+        }
+
+        .entrega-item:last-child {
+            border-bottom: none;
+        }
+
+        .entrega-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #000;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .entrega-text {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #333;
+            flex: 1;
+        }
+
+        .entrega-text strong {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .entrega-desafio-container {
+                padding: 5rem 2rem 0 2rem;
+            }
+
+            .entrega-desafio-title {
+                font-size: 3.5rem;
+                margin: 0 0 2.5rem 0;
+            }
+
+            .entrega-desafio-content {
+                padding: 0 0 5rem 0;
+            }
+
+            .entrega-desafio-intro {
+                margin-bottom: 3.5rem;
+            }
+
+            .entrega-desafio-intro p {
+                font-size: 1.3rem;
+                text-underline-offset: 0.35em;
+            }
+
+            .entregas-list {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0;
+                align-items: stretch;
+                grid-auto-rows: 1fr;
+            }
+
+            .entrega-item {
+                padding: 0 2rem;
+                border-bottom: none;
+                border-right: none;
+                border-left: none;
+                position: relative;
+            }
+
+            .entrega-item::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 25%;
+                height: 50%;
+                width: 1px;
+                background: rgba(0, 0, 0, 0.35);
+            }
+
+            .entrega-item:first-child::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 25%;
+                height: 50%;
+                width: 1px;
+                background: rgba(0, 0, 0, 0.35);
+            }
+
+            .entrega-item:last-child::after {
+                display: none;
+            }
+
+            .entrega-number {
+                font-size: 3rem;
+                margin-bottom: 2rem;
+            }
+
+            .entrega-text {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .entrega-desafio-container {
+                padding: 6rem 2rem 0 2rem;
+            }
+
+            .entrega-desafio-title {
+                font-size: 4.5rem;
+                margin: 0 0 3rem 0;
+            }
+
+            .entrega-desafio-content {
+                padding: 0 0 6rem 0;
+            }
+
+            .entrega-desafio-intro {
+                margin-bottom: 4rem;
+            }
+
+            .entrega-desafio-intro p {
+                font-size: 1.4rem;
+                text-underline-offset: 0.4em;
+            }
+
+            .entregas-list {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0;
+                align-items: stretch;
+                grid-auto-rows: 1fr;
+            }
+
+            .entrega-item {
+                padding: 0 2.5rem;
+                border-bottom: none;
+                border-right: none;
+                border-left: none;
+                position: relative;
+            }
+
+            .entrega-item::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 25%;
+                height: 50%;
+                width: 1px;
+                background: rgba(0, 0, 0, 0.35);
+            }
+
+            .entrega-item:first-child::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 25%;
+                height: 50%;
+                width: 1px;
+                background: rgba(0, 0, 0, 0.35);
+            }
+
+            .entrega-item:last-child::after {
+                display: none;
+            }
+
+            .entrega-number {
+                font-size: 3.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .entrega-text {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .entrega-desafio-title {
+                font-size: 5.5rem;
+            }
+        }
+
+        /* Premiação Section */
+        .premiacao-section {
+            background: #e0e0e0;
+            background-image:
+                radial-gradient(circle, #b0b0b0 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .premiacao-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 0 1.5rem;
+        }
+
+        .premiacao-title {
+            background: transparent;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: none;
+            padding: 0;
+            width: 100%;
+            margin: 0 0 2rem 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+            border: none;
+        }
+
+        .premiacao-content {
+            padding: 0 0 4rem 0;
+        }
+
+        .premiacoes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            width: 100%;
+        }
+
+        .premiacao-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background: transparent;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            gap: 1rem;
+        }
+
+        .premiacao-item:last-child {
+            border-bottom: none;
+        }
+
+        .premiacao-left {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .premiacao-lugar {
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            padding-left: 1rem;
+        }
+
+        .premiacao-titulo-box {
+            background: #000000;
+            padding: 1.25rem 1rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            min-height: 3.5rem;
+        }
+
+        .premiacao-titulo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .premiacao-descricao {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            width: 100%;
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .premiacao-container {
+                padding: 5rem 2rem 0 2rem;
+            }
+
+            .premiacao-title {
+                font-size: 3.5rem;
+                margin: 0 0 2.5rem 0;
+            }
+
+            .premiacao-content {
+                padding: 0 0 5rem 0;
+            }
+
+            .premiacao-item {
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 2rem 0;
+                gap: 2rem;
+            }
+
+            .premiacao-left {
+                flex: 0 0 40%;
+                width: auto;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .premiacao-lugar {
+                font-size: 0.95rem;
+                margin-bottom: 0.75rem;
+                padding-left: 1.25rem;
+            }
+
+            .premiacao-titulo-box {
+                padding: 1.5rem 1.25rem;
+                min-height: 4.5rem;
+                display: flex;
+                align-items: center;
+            }
+
+            .premiacao-titulo {
+                font-size: 1.4rem;
+            }
+
+            .premiacao-descricao {
+                font-size: 1.3rem;
+                flex: 0 0 40%;
+                width: auto;
+                text-underline-offset: 0.35em;
+                padding-top: 1.5rem;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .premiacao-container {
+                padding: 6rem 2rem 0 2rem;
+            }
+
+            .premiacao-title {
+                font-size: 4.5rem;
+                margin: 0 0 3rem 0;
+            }
+
+            .premiacao-content {
+                padding: 0 0 6rem 0;
+            }
+
+            .premiacao-item {
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 2.5rem 0;
+                gap: 3rem;
+            }
+
+            .premiacao-left {
+                flex: 0 0 35%;
+                width: auto;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .premiacao-lugar {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+                padding-left: 1.5rem;
+            }
+
+            .premiacao-titulo-box {
+                padding: 1.75rem 1.5rem;
+                min-height: 5.5rem;
+                display: flex;
+                align-items: center;
+            }
+
+            .premiacao-titulo {
+                font-size: 1.6rem;
+            }
+
+            .premiacao-descricao {
+                font-size: 1.4rem;
+                flex: 0 0 35%;
+                width: auto;
+                text-underline-offset: 0.4em;
+                padding-top: 1.75rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .premiacao-title {
+                font-size: 5.5rem;
+            }
+        }
+
+        /* Datas e Canais Section */
+        .datas-canais-section {
+            background: #ffffff;
+            background-image:
+                radial-gradient(circle, #e3f2fd 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .datas-canais-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 0 1.5rem;
+        }
+
+        .datas-canais-title {
+            background: transparent;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: none;
+            padding: 0;
+            width: 100%;
+            margin: 0 0 2rem 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+            border: none;
+        }
+
+        .datas-canais-content {
+            padding: 0 0 4rem 0;
+        }
+
+        .datas-canais-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .datas-canais-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            font-size: 1rem;
+            table-layout: fixed;
+        }
+
+        .datas-canais-table thead {
+            background: #000;
+        }
+
+        .datas-canais-table th {
+            padding: 1rem 1rem 1rem 0;
+            text-align: left;
+            font-weight: 700;
+            color: #fff;
+            border-bottom: 2px solid #999;
+            font-size: 1rem;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .datas-canais-table th:first-child {
+            width: 22%;
+            padding-left: 0.5rem;
+            background: #f5f5f5;
+            color: #000;
+        }
+
+        .datas-canais-table th:nth-child(2) {
+            width: 18%;
+            padding-left: 0.5rem;
+            background: #fafafa;
+            color: #000;
+        }
+
+        .datas-canais-table th:nth-child(3) {
+            width: 18%;
+            padding-left: 0.5rem;
+            background: #fafafa;
+            color: #000;
+        }
+
+        .datas-canais-table th:last-child {
+            width: 42%;
+            padding-left: 0.5rem;
+            background: #fff;
+            color: #000;
+        }
+
+        .datas-canais-table tbody tr {
+            height: 4.5rem;
+        }
+
+        .datas-canais-table td {
+            padding: 1rem 1rem 1rem 0;
+            border-bottom: 1px solid #999;
+            color: #666;
+            line-height: 1.5;
+            font-weight: 400;
+            font-size: 0.9rem;
+            vertical-align: top;
+        }
+
+        .datas-canais-table td:first-child {
+            padding-left: 0.5rem;
+            background: #f5f5f5;
+            color: #000;
+        }
+
+        .datas-canais-table td:last-child {
+            padding-left: 0.5rem;
+        }
+
+        .datas-canais-table tbody tr:last-child td {
+            border-bottom: 1px solid #999;
+        }
+
+        .datas-canais-table .etapa-cell {
+            font-weight: 700;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        .datas-canais-table td:not(.etapa-cell) {
+            color: #555;
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+
+        .datas-canais-table td:nth-child(2) {
+            padding-left: 0.5rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            background: #fafafa;
+            color: #000;
+        }
+
+        .datas-canais-table td:nth-child(3) {
+            padding-left: 0.5rem;
+            font-size: 0.9rem;
+            background: #fafafa;
+            color: #000;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .datas-canais-container {
+                padding: 5rem 2rem 0 2rem;
+            }
+
+            .datas-canais-title {
+                font-size: 3.5rem;
+                margin: 0 0 2.5rem 0;
+            }
+
+            .datas-canais-content {
+                padding: 0 0 5rem 0;
+            }
+
+            .datas-canais-table th {
+                padding: 1.25rem 1.25rem 1.25rem 0;
+                font-size: 1.05rem;
+                color: #fff;
+                border-bottom: 2px solid #999;
+            }
+
+            .datas-canais-table th:first-child {
+                width: 24%;
+                padding-left: 0.75rem;
+                background: #f5f5f5;
+                color: #000;
+            }
+
+            .datas-canais-table th:nth-child(2) {
+                width: 20%;
+                padding-left: 0.75rem;
+                background: #fafafa;
+                color: #000;
+            }
+
+            .datas-canais-table th:nth-child(3) {
+                width: 20%;
+                padding-left: 0.75rem;
+                background: #fafafa;
+                color: #000;
+            }
+
+            .datas-canais-table th:last-child {
+                width: 36%;
+                padding-left: 0.75rem;
+                background: #fff;
+                color: #000;
+            }
+
+            .datas-canais-table tbody tr {
+                height: 5.5rem;
+            }
+
+            .datas-canais-table td {
+                padding: 1.25rem 1.25rem 1.25rem 0;
+                font-size: 0.95rem;
+            }
+
+            .datas-canais-table td:first-child {
+                padding-left: 0.75rem;
+                background: #f5f5f5;
+                color: #000;
+            }
+
+            .datas-canais-table td:last-child {
+                padding-left: 0.75rem;
+            }
+
+            .datas-canais-table .etapa-cell {
+                font-size: 1.05rem;
+            }
+
+            .datas-canais-table td:not(.etapa-cell) {
+                font-size: 0.95rem;
+                color: #555;
+                font-weight: 400;
+            }
+
+            .datas-canais-table td:nth-child(2) {
+                padding-left: 0.75rem;
+                font-weight: 700;
+                font-size: 0.95rem;
+                background: #fafafa;
+                color: #000;
+            }
+
+            .datas-canais-table td:nth-child(3) {
+                padding-left: 0.75rem;
+                font-size: 0.95rem;
+                background: #fafafa;
+                color: #000;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .datas-canais-container {
+                padding: 6rem 2rem 0 2rem;
+            }
+
+            .datas-canais-title {
+                font-size: 4.5rem;
+                margin: 0 0 3rem 0;
+            }
+
+            .datas-canais-content {
+                padding: 0 0 6rem 0;
+            }
+
+            .datas-canais-table th {
+                padding: 1.5rem 1.5rem 1.5rem 0;
+                font-size: 1.1rem;
+                color: #fff;
+                border-bottom: 2px solid #999;
+            }
+
+            .datas-canais-table th:first-child {
+                width: 24%;
+                padding-left: 1rem;
+                background: #f5f5f5;
+                color: #000;
+            }
+
+            .datas-canais-table th:nth-child(2) {
+                width: 20%;
+                padding-left: 1rem;
+                background: #fafafa;
+                color: #000;
+            }
+
+            .datas-canais-table th:nth-child(3) {
+                width: 20%;
+                padding-left: 1rem;
+                background: #fafafa;
+                color: #000;
+            }
+
+            .datas-canais-table th:last-child {
+                width: 36%;
+                padding-left: 1rem;
+                background: #fff;
+                color: #000;
+            }
+
+            .datas-canais-table tbody tr {
+                height: 6.5rem;
+            }
+
+            .datas-canais-table td {
+                padding: 1.5rem 1.5rem 1.5rem 0;
+                font-size: 1rem;
+            }
+
+            .datas-canais-table td:first-child {
+                padding-left: 1rem;
+                background: #f5f5f5;
+                color: #000;
+            }
+
+            .datas-canais-table td:last-child {
+                padding-left: 1rem;
+            }
+
+            .datas-canais-table .etapa-cell {
+                font-size: 1.1rem;
+            }
+
+            .datas-canais-table td:not(.etapa-cell) {
+                font-size: 1rem;
+                color: #555;
+                font-weight: 400;
+            }
+
+            .datas-canais-table td:nth-child(2) {
+                padding-left: 1rem;
+                font-weight: 700;
+                font-size: 1rem;
+                background: #fafafa;
+                color: #000;
+            }
+
+            .datas-canais-table td:nth-child(3) {
+                padding-left: 1rem;
+                font-size: 1rem;
+                background: #fafafa;
+                color: #000;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .datas-canais-title {
+                font-size: 5.5rem;
+            }
+        }
+
+        /* Mobile: Cards layout */
+        @media (max-width: 767px) {
+            .datas-canais-table-wrapper {
+                display: block;
+            }
+
+            .datas-canais-table {
+                display: block;
+                width: 100%;
+            }
+
+            .datas-canais-table thead {
+                display: none;
+            }
+
+            .datas-canais-table tbody {
+                display: block;
+                width: 100%;
+            }
+
+            .datas-canais-table tbody tr {
+                display: block;
+                margin-bottom: 1.5rem;
+                background: #fff;
+                border: none;
+                border-radius: 0;
+                padding: 0;
+                box-shadow: none;
+                border-bottom: 1px solid #d0d0d0;
+                padding-bottom: 1rem;
+            }
+
+            .datas-canais-table tbody tr:last-child {
+                margin-bottom: 0;
+                border-bottom: none;
+            }
+
+            .datas-canais-table tbody td {
+                display: block;
+                padding: 0.75rem 0;
+                border: none;
+                text-align: left;
+            }
+
+            .datas-canais-table tbody td:not(:last-child) {
+                margin-bottom: 0.5rem;
+            }
+
+            .datas-canais-table tbody td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: #000;
+                display: block;
+                margin-bottom: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            .datas-canais-table .etapa-cell {
+                background: transparent;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header-nav">
+        <div class="header-container">
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#hero" onclick="event.preventDefault(); scrollToSection('hero')">Início</a></li>
+                    <li><a href="#como-participar" onclick="event.preventDefault(); scrollToSection('como-participar')">Como Participar</a></li>
+                    <li><a href="#regras-pareamento" onclick="event.preventDefault(); scrollToSection('regras-pareamento')">Regras</a></li>
+                    <li><a href="#escolha-tema" onclick="event.preventDefault(); scrollToSection('escolha-tema')">Temas</a></li>
+                    <li><a href="#trusted-connection" onclick="event.preventDefault(); scrollToSection('trusted-connection')">Trusted Connection</a></li>
+                    <li><a href="#desafio-jam" onclick="event.preventDefault(); scrollToSection('desafio-jam')">Desafio</a></li>
+                    <li><a href="#entrega-desafio" onclick="event.preventDefault(); scrollToSection('entrega-desafio')">Entrega</a></li>
+                    <li><a href="#premiacao" onclick="event.preventDefault(); scrollToSection('premiacao')">Premiação</a></li>
+                    <li><a href="#datas-canais" onclick="event.preventDefault(); scrollToSection('datas-canais')">Datas e Canais</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <span class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-title">
+                    <h1 class="title-roblox">Roblox</h1>
+                    <h2 class="title-creator-jam">Creator Jam</h2>
+                </div>
+
+                <div class="hero-description">
+                    <p>
+                        A Creator Jam é um desafio de criação rápida, no qual os participantes<br />têm um tempo curto para desenvolver uma ideia jogável a partir<br />de um tema e seguindo regras definidas.
+                    </p>
+                </div>
+
+                <div class="hero-cta">
+                    <button class="cta-button" onclick="scrollToSection('inscrever')">
+                        Inscreva-se
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="como-participar" class="como-participar-section">
+        <div class="como-participar-container">
+            <h2 class="como-participar-title">
+                Como<br />Participar
+            </h2>
+            <div class="como-participar-content">
+                <div class="steps-accordion">
+                    <div class="step-item" data-step="1">
+                        <button class="step-header" onclick="toggleStep(1)">
+                            <span class="step-number">1</span>
+                            <span class="step-title">Crie sua conta Roblox</span>
+                            <span class="step-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <p>Os participantes precisam ter entre 13 e 18 anos e possuir uma conta Roblox. A conta e o nome de usuário podem ser criados via mobile. Se for auxiliar na criação do jogo, é necessário um computador com Roblox Studio instalado.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-item" data-step="2">
+                        <button class="step-header" onclick="toggleStep(2)">
+                            <span class="step-number">2</span>
+                            <span class="step-title">Faça sua inscrição</span>
+                            <span class="step-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <p>Os participantes devem preencher um formulário oficial informando seu nome de usuário Roblox, o tema que deseja trabalhar, se prefere participar individualmente ou em equipe, e o e-mail do responsável. A inscrição é individual.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-item" data-step="3">
+                        <button class="step-header" onclick="toggleStep(3)">
+                            <span class="step-number">3</span>
+                            <span class="step-title">Aguarde a autorização familiar</span>
+                            <span class="step-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <p>O responsável recebe um e-mail com um código de confirmação. Após autorizar, a participação em equipe é habilitada. Sem autorização, a participação é no modo individual.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-item" data-step="4">
+                        <button class="step-header" onclick="toggleStep(4)">
+                            <span class="step-number">4</span>
+                            <span class="step-title">Forme seu time de trabalho</span>
+                            <span class="step-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <p>O sistema forma automaticamente as equipes com base na faixa etária oficial do Roblox do participante, tema escolhido, preferência (solo ou equipe) e vínculos familiares existentes (Conexão Confiável). Cada pessoa é colocada em uma equipe apropriada para sua faixa etária.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-item" data-step="5">
+                        <button class="step-header" onclick="toggleStep(5)">
+                            <span class="step-number">5</span>
+                            <span class="step-title">Entre no Discord da Jam</span>
+                            <span class="step-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <p>Os participantes recebem um link de acesso ao servidor oficial do Discord, que contém anúncios da Jam, tutoriais, canais de perguntas e respostas e um canal privado da equipe. A comunicação da Jam ocorre lá em um ambiente moderado e seguro.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-item" data-step="6">
+                        <button class="step-header" onclick="toggleStep(6)">
+                            <span class="step-number">6</span>
+                            <span class="step-title">Crie sua experiência no Roblox Studio</span>
+                            <span class="step-icon">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="step-content">
+                            <div class="step-description">
+                                <p>Com sua equipe, os participantes desenvolvem uma experiência representando o tema escolhido. Cada grupo trabalha em seu próprio projeto e pode publicar a experiência quando estiver pronta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="regras-pareamento" class="regras-pareamento-section">
+        <div class="regras-pareamento-container">
+            <h2 class="regras-pareamento-title">
+                Regras de<br />pareamento
+            </h2>
+            
+            <div class="regras-pareamento-content">
+                <div class="regras-table-wrapper">
+                    <table class="regras-table">
+                        <thead>
+                            <tr>
+                                <th>Faixa etária</th>
+                                <th>Chat permitido (Roblox)</th>
+                                <th>Equipes permitidas (Jam)</th>
+                                <th>Trusted Connection</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="faixa-etaria" data-label="Faixa etária">13-15</td>
+                                <td data-label="Chat permitido (Roblox)">13-15, 16-17</td>
+                                <td data-label="Equipes permitidas (Jam)">13-15, 16-17</td>
+                                <td data-label="Trusted Connection">Necessária para equipe com 18</td>
+                            </tr>
+                            <tr>
+                                <td class="faixa-etaria" data-label="Faixa etária">16-17</td>
+                                <td data-label="Chat permitido (Roblox)">13-15, 16-17, 18</td>
+                                <td data-label="Equipes permitidas (Jam)">13-15, 16-17, 18</td>
+                                <td data-label="Trusted Connection">Nunca necessária</td>
+                            </tr>
+                            <tr>
+                                <td class="faixa-etaria" data-label="Faixa etária">18</td>
+                                <td data-label="Chat permitido (Roblox)">16-17, 18</td>
+                                <td data-label="Equipes permitidas (Jam)">16-17, 18</td>
+                                <td data-label="Trusted Connection">Necessária para equipe com 13-15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="escolha-tema" class="escolha-tema-section">
+        <div class="escolha-tema-container">
+            <h2 class="escolha-tema-title">
+                Escolha<br />do tema
+            </h2>
+            
+            <div class="escolha-tema-content">
+                <div class="escolha-tema-intro">
+                    <p>Cada participante escolhe um tema no momento da inscrição.</p>
+                    <p>O tema escolhido não pode ser alterado depois da formação da equipe.</p>
+                </div>
+
+                <div class="temas-grid">
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Empatia</h3>
+                        <p class="tema-descricao">Criar situações que mostram outro ponto de vista.</p>
+                    </div>
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Convivência e diferenças</h3>
+                        <p class="tema-descricao">Como pessoas diferentes dividem o mesmo espaço.</p>
+                    </div>
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Uso responsável de IA</h3>
+                        <p class="tema-descricao">Limites e escolhas no uso de IA.</p>
+                    </div>
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Segurança digital</h3>
+                        <p class="tema-descricao">Riscos, decisões e proteção online.</p>
+                    </div>
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Sustentabilidade</h3>
+                        <p class="tema-descricao">Impacto, recursos e uso consciente.</p>
+                    </div>
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Mudanças climáticas</h3>
+                        <p class="tema-descricao">Adaptações, desafios e consequências práticas.</p>
+                    </div>
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Acesso e inclusão</h3>
+                        <p class="tema-descricao">Experiências que qualquer pessoa consegue usar.</p>
+                    </div>
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Mobilidade urbana</h3>
+                        <p class="tema-descricao">Rotas, movimento e organização da cidade.</p>
+                    </div>
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Cidades inteligentes</h3>
+                        <p class="tema-descricao">Tecnologia aplicada à vida urbana.</p>
+                    </div>
+                    <div class="tema-card">
+                        <h3 class="tema-nome">Saúde emocional</h3>
+                        <p class="tema-descricao">Pressão, equilíbrio e bem-estar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trusted-connection" class="trusted-connection-section">
+        <div class="trusted-connection-container">
+            <h2 class="trusted-connection-title">
+                O que é<br />Trusted Connection?
+            </h2>
+            
+            <div class="trusted-connection-content">
+                <div class="trusted-connection-intro">
+                    <p>
+                        Um vínculo seguro entre duas contas que informa ao Roblox que essas pessoas se conhecem na vida real e podem conversar e interagir mesmo estando em faixas etárias que normalmente não conversam.
+                    </p>
+                </div>
+
+                <div class="qa-grid">
+                    <div class="qa-card">
+                        <div class="qa-question">
+                            <h3>Quem cria?</h3>
+                        </div>
+                        <div class="qa-answer">
+                            <p>O próprio usuário (jovem) com permissão da família, dentro da plataforma Roblox.</p>
+                        </div>
+                    </div>
+                    <div class="qa-card">
+                        <div class="qa-question">
+                            <h3>Onde é criada?</h3>
+                        </div>
+                        <div class="qa-answer">
+                            <p>No próprio Roblox, dentro da conta do usuário, após o age-check.</p>
+                        </div>
+                    </div>
+                    <div class="qa-card">
+                        <div class="qa-question">
+                            <h3>Quando é criada?</h3>
+                        </div>
+                        <div class="qa-answer">
+                            <p>Antes da Jam. Nunca durante. A Jam não cria nem gerencia isso.</p>
+                        </div>
+                    </div>
+                    <div class="qa-card">
+                        <div class="qa-question">
+                            <h3>Quando importa na Jam?</h3>
+                        </div>
+                        <div class="qa-answer">
+                            <p>Exatamente em UM caso: permitir equipe entre 13-15 e 18.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="desafio-jam" class="desafio-jam-section">
+        <div class="desafio-jam-container">
+            <div class="desafio-jam-header">
+                <h2 class="desafio-jam-title">
+                    O desafio<br />da JAM
+                </h2>
+                
+                <div class="desafio-jam-intro">
+                    <p>
+                        A entrega da Jam é o protótipo funcional publicado no Roblox Studio, uma experiência que apresenta a ideia da equipe em funcionamento e oferece ao jogador uma forma concreta de interagir com o tema escolhido.
+                    </p>
+                </div>
+            </div>
+
+            <div class="desafio-jam-content">
+                <h3 class="prototipos-subtitle">Exemplos de protótipos</h3>
+                
+                <div class="prototipos-grid">
+                    <div class="prototipo-card">
+                        <div class="prototipo-placeholder"></div>
+                    </div>
+                    <div class="prototipo-card">
+                        <div class="prototipo-placeholder"></div>
+                    </div>
+                    <div class="prototipo-card">
+                        <div class="prototipo-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="entrega-desafio" class="entrega-desafio-section">
+        <div class="entrega-desafio-container">
+            <h2 class="entrega-desafio-title">
+                Entrega do<br />desafio
+            </h2>
+            
+            <div class="entrega-desafio-content">
+                <div class="entrega-desafio-intro">
+                    <p>
+                        A entrega é realizada por meio do formulário oficial de submissão.<br />
+                        <strong>No formulário, a equipe insere:</strong>
+                    </p>
+                </div>
+
+                <div class="entregas-list">
+                    <div class="entrega-item">
+                        <div class="entrega-number">1</div>
+                        <div class="entrega-text">o link da experiência publicada</div>
+                    </div>
+                    <div class="entrega-item">
+                        <div class="entrega-number">2</div>
+                        <div class="entrega-text">A descrição da ideia, com conceito da experiência, o tema escolhido e a ação central proposta ao jogador.</div>
+                    </div>
+                    <div class="entrega-item">
+                        <div class="entrega-number">3</div>
+                        <div class="entrega-text"><strong>a divisão de responsabilidades,</strong> Indicando o papel de cada participante no desenvolvimento do projeto.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="premiacao" class="premiacao-section">
+        <div class="premiacao-container">
+            <h2 class="premiacao-title">
+                Premiação
+            </h2>
+
+            <div class="premiacao-content">
+                <div class="premiacoes-list">
+                    <div class="premiacao-item">
+                        <div class="premiacao-left">
+                            <div class="premiacao-lugar" style="color: #000;">
+                                Primeiro lugar
+                            </div>
+                            <div class="premiacao-titulo-box">
+                                <h3 class="premiacao-titulo">Melhor Protótipo da Jam</h3>
+                            </div>
+                        </div>
+                        <p class="premiacao-descricao">Reconhece a experiência que apresenta a melhor combinação de conceito, jogabilidade e execução.</p>
+                    </div>
+                    <div class="premiacao-item">
+                        <div class="premiacao-left">
+                            <div class="premiacao-lugar" style="color: #666;">
+                                Segundo lugar
+                            </div>
+                            <div class="premiacao-titulo-box">
+                                <h3 class="premiacao-titulo">Prêmio Criatividade</h3>
+                            </div>
+                        </div>
+                        <p class="premiacao-descricao">Destaca a abordagem mais original dentro dos temas propostos.</p>
+                    </div>
+                    <div class="premiacao-item">
+                        <div class="premiacao-left">
+                            <div class="premiacao-lugar" style="color: #999;">
+                                Terceiro lugar
+                            </div>
+                            <div class="premiacao-titulo-box">
+                                <h3 class="premiacao-titulo">Prêmio da Comunidade</h3>
+                            </div>
+                        </div>
+                        <p class="premiacao-descricao">Votação entre participantes da faixa etária da Jam (13-18), em canal moderado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="datas-canais" class="datas-canais-section">
+        <div class="datas-canais-container">
+            <h2 class="datas-canais-title">
+                Datas e<br />canais
+            </h2>
+
+            <div class="datas-canais-content">
+                <div class="datas-canais-table-wrapper">
+                    <table class="datas-canais-table">
+                        <thead>
+                            <tr>
+                                <th>Etapa</th>
+                                <th>Onde</th>
+                                <th>Quando</th>
+                                <th>O quê</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Inscrição</td>
+                                <td data-label="Onde">Formulário</td>
+                                <td data-label="Quando">30 a 7 dias antes da Jam</td>
+                                <td data-label="O quê">Coleta username, tema e envio da autorização familiar</td>
+                            </tr>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Orientações e Lives</td>
+                                <td data-label="Onde">Discord</td>
+                                <td data-label="Quando">Na última semana antes da Jam</td>
+                                <td data-label="O quê">Abertura, tutoriais e Q&A</td>
+                            </tr>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Formação das equipes</td>
+                                <td data-label="Onde">Sistema Mastertech</td>
+                                <td data-label="Quando">7 dias antes da Jam</td>
+                                <td data-label="O quê">Times criados automaticamente, seguindo idade e autorizações</td>
+                            </tr>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Abertura oficial da Jam</td>
+                                <td data-label="Onde">Discord</td>
+                                <td data-label="Quando">Dia da Jam — horário oficial</td>
+                                <td data-label="O quê">Tema revelado e início das 72h de criação</td>
+                            </tr>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Criação dos projetos</td>
+                                <td data-label="Onde">Roblox Studio</td>
+                                <td data-label="Quando">Durante as 72 horas da Jam</td>
+                                <td data-label="O quê">Cada equipe desenvolve sua experiência</td>
+                            </tr>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Comunicação da equipe</td>
+                                <td data-label="Onde">Discord</td>
+                                <td data-label="Quando">Durante as 72 horas da Jam</td>
+                                <td data-label="O quê">Canais públicos + canal privado de cada time</td>
+                            </tr>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Publicação do projeto</td>
+                                <td data-label="Onde">Roblox Studio</td>
+                                <td data-label="Quando">Até o final das 72 horas</td>
+                                <td data-label="O quê">Experiência publicada como Public ou Unlisted</td>
+                            </tr>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Entrega oficial</td>
+                                <td data-label="Onde">Formulário</td>
+                                <td data-label="Quando">Até o final das 72 horas</td>
+                                <td data-label="O quê">Envio do link do projeto + descrição + responsabilidades</td>
+                            </tr>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Avaliação</td>
+                                <td data-label="Onde">Painel interno</td>
+                                <td data-label="Quando">3 dias após a Jam</td>
+                                <td data-label="O quê">Jurados Mastertech + Roblox avaliam os projetos</td>
+                            </tr>
+                            <tr>
+                                <td class="etapa-cell" data-label="Etapa">Anúncio dos vencedores</td>
+                                <td data-label="Onde">Discord</td>
+                                <td data-label="Quando">7 dias após a Jam</td>
+                                <td data-label="O quê">Live com os resultados</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            closeMenu();
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById('nav');
+            const hamburger = document.getElementById('hamburger');
+            nav.classList.toggle('nav-open');
+            hamburger.classList.toggle('hamburger-open');
+        }
+
+        function closeMenu() {
+            const nav = document.getElementById('nav');
+            const hamburger = document.getElementById('hamburger');
+            nav.classList.remove('nav-open');
+            hamburger.classList.remove('hamburger-open');
+        }
+
+        function toggleStep(stepNumber) {
+            const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
+            const isOpen = stepItem.classList.contains('step-open');
+            
+            // Fecha todos os outros steps
+            document.querySelectorAll('.step-item').forEach(item => {
+                item.classList.remove('step-open');
+            });
+            
+            // Abre o step clicado se não estava aberto
+            if (!isOpen) {
+                stepItem.classList.add('step-open');
+            }
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('nav');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+                closeMenu();
+            }
+        });
+    </script>
+
+    <section id="footer" class="footer-section">
+        <div class="footer-cta">
+            <div class="footer-cta-container">
+                <div class="footer-title">
+                    <h1 class="footer-title-roblox">Roblox</h1>
+                    <h2 class="footer-title-creator-jam">Creator Jam</h2>
+                </div>
+                <div class="footer-cta-button-wrapper">
+                    <button class="footer-cta-button">inscreva-se</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container-wrapper">
+            <div class="footer-container">
+                <ul class="footer-links">
+                <li>
+                    <a href="#" class="footer-link">
+                        <span class="footer-arrow">→</span>
+                        <span class="footer-link-text">Regulamento da JAM</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">
+                        <span class="footer-arrow">→</span>
+                        <span class="footer-link-text">Perguntas frequentes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">
+                        <span class="footer-arrow">→</span>
+                        <span class="footer-link-text">Dúvidas? Entre em contato</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">
+                        <span class="footer-arrow">→</span>
+                        <span class="footer-link-text">Conheça a Expedição Roblox</span>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-final">
+            <div class="footer-final-container">
+                <p class="footer-final-text">
+                    Expedição Roblox é um projeto da Mastertech junto com o Roblox
+                </p>
+                <div class="footer-final-social">
+                    <a href="#" class="footer-social-link" aria-label="Instagram">Instagram</a>
+                    <a href="#" class="footer-social-link" aria-label="WhatsApp">WhatsApp</a>
+                    <a href="#" class="footer-social-link" aria-label="TikTok">TikTok</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .footer-section {
+            padding: 0;
+            margin: 0;
+            position: relative;
+            background: #4a4a4a;
+        }
+
+        .footer-cta {
+            background: #000000;
+            background-image: 
+                radial-gradient(circle, #333 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .footer-cta-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .footer-title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-title-roblox {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin: 0;
+            line-height: 0.95;
+            letter-spacing: -1px;
+        }
+
+        .footer-title-creator-jam {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ccc;
+            margin: 0;
+            line-height: 0.95;
+            letter-spacing: -1px;
+        }
+
+        .footer-cta-button-wrapper {
+            margin-top: 2rem;
+        }
+
+        .footer-cta-button {
+            background: #fff;
+            border: none;
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: none;
+            padding: 1rem 2rem;
+            padding-left: 20px;
+            cursor: pointer;
+            border-radius: 0;
+            display: inline-block;
+            transition: all 0.2s ease;
+            box-shadow: none;
+            text-align: left;
+            width: 100%;
+        }
+
+        .footer-cta-button:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: none;
+        }
+
+        .footer-cta-button:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+
+        .footer-container-wrapper {
+            width: 100%;
+            background: #4a4a4a;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link:hover {
+            color: #ccc;
+        }
+
+        .footer-arrow {
+            font-size: 1.2rem;
+            display: inline-block;
+        }
+
+        .footer-link-text {
+            text-decoration: underline;
+            text-underline-offset: 0.3rem;
+            text-decoration-thickness: 1.5px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-cta-container {
+                padding: 5rem 2rem;
+            }
+
+            .footer-title-roblox {
+                font-size: 3.5rem;
+            }
+
+            .footer-title-creator-jam {
+                font-size: 3.5rem;
+            }
+
+            .footer-cta-button {
+                font-size: 1.5rem;
+            }
+
+            .footer-link {
+                font-size: 1.4rem;
+            }
+
+            .footer-arrow {
+                font-size: 1.4rem;
+            }
+
+            .footer-container {
+                padding: 4rem 1.5rem;
+            }
+
+            .footer-link {
+                font-size: 1.1rem;
+            }
+
+            .footer-arrow {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-cta-container {
+                padding: 6rem 2rem;
+            }
+
+            .footer-title-roblox {
+                font-size: 4.5rem;
+            }
+
+            .footer-title-creator-jam {
+                font-size: 4.5rem;
+            }
+
+            .footer-cta-button {
+                font-size: 1.5rem;
+            }
+
+            .footer-container {
+                padding: 5rem 1.5rem;
+            }
+
+            .footer-link {
+                font-size: 1.6rem;
+            }
+
+            .footer-arrow {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Footer Final */
+        .footer-final {
+            background: #4a4a4a;
+            border-top: 1px solid #666;
+            padding: 2rem 0;
+        }
+
+        .footer-final-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .footer-final-text {
+            color: #ccc;
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .footer-final-social {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-social-link {
+            color: #fff;
+            text-decoration: underline;
+            font-size: 0.85rem;
+            text-underline-offset: 0.2rem;
+            text-decoration-thickness: 1px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-social-link:hover {
+            color: #ccc;
+        }
+
+        @media (min-width: 768px) {
+            .footer-final-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 2rem;
+            }
+
+            .footer-final-text {
+                font-size: 0.9rem;
+            }
+
+            .footer-social-link {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-final {
+                padding: 2.5rem 0;
+            }
+
+            .footer-final-container {
+                padding: 0 2rem;
+            }
+
+            .footer-final-text {
+                font-size: 0.95rem;
+            }
+
+            .footer-social-link {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</body>
+</html>
+
