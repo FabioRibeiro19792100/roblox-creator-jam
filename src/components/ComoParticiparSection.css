@@ -83,6 +83,16 @@
   line-height: 1.4;
 }
 
+.step-arrow {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #666;
+  line-height: 1;
+  min-width: 24px;
+  text-align: center;
+}
+
 .step-icon {
   flex-shrink: 0;
   color: #666;

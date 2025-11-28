@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './ComoParticiparSection.css'
 
 const steps = [
@@ -34,6 +35,12 @@ const steps = [
 ]
 
 function ComoParticiparSection() {
+  const [openStep, setOpenStep] = useState(null)
+
+  const toggleStep = (stepNumber) => {
+    setOpenStep(openStep === stepNumber ? null : stepNumber)
+  }
+
   return (
     <section id="como-participar" className="como-participar-section">
       <div className="como-participar-container">
@@ -41,18 +48,28 @@ function ComoParticiparSection() {
           Como<br />Participar
         </h2>
         <div className="como-participar-content">
-          <div className="steps-table">
-            <div className="table-header">
-              <div className="header-cell header-number">Passo</div>
-              <div className="header-cell header-title">Descrição</div>
-            </div>
+          <div className="steps-accordion">
             {steps.map((step) => (
-              <div key={step.number} className="table-row">
-                <div className="table-cell cell-number">{step.number}</div>
-                <div className="table-cell cell-content">
-                  <div className="step-title">{step.title}</div>
-                  <div className="step-description">{step.description}</div>
-                </div>
+              <div
+                key={step.number}
+                className={`step-item ${openStep === step.number ? 'step-open' : ''}`}
+              >
+                <button
+                  className="step-header"
+                  onClick={() => toggleStep(step.number)}
+                  aria-expanded={openStep === step.number}
+                >
+                  <span className="step-number">{step.number}</span>
+                  <span className="step-title">{step.title}</span>
+                  <span className="step-arrow">{openStep === step.number ? '−' : '+'}</span>
+                </button>
+                {openStep === step.number && (
+                  <div className="step-content">
+                    <div className="step-description">
+                      <p>{step.description}</p>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
