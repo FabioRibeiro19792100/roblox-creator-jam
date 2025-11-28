@@ -68,7 +68,7 @@ function DatasCanaisSection() {
     <section id="datas-canais" className="datas-canais-section">
       <div className="datas-canais-container">
         <h2 className="datas-canais-title">
-          Datas e<br />canais
+          Datas e canais
         </h2>
 
         <div className="datas-canais-content">

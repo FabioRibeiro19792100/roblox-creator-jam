@@ -98,33 +98,35 @@ function RegrasJamSection() {
                 )}
                 
                 {regra.permitido && (
-                  <div className="regra-listas">
-                    <div className="regra-permitido">
-                      <h4 className="lista-titulo">Permitido:</h4>
-                      <ul className="lista-itens">
-                        {regra.permitido.map((item, index) => (
-                          <li key={index}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    {regra.naoPermitido && (
-                      <div className="regra-nao-permitido">
-                        <h4 className="lista-titulo">Não permitido:</h4>
+                  <>
+                    <div className="regra-listas">
+                      <div className="regra-permitido">
+                        <h4 className="lista-titulo">Permitido:</h4>
                         <ul className="lista-itens">
-                          {regra.naoPermitido.map((item, index) => (
+                          {regra.permitido.map((item, index) => (
                             <li key={index}>{item}</li>
                           ))}
                         </ul>
                       </div>
-                    )}
+                      
+                      {regra.naoPermitido && (
+                        <div className="regra-nao-permitido">
+                          <h4 className="lista-titulo">Não permitido:</h4>
+                          <ul className="lista-itens">
+                            {regra.naoPermitido.map((item, index) => (
+                              <li key={index}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
                     
                     {regra.observacao && (
                       <div className="regra-observacao-wrapper">
                         {splitByPeriod(regra.observacao)}
                       </div>
                     )}
-                  </div>
+                  </>
                 )}
               </div>
             </div>
