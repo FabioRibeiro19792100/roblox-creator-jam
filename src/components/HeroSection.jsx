@@ -19,7 +19,7 @@ function HeroSection() {
           muted
           playsInline
         >
-          <source src="/videos/vídeo 1.mp4" type="video/mp4" />
+          <source src="/videos/1.mp4" type="video/mp4" />
         </video>
         {/* Overlay escuro para contraste */}
         <div className="hero-video-overlay"></div>
