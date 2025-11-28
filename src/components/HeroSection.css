@@ -3,15 +3,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  background-image: 
-    radial-gradient(circle, #e3f2fd 1px, transparent 1px);
-  background-size: 30px 30px;
   padding: 80px 0 0;
   position: relative;
+  overflow: hidden;
+}
+
+/* Container do vídeo */
+.hero-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Vídeo */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay escuro para contraste */
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .hero-container {
+  position: relative;
+  z-index: 2;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -35,19 +63,21 @@
 .title-roblox {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #000;
+  color: #fff;
   margin: 0;
   line-height: 0.95;
   letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .title-creator-jam {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #666;
+  color: #fff;
   margin: 0;
   line-height: 0.95;
   letter-spacing: -1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* CTA Button */
@@ -93,11 +123,12 @@
 .hero-description p {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #333;
+  color: #fff;
   margin: 0;
   text-decoration: underline;
   text-underline-offset: 0.3em;
   text-decoration-thickness: 1px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 

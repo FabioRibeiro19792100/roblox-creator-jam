@@ -10,6 +10,22 @@ function HeroSection() {
 
   return (
     <section id="hero" className="hero-section">
+      {/* Vídeo de background */}
+      <div className="hero-video-wrapper">
+        <video 
+          className="hero-video"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/videos/vídeo 1.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay escuro para contraste */}
+        <div className="hero-video-overlay"></div>
+      </div>
+
+      {/* Conteúdo na frente */}
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-title">
@@ -17,11 +33,11 @@ function HeroSection() {
             <h2 className="title-creator-jam">Creator Jam</h2>
           </div>
 
-              <div className="hero-description">
-                <p>
-                  A Creator Jam é um desafio de criação rápida, no qual os participantes<br />têm um tempo curto para desenvolver uma ideia jogável a partir<br />de um tema e seguindo regras definidas.
-                </p>
-              </div>
+          <div className="hero-description">
+            <p>
+              A Creator Jam é um desafio de criação rápida, no qual os participantes<br />têm um tempo curto para desenvolver uma ideia jogável a partir<br />de um tema e seguindo regras definidas.
+            </p>
+          </div>
 
           <div className="hero-cta">
             <button 

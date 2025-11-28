@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
+public/videos/*.mp4
+public/videos/*.mov
+public/videos/*.webm
