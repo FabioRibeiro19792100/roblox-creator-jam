@@ -78,7 +78,7 @@ function ComoParticiparSection() {
     <section id="como-participar" className="como-participar-section">
       <div className="como-participar-container">
         <h2 className="como-participar-title">
-          Como<br />Participar
+          Como Participar
         </h2>
         <div className="como-participar-content">
           <div className="steps-accordion">
