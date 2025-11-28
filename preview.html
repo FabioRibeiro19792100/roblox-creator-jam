@@ -1347,6 +1347,239 @@
             }
         }
 
+        /* Regras da Jam Section */
+        .regras-jam-section {
+            background: #e0e0e0;
+            background-image:
+                radial-gradient(circle, #b0b0b0 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding: 0;
+            position: relative;
+        }
+
+        .regras-jam-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 0 1.5rem;
+        }
+
+        .regras-jam-title {
+            background: transparent;
+            color: #000;
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: none;
+            padding: 0;
+            width: 100%;
+            margin: 0 0 2rem 0;
+            letter-spacing: -1px;
+            line-height: 0.95;
+            border: none;
+        }
+
+        .regras-jam-content {
+            padding: 0 0 4rem 0;
+        }
+
+        .regra-item {
+            background: #fff;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            border: none;
+        }
+
+        .regra-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .regra-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .regra-numero {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #666;
+            line-height: 1;
+            min-width: 40px;
+            flex-shrink: 0;
+        }
+
+        .regra-titulo {
+            flex: 1;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .regra-conteudo {
+            padding-left: 56px;
+        }
+
+        .regra-descricao {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 0 0 1rem 0;
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        .regra-listas {
+            margin-top: 1rem;
+        }
+
+        .regra-permitido,
+        .regra-nao-permitido {
+            margin-bottom: 1.5rem;
+        }
+
+        .regra-permitido:last-child,
+        .regra-nao-permitido:last-child {
+            margin-bottom: 0;
+        }
+
+        .lista-titulo {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0 0 0.75rem 0;
+        }
+
+        .lista-itens {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .lista-itens li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 0 0 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .lista-itens li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #000;
+            font-weight: 700;
+        }
+
+        .lista-itens li:last-child {
+            margin-bottom: 0;
+        }
+
+        .regra-observacao {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin: 1rem 0 0 0;
+            font-style: italic;
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        /* Tablet */
+        @media (min-width: 768px) {
+            .regras-jam-container {
+                padding: 5rem 2rem 0 2rem;
+            }
+
+            .regras-jam-title {
+                font-size: 3.5rem;
+                margin: 0 0 2.5rem 0;
+            }
+
+            .regras-jam-content {
+                padding: 0 0 5rem 0;
+            }
+
+            .regra-item {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .regra-titulo {
+                font-size: 1.4rem;
+            }
+
+            .regra-descricao {
+                font-size: 1.15rem;
+            }
+
+            .lista-titulo {
+                font-size: 1.1rem;
+            }
+
+            .lista-itens li {
+                font-size: 1rem;
+            }
+
+            .regra-observacao {
+                font-size: 1rem;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) {
+            .regras-jam-container {
+                padding: 6rem 2rem 0 2rem;
+            }
+
+            .regras-jam-title {
+                font-size: 4.5rem;
+                margin: 0 0 3rem 0;
+            }
+
+            .regras-jam-content {
+                padding: 0 0 6rem 0;
+            }
+
+            .regra-item {
+                padding: 2.5rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .regra-titulo {
+                font-size: 1.5rem;
+            }
+
+            .regra-descricao {
+                font-size: 1.2rem;
+            }
+
+            .lista-titulo {
+                font-size: 1.15rem;
+            }
+
+            .lista-itens li {
+                font-size: 1.05rem;
+            }
+
+            .regra-observacao {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            .regras-jam-title {
+                font-size: 5.5rem;
+            }
+        }
+
         /* Entrega do Desafio Section */
         .entrega-desafio-section {
             background: #c0c0c0;
@@ -2521,6 +2754,7 @@
                     <li><a href="#escolha-tema" onclick="event.preventDefault(); scrollToSection('escolha-tema')">Temas</a></li>
                     <li><a href="#trusted-connection" onclick="event.preventDefault(); scrollToSection('trusted-connection')">Trusted Connection</a></li>
                     <li><a href="#desafio-jam" onclick="event.preventDefault(); scrollToSection('desafio-jam')">Desafio</a></li>
+                    <li><a href="#regras-jam" onclick="event.preventDefault(); scrollToSection('regras-jam')">Regras da Jam</a></li>
                     <li><a href="#entrega-desafio" onclick="event.preventDefault(); scrollToSection('entrega-desafio')">Entrega</a></li>
                     <li><a href="#premiacao" onclick="event.preventDefault(); scrollToSection('premiacao')">Premiação</a></li>
                     <li><a href="#datas-canais" onclick="event.preventDefault(); scrollToSection('datas-canais')">Datas e Canais</a></li>
@@ -2828,6 +3062,103 @@
                     </div>
                     <div class="prototipo-card">
                         <div class="prototipo-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="regras-jam" class="regras-jam-section">
+        <div class="regras-jam-container">
+            <h2 class="regras-jam-title">
+                Regras da<br />Jam
+            </h2>
+            
+            <div class="regras-jam-content">
+                <div class="regra-item">
+                    <div class="regra-header">
+                        <span class="regra-numero">1</span>
+                        <h3 class="regra-titulo">Criação durante as 72 horas</h3>
+                    </div>
+                    <div class="regra-conteudo">
+                        <p class="regra-descricao">O projeto deve ser feito dentro do período oficial da Jam e seguir o tema escolhido. Experiências criadas totalmente antes ou depois desse período não entram na avaliação.</p>
+                    </div>
+                </div>
+
+                <div class="regra-item">
+                    <div class="regra-header">
+                        <span class="regra-numero">2</span>
+                        <h3 class="regra-titulo">Uso de recursos, modelos e materiais prontos</h3>
+                    </div>
+                    <div class="regra-conteudo">
+                        <p class="regra-descricao">Você pode usar materiais que já existem, desde que tenha direito de usar e informe isso na sua entrega.</p>
+                        
+                        <div class="regra-listas">
+                            <div class="regra-permitido">
+                                <h4 class="lista-titulo">Permitido:</h4>
+                                <ul class="lista-itens">
+                                    <li>modelos do Roblox Toolbox com licença Free to Use</li>
+                                    <li>recursos criados por você em outros projetos</li>
+                                    <li>assets feitos por alguém do seu time antes da Jam</li>
+                                    <li>assets gratuitos de sites que permitem uso em jogos</li>
+                                    <li>IA para gerar imagens, sons ou textos (desde que você tenha direito de uso)</li>
+                                    <li>plugins gratuitos do Roblox Studio</li>
+                                    <li>scripts básicos de uso público</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="regra-nao-permitido">
+                                <h4 class="lista-titulo">Não permitido:</h4>
+                                <ul class="lista-itens">
+                                    <li>usar conteúdos pagos sem ter comprado</li>
+                                    <li>usar materiais protegidos por copyright sem permissão</li>
+                                    <li>copiar jogos prontos e publicar como se fossem seus</li>
+                                    <li>usar assets de terceiros que não permitem redistribuição</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="regra-observacao">O que você precisa informar na submissão: nome do recurso, de onde você pegou, link da fonte (se houver). Regra simples: Use o que for permitido, mas seja transparente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="regra-item">
+                    <div class="regra-header">
+                        <span class="regra-numero">3</span>
+                        <h3 class="regra-titulo">Equipes de 1 a 5 pessoas</h3>
+                    </div>
+                    <div class="regra-conteudo">
+                        <p class="regra-descricao">Cada equipe pode ter entre 1 e 5 participantes. Participar sozinho também vale. A formação final das equipes segue as regras da Jam (faixa etária, autorização e preferências).</p>
+                    </div>
+                </div>
+
+                <div class="regra-item">
+                    <div class="regra-header">
+                        <span class="regra-numero">4</span>
+                        <h3 class="regra-titulo">Publicação do projeto</h3>
+                    </div>
+                    <div class="regra-conteudo">
+                        <p class="regra-descricao">A experiência deve estar publicada no Roblox — como Public ou Unlisted (link-only) — e o link precisa abrir normalmente.</p>
+                    </div>
+                </div>
+
+                <div class="regra-item">
+                    <div class="regra-header">
+                        <span class="regra-numero">5</span>
+                        <h3 class="regra-titulo">Convivência e comportamento</h3>
+                    </div>
+                    <div class="regra-conteudo">
+                        <p class="regra-descricao">Durante toda a Jam, os participantes seguem: Termos de Uso do Roblox, Padrões da Comunidade, regras de participação da Jam. Os canais oficiais da Jam são moderados, com DMs desativadas.</p>
+                    </div>
+                </div>
+
+                <div class="regra-item">
+                    <div class="regra-header">
+                        <span class="regra-numero">6</span>
+                        <h3 class="regra-titulo">Ambiente seguro</h3>
+                    </div>
+                    <div class="regra-conteudo">
+                        <p class="regra-descricao">Toda a comunicação oficial ocorre no Discord da Jam, no canal da sua equipe e nos canais públicos. Logs ficam ativos para manter tudo seguro.</p>
                     </div>
                 </div>
             </div>

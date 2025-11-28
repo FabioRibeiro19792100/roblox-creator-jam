@@ -5,6 +5,7 @@ import RegrasPareamentoSection from './components/RegrasPareamentoSection'
 import EscolhaTemaSection from './components/EscolhaTemaSection'
 import TrustedConnectionSection from './components/TrustedConnectionSection'
 import DesafioJamSection from './components/DesafioJamSection'
+import RegrasJamSection from './components/RegrasJamSection'
 import EntregaDesafioSection from './components/EntregaDesafioSection'
 import PremiacaoSection from './components/PremiacaoSection'
 import DatasCanaisSection from './components/DatasCanaisSection'
@@ -21,6 +22,7 @@ function App() {
       <TrustedConnectionSection />
       <EscolhaTemaSection />
       <DesafioJamSection />
+      <RegrasJamSection />
       <EntregaDesafioSection />
       <PremiacaoSection />
       <DatasCanaisSection />

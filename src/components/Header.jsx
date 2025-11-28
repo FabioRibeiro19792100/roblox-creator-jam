@@ -52,6 +52,11 @@ function Header() {
               </a>
             </li>
             <li>
+              <a href="#regras-jam" onClick={(e) => { e.preventDefault(); scrollToSection('regras-jam') }}>
+                Regras da Jam
+              </a>
+            </li>
+            <li>
               <a href="#entrega-desafio" onClick={(e) => { e.preventDefault(); scrollToSection('entrega-desafio') }}>
                 Entrega
               </a>
