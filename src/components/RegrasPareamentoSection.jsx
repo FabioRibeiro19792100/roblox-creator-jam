@@ -23,10 +23,10 @@ function RegrasPareamentoSection() {
   ]
 
   return (
-    <section id="regras-pareamento" className="regras-pareamento-section">
+    <section id="checagem-idade" className="regras-pareamento-section">
       <div className="regras-pareamento-container">
         <h2 className="regras-pareamento-title">
-          Regras de<br />pareamento
+          Checagem de<br />Idade
         </h2>
         
         <div className="regras-pareamento-content">

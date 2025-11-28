@@ -32,11 +32,6 @@ function Header() {
               </a>
             </li>
             <li>
-              <a href="#regras-pareamento" onClick={(e) => { e.preventDefault(); scrollToSection('regras-pareamento') }}>
-                Regras
-              </a>
-            </li>
-            <li>
               <a href="#escolha-tema" onClick={(e) => { e.preventDefault(); scrollToSection('escolha-tema') }}>
                 Temas
               </a>
