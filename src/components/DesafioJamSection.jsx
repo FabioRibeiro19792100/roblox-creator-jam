@@ -21,12 +21,15 @@ function DesafioJamSection() {
           
           <div className="prototipos-grid">
             <div className="prototipo-card">
+              {/* Substitua por: <img src="/images/prototipo-1.jpg" alt="Protótipo 1" /> */}
               <div className="prototipo-placeholder"></div>
             </div>
             <div className="prototipo-card">
+              {/* Substitua por: <img src="/images/prototipo-2.jpg" alt="Protótipo 2" /> */}
               <div className="prototipo-placeholder"></div>
             </div>
             <div className="prototipo-card">
+              {/* Substitua por: <img src="/images/prototipo-3.jpg" alt="Protótipo 3" /> */}
               <div className="prototipo-placeholder"></div>
             </div>
           </div>
