@@ -1,7 +1,7 @@
 .escolha-tema-section {
-  background: #ffffff;
+  background: #e0e0e0;
   background-image:
-    radial-gradient(circle, #e3f2fd 1px, transparent 1px);
+    radial-gradient(circle, #b0b0b0 1px, transparent 1px);
   background-size: 30px 30px;
   padding: 0;
   position: relative;
