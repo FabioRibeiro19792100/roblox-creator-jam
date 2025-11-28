@@ -1,7 +1,6 @@
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
 import ComoParticiparSection from './components/ComoParticiparSection'
-import RegrasPareamentoSection from './components/RegrasPareamentoSection'
 import EscolhaTemaSection from './components/EscolhaTemaSection'
 import TrustedConnectionSection from './components/TrustedConnectionSection'
 import DesafioJamSection from './components/DesafioJamSection'
@@ -18,7 +17,6 @@ function App() {
       <Header />
       <HeroSection />
       <ComoParticiparSection />
-      <RegrasPareamentoSection />
       <TrustedConnectionSection />
       <EscolhaTemaSection />
       <DesafioJamSection />

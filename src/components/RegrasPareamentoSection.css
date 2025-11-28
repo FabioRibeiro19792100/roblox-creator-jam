@@ -36,13 +36,14 @@
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  margin-top: 1rem;
 }
 
 .regras-table {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .regras-table thead {

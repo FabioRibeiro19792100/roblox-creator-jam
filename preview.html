@@ -325,8 +325,27 @@
         }
 
         .step-open .step-content {
-            max-height: 500px;
+            max-height: 2000px;
             padding: 1rem 1.5rem 1.5rem 1.5rem;
+        }
+
+        .step-description p {
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            text-decoration-thickness: 1px;
+        }
+
+        .checagem-idade-wrapper {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .checagem-idade-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0 0 1.5rem 0;
         }
 
         .step-description {
@@ -2869,6 +2888,41 @@
                             <div class="step-description">
                                 <p>O sistema forma automaticamente as equipes com base na faixa etária oficial do Roblox do participante, tema escolhido, preferência (solo ou equipe) e vínculos familiares existentes (Conexão Confiável). Cada pessoa é colocada em uma equipe apropriada para sua faixa etária.</p>
                             </div>
+                            <div class="checagem-idade-wrapper">
+                                <h3 class="checagem-idade-title">Checagem de Idade</h3>
+                                <div class="regras-table-wrapper">
+                                    <table class="regras-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Faixa etária</th>
+                                                <th>Chat permitido (Roblox)</th>
+                                                <th>Equipes permitidas (Jam)</th>
+                                                <th>Trusted Connection</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="faixa-etaria" data-label="Faixa etária">13-15</td>
+                                                <td data-label="Chat permitido (Roblox)">13-15, 16-17</td>
+                                                <td data-label="Equipes permitidas (Jam)">13-15, 16-17</td>
+                                                <td data-label="Trusted Connection">Necessária para equipe com 18</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="faixa-etaria" data-label="Faixa etária">16-17</td>
+                                                <td data-label="Chat permitido (Roblox)">13-15, 16-17, 18</td>
+                                                <td data-label="Equipes permitidas (Jam)">13-15, 16-17, 18</td>
+                                                <td data-label="Trusted Connection">Nunca necessária</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="faixa-etaria" data-label="Faixa etária">18</td>
+                                                <td data-label="Chat permitido (Roblox)">16-17, 18</td>
+                                                <td data-label="Equipes permitidas (Jam)">16-17, 18</td>
+                                                <td data-label="Trusted Connection">Necessária para equipe com 13-15</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -2897,49 +2951,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="checagem-idade" class="regras-pareamento-section">
-        <div class="regras-pareamento-container">
-            <h2 class="regras-pareamento-title">
-                Checagem de<br />Idade
-            </h2>
-            
-            <div class="regras-pareamento-content">
-                <div class="regras-table-wrapper">
-                    <table class="regras-table">
-                        <thead>
-                            <tr>
-                                <th>Faixa etária</th>
-                                <th>Chat permitido (Roblox)</th>
-                                <th>Equipes permitidas (Jam)</th>
-                                <th>Trusted Connection</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="faixa-etaria" data-label="Faixa etária">13-15</td>
-                                <td data-label="Chat permitido (Roblox)">13-15, 16-17</td>
-                                <td data-label="Equipes permitidas (Jam)">13-15, 16-17</td>
-                                <td data-label="Trusted Connection">Necessária para equipe com 18</td>
-                            </tr>
-                            <tr>
-                                <td class="faixa-etaria" data-label="Faixa etária">16-17</td>
-                                <td data-label="Chat permitido (Roblox)">13-15, 16-17, 18</td>
-                                <td data-label="Equipes permitidas (Jam)">13-15, 16-17, 18</td>
-                                <td data-label="Trusted Connection">Nunca necessária</td>
-                            </tr>
-                            <tr>
-                                <td class="faixa-etaria" data-label="Faixa etária">18</td>
-                                <td data-label="Chat permitido (Roblox)">16-17, 18</td>
-                                <td data-label="Equipes permitidas (Jam)">16-17, 18</td>
-                                <td data-label="Trusted Connection">Necessária para equipe com 13-15</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
