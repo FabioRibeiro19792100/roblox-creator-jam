@@ -1,0 +1,300 @@
+.placeholder-section {
+  background: rgb(60, 254, 207);
+  padding: 0;
+  position: relative;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.placeholder-section.manifesto-open {
+  background: #ffffff;
+}
+
+.placeholder-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.1rem 1.5rem;
+}
+
+.placeholder-accordion-item {
+  background: transparent;
+  border: none;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.placeholder-accordion-item.placeholder-open {
+  background: transparent;
+}
+
+.placeholder-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+  font-family: inherit;
+}
+
+.placeholder-header:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.placeholder-title-text {
+  font-size: 2.5rem !important;
+  font-weight: 900 !important;
+  color: #000;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  margin: 0;
+  font-family: inherit;
+}
+
+.placeholder-arrow {
+  flex-shrink: 0;
+  font-size: 2.5rem;
+  font-weight: 100;
+  color: #666;
+  line-height: 1;
+  min-width: 30px;
+  text-align: center;
+}
+
+.placeholder-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+}
+
+.placeholder-open .placeholder-content {
+  max-height: 5000px;
+  padding: 2rem 0 0 0;
+  background: transparent;
+}
+
+.placeholder-manifesto {
+  padding-top: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.placeholder-manifesto-column {
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.placeholder-manifesto-column::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 50%;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.placeholder-manifesto p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0 0 1rem 0;
+}
+
+.placeholder-manifesto p:last-child {
+  margin-bottom: 0;
+}
+
+.placeholder-manifesto-cta {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.placeholder-manifesto-button {
+  background: #000;
+  border: none;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 0;
+  display: inline-block;
+  transition: all 0.2s ease;
+  box-shadow: none;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.placeholder-manifesto-button:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.placeholder-manifesto-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .placeholder-container {
+    padding: 2.6rem 2rem;
+  }
+
+  .placeholder-header {
+    padding: 0;
+  }
+
+  .placeholder-title-text {
+    font-size: 3.5rem !important;
+    font-weight: 900 !important;
+  }
+
+  .placeholder-arrow {
+    font-size: 3.5rem;
+  }
+
+  .placeholder-content {
+    padding: 0;
+  }
+
+  .placeholder-open .placeholder-content {
+    padding: 2.5rem 0 0 0;
+    background: transparent;
+  }
+
+  .placeholder-manifesto {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .placeholder-manifesto-column:last-child {
+    display: block;
+  }
+
+  .placeholder-manifesto-cta {
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+  }
+
+  .placeholder-manifesto-column {
+    padding-left: 2rem;
+  }
+
+  .placeholder-manifesto-column::before {
+    height: 50%;
+  }
+
+  .placeholder-manifesto p {
+    font-size: 1.3rem;
+  }
+
+  .placeholder-manifesto-button {
+    font-size: 1.3rem;
+    padding: 1.25rem 2.5rem;
+  }
+  
+  .placeholder-manifesto-cta {
+    margin-top: 1rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .placeholder-container {
+    padding: 3.1rem 2rem;
+  }
+
+  .placeholder-header {
+    padding: 0;
+  }
+
+  .placeholder-title-text {
+    font-size: 4.5rem !important;
+    font-weight: 900 !important;
+  }
+
+  .placeholder-arrow {
+    font-size: 4.5rem;
+  }
+
+  .placeholder-content {
+    padding: 0;
+  }
+
+  .placeholder-open .placeholder-content {
+    padding: 3rem 0 0 0;
+    background: transparent;
+  }
+
+  .placeholder-manifesto {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .placeholder-manifesto-column:last-child {
+    display: block;
+  }
+
+  .placeholder-manifesto-cta {
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+  }
+
+  .placeholder-manifesto-column {
+    padding-left: 2.5rem;
+  }
+
+  .placeholder-manifesto-column::before {
+    height: 50%;
+  }
+
+  .placeholder-manifesto p {
+    font-size: 1.4rem;
+  }
+
+  .placeholder-manifesto-button {
+    font-size: 1.4rem;
+    padding: 1.5rem 3rem;
+  }
+  
+  .placeholder-manifesto-cta {
+    margin-top: 1rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .placeholder-title-text {
+    font-size: 5.5rem !important;
+    font-weight: 900 !important;
+  }
+
+  .placeholder-arrow {
+    font-size: 5.5rem;
+  }
+
+  .placeholder-manifesto-button {
+    font-size: 1.5rem;
+  }
+}

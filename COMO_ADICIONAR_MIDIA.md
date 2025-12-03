@@ -136,3 +136,5 @@ Para vídeos externos, use iframe:
 - **Imagens**: JPG, PNG, GIF, WebP, SVG
 - **Vídeos**: MP4, WebM, OGG
 
+
+

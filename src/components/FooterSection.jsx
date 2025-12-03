@@ -1,9 +1,12 @@
+import { useContext } from 'react'
+import { MaterialModalContext } from '../App'
 import './FooterSection.css'
 
 function FooterSection() {
+  const { openMaterialModal } = useContext(MaterialModalContext) || { openMaterialModal: () => {} }
   const links = [
     {
-      text: 'Regulamento da JAM',
+      text: 'Contato',
       href: '#'
     },
     {
@@ -25,16 +28,19 @@ function FooterSection() {
       <div className="footer-cta">
         <div className="footer-cta-container">
           <div className="footer-title">
-            <h1 className="footer-title-roblox">Roblox</h1>
-            <h2 className="footer-title-creator-jam">Creator Jam</h2>
+            <h1 className="footer-title-roblox">É pai, tutor ou responsável?</h1>
           </div>
-          <div className="footer-cta-button-wrapper">
-            <button className="footer-cta-button">inscreva-se</button>
+          <div className="footer-cta-content">
+            <p className="footer-cta-text">
+              Temos um material pra você. <br />
+              Clique para <button className="footer-link-button" onClick={() => openMaterialModal('download')}>baixar</button> ou <button className="footer-link-button" onClick={() => openMaterialModal('video')}>assista o vídeo</button>
+            </p>
           </div>
         </div>
       </div>
       <div className="footer-container-wrapper">
         <div className="footer-container">
+          <h2 className="footer-links-title">Central da Expedição</h2>
           <ul className="footer-links">
           {links.map((link, index) => (
             <li key={index}>

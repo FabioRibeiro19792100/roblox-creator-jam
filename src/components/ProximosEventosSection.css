@@ -1,0 +1,277 @@
+.proximos-eventos-section {
+  width: 100%;
+  background: rgb(83, 0, 255); /* Changed to specified RGB */
+  position: fixed;
+  top: 60px; /* Below header on mobile */
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #333;
+  pointer-events: auto; /* Ensure section can receive mouse events */
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.proximos-eventos-section.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none; /* Disable interactions when hidden */
+}
+
+.proximos-eventos-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.4rem 1.5rem 0.7rem 1.5rem; /* More padding-bottom to move label down */
+  display: flex;
+  align-items: flex-end; /* Align to bottom instead of center */
+  height: 100%; /* Take full height of section */
+}
+
+.proximos-eventos-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer; /* Make entire header clickable */
+}
+
+.proximos-eventos-title {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #fff;
+  margin: 0;
+}
+
+.proximos-eventos-arrow {
+  font-size: 1rem;
+  font-weight: 100;
+  color: #fff;
+  line-height: 1;
+  min-width: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.proximos-eventos-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10001; /* Higher than header (1000) to bring to front */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+  pointer-events: auto; /* Ensure overlay can receive mouse events */
+  cursor: pointer; /* Show pointer when clicking outside */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.proximos-eventos-calendar {
+  background: #ffffff;
+  max-width: 800px;
+  width: 100%;
+  padding: 3rem 2rem;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  pointer-events: auto; /* Ensure calendar can receive mouse events */
+  cursor: default; /* Default cursor inside calendar */
+}
+
+.proximos-eventos-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  font-family: inherit;
+  padding: 0;
+  z-index: 10;
+}
+
+.proximos-eventos-close:hover {
+  color: #666;
+}
+
+.proximos-eventos-calendar-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 2rem 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+}
+
+.proximos-eventos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.proximos-eventos-item {
+  display: flex;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.proximos-eventos-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.proximos-eventos-date {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #000;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.proximos-eventos-content {
+  flex: 1;
+}
+
+.proximos-eventos-event-title {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #000;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.4;
+}
+
+.proximos-eventos-location {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .proximos-eventos-section {
+    top: 70px;
+  }
+
+  .proximos-eventos-container {
+    padding: 0.75rem 2rem;
+  }
+
+  .proximos-eventos-title {
+    font-size: 1rem;
+  }
+
+  .proximos-eventos-arrow {
+    font-size: 1.25rem;
+  }
+
+
+  .proximos-eventos-calendar {
+    padding: 4rem 3rem;
+  }
+
+  .proximos-eventos-calendar-title {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .proximos-eventos-date {
+    font-size: 1.3rem;
+    min-width: 140px;
+  }
+
+  .proximos-eventos-event-title {
+    font-size: 1.3rem;
+  }
+
+  .proximos-eventos-location {
+    font-size: 1.125rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .proximos-eventos-section {
+    top: 80px;
+  }
+
+  .proximos-eventos-container {
+    padding: 1rem 2rem;
+  }
+
+  .proximos-eventos-title {
+    font-size: 1.125rem;
+  }
+
+  .proximos-eventos-arrow {
+    font-size: 1.5rem;
+  }
+
+
+  .proximos-eventos-calendar {
+    padding: 5rem 4rem;
+    max-width: 900px;
+  }
+
+  .proximos-eventos-calendar-title {
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .proximos-eventos-date {
+    font-size: 1.4rem;
+    min-width: 160px;
+  }
+
+  .proximos-eventos-event-title {
+    font-size: 1.4rem;
+  }
+
+  .proximos-eventos-location {
+    font-size: 1.25rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .proximos-eventos-calendar-title {
+    font-size: 5.5rem;
+  }
+
+  .proximos-eventos-date {
+    font-size: 1.5rem;
+    min-width: 180px;
+  }
+
+  .proximos-eventos-event-title {
+    font-size: 1.5rem;
+  }
+}
+

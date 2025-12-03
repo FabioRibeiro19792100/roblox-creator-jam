@@ -74,3 +74,4 @@ O projeto é totalmente responsivo, com breakpoints para:
 - Mobile (< 768px)
 - Tablet (≥ 768px)
 - Desktop (≥ 1024px)
+

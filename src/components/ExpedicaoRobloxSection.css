@@ -1,0 +1,466 @@
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(10px);
+}
+
+.arcade-loader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arcade-screen {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arcade-scanlines {
+  display: none;
+}
+
+.arcade-text {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: 0.1em;
+  animation: fade 1.5s ease-in-out infinite;
+  text-transform: uppercase;
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.arcade-grid {
+  display: none;
+}
+
+.arcade-glow {
+  display: none;
+}
+
+.expedicao-roblox-section {
+  background: rgb(216, 243, 31);
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.expedicao-roblox-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 0 1.5rem;
+}
+
+.expedicao-roblox-subtitle {
+  font-size: 1.575rem;
+  font-weight: 450;
+  color: #000;
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+.expedicao-roblox-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 2rem 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.expedicao-title-line-1,
+.expedicao-title-line-2 {
+  display: block;
+}
+
+.expedicao-roblox-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0 0 1rem 0;
+  max-width: 800px;
+}
+
+.expedicao-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  padding: 0 0 2rem 0;
+  margin-top: 0;
+}
+
+.expedicao-feature-box {
+  padding: 1.25rem 1.5rem;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.expedicao-feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.expedicao-feature-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  line-height: 1.2;
+}
+
+.expedicao-arrow {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: #666;
+  line-height: 1;
+  min-width: 24px;
+  text-align: center;
+}
+
+.expedicao-feature-box-1 {
+  background: #ffffff;
+}
+
+.expedicao-feature-box-2 {
+  background: #ffffff;
+}
+
+.expedicao-feature-box-3 {
+  background: #ffffff;
+}
+
+.expedicao-feature-box:hover {
+  transform: scale(1);
+}
+
+.expedicao-feature-box:hover .expedicao-feature-text {
+  font-weight: 700;
+}
+
+.expedicao-features:hover .expedicao-feature-box:not(:hover) {
+  opacity: 0.5;
+}
+
+.expedicao-feature-box-1:hover {
+  background: #ffffff;
+}
+
+.expedicao-feature-box-2:hover {
+  background: #ffffff;
+}
+
+.expedicao-feature-box-3:hover {
+  background: #ffffff;
+}
+
+.expedicao-feature-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000000;
+  margin: 0;
+  position: relative;
+  padding-left: 0;
+  font-weight: 400;
+  transition: font-weight 0.3s ease;
+}
+
+.expedicao-feature-content .expedicao-feature-text {
+  padding-left: 0;
+}
+
+.expedicao-accordion-item {
+  width: 100%;
+}
+
+.expedicao-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+  background: #ffffff;
+}
+
+.expedicao-accordion-open .expedicao-accordion-content {
+  max-height: 5000px;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.expedicao-accordion-item:last-child .expedicao-accordion-content {
+  background: #ffffff;
+  position: relative;
+}
+
+.expedicao-accordion-item:last-child .expedicao-accordion-open .expedicao-accordion-content {
+  min-height: 250px;
+  padding: 2rem 1.5rem;
+  position: relative;
+}
+
+.expedicao-accordion-item:last-child .expedicao-accordion-open .expedicao-accordion-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.expedicao-accordion-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.expedicao-accordion-item:last-child .expedicao-accordion-text {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+}
+
+.expedicao-accordion-cta {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  margin-top: 1.5rem;
+}
+
+.expedicao-accordion-button {
+  background: #000;
+  border: none;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 0;
+  display: inline-block;
+  transition: all 0.2s ease;
+  box-shadow: none;
+  text-align: left;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.expedicao-accordion-button:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.expedicao-accordion-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .expedicao-roblox-container {
+    padding: 5rem 2rem 0 2rem;
+  }
+
+  .expedicao-roblox-subtitle {
+    font-size: 1.82rem;
+  }
+
+  .expedicao-roblox-title {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+        .expedicao-roblox-description {
+          font-size: 1.3rem;
+          margin-bottom: 1rem;
+        }
+
+        .expedicao-features {
+          padding: 1rem 0 2rem 0;
+        }
+
+  .expedicao-feature-box {
+    padding: 1.5rem 2rem;
+  }
+
+  .expedicao-arrow {
+    font-size: 1.75rem;
+  }
+
+  .expedicao-accordion-open .expedicao-accordion-content {
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  .expedicao-accordion-text {
+    font-size: 1.3rem;
+  }
+
+  .expedicao-accordion-button {
+    font-size: 1.3rem;
+    padding: 1.25rem 2.5rem;
+  }
+
+  .expedicao-feature-text {
+    font-size: 1.3rem;
+    padding-left: 0;
+  }
+
+  .expedicao-feature-content .expedicao-feature-text {
+    padding-left: 0;
+  }
+
+  .expedicao-feature-label {
+    font-size: 0.875rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .expedicao-roblox-container {
+    padding: 6rem 2rem 0 2rem;
+  }
+
+  .expedicao-roblox-subtitle {
+    font-size: 1.96rem;
+  }
+
+  .expedicao-roblox-title {
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
+  }
+
+        .expedicao-roblox-description {
+          font-size: 1.4rem;
+          margin-bottom: 1rem;
+        }
+
+        .expedicao-features {
+          padding: 1rem 0 2rem 0;
+        }
+
+  .expedicao-feature-box {
+    padding: 1.75rem 2.5rem;
+  }
+
+  .expedicao-arrow {
+    font-size: 2rem;
+  }
+
+  .expedicao-accordion-open .expedicao-accordion-content {
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  }
+
+  .expedicao-accordion-text {
+    font-size: 1.4rem;
+  }
+
+  .expedicao-accordion-button {
+    font-size: 1.4rem;
+    padding: 1.5rem 3rem;
+  }
+
+        .expedicao-feature-text {
+          font-size: 1.4rem;
+          padding-left: 2rem;
+        }
+
+        .expedicao-feature-content .expedicao-feature-text {
+          padding-left: 0;
+        }
+
+        .expedicao-feature-label {
+          font-size: 1rem;
+        }
+
+        .expedicao-feature-label {
+          font-size: 1rem;
+        }
+
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .expedicao-roblox-subtitle {
+    font-size: 2.1rem;
+  }
+
+  .expedicao-roblox-title {
+    font-size: 5.5rem;
+  }
+
+  .expedicao-roblox-description {
+    font-size: 1.5rem;
+  }
+
+  .expedicao-accordion-text {
+    font-size: 1.5rem;
+  }
+
+  .expedicao-accordion-button {
+    font-size: 1.5rem;
+  }
+
+        .expedicao-feature-text {
+          font-size: 1.5rem;
+          padding-left: 0;
+        }
+
+        .expedicao-feature-content .expedicao-feature-text {
+          padding-left: 0;
+        }
+
+        .expedicao-feature-label {
+          font-size: 1.125rem;
+        }
+}
+

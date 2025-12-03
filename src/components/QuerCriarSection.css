@@ -1,0 +1,18 @@
+.quer-criar-section {
+  background-image: url('/images/2.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  overflow: visible !important;
+  transform: perspective(400px) rotateX(35deg) scale(1.15);
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  will-change: transform;
+  margin: -8rem 0 4rem 0;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+

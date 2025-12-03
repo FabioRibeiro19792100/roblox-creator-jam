@@ -4,11 +4,12 @@
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  background-image: 
-    radial-gradient(circle, #e3f2fd 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
   padding: 80px 0 0;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-container {
@@ -17,6 +18,8 @@
   margin: 0 auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {

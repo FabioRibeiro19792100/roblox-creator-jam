@@ -1,0 +1,224 @@
+.trilhas-section {
+  background: #e0e0e0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.trilhas-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3.4rem 1.5rem;
+}
+
+.trilhas-accordion-item {
+  background: transparent;
+  border: none;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.trilhas-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.trilhas-header:hover {
+  opacity: 0.9;
+}
+
+.trilhas-header-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000000;
+  margin: 0;
+  flex: 1;
+  text-align: left;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.trilhas-header-text::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.trilhas-arrow {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: #666;
+  line-height: 1;
+  min-width: 24px;
+  text-align: center;
+}
+
+.trilhas-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+  background: #ffffff;
+}
+
+.trilhas-open .trilhas-content {
+  max-height: 5000px;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.trilhas-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0;
+  text-align: left;
+}
+
+.trilhas-cta {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.trilhas-cta-button {
+  background: #000;
+  border: none;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 0;
+  display: inline-block;
+  transition: all 0.2s ease;
+  box-shadow: none;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.trilhas-cta-button:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.trilhas-cta-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .trilhas-container {
+    padding: 4.25rem 2rem;
+  }
+
+  .trilhas-header {
+    padding: 1.5rem 2rem;
+  }
+
+  .trilhas-header-text {
+    font-size: 1.3rem;
+    padding-left: 1.75rem;
+  }
+
+  .trilhas-header-text::before {
+    font-size: 1.3rem;
+  }
+
+  .trilhas-arrow {
+    font-size: 1.75rem;
+  }
+
+  .trilhas-open .trilhas-content {
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  .trilhas-text {
+    font-size: 1.3rem;
+  }
+
+  .trilhas-cta-button {
+    font-size: 1.3rem;
+    padding: 1.25rem 2.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .trilhas-container {
+    padding: 5.1rem 2rem;
+  }
+
+  .trilhas-header {
+    padding: 1.75rem 2.5rem;
+  }
+
+  .trilhas-header-text {
+    font-size: 1.4rem;
+    padding-left: 2rem;
+  }
+
+  .trilhas-header-text::before {
+    font-size: 1.4rem;
+  }
+
+  .trilhas-arrow {
+    font-size: 2rem;
+  }
+
+  .trilhas-open .trilhas-content {
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  }
+
+  .trilhas-text {
+    font-size: 1.4rem;
+  }
+
+  .trilhas-cta-button {
+    font-size: 1.4rem;
+    padding: 1.5rem 3rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .trilhas-header-text {
+    font-size: 1.5rem;
+    padding-left: 2.25rem;
+  }
+
+  .trilhas-header-text::before {
+    font-size: 1.5rem;
+  }
+
+  .trilhas-text {
+    font-size: 1.5rem;
+  }
+
+  .trilhas-cta-button {
+    font-size: 1.5rem;
+  }
+}
+

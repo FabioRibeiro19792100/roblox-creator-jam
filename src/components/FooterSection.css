@@ -6,10 +6,7 @@
 }
 
 .footer-cta {
-  background: #000000;
-  background-image: 
-    radial-gradient(circle, #333 1px, transparent 1px);
-  background-size: 30px 30px;
+  background: rgb(83, 0, 255); /* Changed to specified RGB */
   padding: 0;
   margin: 0;
   position: relative;
@@ -31,52 +28,41 @@
 .footer-title-roblox {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #fff;
+  color: #fff; /* Changed to white */
   margin: 0;
   line-height: 0.95;
   letter-spacing: -1px;
 }
 
-.footer-title-creator-jam {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: #ccc;
-  margin: 0;
-  line-height: 0.95;
-  letter-spacing: -1px;
-}
-
-.footer-cta-button-wrapper {
+.footer-cta-content {
   margin-top: 2rem;
 }
 
-.footer-cta-button {
-  background: #fff;
+.footer-cta-text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #fff; /* Changed to white */
+  margin: 0;
+}
+
+.footer-link-button {
+  background: transparent;
   border: none;
-  color: #000;
+  color: #fff; /* Changed to white */
   font-size: 1.5rem;
   font-weight: 700;
-  text-transform: none;
-  padding: 1rem 2rem;
-  padding-left: 20px;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 2px;
   cursor: pointer;
-  border-radius: 0;
-  display: inline-block;
-  transition: all 0.2s ease;
-  box-shadow: none;
-  text-align: left;
-  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  transition: color 0.2s ease;
 }
 
-.footer-cta-button:hover {
-  background: #f0f0f0;
-  transform: translateY(-2px);
-  box-shadow: none;
-}
-
-.footer-cta-button:active {
-  transform: translateY(0);
-  box-shadow: none;
+.footer-link-button:hover {
+  color: #ccc; /* Lighten on hover */
 }
 
 .footer-container-wrapper {
@@ -89,6 +75,15 @@
   width: 100%;
   margin: 0 auto;
   padding: 3rem 1.5rem;
+}
+
+.footer-links-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 2rem 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
 }
 
 .footer-links {
@@ -136,16 +131,21 @@
     font-size: 3.5rem;
   }
 
-  .footer-title-creator-jam {
-    font-size: 3.5rem;
+  .footer-cta-text {
+    font-size: 1.5rem;
   }
 
-  .footer-cta-button {
+  .footer-link-button {
     font-size: 1.5rem;
   }
 
   .footer-container {
     padding: 4rem 1.5rem;
+  }
+
+  .footer-links-title {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .footer-link {
@@ -167,16 +167,21 @@
     font-size: 4.5rem;
   }
 
-  .footer-title-creator-jam {
-    font-size: 4.5rem;
+  .footer-cta-text {
+    font-size: 1.5rem;
   }
 
-  .footer-cta-button {
+  .footer-link-button {
     font-size: 1.5rem;
   }
 
   .footer-container {
     padding: 5rem 1.5rem;
+  }
+
+  .footer-links-title {
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
   }
 
   .footer-link {

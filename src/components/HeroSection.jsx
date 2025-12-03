@@ -1,6 +1,10 @@
+import { useContext } from 'react'
+import { ContactModalContext } from '../App'
 import './HeroSection.css'
 
 function HeroSection() {
+  const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
+  
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
@@ -8,8 +12,10 @@ function HeroSection() {
     }
   }
 
+  const imageUrl = `/images/6.webp?t=${new Date().getTime()}`
+
   return (
-    <section id="hero" className="hero-section">
+    <section id="hero" className="hero-section" style={{ backgroundImage: `url(${imageUrl})` }}>
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-title">
@@ -26,7 +32,7 @@ function HeroSection() {
           <div className="hero-cta">
             <button 
               className="cta-button"
-              onClick={() => scrollToSection('como-participar')}
+              onClick={openContactModal}
             >
               Inscreva-se
             </button>
