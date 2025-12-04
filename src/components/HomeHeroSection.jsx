@@ -11,8 +11,8 @@ function HomeHeroSection() {
           <span className="home-hero-expedicao-roblox">EXPEDIÇÃO ROBLOX</span>
         </div>
         <h1 className="home-hero-title">
-          <span className="title-line-1">Criar é</span>
-          <span className="title-line-2">o novo jogar</span>
+          <span className="title-line-1" data-animate-id="home-hero-title-1">Criar é</span>
+          <span className="title-line-2" data-animate-id="home-hero-title-2">o novo jogar</span>
         </h1>
         <div className="home-hero-description">
           <p className="home-hero-description-paragraph">

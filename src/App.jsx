@@ -3,6 +3,12 @@ import Home from './pages/Home'
 import Jam from './pages/Jam'
 import ContactModal from './components/ContactModal'
 import MaterialModal from './components/MaterialModal'
+import { DebugKit } from './components/utilitarios/DebugKit'
+import { BoundingBoxKit } from './components/utilitarios/BoundingBoxKit'
+import { CoordinateGridKit } from './components/utilitarios/CoordinateGridKit'
+import AnimatorDemo from './components/utilitarios/AnimatorDemo'
+import AutoAnimatorObserver from './components/utilitarios/AutoAnimatorObserver'
+import IntroController from './components/utilitarios/IntroController'
 import './App.css'
 
 // Contexto para compartilhar estado de navegação
@@ -85,7 +91,8 @@ function App() {
 
   return (
     <NavigationContext.Provider value={{ navigateTo, currentPage }}>
-      <ContactModalContext.Provider value={{ openContactModal }}>
+      <AutoAnimatorObserver>
+        <ContactModalContext.Provider value={{ openContactModal }}>
         <MaterialModalContext.Provider value={{ openMaterialModal }}>
           {currentPage === 'jam' ? <Jam /> : <Home />}
           <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
@@ -95,8 +102,14 @@ function App() {
             type={materialModalType}
             onSuccess={handleMaterialSuccess}
           />
+          <DebugKit />
+          <BoundingBoxKit />
+          <CoordinateGridKit />
+          <AnimatorDemo />
+          <IntroController />
         </MaterialModalContext.Provider>
-      </ContactModalContext.Provider>
+        </ContactModalContext.Provider>
+      </AutoAnimatorObserver>
     </NavigationContext.Provider>
   )
 }
