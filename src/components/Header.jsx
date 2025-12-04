@@ -9,12 +9,15 @@ function Header() {
       if (page === 'jam') {
         window.location.hash = '#jam'
         window.location.reload()
+      } else if (page === 'biblioteca') {
+        window.location.hash = '#biblioteca'
+        window.location.reload()
       } else {
         window.location.hash = ''
         window.location.reload()
       }
     },
-    currentPage: window.location.hash === '#jam' ? 'jam' : 'home'
+    currentPage: window.location.hash === '#jam' ? 'jam' : window.location.hash === '#biblioteca' ? 'biblioteca' : 'home'
   }
 
   const toggleMenu = () => {
@@ -24,7 +27,22 @@ function Header() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      const headerHeight = document.querySelector('.header-nav')?.offsetHeight || 60
+      const proximosEventosSection = document.querySelector('.proximos-eventos-section')
+      // Na página Biblioteca não há seção de próximos eventos
+      const isBibliotecaPage = currentPage === 'biblioteca' || window.location.hash === '#biblioteca'
+      const proximosEventosHeight = (!isBibliotecaPage && proximosEventosSection && !proximosEventosSection.classList.contains('hidden')) 
+        ? proximosEventosSection.offsetHeight 
+        : 0
+      const extraOffset = -20 // Espaço de um dedo abaixo do início da layer
+      const totalOffset = headerHeight + proximosEventosHeight + extraOffset
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - totalOffset
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
     }
     setIsMenuOpen(false)
   }
@@ -60,8 +78,14 @@ function Header() {
     setIsMenuOpen(false)
   }
 
-  const isHomePage = currentPage === 'home' || (!currentPage && window.location.hash !== '#jam')
+  const isHomePage = currentPage === 'home' || (!currentPage && window.location.hash !== '#jam' && window.location.hash !== '#biblioteca')
+  const isBibliotecaPage = currentPage === 'biblioteca' || window.location.hash === '#biblioteca'
   const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
+
+  const handleBibliotecaScroll = (id, e) => {
+    e.preventDefault()
+    scrollToSection(id)
+  }
 
   return (
     <header className="header-nav">
@@ -91,13 +115,46 @@ function Header() {
                   </a>
                 </li>
                 <li>
-                  <a href="#footer" onClick={(e) => handleHomeScroll('footer', e)}>
-                    Contato
+                  <a href="#biblioteca" onClick={(e) => handleNavClick('biblioteca', e)}>
+                    Biblioteca
                   </a>
                 </li>
                 <li>
-                  <a href="#jam" onClick={(e) => handleNavClick('jam', e)}>
-                    Creator Jam
+                  <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
+                    Contato
+                  </a>
+                </li>
+              </>
+            ) : isBibliotecaPage ? (
+              <>
+                <li>
+                  <a href="/" onClick={(e) => handleNavClick('home', e)}>
+                    Início
+                  </a>
+                </li>
+                <li>
+                  <a href="#biblioteca-tutorial" onClick={(e) => handleBibliotecaScroll('biblioteca-tutorial', e)}>
+                    Tutorial Roblox Studios
+                  </a>
+                </li>
+                <li>
+                  <a href="#biblioteca-mochilao" onClick={(e) => handleBibliotecaScroll('biblioteca-mochilao', e)}>
+                    Mochilão
+                  </a>
+                </li>
+                <li>
+                  <a href="#biblioteca-acampamento" onClick={(e) => handleBibliotecaScroll('biblioteca-acampamento', e)}>
+                    Acampamento
+                  </a>
+                </li>
+                <li>
+                  <a href="#biblioteca-sobrevivencia" onClick={(e) => handleBibliotecaScroll('biblioteca-sobrevivencia', e)}>
+                    Sobrevivência
+                  </a>
+                </li>
+                <li>
+                  <a href="#footer-container-wrapper" onClick={(e) => handleBibliotecaScroll('footer-container-wrapper', e)}>
+                    Central da Expedição
                   </a>
                 </li>
               </>

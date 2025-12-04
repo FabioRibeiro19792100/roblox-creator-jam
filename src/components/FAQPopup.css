@@ -1,0 +1,95 @@
+.faq-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.faq-popup-content {
+  background: #ffffff;
+  max-width: 400px;
+  width: 100%;
+  padding: 3rem 2rem;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+  cursor: default;
+  text-align: center;
+}
+
+.faq-popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  font-family: inherit;
+  padding: 0;
+  z-index: 10;
+}
+
+.faq-popup-close:hover {
+  color: #666;
+}
+
+.faq-popup-message {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .faq-popup-content {
+    padding: 4rem 3rem;
+    max-width: 500px;
+  }
+
+  .faq-popup-message {
+    font-size: 1.3rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .faq-popup-content {
+    padding: 5rem 4rem;
+    max-width: 600px;
+  }
+
+  .faq-popup-message {
+    font-size: 1.4rem;
+  }
+}
+

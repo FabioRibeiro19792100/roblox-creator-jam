@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { useSiteConfig } from '../config/useSiteConfig'
 import './ProximosEventosSection.css'
 
 function ProximosEventosSection() {
+  const config = useSiteConfig()
   const [isOpen, setIsOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
 
@@ -22,8 +24,8 @@ function ProximosEventosSection() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Dados de exemplo dos próximos 5 eventos
-  const eventos = [
+  // Dados dos próximos eventos (do siteConfig ou padrão)
+  const eventos = config?.proximosEventos?.eventos || [
     { data: '15/01/2026', titulo: 'Abertura das Inscrições', local: 'Online' },
     { data: '22/01/2026', titulo: 'Workshop: Primeiros Passos', local: 'São Paulo' },
     { data: '05/02/2026', titulo: 'Game Jam #1', local: 'Online' },
@@ -39,8 +41,7 @@ function ProximosEventosSection() {
       >
         <div className="proximos-eventos-container">
           <div className="proximos-eventos-header">
-            <span className="proximos-eventos-title">Próximos eventos</span>
-            <span className="proximos-eventos-arrow">{isOpen ? '−' : '+'}</span>
+            <span className="proximos-eventos-title">{config?.proximosEventos?.title || 'Próximos eventos'}</span>
           </div>
         </div>
       </section>
@@ -61,7 +62,7 @@ function ProximosEventosSection() {
             >
               ×
             </button>
-            <h3 className="proximos-eventos-calendar-title">Próximos Eventos</h3>
+            <h3 className="proximos-eventos-calendar-title">{config?.proximosEventos?.calendarTitle || 'Próximos Eventos'}</h3>
             <div className="proximos-eventos-list">
               {eventos.map((evento, index) => (
                 <div key={index} className="proximos-eventos-item">

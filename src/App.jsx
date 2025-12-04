@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Home from './pages/Home'
 import Jam from './pages/Jam'
+import Biblioteca from './pages/Biblioteca'
+import Admin from './pages/Admin'
 import ContactModal from './components/ContactModal'
 import MaterialModal from './components/MaterialModal'
 import './App.css'
@@ -16,7 +18,10 @@ function App() {
   const [currentPage, setCurrentPage] = useState(() => {
     // Verifica hash inicial
     const hash = window.location.hash
-    return (hash === '#jam' || hash === '#/jam') ? 'jam' : 'home'
+    if (hash === '#admin' || hash === '#/admin') return 'admin'
+    if (hash === '#jam' || hash === '#/jam') return 'jam'
+    if (hash === '#biblioteca' || hash === '#/biblioteca') return 'biblioteca'
+    return 'home'
   })
 
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
@@ -27,8 +32,12 @@ function App() {
     // Escuta mudanças no hash
     const handleHashChange = () => {
       const newHash = window.location.hash
-      if (newHash === '#jam' || newHash === '#/jam') {
+      if (newHash === '#admin' || newHash === '#/admin') {
+        setCurrentPage('admin')
+      } else if (newHash === '#jam' || newHash === '#/jam') {
         setCurrentPage('jam')
+      } else if (newHash === '#biblioteca' || newHash === '#/biblioteca') {
+        setCurrentPage('biblioteca')
       } else {
         setCurrentPage('home')
       }
@@ -42,6 +51,9 @@ function App() {
     if (page === 'jam') {
       window.location.hash = '#jam'
       setCurrentPage('jam')
+    } else if (page === 'biblioteca') {
+      window.location.hash = '#biblioteca'
+      setCurrentPage('biblioteca')
     } else {
       window.location.hash = ''
       setCurrentPage('home')
@@ -83,11 +95,16 @@ function App() {
     }
   }
 
+  // Renderizar Admin sem modais
+  if (currentPage === 'admin') {
+    return <Admin />
+  }
+
   return (
     <NavigationContext.Provider value={{ navigateTo, currentPage }}>
       <ContactModalContext.Provider value={{ openContactModal }}>
         <MaterialModalContext.Provider value={{ openMaterialModal }}>
-          {currentPage === 'jam' ? <Jam /> : <Home />}
+          {currentPage === 'jam' ? <Jam /> : currentPage === 'biblioteca' ? <Biblioteca /> : <Home />}
           <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
           <MaterialModal 
             isOpen={isMaterialModalOpen} 

@@ -121,7 +121,7 @@
 }
 
 .proximos-eventos-calendar-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 900;
   color: #000;
   margin: 0 0 2rem 0;
@@ -139,7 +139,7 @@
   display: flex;
   gap: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .proximos-eventos-item:last-child {
@@ -198,7 +198,7 @@
   }
 
   .proximos-eventos-calendar-title {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     margin-bottom: 2.5rem;
   }
 
@@ -241,7 +241,7 @@
   }
 
   .proximos-eventos-calendar-title {
-    font-size: 4.5rem;
+    font-size: 3.6rem;
     margin-bottom: 3rem;
   }
 
@@ -262,7 +262,7 @@
 /* Large Desktop */
 @media (min-width: 1440px) {
   .proximos-eventos-calendar-title {
-    font-size: 5.5rem;
+    font-size: 4.4rem;
   }
 
   .proximos-eventos-date {
