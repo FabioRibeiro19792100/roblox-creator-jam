@@ -32,6 +32,13 @@
   color: #666;
 }
 
+@media (max-width: 767px) {
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
 @media (min-width: 768px) {
   .section-placeholder {
     padding: 5rem 2rem;

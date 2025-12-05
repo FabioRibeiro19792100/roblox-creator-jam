@@ -71,9 +71,17 @@
   flex-shrink: 0;
 }
 
-.title-line-1,
-.title-line-2 {
+.title-line-wrapper {
   display: block;
+  overflow: hidden; /* Crucial para o efeito de surgir de baixo */
+  padding-bottom: 0.2em; /* Dá espaço para os descenders (g, j, p, q, y) */
+  margin-bottom: -0.2em; /* Compensa o padding para não alterar o layout */
+}
+
+.title-word {
+  display: inline-block;
+  opacity: 0; /* Estado inicial invisível para a animação */
+  transform: translateY(100%); /* Estado inicial deslocado para baixo */
 }
 
 .home-hero-description {

@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect, useRef } from 'react'
 import { NavigationContext, ContactModalContext } from '../App'
 import './Header.css'
 
@@ -62,10 +62,41 @@ function Header() {
 
   const isHomePage = currentPage === 'home' || (!currentPage && window.location.hash !== '#jam')
   const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
+  const ctaButtonRef = useRef(null)
+  const ctaTextRefs = useRef([])
+
+  const setCtaTextRef = (index) => (el) => {
+    ctaTextRefs.current[index] = el
+  }
+
+  useEffect(() => {
+    if (!isHomePage) {
+      return
+    }
+
+    const updateButtonWidth = () => {
+      if (!ctaButtonRef.current) return
+      const widths = ctaTextRefs.current
+        .filter(Boolean)
+        .map((el) => el.scrollWidth)
+
+      if (!widths.length) return
+
+      const widest = Math.max(...widths)
+      ctaButtonRef.current.style.minWidth = `${Math.ceil(widest) + 32}px`
+    }
+
+    updateButtonWidth()
+    window.addEventListener('resize', updateButtonWidth)
+
+    return () => {
+      window.removeEventListener('resize', updateButtonWidth)
+    }
+  }, [isHomePage])
 
   return (
     <header className="header-nav">
-      <div className="header-container">
+      <div className="header-container" data-animate-id="header-nav">
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <ul className="nav-list">
             {isHomePage ? (
@@ -150,8 +181,8 @@ function Header() {
 
         {isHomePage && (
           <div className="header-cta-wrapper">
-            <div className="header-cta-button">
-              <span className="header-cta-line-1">Quer criar?</span>
+            <div className="header-cta-button btn-12" ref={ctaButtonRef}>
+              <span className="header-cta-line-1" ref={setCtaTextRef(0)}>Quer criar?</span>
               <a 
                 href="#expedicao-roblox" 
                 className="header-cta-link"
@@ -160,7 +191,8 @@ function Header() {
                   scrollToSection('expedicao-roblox')
                 }}
               >
-                Desce pro play.
+                <span ref={setCtaTextRef(1)}>Desce pro play.</span>
+                <span ref={setCtaTextRef(2)}>Desce pro play.</span>
               </a>
             </div>
           </div>
@@ -183,4 +215,3 @@ function Header() {
 }
 
 export default Header
-

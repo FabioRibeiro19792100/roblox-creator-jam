@@ -11,6 +11,24 @@
   pointer-events: auto; /* Ensure section can receive mouse events */
   transform: translateY(0);
   opacity: 1;
+  overflow: hidden; /* Necessary for the pseudo-element fill effect */
+}
+
+/* Hover fill animation background */
+.proximos-eventos-section::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: #39ff14; /* Neon green */
+  transition: height 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  z-index: 0; /* Behind content */
+}
+
+.proximos-eventos-section:hover::before {
+  height: 100%;
 }
 
 .proximos-eventos-section.hidden {
@@ -20,13 +38,15 @@
 }
 
 .proximos-eventos-container {
-  max-width: 1200px;
   width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0.4rem 1.5rem 0.7rem 1.5rem; /* More padding-bottom to move label down */
   display: flex;
   align-items: flex-end; /* Align to bottom instead of center */
   height: 100%; /* Take full height of section */
+  position: relative;
+  z-index: 1; /* Ensure content is above the fill background */
 }
 
 .proximos-eventos-header {
@@ -41,21 +61,37 @@
   cursor: pointer; /* Make entire header clickable */
 }
 
+.proximos-eventos-header:hover .proximos-eventos-arrow {
+  transform: rotate(90deg);
+  color: #000; /* Change arrow color on hover to contrast with neon green */
+}
+
 .proximos-eventos-title {
   font-size: 0.875rem;
   font-weight: 400;
   color: #fff;
   margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Change title color on hover */
+.proximos-eventos-section:hover .proximos-eventos-title {
+  color: #000;
 }
 
 .proximos-eventos-arrow {
-  font-size: 1rem;
-  font-weight: 100;
+  font-size: 1.5rem; /* Aumentado de 1rem */
+  font-weight: 400; /* Aumentado de 100 */
   color: #fff;
   line-height: 1;
   min-width: 20px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
+  display: flex; /* Garante centralização */
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-bottom: 2px; /* Ajuste fino visual */
 }
 
 .proximos-eventos-overlay {
@@ -64,69 +100,97 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 10001; /* Higher than header (1000) to bring to front */
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center;
-  padding: 2rem;
-  animation: fadeIn 0.3s ease;
-  pointer-events: auto; /* Ensure overlay can receive mouse events */
-  cursor: pointer; /* Show pointer when clicking outside */
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.proximos-eventos-calendar {
-  background: #ffffff;
-  max-width: 800px;
-  width: 100%;
-  padding: 3rem 2rem;
-  position: relative;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  pointer-events: auto; /* Ensure calendar can receive mouse events */
-  cursor: default; /* Default cursor inside calendar */
-}
-
-.proximos-eventos-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  border: none;
-  font-size: 2rem;
-  color: #000;
-  cursor: pointer;
-  line-height: 1;
-  width: 40px;
-  height: 40px;
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay for better contrast with glass */
+  backdrop-filter: blur(4px); /* Blur background behind overlay too */
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 10001;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s ease;
+  padding: 4vh 1.5rem;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.proximos-eventos-calendar {
+  background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.75),
+      rgba(25, 25, 25, 0.35)
+    ); /* Fundo translúcido para efeito vidro */
+  backdrop-filter: blur(18px); /* Blur forte para efeito vidro */
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(57, 255, 20, 0.35); /* Contorno neon translúcido */
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.6),
+    inset 0 0 80px rgba(255, 255, 255, 0.04),
+    inset 0 0 30px rgba(57, 255, 20, 0.12); /* Brilho interno neon */
+  width: 100vw;
+  padding: 0;
+  position: relative;
+  pointer-events: auto;
+  cursor: default;
+  color: #39ff14; /* Neon green text mantido */
+}
+
+.proximos-eventos-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.proximos-eventos-close {
+  background: transparent;
+  border: 1px solid #39ff14;
+  border-radius: 999px;
+  font-size: 2rem;
+  color: #39ff14;
+  cursor: pointer;
+  line-height: 1;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
   font-family: inherit;
   padding: 0;
-  z-index: 10;
 }
 
 .proximos-eventos-close:hover {
-  color: #666;
+  background: rgba(57, 255, 20, 0.15);
+  color: #8dff78;
 }
 
 .proximos-eventos-calendar-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #000;
-  margin: 0 0 2rem 0;
+  color: #39ff14;
+  margin: 0;
   line-height: 0.95;
   letter-spacing: -1px;
+}
+
+[data-animate-id^="proximos-eventos-"] {
+  opacity: 0;
+}
+
+[data-animate-id="proximos-eventos-calendar"],
+[data-animate-id="proximos-eventos-header"],
+[data-animate-id="proximos-eventos-title"],
+[data-animate-id="proximos-eventos-list"],
+[data-animate-id^="proximos-eventos-item-"] {
+  transform: translateY(40px);
+}
+
+[data-animate-id="proximos-eventos-close"] {
+  transform: translateY(20px) scale(0.9);
+}
+
+[data-animate-id="proximos-eventos-overlay"] {
+  transform: none;
 }
 
 .proximos-eventos-list {
@@ -139,7 +203,7 @@
   display: flex;
   gap: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid rgba(57, 255, 20, 0.35);
 }
 
 .proximos-eventos-item:last-child {
@@ -150,7 +214,7 @@
 .proximos-eventos-date {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #000;
+  color: #39ff14;
   min-width: 120px;
   flex-shrink: 0;
 }
@@ -162,7 +226,7 @@
 .proximos-eventos-event-title {
   font-size: 1.125rem;
   font-weight: 400;
-  color: #000;
+  color: #39ff14;
   margin: 0 0 0.25rem 0;
   line-height: 1.4;
 }
@@ -170,14 +234,14 @@
 .proximos-eventos-location {
   font-size: 1rem;
   font-weight: 400;
-  color: #666;
+  color: #39ff14;
   margin: 0;
 }
 
 /* Tablet */
 @media (min-width: 768px) {
   .proximos-eventos-section {
-    top: 70px;
+    top: 70px; /* Exatamente abaixo do header de 70px */
   }
 
   .proximos-eventos-container {
@@ -189,7 +253,7 @@
   }
 
   .proximos-eventos-arrow {
-    font-size: 1.25rem;
+    font-size: 1.75rem; /* Aumentado de 1.25rem */
   }
 
 
@@ -219,7 +283,7 @@
 /* Desktop */
 @media (min-width: 1024px) {
   .proximos-eventos-section {
-    top: 80px;
+    top: 80px; /* Exatamente abaixo do header de 80px */
   }
 
   .proximos-eventos-container {
@@ -231,13 +295,18 @@
   }
 
   .proximos-eventos-arrow {
-    font-size: 1.5rem;
+    font-size: 2rem; /* Aumentado de 1.5rem */
   }
 
 
   .proximos-eventos-calendar {
-    padding: 5rem 4rem;
-    max-width: 900px;
+    /* padding: 5rem 4rem; */
+    max-width: 100%;
+    margin: 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza conteúdo verticalmente se desejar, ou remova */
   }
 
   .proximos-eventos-calendar-title {
@@ -274,4 +343,3 @@
     font-size: 1.5rem;
   }
 }
-

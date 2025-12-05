@@ -218,16 +218,12 @@ export const CoordinateGridKit: React.FC = () => {
         pointerEvents: 'none',
         zIndex: 99998,
         backgroundImage: `
-          linear-gradient(to right, rgba(18, 88, 26, 0.45) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(18, 88, 26, 0.45) 1px, transparent 1px),
-          linear-gradient(to right, rgba(18, 88, 26, 0.12) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(18, 88, 26, 0.12) 1px, transparent 1px)
+          linear-gradient(to right, rgba(18, 88, 26, 0.35) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(18, 88, 26, 0.35) 1px, transparent 1px)
         `,
         backgroundSize: `
           ${grid.cellWidth}px ${grid.cellHeight}px,
-          ${grid.cellWidth}px ${grid.cellHeight}px,
-          ${grid.microWidth}px ${grid.microHeight}px,
-          ${grid.microWidth}px ${grid.microHeight}px
+          ${grid.cellWidth}px ${grid.cellHeight}px
         `,
         backgroundColor: 'rgba(255, 255, 255, 0.01)'
       }}
@@ -242,23 +238,7 @@ export const CoordinateGridKit: React.FC = () => {
         color: 'rgba(18, 88, 26, 0.75)'
       }}
       >
-        {microCells.map((cell) => (
-          <span
-            key={cell.id}
-            style={{
-              position: 'absolute',
-              top: cell.y + grid.microHeight / 2,
-              left: cell.x + grid.microWidth / 2,
-              transform: 'translate(-50%, -50%)',
-              fontSize: '8px',
-              color: 'rgba(18, 88, 26, 0.85)',
-              fontWeight: 600,
-              pointerEvents: 'none'
-            }}
-          >
-            {cell.label}
-          </span>
-        ))}
+        {/* Micro-cells and labels removed for simplification */}
         {grid.columns > HIGHLIGHT_CELL.column && grid.rows > HIGHLIGHT_CELL.row && (
           <div
             style={{
@@ -267,14 +247,14 @@ export const CoordinateGridKit: React.FC = () => {
               left: HIGHLIGHT_CELL.column * grid.cellWidth,
               width: `${grid.cellWidth}px`,
               height: `${grid.cellHeight}px`,
-              backgroundColor: 'rgba(255, 230, 140, 0.5)',
-              border: '2px solid rgba(255, 196, 0, 0.8)',
-              boxShadow: '0 8px 18px rgba(0,0,0,0.15)',
-              borderRadius: '6px'
+              backgroundColor: 'rgba(255, 230, 140, 0.2)',
+              border: '2px solid rgba(255, 196, 0, 0.6)',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+              borderRadius: '4px'
             }}
           />
         )}
-        {points.map((point, idx) => (
+        {points.filter((_, i) => i % 2 === 0).map((point, idx) => (
           <span
             key={`coord-${idx}-${point.label}`}
             style={{
@@ -282,11 +262,13 @@ export const CoordinateGridKit: React.FC = () => {
               top: point.y,
               left: point.x,
               transform: 'translate(4px, 2px)',
-              padding: '2px 4px',
-              backgroundColor: 'rgba(255, 255, 255, 0.8)',
-              borderRadius: '3px',
-              border: '1px solid rgba(18, 88, 26, 0.25)',
-              boxShadow: '0 2px 3px rgba(0, 0, 0, 0.12)'
+              padding: '1px 3px',
+              backgroundColor: 'rgba(255, 255, 255, 0.6)',
+              borderRadius: '2px',
+              border: '1px solid rgba(18, 88, 26, 0.15)',
+              boxShadow: '0 1px 2px rgba(0, 0, 0, 0.08)',
+              fontSize: '9px',
+              opacity: 0.8
             }}
           >
             {point.label}

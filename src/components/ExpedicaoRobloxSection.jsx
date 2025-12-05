@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import { NavigationContext, ContactModalContext } from '../App'
+import BubbleButton from './utilitarios/BubbleButton'
 import './ExpedicaoRobloxSection.css'
 
 function ExpedicaoRobloxSection() {
@@ -60,8 +61,9 @@ function ExpedicaoRobloxSection() {
           <div className="expedicao-features">
             <div className={`expedicao-accordion-item ${isTrilhasOpen ? 'expedicao-accordion-open' : ''}`}>
               <button
-                className="expedicao-feature-box expedicao-feature-box-1"
+                className="expedicao-feature-box expedicao-feature-box-1 hover-fill"
                 onClick={toggleTrilhas}
+                style={{ '--fill-color': '#00ff9d' }} /* Verde menta neon */
               >
                 <div className="expedicao-feature-content">
                   <span className="expedicao-feature-label">TRILHA 01</span>
@@ -75,16 +77,21 @@ function ExpedicaoRobloxSection() {
                     As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.
                   </p>
                   <div className="expedicao-accordion-cta">
-                    <button className="expedicao-accordion-button" onClick={openContactModal}>
+                    <BubbleButton 
+                      onClick={openContactModal}
+                      color="#000"
+                      style={{ '--button-action-color': '#00ff9d' }}
+                    >
                       Quero começar a criar
-                    </button>
+                    </BubbleButton>
                   </div>
                 </div>
               )}
             </div>
             <button 
-              className="expedicao-feature-box expedicao-feature-box-2"
+              className="expedicao-feature-box expedicao-feature-box-2 hover-fill"
               onClick={handleJamClick}
+              style={{ '--fill-color': '#ff0055' }} /* Vermelho/Rosa neon vibrante para JAM */
             >
               <div className="expedicao-feature-content">
                 <span className="expedicao-feature-label">TRILHA 02</span>
@@ -93,8 +100,9 @@ function ExpedicaoRobloxSection() {
             </button>
             <div className={`expedicao-accordion-item ${isImersaoOpen ? 'expedicao-accordion-open' : ''}`}>
               <button
-                className="expedicao-feature-box expedicao-feature-box-3"
+                className="expedicao-feature-box expedicao-feature-box-3 hover-fill"
                 onClick={toggleImersao}
+                style={{ '--fill-color': '#ffee00' }} /* Amarelo neon para evento presencial */
               >
                 <div className="expedicao-feature-content">
                   <span className="expedicao-feature-label">TRILHA 03</span>
@@ -116,9 +124,13 @@ function ExpedicaoRobloxSection() {
                     Consulte em breve o calendário do Expedição Roblox na Estrada
                   </p>
                   <div className="expedicao-accordion-cta">
-                    <button className="expedicao-accordion-button" onClick={openContactModal}>
+                    <BubbleButton 
+                      onClick={openContactModal}
+                      color="#000"
+                      style={{ '--button-action-color': '#ffee00', '--button-text-color': '#fff' }}
+                    >
                       Quero saber mais
-                    </button>
+                    </BubbleButton>
                   </div>
                 </div>
               )}

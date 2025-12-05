@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   background: #000;
-  z-index: 1000;
+  z-index: 1002; /* Aumentado para ficar acima de proximos-eventos (999) */
   transition: all 0.3s ease;
 }
 
@@ -16,6 +16,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: 60px;
+  height: 60px; /* Altura fixa para garantir consistência */
 }
 
 .logo {
@@ -83,50 +84,137 @@
 
 .header-cta-wrapper {
   display: none;
-  margin-left: auto;
-}
-
-.header-cta-button {
-  background: #fff;
-  border: none;
-  color: #000;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0;
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  transition: transform 0.2s ease;
-  font-family: inherit;
-  line-height: 1.2;
-  gap: 0.5rem;
-  transform: scale(1);
-  white-space: nowrap;
+  margin-left: auto;
+  cursor: pointer; /* Adicionado conforme solicitado */
 }
 
-.header-cta-button:hover {
-  transform: scale(1.01);
-}
-
-.header-cta-line-1 {
-  display: inline;
-}
-
-.header-cta-link {
-  color: #000;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
+.header-cta-wrapper * {
   cursor: pointer;
-  transition: color 0.2s ease;
+}
+
+/* Custom Button Style: btn-12 (Flip Effect) */
+.btn-12 {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  border: none;
+  box-shadow: none;
+  width: auto; /* Auto width to fit content */
+  min-width: 180px; /* Minimum width */
+  height: 40px;
+  line-height: 42px;
+  padding: 0; /* Remove padding as spans handle layout */
+  -webkit-perspective: 230px;
+  perspective: 230px;
+  background: transparent; /* Override default */
+  display: inline-block; /* Ensure it behaves as block container */
+}
+
+.btn-12 a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Span front (visible initially) */
+.btn-12 span:nth-child(1) {
+  background: #0050ff; /* Blue bg */
+  color: #fff; /* White text */
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+  border-radius: 0; /* Match project style */
+  margin: 0;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  
+  /* Initial state: Flat */
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  -webkit-transform-origin: 50% 50% -20px;
+  -moz-transform-origin: 50% 50% -20px;
+  transform-origin: 50% 50% -20px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
   font-size: 0.875rem;
 }
 
-.header-cta-link:hover {
-  color: #666;
+/* Span back (hidden initially) */
+.btn-12 span:nth-child(2) {
+  background: #ff5b00; /* Vibrant orange bg */
+  color: #fff; /* White text */
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+  border-radius: 0;
+  margin: 0;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  
+  /* Initial state: Rotated 90deg (hidden) */
+  -webkit-transform: rotateX(-90deg);
+  -moz-transform: rotateX(-90deg);
+  transform: rotateX(-90deg);
+  -webkit-transform-origin: 50% 50% -20px;
+  -moz-transform-origin: 50% 50% -20px;
+  transform-origin: 50% 50% -20px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.btn-12:hover span:nth-child(1) {
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+}
+
+.btn-12:hover span:nth-child(2) {
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+/* Ajustes responsivos */
+@media (min-width: 1024px) {
+  .btn-12 span:nth-child(1),
+  .btn-12 span:nth-child(2) {
+    font-size: 1.125rem;
+  }
+  .btn-12 {
+    height: 50px;
+    line-height: 52px;
+  }
+  .btn-12 span:nth-child(1),
+  .btn-12 span:nth-child(2) {
+    -webkit-transform-origin: 50% 50% -25px;
+    -moz-transform-origin: 50% 50% -25px;
+    transform-origin: 50% 50% -25px;
+  }
 }
 
 .menu-toggle {
@@ -231,10 +319,12 @@
   .header-container {
     padding: 1.25rem 2rem;
     min-height: 70px;
+    height: 70px; /* Altura fixa tablet */
   }
 
   .header-cta-wrapper {
-    display: block;
+    display: flex;
+    align-items: center;
   }
 
   .header-cta-button {
@@ -248,6 +338,7 @@
   .header-container {
     padding: 1.5rem 2rem;
     min-height: 80px;
+    height: 80px; /* Altura fixa desktop */
   }
 
   .nav-list {
@@ -267,4 +358,3 @@
     font-size: 1.125rem;
   }
 }
-

@@ -1,5 +1,4 @@
-import { useContext } from 'react'
-import { ContactModalContext } from '../App'
+import BubbleButton from './utilitarios/BubbleButton'
 import './HeroSection.css'
 
 function HeroSection() {
@@ -30,12 +29,13 @@ function HeroSection() {
           </div>
 
           <div className="hero-cta">
-            <button 
-              className="cta-button"
+            <BubbleButton 
               onClick={openContactModal}
+              color="#222" /* Fundo escuro padrão */
+              style={{ '--button-action-color': '#0099ff' }} /* Azul vibrante no hover */
             >
               Inscreva-se
-            </button>
+            </BubbleButton>
           </div>
         </div>
       </div>

@@ -1,0 +1,61 @@
+/* Animação Inicial: Estados invisíveis */
+[data-animate-id="header-nav"],
+[data-animate-id="hero-expedicao"],
+[data-animate-id="hero-description"],
+[data-animate-id="hero-image"] {
+  opacity: 0;
+}
+
+/* O título já tem opacity: 0 no .title-word, mas garantindo: */
+[data-animate-id^="word-"] {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+/* 
+  Animação Fill-Up Genérica 
+  Uso: Adicione a classe .hover-fill e defina --fill-color no elemento.
+*/
+.hover-fill {
+  position: relative;
+  overflow: hidden; /* Necessário para o fill não vazar */
+  z-index: 1; /* Garante contexto de pilha */
+  transition: color 0.3s ease; /* Suaviza mudança de cor de texto se houver */
+}
+
+.hover-fill::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: var(--fill-color, #39ff14); /* Default neon green */
+  transition: height 0.4s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  z-index: -1; /* Fica atrás do conteúdo */
+}
+
+.hover-fill:hover::before {
+  height: 100%;
+}
+
+/* Garante que elementos filhos fiquem acima do fill */
+.hover-fill > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Inversão de cor de texto padrão no hover para contraste */
+/* Pode ser sobrescrito por regras específicas */
+.hover-fill:hover {
+  color: #000; /* Texto preto geralmente contrasta bem com cores neon/claras */
+}
+.hover-fill:hover h1,
+.hover-fill:hover h2,
+.hover-fill:hover h3,
+.hover-fill:hover h4,
+.hover-fill:hover p,
+.hover-fill:hover span,
+.hover-fill:hover a {
+  color: inherit;
+}

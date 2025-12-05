@@ -8,7 +8,9 @@ import { BoundingBoxKit } from './components/utilitarios/BoundingBoxKit'
 import { CoordinateGridKit } from './components/utilitarios/CoordinateGridKit'
 import AnimatorDemo from './components/utilitarios/AnimatorDemo'
 import AutoAnimatorObserver from './components/utilitarios/AutoAnimatorObserver'
+import ScrollRevealController from './components/utilitarios/ScrollRevealController'
 import IntroController from './components/utilitarios/IntroController'
+import './components/utilitarios/AnimationBase.css'
 import './App.css'
 
 // Contexto para compartilhar estado de navegação
@@ -107,6 +109,7 @@ function App() {
           <CoordinateGridKit />
           <AnimatorDemo />
           <IntroController />
+          <ScrollRevealController />
         </MaterialModalContext.Provider>
         </ContactModalContext.Provider>
       </AutoAnimatorObserver>

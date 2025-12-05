@@ -16,3 +16,11 @@
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
 }
 
+@media (max-width: 767px) {
+  .quer-criar-section {
+    transform: none;
+    margin: 0;
+    min-height: 40vh;
+    box-shadow: none;
+  }
+}

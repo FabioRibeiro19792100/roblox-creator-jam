@@ -8,13 +8,20 @@ function HomeHeroSection() {
     <section id="home-hero" className="home-hero-section">
       <div className="home-hero-container">
         <div className="home-hero-header">
-          <span className="home-hero-expedicao-roblox">EXPEDIÇÃO ROBLOX</span>
+          <span className="home-hero-expedicao-roblox" data-animate-id="hero-expedicao">EXPEDIÇÃO ROBLOX</span>
         </div>
         <h1 className="home-hero-title">
-          <span className="title-line-1" data-animate-id="home-hero-title-1">Criar é</span>
-          <span className="title-line-2" data-animate-id="home-hero-title-2">o novo jogar</span>
+          <div className="title-line-wrapper">
+            <span className="title-word" data-animate-id="word-criar">Criar</span>
+            <span className="title-word" data-animate-id="word-e">&nbsp;é</span>
+          </div>
+          <div className="title-line-wrapper">
+            <span className="title-word" data-animate-id="word-o">o</span>
+            <span className="title-word" data-animate-id="word-novo">&nbsp;novo</span>
+            <span className="title-word" data-animate-id="word-jogar">&nbsp;jogar</span>
+          </div>
         </h1>
-        <div className="home-hero-description">
+        <div className="home-hero-description" data-animate-id="hero-description">
           <p className="home-hero-description-paragraph">
             Ao longo de 2026, 10 mil jovens vão sair do 'só jogar' pra publicar seus próprios mundos no Roblox.
           </p>
@@ -23,7 +30,7 @@ function HomeHeroSection() {
           </p>
         </div>
       </div>
-      <div className="home-hero-image-layer">
+      <div className="home-hero-image-layer" data-animate-id="hero-image">
         <img 
           src={imageUrl}
           alt="Roblox Studio" 
