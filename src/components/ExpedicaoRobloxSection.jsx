@@ -11,6 +11,8 @@ function ExpedicaoRobloxSection() {
   const { navigateTo } = useContext(NavigationContext) || { navigateTo: (page) => {
     if (page === 'jam') {
       window.location.hash = '#jam'
+    } else if (page === 'expedicao-na-estrada') {
+      window.location.hash = '#expedicao-na-estrada'
     } else {
       window.location.hash = ''
     }
@@ -27,6 +29,14 @@ function ExpedicaoRobloxSection() {
   const handleJamLinkClick = (e) => {
     e.preventDefault()
     navigateTo('jam')
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 100)
+  }
+
+  const handleExpedicaoNaEstradaClick = (e) => {
+    e.preventDefault()
+    navigateTo('expedicao-na-estrada')
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }, 100)
@@ -128,12 +138,16 @@ function ExpedicaoRobloxSection() {
                 }}
               >
                 <p className="expedicao-accordion-text">
-                  {trilha03?.description || 'Consulte em breve o calendário do Expedição Roblox na Estrada'}
+                  {trilha03?.description || 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.'}
                 </p>
                 <div className="expedicao-accordion-cta">
-                  <button className="expedicao-accordion-button" onClick={openContactModal}>
-                    {trilha03?.cta || 'Quero saber mais'}
-                  </button>
+                  <a 
+                    href="#expedicao-na-estrada" 
+                    className="expedicao-accordion-button expedicao-accordion-link"
+                    onClick={handleExpedicaoNaEstradaClick}
+                  >
+                    {trilha03?.cta || 'Ir para Expedição na Estrada'}
+                  </a>
                 </div>
               </div>
             )}

@@ -6,70 +6,119 @@ import EmailGatePopup from '../components/EmailGatePopup'
 import './Biblioteca.css'
 
 function Biblioteca() {
-  const [isEmailGateOpen, setIsEmailGateOpen] = useState(true)
+  const [selectedPublico, setSelectedPublico] = useState(null) // null, 'criadores', 'educadores', 'pais'
+  const [isEmailGateOpen, setIsEmailGateOpen] = useState(false)
   const [hasAccess, setHasAccess] = useState(false)
   const mochilaoRef = useRef(null)
   const acampamentoRef = useRef(null)
   const sobrevivenciaRef = useRef(null)
   const tutorialRef = useRef(null)
 
+  const handlePublicoSelect = (publico) => {
+    setSelectedPublico(publico)
+    // Após selecionar persona, abrir email gate
+    setIsEmailGateOpen(true)
+  }
+
   const handleEmailSubmitted = (email) => {
     setHasAccess(true)
     setIsEmailGateOpen(false)
   }
 
-  // Dados de exemplo - serão substituídos pelos conteúdos reais
-  const trilhas = {
-    mochilao: {
-      nome: 'Mochilão',
-      conteudos: [
-        { id: 1, titulo: 'Concepção do jogo', pdf: '/pdfs/concepcao.pdf', imagem: '/placeholder.jpg' },
-        { id: 2, titulo: 'Construção do ambiente', pdf: '/pdfs/construcao.pdf', imagem: '/placeholder.jpg' },
-        { id: 3, titulo: 'Criação de personagens', pdf: '/pdfs/personagens.pdf', imagem: '/placeholder.jpg' },
-        // Adicione mais conteúdos aqui (mais de 10)
-        { id: 4, titulo: 'Conteúdo 4', pdf: '/pdfs/conteudo4.pdf', imagem: '/placeholder.jpg' },
-        { id: 5, titulo: 'Conteúdo 5', pdf: '/pdfs/conteudo5.pdf', imagem: '/placeholder.jpg' },
-        { id: 6, titulo: 'Conteúdo 6', pdf: '/pdfs/conteudo6.pdf', imagem: '/placeholder.jpg' },
-        { id: 7, titulo: 'Conteúdo 7', pdf: '/pdfs/conteudo7.pdf', imagem: '/placeholder.jpg' },
-        { id: 8, titulo: 'Conteúdo 8', pdf: '/pdfs/conteudo8.pdf', imagem: '/placeholder.jpg' },
-        { id: 9, titulo: 'Conteúdo 9', pdf: '/pdfs/conteudo9.pdf', imagem: '/placeholder.jpg' },
-        { id: 10, titulo: 'Conteúdo 10', pdf: '/pdfs/conteudo10.pdf', imagem: '/placeholder.jpg' },
-        { id: 11, titulo: 'Conteúdo 11', pdf: '/pdfs/conteudo11.pdf', imagem: '/placeholder.jpg' },
-        { id: 12, titulo: 'Conteúdo 12', pdf: '/pdfs/conteudo12.pdf', imagem: '/placeholder.jpg' },
-      ]
+  // Trilhas diferentes para cada público
+  const trilhasPorPublico = {
+    criadores: {
+      mochilao: {
+        nome: 'Mochilão',
+        conteudos: [
+          { id: 1, titulo: 'Concepção do jogo', pdf: '/pdfs/concepcao.pdf', imagem: '/placeholder.jpg' },
+          { id: 2, titulo: 'Construção do ambiente', pdf: '/pdfs/construcao.pdf', imagem: '/placeholder.jpg' },
+          { id: 3, titulo: 'Criação de personagens', pdf: '/pdfs/personagens.pdf', imagem: '/placeholder.jpg' },
+          { id: 4, titulo: 'Conteúdo 4', pdf: '/pdfs/conteudo4.pdf', imagem: '/placeholder.jpg' },
+          { id: 5, titulo: 'Conteúdo 5', pdf: '/pdfs/conteudo5.pdf', imagem: '/placeholder.jpg' },
+        ]
+      },
+      acampamento: {
+        nome: 'Acampamento',
+        conteudos: [
+          { id: 1, titulo: 'Criação assistida por IA', pdf: '/pdfs/ia.pdf', imagem: '/placeholder.jpg' },
+          { id: 2, titulo: 'Colaboração e co-criação', pdf: '/pdfs/colaboracao.pdf', imagem: '/placeholder.jpg' },
+          { id: 3, titulo: 'Teste e depuração', pdf: '/pdfs/teste.pdf', imagem: '/placeholder.jpg' },
+        ]
+      },
+      sobrevivencia: {
+        nome: 'Sobrevivência',
+        conteudos: [
+          { id: 1, titulo: 'Publicação e narrativa', pdf: '/pdfs/publicacao.pdf', imagem: '/placeholder.jpg' },
+          { id: 2, titulo: 'Reflexão e compartilhamento', pdf: '/pdfs/reflexao.pdf', imagem: '/placeholder.jpg' },
+        ]
+      },
+      tutorial: {
+        nome: 'Tutorial Roblox Studios',
+        conteudos: [
+          { id: 1, titulo: 'Tutorial 1', pdf: '/pdfs/tutorial1.pdf', imagem: '/placeholder.jpg' },
+          { id: 2, titulo: 'Tutorial 2', pdf: '/pdfs/tutorial2.pdf', imagem: '/placeholder.jpg' },
+        ]
+      }
     },
-    acampamento: {
-      nome: 'Acampamento',
-      conteudos: [
-        { id: 1, titulo: 'Criação assistida por IA', pdf: '/pdfs/ia.pdf', imagem: '/placeholder.jpg' },
-        { id: 2, titulo: 'Colaboração e co-criação', pdf: '/pdfs/colaboracao.pdf', imagem: '/placeholder.jpg' },
-        { id: 3, titulo: 'Teste e depuração', pdf: '/pdfs/teste.pdf', imagem: '/placeholder.jpg' },
-        // Adicione mais conteúdos aqui
-        { id: 4, titulo: 'Conteúdo 4', pdf: '/pdfs/conteudo4.pdf', imagem: '/placeholder.jpg' },
-        { id: 5, titulo: 'Conteúdo 5', pdf: '/pdfs/conteudo5.pdf', imagem: '/placeholder.jpg' },
-      ]
+    educadores: {
+      mochilao: {
+        nome: 'Mochilão',
+        conteudos: [
+          { id: 1, titulo: 'Conteúdo Educador 1', pdf: '/pdfs/educador1.pdf', imagem: '/placeholder.jpg' },
+          { id: 2, titulo: 'Conteúdo Educador 2', pdf: '/pdfs/educador2.pdf', imagem: '/placeholder.jpg' },
+        ]
+      },
+      acampamento: {
+        nome: 'Acampamento',
+        conteudos: [
+          { id: 1, titulo: 'Conteúdo Educador 3', pdf: '/pdfs/educador3.pdf', imagem: '/placeholder.jpg' },
+        ]
+      },
+      sobrevivencia: {
+        nome: 'Sobrevivência',
+        conteudos: [
+          { id: 1, titulo: 'Conteúdo Educador 4', pdf: '/pdfs/educador4.pdf', imagem: '/placeholder.jpg' },
+        ]
+      },
+      tutorial: {
+        nome: 'Tutorial Roblox Studios',
+        conteudos: [
+          { id: 1, titulo: 'Tutorial Educador 1', pdf: '/pdfs/tutorial-educador1.pdf', imagem: '/placeholder.jpg' },
+        ]
+      }
     },
-    sobrevivencia: {
-      nome: 'Sobrevivência',
-      conteudos: [
-        { id: 1, titulo: 'Publicação e narrativa', pdf: '/pdfs/publicacao.pdf', imagem: '/placeholder.jpg' },
-        { id: 2, titulo: 'Reflexão e compartilhamento', pdf: '/pdfs/reflexao.pdf', imagem: '/placeholder.jpg' },
-        // Adicione mais conteúdos aqui
-        { id: 3, titulo: 'Conteúdo 3', pdf: '/pdfs/conteudo3.pdf', imagem: '/placeholder.jpg' },
-      ]
-    },
-    tutorial: {
-      nome: 'Tutorial Roblox Studios',
-      conteudos: [
-        { id: 1, titulo: 'Tutorial 1', pdf: '/pdfs/tutorial1.pdf', imagem: '/placeholder.jpg' },
-        { id: 2, titulo: 'Tutorial 2', pdf: '/pdfs/tutorial2.pdf', imagem: '/placeholder.jpg' },
-        { id: 3, titulo: 'Tutorial 3', pdf: '/pdfs/tutorial3.pdf', imagem: '/placeholder.jpg' },
-        // Adicione mais conteúdos aqui
-        { id: 4, titulo: 'Tutorial 4', pdf: '/pdfs/tutorial4.pdf', imagem: '/placeholder.jpg' },
-        { id: 5, titulo: 'Tutorial 5', pdf: '/pdfs/tutorial5.pdf', imagem: '/placeholder.jpg' },
-      ]
+    pais: {
+      mochilao: {
+        nome: 'Mochilão',
+        conteudos: [
+          { id: 1, titulo: 'Conteúdo Pais 1', pdf: '/pdfs/pais1.pdf', imagem: '/placeholder.jpg' },
+          { id: 2, titulo: 'Conteúdo Pais 2', pdf: '/pdfs/pais2.pdf', imagem: '/placeholder.jpg' },
+        ]
+      },
+      acampamento: {
+        nome: 'Acampamento',
+        conteudos: [
+          { id: 1, titulo: 'Conteúdo Pais 3', pdf: '/pdfs/pais3.pdf', imagem: '/placeholder.jpg' },
+        ]
+      },
+      sobrevivencia: {
+        nome: 'Sobrevivência',
+        conteudos: [
+          { id: 1, titulo: 'Conteúdo Pais 4', pdf: '/pdfs/pais4.pdf', imagem: '/placeholder.jpg' },
+        ]
+      },
+      tutorial: {
+        nome: 'Tutorial Roblox Studios',
+        conteudos: [
+          { id: 1, titulo: 'Tutorial Pais 1', pdf: '/pdfs/tutorial-pais1.pdf', imagem: '/placeholder.jpg' },
+        ]
+      }
     }
   }
+
+  // Usar trilhas do público selecionado
+  const trilhas = selectedPublico ? trilhasPorPublico[selectedPublico] : null
 
   const scrollLeft = (ref) => {
     if (ref.current) {
@@ -157,27 +206,61 @@ function Biblioteca() {
     }
   }
 
-  if (!hasAccess) {
-    return (
-      <>
-        <EmailGatePopup 
-          onEmailSubmitted={handleEmailSubmitted}
-          onClose={() => {
-            // Se fechar sem cadastrar, redireciona para home
-            window.location.hash = ''
-            window.location.reload()
-          }}
-        />
-      </>
-    )
-  }
-
   return (
     <div className="app biblioteca-page">
       <Header />
       <BibliotecaHeroSection />
       
-      <div className="biblioteca-container">
+      {!selectedPublico ? (
+        // Tela de seleção de persona (primeiro passo)
+        <div className="biblioteca-selecao-container">
+          <div className="biblioteca-selecao-cards">
+            <div 
+              className="biblioteca-selecao-card"
+              onClick={() => handlePublicoSelect('criadores')}
+            >
+              <h3 className="biblioteca-selecao-card-title">Conteúdos para criadores</h3>
+            </div>
+            <div 
+              className="biblioteca-selecao-card"
+              onClick={() => handlePublicoSelect('educadores')}
+            >
+              <h3 className="biblioteca-selecao-card-title">Conteúdos para educadores</h3>
+            </div>
+            <div 
+              className="biblioteca-selecao-card"
+              onClick={() => handlePublicoSelect('pais')}
+            >
+              <h3 className="biblioteca-selecao-card-title">Conteúdos para pais, mães e responsáveis</h3>
+            </div>
+          </div>
+        </div>
+      ) : !hasAccess ? (
+        // Email gate (segundo passo - após selecionar persona)
+        <>
+          <EmailGatePopup 
+            onEmailSubmitted={handleEmailSubmitted}
+            onClose={() => {
+              // Se fechar sem cadastrar, volta para seleção de persona
+              setSelectedPublico(null)
+              setIsEmailGateOpen(false)
+            }}
+          />
+        </>
+      ) : (
+        // Área logada com trilhas (terceiro passo)
+        <div className="biblioteca-container">
+          <div className="biblioteca-voltar-wrapper">
+            <button 
+              className="biblioteca-voltar-btn"
+              onClick={() => {
+                setSelectedPublico(null)
+                setHasAccess(false)
+              }}
+            >
+              ← Voltar para seleção
+            </button>
+          </div>
         {/* Trilha Tutorial Roblox Studios */}
         <section id="biblioteca-tutorial" className="biblioteca-section biblioteca-section-tutorial">
           <div className="biblioteca-section-header">
@@ -497,7 +580,8 @@ function Biblioteca() {
             ))}
           </div>
         </section>
-      </div>
+        </div>
+      )}
       
       <FooterSimplificado />
     </div>

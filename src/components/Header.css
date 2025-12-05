@@ -81,6 +81,70 @@
   width: 100%;
 }
 
+.nav-item-with-dropdown {
+  position: relative;
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #000;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  min-width: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  margin-top: 0;
+  padding-top: 0.75rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+  background: transparent;
+}
+
+.nav-dropdown-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav-dropdown li {
+  margin: 0;
+}
+
+.nav-dropdown li a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.nav-dropdown li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.nav-dropdown li a::after {
+  display: none;
+}
+
 .header-cta-wrapper {
   display: none;
   margin-left: auto;
@@ -216,6 +280,38 @@
   .nav-list li a::after {
     display: none;
   }
+
+  .nav-dropdown {
+    position: static;
+    background: #111;
+    margin-top: 0;
+    padding: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .nav-dropdown-open {
+    max-height: 300px;
+    padding: 0.5rem 0 0.5rem 1.5rem;
+  }
+
+  .nav-dropdown li {
+    border-bottom: 1px solid #222;
+  }
+
+  .nav-dropdown li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-dropdown li a {
+    padding: 0.75rem 0;
+  }
 }
 
 /* Tablet */
@@ -256,6 +352,15 @@
 
   .nav-list li a {
     font-size: 1.1rem;
+  }
+
+  .nav-dropdown {
+    min-width: 200px;
+  }
+
+  .nav-dropdown li a {
+    font-size: 1.05rem;
+    padding: 1rem 2.5rem;
   }
 
   .header-cta-button {

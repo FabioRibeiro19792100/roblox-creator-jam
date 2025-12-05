@@ -169,6 +169,15 @@ function Admin() {
         { id: 'biblioteca-footer', label: 'Footer', icon: '📄' },
       ]
     },
+    expedicaoNaEstrada: {
+      label: '🚌 Expedição na Estrada',
+      sections: [
+        { id: 'expedicao-na-estrada-menu', label: 'Menu/Header', icon: '📋' },
+        { id: 'expedicao-na-estrada-hero', label: 'Hero', icon: '⭐' },
+        { id: 'expedicao-na-estrada-content', label: 'Conteúdo', icon: '📝' },
+        { id: 'expedicao-na-estrada-footer', label: 'Footer', icon: '📄' },
+      ]
+    },
     global: {
       label: '⚙️ Configurações Globais',
       sections: [
@@ -364,6 +373,20 @@ function Admin() {
             <BibliotecaSectionEditor config={config} updateConfig={updateConfig} sectionKey="sobrevivencia" />
           )}
           {activeSection === 'biblioteca-footer' && (
+            <FooterEditor config={config} updateConfig={updateConfig} updateConfigDirectly={updateConfigDirectly} />
+          )}
+
+          {/* EXPEDIÇÃO NA ESTRADA PAGE SECTIONS */}
+          {activeSection === 'expedicao-na-estrada-menu' && (
+            <MenuEditor config={config} updateConfig={updateConfig} updateConfigDirectly={updateConfigDirectly} />
+          )}
+          {activeSection === 'expedicao-na-estrada-hero' && (
+            <ExpedicaoNaEstradaHeroEditor config={config} updateConfig={updateConfig} updateConfigDirectly={updateConfigDirectly} />
+          )}
+          {activeSection === 'expedicao-na-estrada-content' && (
+            <ExpedicaoNaEstradaContentEditor config={config} updateConfig={updateConfig} updateConfigDirectly={updateConfigDirectly} />
+          )}
+          {activeSection === 'expedicao-na-estrada-footer' && (
             <FooterEditor config={config} updateConfig={updateConfig} updateConfigDirectly={updateConfigDirectly} />
           )}
 
@@ -1714,6 +1737,173 @@ function BibliotecaHeroEditor({ config, updateConfig, updateConfigDirectly }) {
           rows="3"
         />
       </div>
+    </div>
+  )
+}
+
+// Componente para editar Hero da Expedição na Estrada
+function ExpedicaoNaEstradaHeroEditor({ config, updateConfig, updateConfigDirectly }) {
+  return (
+    <div className="admin-section">
+      <h2>⭐ Hero - Expedição na Estrada</h2>
+      
+      <div className="admin-field-group">
+        <label>Título - Linha 1</label>
+        <input
+          type="text"
+          value={config.expedicaoNaEstrada?.hero?.title?.line1 || ''}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.hero.title.line1', e.target.value)}
+          className="admin-input"
+        />
+      </div>
+
+      <div className="admin-field-group">
+        <label>Título - Linha 2</label>
+        <input
+          type="text"
+          value={config.expedicaoNaEstrada?.hero?.title?.line2 || ''}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.hero.title.line2', e.target.value)}
+          className="admin-input"
+        />
+      </div>
+
+      <div className="admin-field-group">
+        <label>Título - Linha 3</label>
+        <input
+          type="text"
+          value={config.expedicaoNaEstrada?.hero?.title?.line3 || ''}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.hero.title.line3', e.target.value)}
+          className="admin-input"
+        />
+      </div>
+
+      <div className="admin-field-group">
+        <label>Descrição</label>
+        <textarea
+          value={config.expedicaoNaEstrada?.hero?.description || ''}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.hero.description', e.target.value)}
+          className="admin-textarea"
+          rows="4"
+        />
+      </div>
+
+      <div className="admin-field-group">
+        <label>Texto do Botão CTA</label>
+        <input
+          type="text"
+          value={config.expedicaoNaEstrada?.hero?.ctaText || 'Quero saber mais'}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.hero.ctaText', e.target.value)}
+          className="admin-input"
+        />
+      </div>
+
+      <div className="admin-field-group">
+        <label>Imagem (caminho)</label>
+        <input
+          type="text"
+          value={config.expedicaoNaEstrada?.hero?.image || '/images/5.webp'}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.hero.image', e.target.value)}
+          className="admin-input"
+          placeholder="/images/5.webp"
+        />
+      </div>
+    </div>
+  )
+}
+
+// Componente para editar Conteúdo da Expedição na Estrada
+function ExpedicaoNaEstradaContentEditor({ config, updateConfig, updateConfigDirectly }) {
+  const atividades = config.expedicaoNaEstrada?.content?.atividades || []
+  
+  return (
+    <div className="admin-section">
+      <h2>📝 Conteúdo - Expedição na Estrada</h2>
+      
+      <h3>Título</h3>
+      <div className="admin-field-group">
+        <label>Título - Linha 1</label>
+        <input
+          type="text"
+          value={config.expedicaoNaEstrada?.content?.title?.line1 || ''}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.content.title.line1', e.target.value)}
+          className="admin-input"
+        />
+      </div>
+
+      <div className="admin-field-group">
+        <label>Título - Linha 2</label>
+        <input
+          type="text"
+          value={config.expedicaoNaEstrada?.content?.title?.line2 || ''}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.content.title.line2', e.target.value)}
+          className="admin-input"
+        />
+      </div>
+
+      <div className="admin-field-group">
+        <label>Título - Linha 3</label>
+        <input
+          type="text"
+          value={config.expedicaoNaEstrada?.content?.title?.line3 || ''}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.content.title.line3', e.target.value)}
+          className="admin-input"
+        />
+      </div>
+
+      <div className="admin-field-group">
+        <label>Descrição</label>
+        <textarea
+          value={config.expedicaoNaEstrada?.content?.description || ''}
+          onChange={(e) => updateConfig('expedicaoNaEstrada.content.description', e.target.value)}
+          className="admin-textarea"
+          rows="3"
+        />
+      </div>
+
+      <h3>Atividades ({atividades.length} atividades)</h3>
+      {atividades.map((atividade, index) => (
+        <div key={atividade.id || index} className="admin-card">
+          <h4>{atividade.title || `Atividade ${index + 1}`}</h4>
+          <div className="admin-field-group">
+            <label>Título</label>
+            <input
+              type="text"
+              value={atividade.title || ''}
+              onChange={(e) => {
+                if (updateConfigDirectly) {
+                  updateConfigDirectly((newConfig) => {
+                    if (!newConfig.expedicaoNaEstrada) newConfig.expedicaoNaEstrada = {}
+                    if (!newConfig.expedicaoNaEstrada.content) newConfig.expedicaoNaEstrada.content = {}
+                    if (!newConfig.expedicaoNaEstrada.content.atividades) newConfig.expedicaoNaEstrada.content.atividades = []
+                    if (!newConfig.expedicaoNaEstrada.content.atividades[index]) newConfig.expedicaoNaEstrada.content.atividades[index] = {}
+                    newConfig.expedicaoNaEstrada.content.atividades[index].title = e.target.value
+                  })
+                }
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Descrição</label>
+            <textarea
+              value={atividade.description || ''}
+              onChange={(e) => {
+                if (updateConfigDirectly) {
+                  updateConfigDirectly((newConfig) => {
+                    if (!newConfig.expedicaoNaEstrada) newConfig.expedicaoNaEstrada = {}
+                    if (!newConfig.expedicaoNaEstrada.content) newConfig.expedicaoNaEstrada.content = {}
+                    if (!newConfig.expedicaoNaEstrada.content.atividades) newConfig.expedicaoNaEstrada.content.atividades = []
+                    if (!newConfig.expedicaoNaEstrada.content.atividades[index]) newConfig.expedicaoNaEstrada.content.atividades[index] = {}
+                    newConfig.expedicaoNaEstrada.content.atividades[index].description = e.target.value
+                  })
+                }
+              }}
+              className="admin-textarea"
+              rows="3"
+            />
+          </div>
+        </div>
+      ))}
     </div>
   )
 }

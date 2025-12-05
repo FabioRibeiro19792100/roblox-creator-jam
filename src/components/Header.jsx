@@ -4,6 +4,7 @@ import './Header.css'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMissoesOpen, setIsMissoesOpen] = useState(false)
   const { navigateTo, currentPage } = useContext(NavigationContext) || { 
     navigateTo: (page) => {
       if (page === 'jam') {
@@ -12,12 +13,15 @@ function Header() {
       } else if (page === 'biblioteca') {
         window.location.hash = '#biblioteca'
         window.location.reload()
+      } else if (page === 'expedicao-na-estrada') {
+        window.location.hash = '#expedicao-na-estrada'
+        window.location.reload()
       } else {
         window.location.hash = ''
         window.location.reload()
       }
     },
-    currentPage: window.location.hash === '#jam' ? 'jam' : window.location.hash === '#biblioteca' ? 'biblioteca' : 'home'
+    currentPage: window.location.hash === '#jam' ? 'jam' : window.location.hash === '#biblioteca' ? 'biblioteca' : window.location.hash === '#expedicao-na-estrada' ? 'expedicao-na-estrada' : 'home'
   }
 
   const toggleMenu = () => {
@@ -78,7 +82,7 @@ function Header() {
     setIsMenuOpen(false)
   }
 
-  const isHomePage = currentPage === 'home' || (!currentPage && window.location.hash !== '#jam' && window.location.hash !== '#biblioteca')
+  const isHomePage = currentPage === 'home' || (!currentPage && window.location.hash !== '#jam' && window.location.hash !== '#biblioteca' && window.location.hash !== '#expedicao-na-estrada')
   const isBibliotecaPage = currentPage === 'biblioteca' || window.location.hash === '#biblioteca'
   const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
 
@@ -100,24 +104,57 @@ function Header() {
                   </a>
                 </li>
                 <li>
-                  <a href="#placeholder" onClick={(e) => handleHomeScroll('placeholder', e)}>
-                    Manifesto
-                  </a>
-                </li>
-                <li>
                   <a href="#expedicao-roblox" onClick={(e) => handleHomeScroll('expedicao-roblox', e)}>
                     A Expedição
                   </a>
                 </li>
-                <li>
-                  <a href="#o-que-e-roblox-studio" onClick={(e) => handleHomeScroll('o-que-e-roblox-studio', e)}>
-                    Studios
+                <li 
+                  className="nav-item-with-dropdown"
+                  onMouseEnter={() => setIsMissoesOpen(true)}
+                  onMouseLeave={() => setIsMissoesOpen(false)}
+                >
+                  <a 
+                    href="#missoes" 
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setIsMissoesOpen(!isMissoesOpen)
+                    }}
+                  >
+                    Missões
                   </a>
-                </li>
-                <li>
-                  <a href="#biblioteca" onClick={(e) => handleNavClick('biblioteca', e)}>
-                    Biblioteca
-                  </a>
+                  <ul 
+                    className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
+                    onMouseEnter={() => setIsMissoesOpen(true)}
+                    onMouseLeave={() => setIsMissoesOpen(false)}
+                  >
+                    <li>
+                      <a href="#biblioteca" onClick={(e) => {
+                        e.preventDefault()
+                        handleNavClick('biblioteca', e)
+                        setIsMissoesOpen(false)
+                      }}>
+                        Trilhas de conteúdo
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#jam" onClick={(e) => {
+                        e.preventDefault()
+                        handleNavClick('jam', e)
+                        setIsMissoesOpen(false)
+                      }}>
+                        Jam
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#expedicao-na-estrada" onClick={(e) => {
+                        e.preventDefault()
+                        handleNavClick('expedicao-na-estrada', e)
+                        setIsMissoesOpen(false)
+                      }}>
+                        Estrada
+                      </a>
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
@@ -199,6 +236,57 @@ function Header() {
                   <a href="#datas-canais" onClick={(e) => { e.preventDefault(); scrollToSection('datas-canais') }}>
                     Datas e Canais
                   </a>
+                </li>
+                <li 
+                  className="nav-item-with-dropdown"
+                  onMouseEnter={() => setIsMissoesOpen(true)}
+                  onMouseLeave={(e) => {
+                    const relatedTarget = e.relatedTarget
+                    if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
+                      setIsMissoesOpen(false)
+                    }
+                  }}
+                >
+                  <a 
+                    href="#missoes" 
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setIsMissoesOpen(!isMissoesOpen)
+                    }}
+                  >
+                    Missões
+                  </a>
+                  <ul 
+                    className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
+                  >
+                    <li>
+                      <a href="#biblioteca" onClick={(e) => {
+                        e.preventDefault()
+                        handleNavClick('biblioteca', e)
+                        setIsMissoesOpen(false)
+                      }}>
+                        Trilhas de conteúdo
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#jam" onClick={(e) => {
+                        e.preventDefault()
+                        handleNavClick('jam', e)
+                        setIsMissoesOpen(false)
+                      }}>
+                        Jam
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#expedicao-na-estrada" onClick={(e) => {
+                        e.preventDefault()
+                        handleNavClick('expedicao-na-estrada', e)
+                        setIsMissoesOpen(false)
+                      }}>
+                        Estrada
+                      </a>
+                    </li>
+                  </ul>
                 </li>
               </>
             )}

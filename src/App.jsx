@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Home from './pages/Home'
 import Jam from './pages/Jam'
 import Biblioteca from './pages/Biblioteca'
+import ExpedicaoNaEstrada from './pages/ExpedicaoNaEstrada'
 import Admin from './pages/Admin'
 import ContactModal from './components/ContactModal'
 import MaterialModal from './components/MaterialModal'
@@ -21,6 +22,7 @@ function App() {
     if (hash === '#admin' || hash === '#/admin') return 'admin'
     if (hash === '#jam' || hash === '#/jam') return 'jam'
     if (hash === '#biblioteca' || hash === '#/biblioteca') return 'biblioteca'
+    if (hash === '#expedicao-na-estrada' || hash === '#/expedicao-na-estrada') return 'expedicao-na-estrada'
     return 'home'
   })
 
@@ -38,6 +40,8 @@ function App() {
         setCurrentPage('jam')
       } else if (newHash === '#biblioteca' || newHash === '#/biblioteca') {
         setCurrentPage('biblioteca')
+      } else if (newHash === '#expedicao-na-estrada' || newHash === '#/expedicao-na-estrada') {
+        setCurrentPage('expedicao-na-estrada')
       } else {
         setCurrentPage('home')
       }
@@ -54,6 +58,9 @@ function App() {
     } else if (page === 'biblioteca') {
       window.location.hash = '#biblioteca'
       setCurrentPage('biblioteca')
+    } else if (page === 'expedicao-na-estrada') {
+      window.location.hash = '#expedicao-na-estrada'
+      setCurrentPage('expedicao-na-estrada')
     } else {
       window.location.hash = ''
       setCurrentPage('home')
@@ -104,7 +111,7 @@ function App() {
     <NavigationContext.Provider value={{ navigateTo, currentPage }}>
       <ContactModalContext.Provider value={{ openContactModal }}>
         <MaterialModalContext.Provider value={{ openMaterialModal }}>
-          {currentPage === 'jam' ? <Jam /> : currentPage === 'biblioteca' ? <Biblioteca /> : <Home />}
+          {currentPage === 'jam' ? <Jam /> : currentPage === 'biblioteca' ? <Biblioteca /> : currentPage === 'expedicao-na-estrada' ? <ExpedicaoNaEstrada /> : <Home />}
           <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
           <MaterialModal 
             isOpen={isMaterialModalOpen} 

@@ -200,6 +200,178 @@ export const siteConfig = {
     ],
   },
 
+  // ========== EXPEDIÇÃO NA ESTRADA ==========
+  expedicaoNaEstrada: {
+    hero: {
+      title: {
+        line1: 'Expedição',
+        line2: 'Roblox',
+        line3: 'na Estrada',
+      },
+      description: 'Nesses encontros vamos reunir pais, responsáveis e jovens criativos para construir ambientes que ampliem a noção de segurança digital e que sejam divertidos e significativos como experiência de aprendizado.',
+      ctaText: 'Quero saber mais',
+      image: '/images/5.webp',
+    },
+    content: {
+      title: {
+        line1: 'Expedição',
+        line2: 'Roblox',
+        line3: 'na Estrada',
+      },
+      description: 'Nas capitais, o projeto abre sua programação com encontros que combinam criação no Roblox, participação das famílias e introdução aos quatro formatos que compõem a experiência.',
+      atividades: [
+        {
+          id: 'mundos-em-familia',
+          title: 'Mundos em Família',
+          description: 'Jovens e responsáveis imaginam juntos "mundos melhores" e desenham as primeiras ideias de experiências no Roblox.'
+        },
+        {
+          id: 'construtores-do-futuro',
+          title: 'Construtores do Futuro',
+          description: 'Oficinas práticas de criação no Roblox, com foco em cooperação, sustentabilidade e desafios reais do dia a dia.'
+        },
+        {
+          id: 'cidadania-digital',
+          title: 'Cidadania Digital',
+          description: 'Conversa guiada sobre segurança online, cidadania digital e equilíbrio saudável com as telas — com espaço aberto para dúvidas e relatos.'
+        },
+        {
+          id: 'showcase-de-mundos',
+          title: 'Showcase de Mundos',
+          description: 'Apresentação dos mundos criados pelas crianças para familiares e especialistas, com reconhecimento simbólico e convite para seguir criando no Roblox.'
+        }
+      ]
+    },
+    eventos: [
+      {
+        id: 'rio-de-janeiro',
+        cidade: 'Rio de Janeiro',
+        data: '10 de março de 2025',
+        local: {
+          nome: 'Senac Candelária',
+          endereco: 'Avenida presidente Vargas, 1500, 2 andar'
+        },
+        sessoes: [
+          {
+            id: 'sessao-1',
+            nome: 'Inscreva-se na sessão 1',
+            horario: 'Das 09h às 13hs'
+          },
+          {
+            id: 'sessao-2',
+            nome: 'Inscreva-se na sessão 2',
+            horario: 'Das 14h às 18hs'
+          }
+        ]
+      },
+      {
+        id: 'sao-paulo',
+        cidade: 'São Paulo',
+        data: '17 de março de 2025',
+        local: {
+          nome: 'Local a definir',
+          endereco: 'Endereço a definir'
+        },
+        sessoes: [
+          {
+            id: 'sessao-1',
+            nome: 'Inscreva-se na sessão 1',
+            horario: 'Das 09h às 13hs'
+          },
+          {
+            id: 'sessao-2',
+            nome: 'Inscreva-se na sessão 2',
+            horario: 'Das 14h às 18hs'
+          }
+        ]
+      },
+      {
+        id: 'belo-horizonte',
+        cidade: 'Belo Horizonte',
+        data: '24 de março de 2025',
+        local: {
+          nome: 'Local a definir',
+          endereco: 'Endereço a definir'
+        },
+        sessoes: [
+          {
+            id: 'sessao-1',
+            nome: 'Inscreva-se na sessão 1',
+            horario: 'Das 09h às 13hs'
+          },
+          {
+            id: 'sessao-2',
+            nome: 'Inscreva-se na sessão 2',
+            horario: 'Das 14h às 18hs'
+          }
+        ]
+      },
+      {
+        id: 'brasilia',
+        cidade: 'Brasília',
+        data: '31 de março de 2025',
+        local: {
+          nome: 'Local a definir',
+          endereco: 'Endereço a definir'
+        },
+        sessoes: [
+          {
+            id: 'sessao-1',
+            nome: 'Inscreva-se na sessão 1',
+            horario: 'Das 09h às 13hs'
+          },
+          {
+            id: 'sessao-2',
+            nome: 'Inscreva-se na sessão 2',
+            horario: 'Das 14h às 18hs'
+          }
+        ]
+      },
+      {
+        id: 'curitiba',
+        cidade: 'Curitiba',
+        data: '7 de abril de 2025',
+        local: {
+          nome: 'Local a definir',
+          endereco: 'Endereço a definir'
+        },
+        sessoes: [
+          {
+            id: 'sessao-1',
+            nome: 'Inscreva-se na sessão 1',
+            horario: 'Das 09h às 13hs'
+          },
+          {
+            id: 'sessao-2',
+            nome: 'Inscreva-se na sessão 2',
+            horario: 'Das 14h às 18hs'
+          }
+        ]
+      },
+      {
+        id: 'porto-alegre',
+        cidade: 'Porto Alegre',
+        data: '14 de abril de 2025',
+        local: {
+          nome: 'Local a definir',
+          endereco: 'Endereço a definir'
+        },
+        sessoes: [
+          {
+            id: 'sessao-1',
+            nome: 'Inscreva-se na sessão 1',
+            horario: 'Das 09h às 13hs'
+          },
+          {
+            id: 'sessao-2',
+            nome: 'Inscreva-se na sessão 2',
+            horario: 'Das 14h às 18hs'
+          }
+        ]
+      }
+    ]
+  },
+
   // ========== O QUE É ROBLOX STUDIO ==========
   robloxStudio: {
     title: 'O que é o Roblox Studios',

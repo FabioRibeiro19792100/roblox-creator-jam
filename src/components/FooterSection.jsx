@@ -27,7 +27,10 @@ function FooterSection() {
   
   const handleTrilha03Click = (e) => {
     e.preventDefault()
-    setIsContactPopupOpen(true)
+    navigateTo('expedicao-na-estrada')
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 100)
   }
   
   const links = [
