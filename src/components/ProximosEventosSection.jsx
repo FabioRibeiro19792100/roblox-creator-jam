@@ -36,12 +36,19 @@ function ProximosEventosSection() {
   return (
     <>
       <section 
-        className={`proximos-eventos-section ${!isVisible ? 'hidden' : ''}`}
+        className={`proximos-eventos-section sweep-fill ${!isVisible ? 'hidden' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="proximos-eventos-container">
-          <div className="proximos-eventos-header">
+          <div className="proximos-eventos-header plus-indicator-trigger">
             <span className="proximos-eventos-title">{config?.proximosEventos?.title || 'Próximos eventos'}</span>
+            <span 
+              className={`proximos-eventos-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`}
+              aria-hidden="true"
+            />
+            <span className="sr-only">
+              {isOpen ? 'Fechar lista de próximos eventos' : 'Abrir lista de próximos eventos'}
+            </span>
           </div>
         </div>
       </section>
@@ -82,4 +89,3 @@ function ProximosEventosSection() {
 }
 
 export default ProximosEventosSection
-

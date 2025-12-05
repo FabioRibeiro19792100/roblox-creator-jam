@@ -59,3 +59,101 @@
 .hover-fill:hover a {
   color: inherit;
 }
+
+/* Sweep Fill Utility (for section/accordion backgrounds) */
+.sweep-fill {
+  position: relative;
+  overflow: hidden;
+  --sweep-color: rgba(48, 0, 150, 0.95);
+  --sweep-duration: 0.45s;
+  --sweep-easing: cubic-bezier(0.19, 1, 0.22, 1);
+  --sweep-start: translateY(110%);
+}
+
+.sweep-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--sweep-color);
+  transform: var(--sweep-start);
+  transition: transform var(--sweep-duration) var(--sweep-easing);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sweep-fill:hover::after,
+.sweep-fill.sweep-fill-active::after {
+  transform: translateY(0);
+}
+
+.sweep-fill > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Plus Indicator Utility */
+.plus-indicator {
+  position: relative;
+  display: inline-block;
+  width: var(--plus-size, 1.25rem);
+  height: var(--plus-size, 1.25rem);
+  transform-origin: 50% 50%;
+  transition: transform 0.35s ease;
+  --plus-color: #fff;
+  --plus-hover-color: #fff;
+  --plus-open-color: #00ff9d;
+  --plus-stroke: 2px;
+}
+
+.plus-indicator::before,
+.plus-indicator::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--plus-color);
+  transition: background 0.35s ease;
+}
+
+.plus-indicator::before {
+  width: var(--plus-stroke);
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.plus-indicator::after {
+  width: 100%;
+  height: var(--plus-stroke);
+  transform: translate(-50%, -50%);
+}
+
+.plus-indicator-trigger:hover .plus-indicator {
+  transform: rotate(var(--plus-hover-rotate, 90deg)) scale(var(--plus-hover-scale, 1.05));
+}
+
+.plus-indicator-trigger:hover .plus-indicator::before,
+.plus-indicator-trigger:hover .plus-indicator::after {
+  background: var(--plus-hover-color, var(--plus-color));
+}
+
+.plus-indicator-open {
+  transform: rotate(var(--plus-open-rotate, 45deg)) scale(var(--plus-open-scale, 1.1));
+}
+
+.plus-indicator-open::before,
+.plus-indicator-open::after {
+  background: var(--plus-open-color);
+}
+
+/* Screen reader helper */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

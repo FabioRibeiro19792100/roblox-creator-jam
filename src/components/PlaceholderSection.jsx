@@ -13,19 +13,26 @@ function PlaceholderSection() {
   }
 
   return (
-    <section id="placeholder" className={`placeholder-section ${isOpen ? 'manifesto-open' : ''}`}>
+    <section 
+      id="placeholder" 
+      className={`placeholder-section sweep-fill ${isOpen ? 'manifesto-open sweep-fill-active' : ''}`}
+    >
       <div className="placeholder-container">
         <div className={`placeholder-accordion-item ${isOpen ? 'placeholder-open' : ''}`}>
           <button
-            className="placeholder-header"
+            className="placeholder-header plus-indicator-trigger"
             onClick={toggleAccordion}
             aria-expanded={isOpen}
+            aria-controls="placeholder-manifesto-content"
           >
             <span className="placeholder-title-text">{config?.manifesto?.title || 'E o jogo agora é seu.'}</span>
-            <span className="placeholder-arrow">{isOpen ? '−' : '+'}</span>
+            <span className={`placeholder-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
+            <span className="sr-only">
+              {isOpen ? 'Ocultar manifesto' : 'Mostrar manifesto'}
+            </span>
           </button>
           {isOpen && (
-            <div className="placeholder-content">
+            <div className="placeholder-content" id="placeholder-manifesto-content">
               <div className="placeholder-manifesto">
                 <div className="placeholder-manifesto-column">
                   {config?.manifesto?.content?.[0]?.paragraphs?.map((para, index) => (
@@ -78,4 +85,3 @@ function PlaceholderSection() {
 }
 
 export default PlaceholderSection
-

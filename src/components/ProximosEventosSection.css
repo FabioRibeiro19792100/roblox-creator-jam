@@ -1,16 +1,21 @@
 .proximos-eventos-section {
   width: 100%;
-  background: rgb(83, 0, 255); /* Changed to specified RGB */
+  background: rgb(83, 0, 255);
   position: fixed;
-  top: 60px; /* Below header on mobile */
+  top: 60px;
   left: 0;
   right: 0;
   z-index: 999;
-  transition: all 0.3s ease;
   border-bottom: 1px solid #333;
-  pointer-events: auto; /* Ensure section can receive mouse events */
+  pointer-events: auto;
   transform: translateY(0);
   opacity: 1;
+  transition: border-color 0.35s ease, transform 0.3s ease, opacity 0.3s ease;
+  --sweep-color: rgb(48, 0, 150);
+}
+
+.proximos-eventos-section:not(.hidden):hover {
+  border-bottom-color: rgba(0, 255, 157, 0.6);
 }
 
 .proximos-eventos-section.hidden {
@@ -27,6 +32,8 @@
   display: flex;
   align-items: flex-end; /* Align to bottom instead of center */
   height: 100%; /* Take full height of section */
+  position: relative;
+  z-index: 1;
 }
 
 .proximos-eventos-header {
@@ -49,13 +56,13 @@
 }
 
 .proximos-eventos-arrow {
-  font-size: 1rem;
-  font-weight: 100;
-  color: #fff;
-  line-height: 1;
-  min-width: 20px;
-  text-align: center;
-  transition: transform 0.3s ease;
+  --plus-size: 1.25rem;
+  --plus-stroke: 2px;
+  --plus-color: #fff;
+  --plus-hover-color: #9e7bff;
+  --plus-open-color: #00ff9d;
+  --plus-hover-rotate: 90deg;
+  --plus-open-rotate: 45deg;
 }
 
 .proximos-eventos-overlay {
@@ -274,4 +281,3 @@
     font-size: 1.5rem;
   }
 }
-
