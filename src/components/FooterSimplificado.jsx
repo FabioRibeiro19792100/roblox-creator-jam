@@ -1,13 +1,11 @@
 import { useState, useContext } from 'react'
-import { MaterialModalContext, NavigationContext } from '../App'
-import ConvideSeusAmigosSection from './ConvideSeusAmigosSection'
+import { NavigationContext } from '../App'
 import ContactPopup from './ContactPopup'
 import FAQPopup from './FAQPopup'
 import GlossarioSection from './GlossarioSection'
 import './FooterSection.css'
 
-function FooterSection() {
-  const { openMaterialModal } = useContext(MaterialModalContext) || { openMaterialModal: () => {} }
+function FooterSimplificado() {
   const { navigateTo } = useContext(NavigationContext) || { navigateTo: () => {} }
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   const [isFAQPopupOpen, setIsFAQPopupOpen] = useState(false)
@@ -53,21 +51,7 @@ function FooterSection() {
   ]
 
   return (
-    <section id="footer" className="footer-section">
-      <div className="footer-cta">
-        <div className="footer-cta-container">
-          <div className="footer-title">
-            <h1 className="footer-title-roblox">É pai, tutor ou responsável?</h1>
-          </div>
-          <div className="footer-cta-content">
-            <p className="footer-cta-text">
-              Temos um material pra você. <br />
-              Clique para <button className="footer-link-button" onClick={() => openMaterialModal('download')}>baixar</button> ou <button className="footer-link-button" onClick={() => openMaterialModal('video')}>assista o vídeo</button>
-            </p>
-          </div>
-        </div>
-      </div>
-      <ConvideSeusAmigosSection />
+    <>
       <div id="footer-container-wrapper" className="footer-container-wrapper">
         <div className="footer-container">
           <h2 className="footer-links-title">Central da Expedição</h2>
@@ -125,18 +109,6 @@ function FooterSection() {
           <GlossarioSection />
         </div>
       </div>
-      <div className="footer-final">
-        <div className="footer-final-container">
-          <p className="footer-final-text">
-            Expedição Roblox é um projeto da Mastertech junto com o Roblox
-          </p>
-          <div className="footer-final-social">
-            <a href="#" className="footer-social-link" aria-label="Instagram">Instagram</a>
-            <a href="#" className="footer-social-link" aria-label="WhatsApp">WhatsApp</a>
-            <a href="#" className="footer-social-link" aria-label="TikTok">TikTok</a>
-          </div>
-        </div>
-      </div>
       <ContactPopup 
         isOpen={isContactPopupOpen} 
         onClose={() => setIsContactPopupOpen(false)} 
@@ -145,9 +117,9 @@ function FooterSection() {
         isOpen={isFAQPopupOpen} 
         onClose={() => setIsFAQPopupOpen(false)} 
       />
-    </section>
+    </>
   )
 }
 
-export default FooterSection
+export default FooterSimplificado
 

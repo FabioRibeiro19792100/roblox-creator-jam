@@ -1,0 +1,232 @@
+.email-gate-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.email-gate-popup {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  padding: 2rem;
+}
+
+.email-gate-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  font-family: inherit;
+}
+
+.email-gate-close:hover {
+  opacity: 1;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.email-gate-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.email-gate-close:hover {
+  opacity: 1;
+}
+
+.email-gate-content {
+  padding: 0;
+}
+
+.email-gate-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.email-gate-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0 0 2rem 0;
+}
+
+.email-gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.email-gate-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.email-gate-input {
+  width: 100%;
+  padding: 0.75rem 0;
+  border: none;
+  border-bottom: 3px solid #000;
+  background: transparent;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #000;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.email-gate-input:focus {
+  border-bottom-color: rgb(83, 0, 255);
+}
+
+.email-gate-input::placeholder {
+  color: #999;
+}
+
+.email-gate-error {
+  font-size: 0.875rem;
+  color: #ff0000;
+  margin-top: 0.25rem;
+}
+
+.email-gate-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.email-gate-submit:hover:not(:disabled) {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.email-gate-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .email-gate-popup {
+    padding: 2.5rem;
+    max-width: 600px;
+  }
+
+  .email-gate-title {
+    font-size: 2.5rem;
+  }
+
+  .email-gate-description {
+    font-size: 1.125rem;
+  }
+
+  .email-gate-input {
+    font-size: 1.125rem;
+    padding: 0.875rem 0;
+  }
+
+  .email-gate-submit {
+    font-size: 1.125rem;
+    padding: 1.125rem 2.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .email-gate-popup {
+    padding: 3rem;
+    max-width: 650px;
+  }
+
+  .email-gate-title {
+    font-size: 3rem;
+  }
+
+  .email-gate-description {
+    font-size: 1.25rem;
+  }
+
+  .email-gate-input {
+    font-size: 1.25rem;
+    padding: 1rem 0;
+  }
+
+  .email-gate-submit {
+    font-size: 1.25rem;
+    padding: 1.25rem 3rem;
+  }
+}
+

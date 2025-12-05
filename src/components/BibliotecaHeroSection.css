@@ -1,0 +1,149 @@
+.biblioteca-hero-section {
+  height: 68.816vh; /* 62.56vh * 1.1 = 68.816vh (10% increase) */
+  padding: 0;
+  margin-top: 60px; /* Only header, no eventos section */
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.biblioteca-hero-image-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.biblioteca-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.biblioteca-hero-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.25rem 1.5rem;
+  padding-right: calc(40% + 3rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 4rem; /* 3 dedos = 60px aproximadamente */
+}
+
+.biblioteca-hero-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+
+.biblioteca-hero-expedicao-roblox {
+  font-size: 0.875rem;
+  font-weight: 900;
+  color: #000;
+  line-height: 1;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.biblioteca-hero-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 1.5rem 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.biblioteca-title-line-1,
+.biblioteca-title-line-2 {
+  display: block;
+}
+
+.biblioteca-hero-description {
+  max-width: 600px;
+  flex-shrink: 0;
+  margin-bottom: 4rem;
+}
+
+.biblioteca-hero-description-paragraph {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0 0 1rem 0;
+}
+
+.biblioteca-hero-description-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .biblioteca-hero-section {
+    margin-top: 70px; /* Only header, no eventos section */
+    height: 68.816vh; /* 62.56vh * 1.1 = 68.816vh (10% increase) */
+  }
+
+  .biblioteca-hero-container {
+    padding: 0.5rem 2rem;
+    padding-right: calc(40% + 3rem);
+    padding-top: 4.5rem; /* 3 dedos = 60px aproximadamente */
+  }
+
+  .biblioteca-hero-expedicao-roblox {
+    font-size: 1rem;
+  }
+
+  .biblioteca-hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .biblioteca-hero-description-paragraph {
+    font-size: 1.3rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .biblioteca-hero-section {
+    margin-top: 80px; /* Only header, no eventos section */
+    height: 68.816vh; /* 62.56vh * 1.1 = 68.816vh (10% increase) */
+  }
+
+  .biblioteca-hero-container {
+    padding: 1rem 2rem;
+    padding-right: calc(40% + 3rem);
+    padding-top: 5rem; /* 3 dedos = 60px aproximadamente */
+  }
+
+  .biblioteca-hero-expedicao-roblox {
+    font-size: 1.125rem;
+  }
+
+  .biblioteca-hero-title {
+    font-size: 4.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .biblioteca-hero-description-paragraph {
+    font-size: 1.4rem;
+  }
+}
+

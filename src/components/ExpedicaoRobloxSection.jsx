@@ -1,35 +1,53 @@
 import { useState, useContext } from 'react'
 import { NavigationContext, ContactModalContext } from '../App'
-import BubbleButton from './utilitarios/BubbleButton'
+import { useSiteConfig } from '../config/useSiteConfig'
 import './ExpedicaoRobloxSection.css'
 
 function ExpedicaoRobloxSection() {
-  const [isLoading, setIsLoading] = useState(false)
+  const config = useSiteConfig()
   const [isTrilhasOpen, setIsTrilhasOpen] = useState(false)
+  const [isJamOpen, setIsJamOpen] = useState(false)
   const [isImersaoOpen, setIsImersaoOpen] = useState(false)
   const { navigateTo } = useContext(NavigationContext) || { navigateTo: (page) => {
     if (page === 'jam') {
       window.location.hash = '#jam'
+    } else if (page === 'expedicao-na-estrada') {
+      window.location.hash = '#expedicao-na-estrada'
     } else {
       window.location.hash = ''
     }
   }}
   const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
+  
+  // Pegar dados do config ou usar valores padrão
+  const expedicaoData = config?.expedicaoRoblox || {}
+  const trilhas = expedicaoData.trilhas || []
+  const trilha01 = trilhas.find(t => t.id === 'trilha-01') || {}
+  const trilha02 = trilhas.find(t => t.id === 'trilha-02') || {}
+  const trilha03 = trilhas.find(t => t.id === 'trilha-03') || {}
 
-  const handleJamClick = () => {
-    setIsLoading(true)
+  const handleJamLinkClick = (e) => {
+    e.preventDefault()
+    navigateTo('jam')
     setTimeout(() => {
-      navigateTo('jam')
-      setIsLoading(false)
-      // Scroll para o topo da página JAM
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-      }, 100)
-    }, 800)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 100)
+  }
+
+  const handleExpedicaoNaEstradaClick = (e) => {
+    e.preventDefault()
+    navigateTo('expedicao-na-estrada')
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 100)
   }
 
   const toggleTrilhas = () => {
     setIsTrilhasOpen(!isTrilhasOpen)
+  }
+
+  const toggleJam = () => {
+    setIsJamOpen(!isJamOpen)
   }
 
   const toggleImersao = () => {
@@ -37,108 +55,106 @@ function ExpedicaoRobloxSection() {
   }
 
   return (
-    <>
-      {isLoading && (
-        <div className="loading-overlay">
-          <div className="arcade-loader">
-            <div className="arcade-screen">
-              <div className="arcade-scanlines"></div>
-              <div className="arcade-text">LOADING...</div>
-              <div className="arcade-grid"></div>
-              <div className="arcade-glow"></div>
-            </div>
-          </div>
-        </div>
-      )}
-      <section id="expedicao-roblox" className="expedicao-roblox-section">
-        <div className="expedicao-roblox-container">
-          <h2 className="expedicao-roblox-title">
-            <span className="expedicao-title-line-1">Gratuito, online</span>
-            <span className="expedicao-title-line-2">e sem pré-requisitos.</span>
-          </h2>
+    <section id="expedicao-roblox" className="expedicao-roblox-section">
+      <div className="expedicao-roblox-container">
+        <h2 className="expedicao-roblox-title">
+          <span className="expedicao-title-line-1">{expedicaoData?.title?.line1 || 'Gratuito, online'}</span>
+          <span className="expedicao-title-line-2">{expedicaoData?.title?.line2 || 'e sem pré-requisitos.'}</span>
+        </h2>
 
-          <p className="expedicao-roblox-subtitle">As trilhas da expedição</p>
-          <div className="expedicao-features">
-            <div className={`expedicao-accordion-item ${isTrilhasOpen ? 'expedicao-accordion-open' : ''}`}>
-              <button
-                className="expedicao-feature-box expedicao-feature-box-1 hover-fill"
-                onClick={toggleTrilhas}
-                style={{ '--fill-color': '#00ff9d' }} /* Verde menta neon */
-              >
-                <div className="expedicao-feature-content">
-                  <span className="expedicao-feature-label">TRILHA 01</span>
-                  <p className="expedicao-feature-text">Aprenda Roblox Studio do zero em nossas trilhas de conteúdos</p>
-                </div>
-                <span className="expedicao-arrow">{isTrilhasOpen ? '−' : '+'}</span>
-              </button>
-              {isTrilhasOpen && (
-                <div className="expedicao-accordion-content">
-                  <p className="expedicao-accordion-text">
-                    As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.
-                  </p>
-                  <div className="expedicao-accordion-cta">
-                    <BubbleButton 
-                      onClick={openContactModal}
-                      color="#000"
-                      style={{ '--button-action-color': '#00ff9d' }}
-                    >
-                      Quero começar a criar
-                    </BubbleButton>
-                  </div>
-                </div>
-              )}
-            </div>
-            <button 
-              className="expedicao-feature-box expedicao-feature-box-2 hover-fill"
-              onClick={handleJamClick}
-              style={{ '--fill-color': '#ff0055' }} /* Vermelho/Rosa neon vibrante para JAM */
+        <p className="expedicao-roblox-subtitle">{expedicaoData?.subtitle || 'As trilhas da expedição'}</p>
+        <div className="expedicao-features">
+          <div className={`expedicao-accordion-item ${isTrilhasOpen ? 'expedicao-accordion-open' : ''}`}>
+            <button
+              className="expedicao-feature-box expedicao-feature-box-1"
+              onClick={toggleTrilhas}
             >
               <div className="expedicao-feature-content">
-                <span className="expedicao-feature-label">TRILHA 02</span>
-                <p className="expedicao-feature-text">Inscreva-se numa jam e crie experiências jogáveis de verdade;</p>
+                <span className="expedicao-feature-label">{trilha01?.label || 'TRILHA 01'}</span>
+                <p className="expedicao-feature-text">{trilha01?.title || 'Aprenda Roblox Studio do zero em nossas trilhas de conteúdos'}</p>
               </div>
+              <span className="expedicao-arrow">{isTrilhasOpen ? '−' : '+'}</span>
             </button>
-            <div className={`expedicao-accordion-item ${isImersaoOpen ? 'expedicao-accordion-open' : ''}`}>
-              <button
-                className="expedicao-feature-box expedicao-feature-box-3 hover-fill"
-                onClick={toggleImersao}
-                style={{ '--fill-color': '#ffee00' }} /* Amarelo neon para evento presencial */
+            {isTrilhasOpen && (
+              <div className="expedicao-accordion-content">
+                <p className="expedicao-accordion-text">
+                  {trilha01?.description || 'As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.'}
+                </p>
+                <div className="expedicao-accordion-cta">
+                  <button className="expedicao-accordion-button" onClick={openContactModal}>
+                    {trilha01?.cta || 'Quero começar a criar'}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+          <div className={`expedicao-accordion-item ${isJamOpen ? 'expedicao-accordion-open' : ''}`}>
+            <button
+              className="expedicao-feature-box expedicao-feature-box-2"
+              onClick={toggleJam}
+            >
+              <div className="expedicao-feature-content">
+                <span className="expedicao-feature-label">{trilha02?.label || 'TRILHA 02'}</span>
+                <p className="expedicao-feature-text">{trilha02?.title || 'Inscreva-se numa jam e crie experiências jogáveis de verdade;'}</p>
+              </div>
+              <span className="expedicao-arrow">{isJamOpen ? '−' : '+'}</span>
+            </button>
+            {isJamOpen && (
+              <div className="expedicao-accordion-content">
+                <p className="expedicao-accordion-text">
+                  {trilha02?.description || 'Participe de uma Creator Jam e desenvolva uma experiência jogável em 72 horas, seguindo um tema e regras definidas.'}
+                </p>
+                <div className="expedicao-accordion-cta">
+                  <a 
+                    href="#jam" 
+                    className="expedicao-accordion-button expedicao-accordion-link"
+                    onClick={handleJamLinkClick}
+                  >
+                    {trilha02?.cta || 'Ir para a JAM'}
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+          <div className={`expedicao-accordion-item ${isImersaoOpen ? 'expedicao-accordion-open' : ''}`}>
+            <button
+              className="expedicao-feature-box expedicao-feature-box-3"
+              onClick={toggleImersao}
+            >
+              <div className="expedicao-feature-content">
+                <span className="expedicao-feature-label">{trilha03?.label || 'TRILHA 03'}</span>
+                <p className="expedicao-feature-text">{trilha03?.title || 'Participe da imersão presencial em um evento na sua capital.'}</p>
+              </div>
+              <span className="expedicao-arrow">{isImersaoOpen ? '−' : '+'}</span>
+            </button>
+            {isImersaoOpen && (
+              <div 
+                className="expedicao-accordion-content"
+                style={{
+                  backgroundImage: `url('/images/5.webp?t=${Date.now()}')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
+                }}
               >
-                <div className="expedicao-feature-content">
-                  <span className="expedicao-feature-label">TRILHA 03</span>
-                  <p className="expedicao-feature-text">Participe da imersão presencial em um evento na sua capital.</p>
+                <p className="expedicao-accordion-text">
+                  {trilha03?.description || 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.'}
+                </p>
+                <div className="expedicao-accordion-cta">
+                  <a 
+                    href="#expedicao-na-estrada" 
+                    className="expedicao-accordion-button expedicao-accordion-link"
+                    onClick={handleExpedicaoNaEstradaClick}
+                  >
+                    {trilha03?.cta || 'Ir para Expedição na Estrada'}
+                  </a>
                 </div>
-                <span className="expedicao-arrow">{isImersaoOpen ? '−' : '+'}</span>
-              </button>
-              {isImersaoOpen && (
-                <div 
-                  className="expedicao-accordion-content"
-                  style={{
-                    backgroundImage: `url('/images/5.webp?t=${Date.now()}')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
-                  }}
-                >
-                  <p className="expedicao-accordion-text">
-                    Consulte em breve o calendário do Expedição Roblox na Estrada
-                  </p>
-                  <div className="expedicao-accordion-cta">
-                    <BubbleButton 
-                      onClick={openContactModal}
-                      color="#000"
-                      style={{ '--button-action-color': '#ffee00', '--button-text-color': '#fff' }}
-                    >
-                      Quero saber mais
-                    </BubbleButton>
-                  </div>
-                </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }
 

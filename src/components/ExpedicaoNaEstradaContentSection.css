@@ -1,0 +1,397 @@
+.expedicao-na-estrada-content-section {
+  padding: 0;
+  background: rgb(216, 243, 31);
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.expedicao-na-estrada-content-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 0 1.5rem;
+}
+
+/* Top Section: Title and Description */
+.expedicao-na-estrada-content-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  min-height: 30vh;
+}
+
+.expedicao-na-estrada-content-title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.expedicao-na-estrada-content-col-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 40%;
+}
+
+.expedicao-na-estrada-content-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.expedicao-na-estrada-content-image {
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.expedicao-na-estrada-content-image img {
+  width: 100%;
+  height: auto;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.expedicao-na-estrada-content-title-line-1,
+.expedicao-na-estrada-content-title-line-2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+}
+
+.expedicao-na-estrada-content-title-line-3 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+}
+
+.expedicao-na-estrada-content-intro {
+  max-width: 100%;
+}
+
+.expedicao-na-estrada-content-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0;
+}
+
+/* Bottom Section: Accordion Activities */
+.expedicao-na-estrada-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  padding: 0 0 2rem 0;
+  margin-top: -3rem;
+}
+
+.expedicao-na-estrada-feature-box {
+  padding: 1.25rem 1.5rem;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: #ffffff;
+}
+
+.expedicao-na-estrada-feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.expedicao-na-estrada-feature-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  line-height: 1.2;
+}
+
+.expedicao-na-estrada-arrow {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: #666;
+  line-height: 1;
+  min-width: 24px;
+  text-align: center;
+}
+
+.expedicao-na-estrada-feature-box:hover {
+  transform: scale(1);
+}
+
+.expedicao-na-estrada-feature-box:hover .expedicao-na-estrada-feature-text {
+  font-weight: 700;
+}
+
+.expedicao-na-estrada-features:hover .expedicao-na-estrada-feature-box:not(:hover) {
+  opacity: 0.5;
+}
+
+.expedicao-na-estrada-feature-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000000;
+  margin: 0;
+  position: relative;
+  padding-left: 0;
+  font-weight: 400;
+  transition: font-weight 0.3s ease;
+}
+
+.expedicao-na-estrada-accordion-item {
+  width: 100%;
+}
+
+.expedicao-na-estrada-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+  background: #ffffff;
+}
+
+.expedicao-na-estrada-accordion-open .expedicao-na-estrada-accordion-content {
+  max-height: 5000px;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.expedicao-na-estrada-accordion-text {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0;
+  text-align: left;
+}
+
+.expedicao-na-estrada-atividade-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0;
+  padding-left: 5%;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .expedicao-na-estrada-content-container {
+    padding: 5rem 2rem 0 2rem;
+  }
+
+  .expedicao-na-estrada-content-header {
+    gap: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .expedicao-na-estrada-content-title-section {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+    width: 100%;
+    position: relative;
+  }
+
+  .expedicao-na-estrada-content-col-1 {
+    flex: 0 0 40%;
+    min-width: 300px;
+    gap: 2rem;
+    max-width: 40%;
+  }
+
+  .expedicao-na-estrada-content-title-wrapper {
+    flex: 0 0 auto;
+  }
+
+  .expedicao-na-estrada-content-image {
+    flex: 1;
+    max-width: none;
+    margin-left: auto;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    right: auto;
+    top: auto;
+    z-index: 1;
+  }
+
+  .expedicao-na-estrada-content-title-line-1,
+  .expedicao-na-estrada-content-title-line-2,
+  .expedicao-na-estrada-content-title-line-3 {
+    font-size: 3.5rem;
+  }
+
+  .expedicao-na-estrada-content-intro {
+    flex: 1;
+    max-width: none;
+  }
+
+  .expedicao-na-estrada-content-description {
+    font-size: 1.3rem;
+  }
+
+  .expedicao-na-estrada-features {
+    padding: 1rem 0 2rem 0;
+  }
+
+  .expedicao-na-estrada-feature-box {
+    padding: 1.5rem 2rem;
+  }
+
+  .expedicao-na-estrada-arrow {
+    font-size: 1.75rem;
+  }
+
+  .expedicao-na-estrada-accordion-open .expedicao-na-estrada-accordion-content {
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  .expedicao-na-estrada-accordion-text {
+    font-size: 1.3rem;
+  }
+
+  .expedicao-na-estrada-feature-text {
+    font-size: 1.3rem;
+    padding-left: 0;
+  }
+
+  .expedicao-na-estrada-feature-label {
+    font-size: 0.875rem;
+  }
+
+  .expedicao-na-estrada-atividade-description {
+    font-size: 1.35rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .expedicao-na-estrada-content-container {
+    padding: 6rem 2rem 0 2rem;
+  }
+
+  .expedicao-na-estrada-content-header {
+    gap: 4rem;
+    margin-bottom: 5rem;
+  }
+
+  .expedicao-na-estrada-content-title-section {
+    gap: 4rem;
+  }
+
+  .expedicao-na-estrada-content-col-1 {
+    min-width: 400px;
+    gap: 2.5rem;
+  }
+
+  .expedicao-na-estrada-content-image {
+    max-width: 600px;
+    margin-left: auto;
+  }
+
+  .expedicao-na-estrada-content-title-line-1,
+  .expedicao-na-estrada-content-title-line-2,
+  .expedicao-na-estrada-content-title-line-3 {
+    font-size: 4.5rem;
+  }
+
+  .expedicao-na-estrada-content-description {
+    font-size: 1.4rem;
+  }
+
+  .expedicao-na-estrada-features {
+    padding: 1rem 0 2rem 0;
+  }
+
+  .expedicao-na-estrada-feature-box {
+    padding: 1.75rem 2.5rem;
+  }
+
+  .expedicao-na-estrada-arrow {
+    font-size: 2rem;
+  }
+
+  .expedicao-na-estrada-accordion-open .expedicao-na-estrada-accordion-content {
+    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  }
+
+  .expedicao-na-estrada-accordion-text {
+    font-size: 1.4rem;
+  }
+
+  .expedicao-na-estrada-feature-text {
+    font-size: 1.4rem;
+    padding-left: 0;
+  }
+
+  .expedicao-na-estrada-feature-label {
+    font-size: 1rem;
+  }
+
+  .expedicao-na-estrada-atividade-description {
+    font-size: 1.44rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .expedicao-na-estrada-content-section {
+    padding: 7rem 0;
+  }
+
+  .expedicao-na-estrada-content-title-line-1,
+  .expedicao-na-estrada-content-title-line-2,
+  .expedicao-na-estrada-content-title-line-3 {
+    font-size: 5.5rem;
+  }
+
+  .expedicao-na-estrada-content-description {
+    font-size: 1.5rem;
+  }
+
+  .expedicao-na-estrada-atividade-title {
+    font-size: 2.25rem;
+  }
+
+  .expedicao-na-estrada-atividade-description {
+    font-size: 1.56rem;
+  }
+}
+

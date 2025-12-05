@@ -1,20 +1,22 @@
-import { useEffect, useRef } from 'react'
+import { useState } from 'react'
+import TrilhasPopup from './TrilhasPopup'
 import './QuerCriarTitleSection.css'
 
 function QuerCriarTitleSection() {
-  const ctaButtonRef = useRef(null)
-  const ctaTextRefs = useRef([])
-
-  const setCtaTextRef = (index) => (el) => {
-    ctaTextRefs.current[index] = el
-  }
+  const [isTrilhasPopupOpen, setIsTrilhasPopupOpen] = useState(false)
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
     if (element) {
-      const headerOffset = 100
-      const elementPosition = element.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+      const headerHeight = document.querySelector('.header-nav')?.offsetHeight || 60
+      const proximosEventosSection = document.querySelector('.proximos-eventos-section')
+      const proximosEventosHeight = proximosEventosSection && !proximosEventosSection.classList.contains('hidden') 
+        ? proximosEventosSection.offsetHeight 
+        : 0
+      const extraOffset = -20 // Espaço de um dedo abaixo do início da layer
+      const totalOffset = headerHeight + proximosEventosHeight + extraOffset
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - totalOffset
 
       window.scrollTo({
         top: offsetPosition,
@@ -23,45 +25,52 @@ function QuerCriarTitleSection() {
     }
   }
 
-  useEffect(() => {
-    const updateWidth = () => {
-      if (!ctaButtonRef.current) return
-      const widths = ctaTextRefs.current.filter(Boolean).map((el) => el.scrollWidth)
-      if (!widths.length) return
-      const widest = Math.max(...widths)
-      ctaButtonRef.current.style.minWidth = `${Math.ceil(widest) + 32}px`
+  const handleDesceProPlayClick = (e) => {
+    e.preventDefault()
+    setIsTrilhasPopupOpen(true)
+  }
+
+  const handleSelectTrilha = (trilhaId) => {
+    // Aqui você pode adicionar lógica para redirecionar ou abrir formulário baseado na trilha escolhida
+    console.log('Trilha selecionada:', trilhaId)
+    // Por exemplo, redirecionar para a seção correspondente ou abrir um formulário
+    if (trilhaId === 'trilha-01') {
+      scrollToSection('expedicao-roblox')
+    } else if (trilhaId === 'trilha-02') {
+      // Redirecionar para página da jam ou seção correspondente
+      window.location.hash = '#jam'
+      window.location.reload()
+    } else if (trilhaId === 'trilha-03') {
+      // Redirecionar para seção de eventos ou calendário
+      scrollToSection('expedicao-roblox')
     }
-
-    updateWidth()
-    window.addEventListener('resize', updateWidth)
-
-    return () => window.removeEventListener('resize', updateWidth)
-  }, [])
+  }
 
   return (
-    <section id="quer-criar-title" className="quer-criar-title-section">
-      <div className="quer-criar-title-container">
-        <h2 className="quer-criar-title-title">
-          <span className="quer-criar-title-line-1">Quer criar</span>
-          <span className="quer-criar-title-line-2">com a gente?</span>
-        </h2>
-        <div className="quer-criar-title-subtitle header-cta-button btn-12" ref={ctaButtonRef}>
-          <span className="quer-criar-title-label">Quer criar?</span>
+    <>
+      <section id="quer-criar-title" className="quer-criar-title-section">
+        <div className="quer-criar-title-container">
+          <h2 className="quer-criar-title-title">
+            <span className="quer-criar-title-line-1">Quer criar</span>
+            <span className="quer-criar-title-line-2">com a gente?</span>
+          </h2>
           <a 
             href="#expedicao-roblox" 
-            className="header-cta-link"
-            onClick={(e) => {
-              e.preventDefault()
-              scrollToSection('expedicao-roblox')
-            }}
+            className="quer-criar-title-subtitle"
+            onClick={handleDesceProPlayClick}
           >
-            <span ref={setCtaTextRef(0)}>Quer criar? Desce pro play.</span>
-            <span ref={setCtaTextRef(1)}>Quer criar? Desce pro play.</span>
+            Desce pro play.
           </a>
         </div>
-      </div>
-    </section>
+      </section>
+      <TrilhasPopup 
+        isOpen={isTrilhasPopupOpen}
+        onClose={() => setIsTrilhasPopupOpen(false)}
+        onSelectTrilha={handleSelectTrilha}
+      />
+    </>
   )
 }
 
 export default QuerCriarTitleSection
+

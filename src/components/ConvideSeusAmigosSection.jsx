@@ -1,0 +1,114 @@
+import { useState } from 'react'
+import { useSiteConfig } from '../config/useSiteConfig'
+import './ConvideSeusAmigosSection.css'
+
+function ConvideSeusAmigosSection() {
+  const config = useSiteConfig()
+  const [isOpen, setIsOpen] = useState(false)
+  const [email, setEmail] = useState('')
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState(false)
+  const [showThankYouModal, setShowThankYouModal] = useState(false)
+
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen)
+  }
+
+  const handleChange = (e) => {
+    setEmail(e.target.value)
+    setError('')
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    
+    if (!email.trim()) {
+      setError('Campo obrigatório')
+      return
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError('Email inválido')
+      return
+    }
+    
+    // Aqui você pode adicionar a lógica para enviar o convite para um backend
+    setError('')
+    setEmail('')
+    setShowThankYouModal(true)
+    
+    // Fechar o modal após 3 segundos
+    setTimeout(() => {
+      setShowThankYouModal(false)
+    }, 3000)
+  }
+
+  return (
+    <section className={`convide-seus-amigos-section ${isOpen ? 'convide-open' : ''}`}>
+      <div className="convide-seus-amigos-container">
+        <div className={`convide-seus-amigos-accordion-item ${isOpen ? 'convide-open' : ''}`}>
+          <button
+            className="convide-seus-amigos-header"
+            onClick={toggleAccordion}
+            aria-expanded={isOpen}
+          >
+            <span className="convide-seus-amigos-title-text">{config?.convideAmigos?.title || 'Convide seus amigos'}</span>
+            <span className="convide-seus-amigos-arrow">{isOpen ? '−' : '+'}</span>
+          </button>
+          {isOpen && (
+            <div className="convide-seus-amigos-content">
+              <p className="convide-seus-amigos-description">
+                <span className="convide-line-1">{config?.convideAmigos?.description?.[0] || 'A cada 3 amigos indicados que se inscrevam em alguma ação da expedição,'}</span>
+                <br />
+                <span className="convide-line-2">{config?.convideAmigos?.description?.[1] || 'você ganha acesso a eventos exclusivos como mentoria com especialistas sobre criação no Roblox.'}</span>
+              </p>
+              <form className="convide-seus-amigos-form" onSubmit={handleSubmit} onClick={(e) => e.stopPropagation()}>
+                <div className="convide-seus-amigos-form-row">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={handleChange}
+                    className={`convide-seus-amigos-input ${error ? 'error' : ''}`}
+                    placeholder={config?.convideAmigos?.form?.emailLabel || 'Email do amigo'}
+                  />
+                  <button type="submit" className="convide-seus-amigos-submit" onClick={(e) => e.stopPropagation()}>
+                    {config?.convideAmigos?.form?.button || 'Enviar convite'}
+                  </button>
+                </div>
+                {error && <span className="convide-seus-amigos-error">{error}</span>}
+              </form>
+            </div>
+          )}
+        </div>
+      </div>
+      
+      {showThankYouModal && (
+        <div 
+          className="convide-thank-you-overlay"
+          onClick={() => setShowThankYouModal(false)}
+        >
+          <div 
+            className="convide-thank-you-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="convide-thank-you-close"
+              onClick={() => setShowThankYouModal(false)}
+              aria-label="Fechar"
+            >
+              ×
+            </button>
+            <h3 className="convide-thank-you-title">{config?.convideAmigos?.form?.thankYou?.title || 'Obrigado!'}</h3>
+            <p className="convide-thank-you-message">
+              {config?.convideAmigos?.form?.thankYou?.message || 'Seu convite foi enviado com sucesso.'}
+            </p>
+          </div>
+        </div>
+      )}
+    </section>
+  )
+}
+
+export default ConvideSeusAmigosSection
+

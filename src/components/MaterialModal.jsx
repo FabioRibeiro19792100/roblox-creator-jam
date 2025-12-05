@@ -8,6 +8,10 @@ function MaterialModal({ isOpen, onClose, type, onSuccess }) {
   })
   const [errors, setErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [showInvite, setShowInvite] = useState(false)
+  const [inviteEmail, setInviteEmail] = useState('')
+  const [inviteError, setInviteError] = useState('')
+  const [inviteSuccess, setInviteSuccess] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -45,18 +49,44 @@ function MaterialModal({ isOpen, onClose, type, onSuccess }) {
     
     if (validate()) {
       setIsSubmitted(true)
+      setShowInvite(true)
       // Chama a função de sucesso passada como prop
       if (onSuccess) {
         onSuccess(formData)
       }
-      
-      // Fecha o modal após 1 segundo
-      setTimeout(() => {
-        setFormData({ nome: '', email: '' })
-        setIsSubmitted(false)
-        onClose()
-      }, 1000)
     }
+  }
+
+  const handleInviteChange = (e) => {
+    setInviteEmail(e.target.value)
+    setInviteError('')
+  }
+
+  const handleInviteSubmit = (e) => {
+    e.preventDefault()
+    
+    if (!inviteEmail.trim()) {
+      setInviteError('Campo obrigatório')
+      return
+    }
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inviteEmail)) {
+      setInviteError('Email inválido')
+      return
+    }
+    
+    // Aqui você pode adicionar a lógica para enviar o convite para um backend
+    setInviteSuccess(true)
+    setInviteEmail('')
+    
+    // Resetar tudo após 3 segundos
+    setTimeout(() => {
+      setFormData({ nome: '', email: '' })
+      setIsSubmitted(false)
+      setShowInvite(false)
+      setInviteSuccess(false)
+      onClose()
+    }, 3000)
   }
 
   if (!isOpen) return null
@@ -120,6 +150,36 @@ function MaterialModal({ isOpen, onClose, type, onSuccess }) {
             <p className="material-form-success-message">
               {isDownload ? 'O download começará em instantes...' : 'Redirecionando para o vídeo...'}
             </p>
+            
+            {showInvite && !inviteSuccess && (
+              <div className="material-invite-section">
+                <h3 className="material-invite-title">Convide seus amigos!</h3>
+                <p className="material-invite-description">
+                  A cada 3 amigos indicados que se inscrevam em alguma ação da expedição, você ganha acesso a eventos exclusivos como mentoria com especialistas sobre criação no Roblox.
+                </p>
+                <form className="material-invite-form" onSubmit={handleInviteSubmit}>
+                  <input
+                    type="email"
+                    value={inviteEmail}
+                    onChange={handleInviteChange}
+                    className={`material-invite-input ${inviteError ? 'error' : ''}`}
+                    placeholder="Email do amigo"
+                  />
+                  {inviteError && <span className="material-form-error">{inviteError}</span>}
+                  <button type="submit" className="material-invite-submit">
+                    Enviar convite
+                  </button>
+                </form>
+              </div>
+            )}
+            
+            {inviteSuccess && (
+              <div className="material-invite-success">
+                <p className="material-invite-success-message">
+                  Convite enviado com sucesso!
+                </p>
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -128,4 +188,5 @@ function MaterialModal({ isOpen, onClose, type, onSuccess }) {
 }
 
 export default MaterialModal
+
 

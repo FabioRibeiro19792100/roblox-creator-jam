@@ -305,6 +305,39 @@
   box-shadow: none;
 }
 
+.expedicao-accordion-link {
+  background: #000;
+  border: none;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 0;
+  display: inline-block;
+  transition: all 0.2s ease;
+  box-shadow: none;
+  text-align: left;
+  white-space: nowrap;
+  font-family: inherit;
+  text-decoration: none;
+  width: auto;
+  min-width: auto;
+}
+
+.expedicao-accordion-link:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: none;
+  color: #fff;
+}
+
+.expedicao-accordion-link:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
   .expedicao-roblox-container {
@@ -345,7 +378,8 @@
     font-size: 1.3rem;
   }
 
-  .expedicao-accordion-button {
+  .expedicao-accordion-button,
+  .expedicao-accordion-link {
     font-size: 1.3rem;
     padding: 1.25rem 2.5rem;
   }
@@ -404,7 +438,8 @@
     font-size: 1.4rem;
   }
 
-  .expedicao-accordion-button {
+  .expedicao-accordion-button,
+  .expedicao-accordion-link {
     font-size: 1.4rem;
     padding: 1.5rem 3rem;
   }
@@ -446,7 +481,8 @@
     font-size: 1.5rem;
   }
 
-  .expedicao-accordion-button {
+  .expedicao-accordion-button,
+  .expedicao-accordion-link {
     font-size: 1.5rem;
   }
 
