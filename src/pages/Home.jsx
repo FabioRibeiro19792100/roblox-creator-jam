@@ -1,3 +1,4 @@
+import React from 'react'
 import Header from '../components/Header'
 import ProximosEventosSection from '../components/ProximosEventosSection'
 import HomeHeroSection from '../components/HomeHeroSection'
@@ -26,4 +27,3 @@ function Home() {
 }
 
 export default Home
-

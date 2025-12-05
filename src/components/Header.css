@@ -43,6 +43,10 @@
 }
 
 .nav {
+  display: block;
+}
+
+.nav-mobile {
   display: none;
 }
 
@@ -171,8 +175,10 @@
   padding: 0; /* Remove padding as spans handle layout */
   -webkit-perspective: 230px;
   perspective: 230px;
+  transform-style: preserve-3d;
   background: transparent; /* Override default */
   display: inline-block; /* Ensure it behaves as block container */
+  vertical-align: middle;
 }
 
 .btn-12 a {
@@ -191,6 +197,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
   border-radius: 0; /* Match project style */
   margin: 0;
@@ -224,6 +232,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
   border-radius: 0;
   margin: 0;
@@ -305,16 +315,32 @@
 }
 
 .hamburger span {
+  position: absolute;
+  left: 0;
   display: block;
   height: 3px;
   width: 100%;
   background: #fff;
   border-radius: 2px;
   transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  top: 7.5px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 15px;
 }
 
 .hamburger-open span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
+  top: 7.5px;
+  transform: rotate(45deg);
 }
 
 .hamburger-open span:nth-child(2) {
@@ -322,54 +348,63 @@
 }
 
 .hamburger-open span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  top: 7.5px;
+  transform: rotate(-45deg);
 }
 
 /* Mobile Menu */
 @media (max-width: 767px) {
-  .nav {
+  .nav-desktop {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: block;
     position: fixed;
     top: 60px;
     left: 0;
     right: 0;
-    background: #000;
+    background: rgba(83, 0, 255, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    z-index: 10002;
+    padding: 0;
   }
 
-  .nav-open {
+  .nav-mobile.nav-open {
     max-height: 400px;
     padding: 1rem 0;
   }
 
-  .nav-list {
+  .nav-mobile .nav-list {
     flex-direction: column;
     gap: 0;
     padding: 0 1.5rem;
   }
 
-  .nav-list li {
+  .nav-mobile .nav-list li {
     border-bottom: 1px solid #333;
   }
 
-  .nav-list li:last-child {
+  .nav-mobile .nav-list li:last-child {
     border-bottom: none;
   }
 
-  .nav-list li a {
+  .nav-mobile .nav-list li a {
     display: block;
     padding: 1rem 0;
     font-size: 1rem;
     color: #fff;
   }
 
-  .nav-list li a::after {
+  .nav-mobile .nav-list li a::after {
     display: none;
   }
 
-  .nav-dropdown {
+  .nav-mobile .nav-dropdown {
     position: static;
     background: #111;
     margin-top: 0;
@@ -384,20 +419,20 @@
     transition: max-height 0.3s ease, padding 0.3s ease;
   }
 
-  .nav-dropdown-open {
+  .nav-mobile .nav-dropdown-open {
     max-height: 300px;
     padding: 0.5rem 0 0.5rem 1.5rem;
   }
 
-  .nav-dropdown li {
+  .nav-mobile .nav-dropdown li {
     border-bottom: 1px solid #222;
   }
 
-  .nav-dropdown li:last-child {
+  .nav-mobile .nav-dropdown li:last-child {
     border-bottom: none;
   }
 
-  .nav-dropdown li a {
+  .nav-mobile .nav-dropdown li a {
     padding: 0.75rem 0;
   }
 }
@@ -418,15 +453,30 @@
     height: 70px; /* Altura fixa tablet */
   }
 
-  .header-cta-wrapper {
-    display: flex;
-    align-items: center;
-  }
+.header-cta-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 
-  .header-cta-button {
-    font-size: 1rem;
-    padding: 0.625rem 2rem;
-  }
+.header-cta-button {
+  font-size: 1rem;
+  padding: 0.625rem 2rem;
+  min-height: 40px;
+}
+}
+
+.header-cta-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.header-cta-text-combo span {
+  display: inline-flex;
+  white-space: nowrap;
 }
 
 /* Desktop */
