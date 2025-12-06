@@ -16,21 +16,25 @@ function PlaceholderSection() {
     <section 
       id="placeholder" 
       className={`placeholder-section sweep-fill ${isOpen ? 'manifesto-open sweep-fill-active' : ''}`}
+      role="region"
+      aria-labelledby="placeholder-title"
     >
       <div className="placeholder-container">
         <div className={`placeholder-accordion-item ${isOpen ? 'placeholder-open' : ''}`}>
-          <button
-            className="placeholder-header plus-indicator-trigger"
-            onClick={toggleAccordion}
-            aria-expanded={isOpen}
-            aria-controls="placeholder-manifesto-content"
-          >
-            <span className="placeholder-title-text">{config?.manifesto?.title || 'E o jogo agora é seu.'}</span>
-            <span className={`placeholder-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
-            <span className="sr-only">
-              {isOpen ? 'Ocultar manifesto' : 'Mostrar manifesto'}
-            </span>
-          </button>
+          <h2 id="placeholder-title" className="placeholder-heading">
+            <button
+              className="placeholder-header plus-indicator-trigger"
+              onClick={toggleAccordion}
+              aria-expanded={isOpen}
+              aria-controls="placeholder-manifesto-content"
+            >
+              <span className="placeholder-title-text">{config?.manifesto?.title || 'E o jogo agora é seu.'}</span>
+              <span className={`placeholder-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
+              <span className="sr-only">
+                {isOpen ? 'Ocultar manifesto' : 'Mostrar manifesto'}
+              </span>
+            </button>
+          </h2>
           {isOpen && (
             <div className="placeholder-content" id="placeholder-manifesto-content">
               <div className="placeholder-manifesto">

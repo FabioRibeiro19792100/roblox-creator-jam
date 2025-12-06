@@ -14,11 +14,18 @@
   overflow: visible;
 }
 
+.placeholder-section:hover,
+.placeholder-section.manifesto-open {
+  background: #d32f2f;
+}
+
+
 .placeholder-container {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 2.1rem 1.5rem;
+  background: #ff0000;
 }
 
 .placeholder-accordion-item {
@@ -27,6 +34,14 @@
   transition: all 0.3s ease;
   padding: 0;
   overflow: visible; /* evita cortar o conteúdo quando o sweep-fill do pai está ativo */
+}
+
+.placeholder-heading {
+  margin: 0;
+}
+
+.placeholder-heading .placeholder-header {
+  width: 100%;
 }
 
 .placeholder-header {
@@ -50,15 +65,21 @@
   background: transparent;
 }
 
-.placeholder-title-text {
-  font-size: 2.5rem !important;
-  font-weight: 900 !important;
+.placeholder-heading .placeholder-title-text {
+  font-size: 2.5rem;
+  font-weight: 900;
   color: #000;
   line-height: 1.1; /* evita cortar descendentes como "g" quando o container anima */
   letter-spacing: -1px;
   margin: 0;
   font-family: inherit;
   transition: color 0.3s ease;
+}
+
+.placeholder-section:hover .placeholder-heading .placeholder-title-text,
+.placeholder-section.manifesto-open .placeholder-heading .placeholder-title-text,
+.placeholder-header:focus-visible .placeholder-title-text {
+  color: #000; /* garante contraste mesmo durante o sweep-fill */
 }
 
 .placeholder-arrow {
@@ -147,7 +168,7 @@
 }
 
 .placeholder-manifesto-button:hover {
-  background: #333;
+  background: #0056d6;
   transform: translateY(-2px);
   box-shadow: none;
 }
@@ -167,9 +188,9 @@
     padding: 0;
   }
 
-  .placeholder-title-text {
-    font-size: 3.5rem !important;
-    font-weight: 900 !important;
+  .placeholder-heading .placeholder-title-text {
+    font-size: 3.5rem;
+    font-weight: 900;
   }
 
   .placeholder-arrow {
@@ -233,9 +254,9 @@
     padding: 0;
   }
 
-  .placeholder-title-text {
-    font-size: 4.5rem !important;
-    font-weight: 900 !important;
+  .placeholder-heading .placeholder-title-text {
+    font-size: 4.5rem;
+    font-weight: 900;
   }
 
   .placeholder-arrow {
@@ -291,9 +312,9 @@
 
 /* Large Desktop */
 @media (min-width: 1440px) {
-  .placeholder-title-text {
-    font-size: 5.5rem !important;
-    font-weight: 900 !important;
+  .placeholder-heading .placeholder-title-text {
+    font-size: 5.5rem;
+    font-weight: 900;
   }
 
   .placeholder-arrow {
