@@ -26,6 +26,7 @@
   border: none;
   transition: all 0.3s ease;
   padding: 0;
+  overflow: visible; /* evita cortar o conteúdo quando o sweep-fill do pai está ativo */
 }
 
 .placeholder-header {
@@ -53,7 +54,7 @@
   font-size: 2.5rem !important;
   font-weight: 900 !important;
   color: #000;
-  line-height: 0.95;
+  line-height: 1.1; /* evita cortar descendentes como "g" quando o container anima */
   letter-spacing: -1px;
   margin: 0;
   font-family: inherit;

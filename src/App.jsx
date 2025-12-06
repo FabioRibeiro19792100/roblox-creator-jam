@@ -16,6 +16,20 @@ import IntroController from './components/utilitarios/IntroController'
 import './components/utilitarios/AnimationBase.css'
 import './App.css'
 
+const normalizeHash = (hash = '') => {
+  if (!hash) return ''
+  return hash.startsWith('#/') ? `#${hash.slice(2)}` : hash
+}
+
+export const resolvePageFromHash = (hashValue = '') => {
+  const hash = normalizeHash(hashValue)
+  if (hash === '#admin') return 'admin'
+  if (hash === '#jam') return 'jam'
+  if (hash.startsWith('#biblioteca')) return 'biblioteca'
+  if (hash === '#expedicao-na-estrada') return 'expedicao-na-estrada'
+  return 'home'
+}
+
 // Contexto para compartilhar estado de navegação
 export const NavigationContext = React.createContext()
 // Contexto para compartilhar estado do modal de contato
@@ -24,15 +38,7 @@ export const ContactModalContext = React.createContext()
 export const MaterialModalContext = React.createContext()
 
 function App() {
-  const [currentPage, setCurrentPage] = useState(() => {
-    // Verifica hash inicial
-    const hash = window.location.hash
-    if (hash === '#admin' || hash === '#/admin') return 'admin'
-    if (hash === '#jam' || hash === '#/jam') return 'jam'
-    if (hash === '#biblioteca' || hash === '#/biblioteca') return 'biblioteca'
-    if (hash === '#expedicao-na-estrada' || hash === '#/expedicao-na-estrada') return 'expedicao-na-estrada'
-    return 'home'
-  })
+  const [currentPage, setCurrentPage] = useState(() => resolvePageFromHash(window.location.hash))
 
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [isMaterialModalOpen, setIsMaterialModalOpen] = useState(false)
@@ -42,17 +48,7 @@ function App() {
     // Escuta mudanças no hash
     const handleHashChange = () => {
       const newHash = window.location.hash
-      if (newHash === '#admin' || newHash === '#/admin') {
-        setCurrentPage('admin')
-      } else if (newHash === '#jam' || newHash === '#/jam') {
-        setCurrentPage('jam')
-      } else if (newHash === '#biblioteca' || newHash === '#/biblioteca') {
-        setCurrentPage('biblioteca')
-      } else if (newHash === '#expedicao-na-estrada' || newHash === '#/expedicao-na-estrada') {
-        setCurrentPage('expedicao-na-estrada')
-      } else {
-        setCurrentPage('home')
-      }
+      setCurrentPage(resolvePageFromHash(newHash))
     }
 
     window.addEventListener('hashchange', handleHashChange)

@@ -45,19 +45,23 @@ function ConvideSeusAmigosSection() {
   }
 
   return (
-    <section className={`convide-seus-amigos-section ${isOpen ? 'convide-open' : ''}`}>
+    <section className={`convide-seus-amigos-section sweep-fill ${isOpen ? 'convide-open sweep-fill-active' : ''}`}>
       <div className="convide-seus-amigos-container">
         <div className={`convide-seus-amigos-accordion-item ${isOpen ? 'convide-open' : ''}`}>
           <button
-            className="convide-seus-amigos-header"
+            className="convide-seus-amigos-header plus-indicator-trigger"
             onClick={toggleAccordion}
             aria-expanded={isOpen}
+            aria-controls="convide-amigos-content"
           >
             <span className="convide-seus-amigos-title-text">{config?.convideAmigos?.title || 'Convide seus amigos'}</span>
-            <span className="convide-seus-amigos-arrow">{isOpen ? '−' : '+'}</span>
+            <span className={`convide-seus-amigos-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
+            <span className="sr-only">
+              {isOpen ? 'Ocultar formulário de convite' : 'Mostrar formulário de convite'}
+            </span>
           </button>
           {isOpen && (
-            <div className="convide-seus-amigos-content">
+            <div className="convide-seus-amigos-content" id="convide-amigos-content">
               <p className="convide-seus-amigos-description">
                 <span className="convide-line-1">{config?.convideAmigos?.description?.[0] || 'A cada 3 amigos indicados que se inscrevam em alguma ação da expedição,'}</span>
                 <br />
@@ -111,4 +115,3 @@ function ConvideSeusAmigosSection() {
 }
 
 export default ConvideSeusAmigosSection
-

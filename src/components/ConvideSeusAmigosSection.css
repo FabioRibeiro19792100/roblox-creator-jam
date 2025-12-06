@@ -3,9 +3,10 @@
   background: rgb(60, 254, 207);
   padding: 0;
   position: relative;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
+  overflow: hidden;
+  --sweep-color: rgba(60, 254, 207, 0.65);
+  --sweep-duration: 0.4s;
+  --sweep-easing: cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .convide-seus-amigos-container {
@@ -23,6 +24,7 @@
   border: none;
   transition: all 0.3s ease;
   padding: 0;
+  overflow: visible;
 }
 
 .convide-seus-amigos-accordion-item.convide-open {
@@ -45,15 +47,11 @@
   font-weight: normal;
 }
 
-.convide-seus-amigos-header:hover {
-  background: rgba(0, 0, 0, 0.05);
-}
-
 .convide-seus-amigos-title-text {
   font-size: 2.5rem !important;
   font-weight: 900 !important;
   color: #000;
-  line-height: 0.95;
+  line-height: 1.1;
   letter-spacing: -1px;
   margin: 0;
   font-family: inherit;
@@ -61,12 +59,14 @@
 
 .convide-seus-amigos-arrow {
   flex-shrink: 0;
-  font-size: 2.5rem;
-  font-weight: 100;
-  color: #666;
-  line-height: 1;
-  min-width: 30px;
-  text-align: center;
+  --plus-size: 2.5rem;
+  --plus-stroke: 3px;
+  --plus-color: #666;
+  --plus-hover-color: #000;
+  --plus-open-color: #000;
+  --plus-hover-rotate: 90deg;
+  --plus-open-rotate: 45deg;
+  --plus-hover-scale: 1.1;
 }
 
 .convide-seus-amigos-content {
@@ -392,4 +392,3 @@
     font-size: 1.4rem;
   }
 }
-
