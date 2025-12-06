@@ -15,6 +15,35 @@
   --border-radius: 12px;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --header-height: 60px;
+  --events-height: 48px;
+  --layer-header: 1002;
+  --layer-events: 1000;
+  --layer-hero: 0;
+  --layer-hero-image: 1;
+  --site-horizontal-padding: 1.5rem;
+  --hero-horizontal-padding: clamp(2rem, 6vw, 4.5rem);
+  --hero-vertical-padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 70px;
+    --events-height: 52px;
+    --site-horizontal-padding: 2rem;
+    --hero-horizontal-padding: clamp(2.5rem, 6vw, 5rem);
+    --hero-vertical-padding: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 80px;
+    --events-height: 56px;
+    --site-horizontal-padding: 2rem;
+    --hero-horizontal-padding: clamp(3rem, 7vw, 5.5rem);
+    --hero-vertical-padding: 2rem;
+  }
 }
 
 body {
@@ -37,6 +66,3 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
-
-
-

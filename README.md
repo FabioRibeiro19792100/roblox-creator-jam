@@ -75,3 +75,8 @@ O projeto é totalmente responsivo, com breakpoints para:
 - Tablet (≥ 768px)
 - Desktop (≥ 1024px)
 
+## 🧭 Regras fixas do Hero
+
+- **Nunca** deixe o hero subir acima do `header` / `proximos eventos`: a distância `HERO_TOP_SPACING` garante que o conteúdo fique visível.  
+- O `z-index` do hero deve permanecer baixo (`var(--layer-hero, 0)`), assim nada passa por cima dele.  
+- O texto do hero sempre usa o mesmo padding horizontal que o resto do site via `--site-horizontal-padding` para manter o alinhamento com o nav.

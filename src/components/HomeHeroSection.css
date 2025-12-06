@@ -1,24 +1,49 @@
 .home-hero-section {
-  height: 64vh;
-  padding: 0;
-  margin-top: 120px; /* Compensate for fixed header + eventos section */
+  min-height: var(--hero-min-height, 64vh);
   position: relative;
+  z-index: var(--layer-hero, 0); /* Mantém o hero atrás do header e da barra de eventos */
   width: 100%;
   background: #ffffff;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.home-hero-inner {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, clamp(320px, 40vw, 520px));
+  gap: var(--hero-horizontal-padding, 2rem);
+  align-items: stretch;
+}
+
+.home-hero-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: clamp(0.4rem, 0.85vw, 1rem);
+}
+
+.home-hero-content > .home-hero-header,
+.home-hero-content > .home-hero-title,
+.home-hero-content > .home-hero-description {
+  width: min(100%, var(--hero-content-max-width, 800px));
 }
 
 .home-hero-image-layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40%;
+  position: relative;
+  width: 100%;
   height: 100%;
   background: transparent;
-  z-index: 1;
+  z-index: var(--layer-hero-image, 1);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   overflow: hidden;
 }
 
@@ -27,19 +52,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.home-hero-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0.25rem 1.5rem;
-  padding-right: calc(40% + 3rem);
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 1rem;
 }
 
 .home-hero-header {
@@ -63,12 +75,14 @@
   font-size: 2.5rem;
   font-weight: 900;
   color: #000;
-  margin: 0 0 1.5rem 0;
+  margin: 0;
   line-height: 0.95;
   letter-spacing: -1px;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  align-self: flex-start;
+  text-align: left;
 }
 
 .title-line-wrapper {
@@ -87,7 +101,8 @@
 .home-hero-description {
   max-width: 600px;
   flex-shrink: 0;
-  margin-bottom: 4rem;
+  align-self: flex-start;
+  text-align: left;
 }
 
 .home-hero-description-paragraph {
@@ -103,17 +118,6 @@
 
 /* Tablet */
 @media (min-width: 768px) {
-  .home-hero-section {
-    margin-top: 150px; /* Compensate for fixed header + eventos section */
-    height: 64vh;
-  }
-
-  .home-hero-container {
-    padding: 0.75rem 2rem;
-    padding-right: calc(40% + 3rem);
-    padding-top: 1.25rem;
-  }
-
   .home-hero-header {
     margin-bottom: 0.75rem;
   }
@@ -124,7 +128,6 @@
 
   .home-hero-title {
     font-size: 3.5rem;
-    margin-bottom: 2rem;
   }
 
   .home-hero-description-paragraph {
@@ -134,17 +137,6 @@
 
 /* Desktop */
 @media (min-width: 1024px) {
-  .home-hero-section {
-    margin-top: 180px; /* Compensate for fixed header + eventos section */
-    height: 64vh;
-  }
-
-  .home-hero-container {
-    padding: 1rem 2rem;
-    padding-right: calc(40% + 3rem);
-    padding-top: 1.5rem;
-  }
-
   .home-hero-header {
     margin-bottom: 1rem;
   }
@@ -155,12 +147,10 @@
 
   .home-hero-title {
     font-size: 4.5rem;
-    margin-bottom: 2.5rem;
   }
 
   .home-hero-description {
     max-width: 700px;
-    margin-bottom: 5rem;
   }
 
   .home-hero-description-paragraph {
@@ -170,12 +160,6 @@
 
 /* Large Desktop */
 @media (min-width: 1440px) {
-  .home-hero-container {
-    padding: 1.5rem 2rem;
-    padding-right: calc(40% + 3rem);
-    padding-top: 2rem;
-  }
-
   .home-hero-expedicao-roblox {
     font-size: 1.25rem; /* Slightly larger */
   }
