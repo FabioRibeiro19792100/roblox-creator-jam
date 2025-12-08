@@ -10,6 +10,21 @@
   padding: 0;
   margin: 0;
   position: relative;
+  background-image: url('/images/dad-son.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.footer-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(83, 0, 255, 0.85); /* Overlay azul */
+  z-index: 1;
 }
 
 .footer-cta-container {
@@ -17,6 +32,8 @@
   width: 100%;
   margin: 0 auto;
   padding: 4rem 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .footer-title {
