@@ -27,3 +27,5 @@ function FAQPopup({ isOpen, onClose }) {
 
 export default FAQPopup
 
+
+

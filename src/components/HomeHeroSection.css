@@ -119,6 +119,30 @@
   margin-bottom: 0;
 }
 
+.home-hero-cta {
+  margin-top: 2rem;
+  flex-shrink: 0;
+}
+
+.home-hero-roblox-button {
+  background: rgb(83, 0, 255);
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.home-hero-roblox-button:hover {
+  background: rgb(100, 20, 255);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(83, 0, 255, 0.3);
+}
+
 /* Tablet */
 @media (min-width: 768px) {
   .home-hero-header {
@@ -137,8 +161,14 @@
     font-size: 1.3rem;
   }
 
+<<<<<<< HEAD
   .home-hero-inner {
     padding: 5rem 2rem 0 2rem;
+=======
+  .home-hero-roblox-button {
+    font-size: 1.125rem;
+    padding: 1.125rem 2.5rem;
+>>>>>>> origin/main
   }
 }
 
@@ -162,6 +192,11 @@
 
   .home-hero-description-paragraph {
     font-size: 1.4rem;
+  }
+
+  .home-hero-roblox-button {
+    font-size: 1.25rem;
+    padding: 1.25rem 3rem;
   }
 }
 

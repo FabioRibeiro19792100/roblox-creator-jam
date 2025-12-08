@@ -8,11 +8,20 @@ function EventosNaEstradaSection() {
   const expedicaoNaEstrada = config?.expedicaoNaEstrada || {}
   const eventos = expedicaoNaEstrada?.eventos || []
   const [isInscricaoModalOpen, setIsInscricaoModalOpen] = useState(false)
+  const [eventoSelecionado, setEventoSelecionado] = useState(null)
   const gridRef = useRef(null)
   
-  const handleInscricaoClick = (e) => {
+  const handleInscricaoClick = (evento, sessao, e) => {
     e.preventDefault()
     e.stopPropagation()
+    setEventoSelecionado({
+      id: `${evento.id}-${sessao.id}`,
+      cidade: evento.cidade,
+      data: evento.data,
+      local: evento.local,
+      sessaoNome: sessao.nome,
+      sessaoHorario: sessao.horario
+    })
     setIsInscricaoModalOpen(true)
   }
 
@@ -203,7 +212,7 @@ function EventosNaEstradaSection() {
                     <button 
                       key={sessao.id} 
                       className="eventos-na-estrada-sessao-box"
-                      onClick={handleInscricaoClick}
+                      onClick={(e) => handleInscricaoClick(evento, sessao, e)}
                     >
                       <p className="eventos-na-estrada-sessao-nome">{sessao.nome}</p>
                       <p className="eventos-na-estrada-sessao-horario">{sessao.horario}</p>
@@ -217,7 +226,13 @@ function EventosNaEstradaSection() {
       </div>
       <InscricaoModal 
         isOpen={isInscricaoModalOpen} 
-        onClose={() => setIsInscricaoModalOpen(false)} 
+        onClose={() => {
+          setIsInscricaoModalOpen(false)
+          setEventoSelecionado(null)
+        }}
+        tipoInscricao="estrada"
+        eventoSelecionado={eventoSelecionado}
+        eventosDisponiveis={eventosData}
       />
     </section>
   )

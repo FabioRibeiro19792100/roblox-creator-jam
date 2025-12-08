@@ -49,6 +49,11 @@ function HomeHeroSection() {
     marginBottom: heroVerticalPadding
   }
 
+  const handleCadastrarRoblox = () => {
+    // Abrir página de cadastro do Roblox em nova aba
+    window.open('https://www.roblox.com/signup', '_blank')
+  }
+
   return (
     <section
       id="home-hero"
@@ -69,13 +74,15 @@ function HomeHeroSection() {
           width: '100px', 
           height: '100px',
           objectFit: 'contain',
-          zIndex: 99999
+          zIndex: 2147483647
         }}
       />
       <div className="home-hero-inner" style={innerStyle}>
         <div className="home-hero-content" style={contentStyle}>
           <div className="home-hero-header" style={{ marginBottom: heroVerticalPadding }}>
-            <span className="home-hero-expedicao-roblox">{config?.hero?.home?.label || 'EXPEDIÇÃO ROBLOX'}</span>
+            <span className="home-hero-expedicao-roblox" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
+              {config?.hero?.home?.label || 'EXPEDIÇÃO ROBLOX'}
+            </span>
           </div>
           <h1 className="home-hero-title" style={{ marginBottom: heroVerticalPadding }} data-align="content">
             <span className="title-line-1">{config?.hero?.home?.title?.line1 || 'Criar é'}</span>
@@ -88,6 +95,28 @@ function HomeHeroSection() {
             <p className="home-hero-description-paragraph">
               {config?.hero?.home?.description?.[1] || 'Passo a passo, do primeiro clique no Studio até ver amigos jogando algo que você criou.'}
             </p>
+          </div>
+          
+          <div className="home-hero-cta">
+            <button 
+              className="home-hero-roblox-button"
+              onClick={handleCadastrarRoblox}
+              style={{
+                marginTop: '1rem',
+                padding: '12px 24px',
+                fontSize: '1rem',
+                fontWeight: 'bold',
+                backgroundColor: '#00b06f',
+                color: 'white',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s',
+                pointerEvents: 'auto'
+              }}
+            >
+              Crie sua conta no Roblox
+            </button>
           </div>
         </div>
       </div>

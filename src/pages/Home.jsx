@@ -8,6 +8,7 @@ import OQueERobloxStudioSection from '../components/OQueERobloxStudioSection'
 import QuerCriarTitleSection from '../components/QuerCriarTitleSection'
 import QuerCriarSection from '../components/QuerCriarSection'
 import FooterSection from '../components/FooterSection'
+import RobloxFloatButton from '../components/RobloxFloatButton'
 
 function Home() {
   return (
@@ -22,6 +23,7 @@ function Home() {
       <QuerCriarSection />
       {/* Outras seções podem ser adicionadas aqui */}
       <FooterSection />
+      <RobloxFloatButton />
     </div>
   )
 }

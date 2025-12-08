@@ -1,0 +1,416 @@
+.expedicao-inscricao-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.expedicao-inscricao-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  padding: 2rem;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.expedicao-inscricao-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  font-family: inherit;
+}
+
+.expedicao-inscricao-close:hover {
+  opacity: 1;
+}
+
+.expedicao-inscricao-step {
+  padding: 0;
+}
+
+.expedicao-inscricao-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.expedicao-inscricao-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0 0 2rem 0;
+}
+
+.expedicao-inscricao-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expedicao-inscricao-btn-primary {
+  background: rgb(83, 0, 255);
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.expedicao-inscricao-btn-primary:hover {
+  background: rgb(100, 20, 255);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(83, 0, 255, 0.3);
+}
+
+.expedicao-inscricao-btn-secondary {
+  background: transparent;
+  color: #000;
+  border: 2px solid #000;
+  padding: 0.875rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.expedicao-inscricao-btn-secondary:hover {
+  background: #000;
+  color: #fff;
+}
+
+.expedicao-inscricao-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.expedicao-inscricao-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.expedicao-inscricao-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.required {
+  color: #ff0000;
+}
+
+.expedicao-inscricao-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #000;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.expedicao-inscricao-input:focus {
+  border-color: rgb(83, 0, 255);
+}
+
+.expedicao-inscricao-input.error {
+  border-color: #ff0000;
+}
+
+.expedicao-inscricao-input::placeholder {
+  color: #999;
+}
+
+.expedicao-inscricao-hint {
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: -0.25rem;
+}
+
+.expedicao-inscricao-error {
+  font-size: 0.875rem;
+  color: #ff0000;
+}
+
+.expedicao-inscricao-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #000;
+}
+
+.expedicao-inscricao-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: rgb(83, 0, 255);
+}
+
+.expedicao-inscricao-age-check {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #f9f9f9;
+}
+
+.expedicao-inscricao-age-text {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+}
+
+.expedicao-inscricao-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #000;
+  outline: none;
+  transition: border-color 0.2s ease;
+  background: #fff;
+  cursor: pointer;
+}
+
+.expedicao-inscricao-select:focus {
+  border-color: rgb(83, 0, 255);
+}
+
+.expedicao-inscricao-select.error {
+  border-color: #ff0000;
+}
+
+.expedicao-inscricao-evento-selecionado {
+  border: 2px solid rgb(83, 0, 255);
+  border-radius: 8px;
+  padding: 1rem;
+  background: #f0f0ff;
+}
+
+.expedicao-inscricao-evento-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.expedicao-inscricao-evento-cidade {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.expedicao-inscricao-evento-data {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0;
+}
+
+.expedicao-inscricao-evento-local {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+}
+
+.expedicao-inscricao-evento-sessao {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.expedicao-inscricao-age-btn {
+  background: rgb(83, 0, 255);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+  transition: all 0.2s ease;
+}
+
+.expedicao-inscricao-age-btn:hover {
+  background: rgb(100, 20, 255);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(83, 0, 255, 0.3);
+}
+
+.expedicao-inscricao-age-verified {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #00aa00;
+  font-weight: 600;
+}
+
+.expedicao-inscricao-check-icon {
+  background: #00aa00;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.expedicao-inscricao-submit-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.expedicao-inscricao-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.expedicao-inscricao-submit:hover:not(:disabled) {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.expedicao-inscricao-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .expedicao-inscricao-modal {
+    padding: 2.5rem;
+    max-width: 650px;
+  }
+
+  .expedicao-inscricao-title {
+    font-size: 2.5rem;
+  }
+
+  .expedicao-inscricao-description {
+    font-size: 1.125rem;
+  }
+
+  .expedicao-inscricao-input {
+    font-size: 1.125rem;
+    padding: 0.875rem;
+  }
+
+  .expedicao-inscricao-submit {
+    font-size: 1.125rem;
+    padding: 1.125rem 2.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .expedicao-inscricao-modal {
+    padding: 3rem;
+    max-width: 700px;
+  }
+
+  .expedicao-inscricao-title {
+    font-size: 3rem;
+  }
+
+  .expedicao-inscricao-description {
+    font-size: 1.25rem;
+  }
+
+  .expedicao-inscricao-input {
+    font-size: 1.25rem;
+    padding: 1rem;
+  }
+
+  .expedicao-inscricao-submit {
+    font-size: 1.25rem;
+    padding: 1.25rem 3rem;
+  }
+}
+
