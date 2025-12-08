@@ -1,10 +1,12 @@
 .home-hero-section {
-  min-height: var(--hero-min-height, 64vh);
+  min-height: calc(100vh - var(--header-height, 60px) - var(--events-height, 48px));
+  height: calc(100vh - var(--header-height, 60px) - var(--events-height, 48px));
+  max-height: calc(100vh - var(--header-height, 60px) - var(--events-height, 48px));
   position: relative;
   z-index: var(--layer-hero, 0); /* Mantém o hero atrás do header e da barra de eventos */
   width: 100%;
   background: #ffffff;
-  overflow: visible;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: stretch;
@@ -43,7 +45,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* overflow: hidden; Removed to allow image to expand */
+  overflow: hidden;
   aspect-ratio: 3 / 4;
   min-height: clamp(320px, 40vw, 520px);
   max-height: clamp(360px, 60vh, 640px);
@@ -52,11 +54,9 @@
 .home-hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Mudado de contain para cover para preencher */
+  object-fit: contain;
   object-position: center;
   display: block;
-  transform: scale(1.2); /* Reduzido de 1.5 para 1.2 (aprox -25% do efeito de zoom) */
-  transform-origin: center center;
 }
 
 .home-hero-header {
