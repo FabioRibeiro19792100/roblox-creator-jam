@@ -43,7 +43,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  /* overflow: hidden; Removed to allow image to expand */
   aspect-ratio: 3 / 4;
   min-height: clamp(320px, 40vw, 520px);
   max-height: clamp(360px, 60vh, 640px);
@@ -55,6 +55,8 @@
   object-fit: contain;
   object-position: center;
   display: block;
+  transform: scale(3);
+  transform-origin: center center;
 }
 
 .home-hero-header {
