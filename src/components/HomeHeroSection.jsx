@@ -63,13 +63,13 @@ function HomeHeroSection() {
         src={logoUrl} 
         alt="Logo" 
         style={{
-          position: 'absolute',
-          top: '20px', 
-          right: '20px', 
+          position: 'fixed',
+          top: '100px', 
+          left: '50px', 
           width: '100px', 
           height: '100px',
           objectFit: 'contain',
-          zIndex: 9999
+          zIndex: 99999
         }}
       />
       <div className="home-hero-inner" style={innerStyle}>
