@@ -64,8 +64,8 @@
   width: 100%;
   background-image: url('/images/robloxian-fall.png');
   background-attachment: fixed;
-  background-size: 50%; /* Reduzindo tamanho */
-  background-position: right center; /* Posicionando à direita */
+  background-size: contain;
+  background-position: right center;
 }
 
 .expedicao-roblox-container {
