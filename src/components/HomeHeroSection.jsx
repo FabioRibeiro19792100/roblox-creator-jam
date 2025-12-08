@@ -7,6 +7,7 @@ export const HERO_TOP_SPACING = 'calc(var(--header-height, 60px) + var(--events-
 function HomeHeroSection() {
   const config = useSiteConfig()
   const imageUrl = `/images/build-masp.png`
+  const logoUrl = `/images/logo.png`
   const siteHorizontalPadding = 'var(--site-horizontal-padding, 1.5rem)'
   const heroHorizontalPadding = 'var(--hero-horizontal-padding, 2rem)'
   const heroVerticalPadding = 'var(--hero-vertical-padding, var(--hero-horizontal-padding, 2rem))'
@@ -15,10 +16,8 @@ function HomeHeroSection() {
     paddingTop: HERO_TOP_SPACING,
     paddingBottom: heroVerticalPadding,
     paddingInline: siteHorizontalPadding,
-    minHeight: 'calc(100vh - var(--header-height, 60px) - var(--events-height, 48px))',
-    height: 'calc(100vh - var(--header-height, 60px) - var(--events-height, 48px))',
-    maxHeight: 'calc(100vh - var(--header-height, 60px) - var(--events-height, 48px))',
-    overflow: 'hidden',
+    minHeight: 'var(--hero-min-height, 70vh)',
+    overflow: 'visible',
     position: 'relative',
     display: 'flex',
     alignItems: 'stretch',
@@ -60,6 +59,19 @@ function HomeHeroSection() {
       role="region"
       aria-label="Hero principal"
     >
+      <img 
+        src={logoUrl} 
+        alt="Logo" 
+        style={{
+          position: 'absolute',
+          top: '20px', 
+          right: '20px', 
+          width: '100px', 
+          height: '100px',
+          objectFit: 'contain',
+          zIndex: 10
+        }}
+      />
       <div className="home-hero-inner" style={innerStyle}>
         <div className="home-hero-content" style={contentStyle}>
           <div className="home-hero-header" style={{ marginBottom: heroVerticalPadding }}>
