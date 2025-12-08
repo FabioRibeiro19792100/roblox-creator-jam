@@ -63,7 +63,6 @@
   position: relative;
   width: 100%;
   background-image: url('/images/robloxian-fall.png');
-  background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
