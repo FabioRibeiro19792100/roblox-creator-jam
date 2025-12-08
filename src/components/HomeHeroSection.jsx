@@ -28,10 +28,13 @@ function HomeHeroSection() {
     marginInline: 'auto',
     height: '100%',
     boxSizing: 'border-box',
-    display: 'grid',
-    gridTemplateColumns: 'minmax(0, 1fr) minmax(0, clamp(320px, 40vw, 520px))',
-    gap: heroHorizontalPadding,
-    alignItems: 'stretch'
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    backgroundImage: `url(${imageUrl})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
   }
   const contentStyle = {
     display: 'flex',
@@ -72,13 +75,6 @@ function HomeHeroSection() {
               {config?.hero?.home?.description?.[1] || 'Passo a passo, do primeiro clique no Studio até ver amigos jogando algo que você criou.'}
             </p>
           </div>
-        </div>
-        <div className="home-hero-image-layer">
-          <img 
-            src={imageUrl}
-            alt="Roblox Studio" 
-            className="home-hero-image"
-          />
         </div>
       </div>
     </section>
