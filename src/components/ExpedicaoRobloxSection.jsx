@@ -3,6 +3,12 @@ import { NavigationContext, ContactModalContext } from '../App'
 import { useSiteConfig } from '../config/useSiteConfig'
 import './ExpedicaoRobloxSection.css'
 
+export const PANEL_IDS = {
+  trilhas: 'expedicao-trilha-01-panel',
+  jam: 'expedicao-trilha-02-panel',
+  imersao: 'expedicao-trilha-03-panel'
+}
+
 function ExpedicaoRobloxSection() {
   const config = useSiteConfig()
   const [isTrilhasOpen, setIsTrilhasOpen] = useState(false)
@@ -68,6 +74,9 @@ function ExpedicaoRobloxSection() {
             <button
               className="expedicao-feature-box expedicao-feature-box-1"
               onClick={toggleTrilhas}
+              aria-expanded={isTrilhasOpen}
+              aria-controls={PANEL_IDS.trilhas}
+              aria-haspopup="true"
             >
               <div className="expedicao-feature-content">
                 <span className="expedicao-feature-label">{trilha01?.label || 'TRILHA 01'}</span>
@@ -75,23 +84,32 @@ function ExpedicaoRobloxSection() {
               </div>
               <span className="expedicao-arrow">{isTrilhasOpen ? '−' : '+'}</span>
             </button>
-            {isTrilhasOpen && (
-              <div className="expedicao-accordion-content">
-                <p className="expedicao-accordion-text">
-                  {trilha01?.description || 'As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.'}
-                </p>
-                <div className="expedicao-accordion-cta">
-                  <button className="expedicao-accordion-button" onClick={openContactModal}>
-                    {trilha01?.cta || 'Quero começar a criar'}
-                  </button>
-                </div>
+            <div
+              className="expedicao-accordion-content"
+              id={PANEL_IDS.trilhas}
+              data-testid={PANEL_IDS.trilhas}
+              aria-hidden={!isTrilhasOpen}
+            >
+              <h3 className="expedicao-accordion-heading">
+                {trilha01?.heading || 'O que as trilhas entregam'}
+              </h3>
+              <p className="expedicao-accordion-text">
+                {trilha01?.description || 'As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.'}
+              </p>
+              <div className="expedicao-accordion-cta">
+                <button className="expedicao-accordion-button" onClick={openContactModal}>
+                  {trilha01?.cta || 'Quero começar a criar'}
+                </button>
               </div>
-            )}
+            </div>
           </div>
           <div className={`expedicao-accordion-item ${isJamOpen ? 'expedicao-accordion-open' : ''}`}>
             <button
               className="expedicao-feature-box expedicao-feature-box-2"
               onClick={toggleJam}
+              aria-expanded={isJamOpen}
+              aria-controls={PANEL_IDS.jam}
+              aria-haspopup="true"
             >
               <div className="expedicao-feature-content">
                 <span className="expedicao-feature-label">{trilha02?.label || 'TRILHA 02'}</span>
@@ -99,8 +117,15 @@ function ExpedicaoRobloxSection() {
               </div>
               <span className="expedicao-arrow">{isJamOpen ? '−' : '+'}</span>
             </button>
-            {isJamOpen && (
-              <div className="expedicao-accordion-content">
+            <div
+              className="expedicao-accordion-content"
+              id={PANEL_IDS.jam}
+              data-testid={PANEL_IDS.jam}
+              aria-hidden={!isJamOpen}
+            >
+              <h3 className="expedicao-accordion-heading">
+                {trilha02?.heading || 'Criar durante uma Creator Jam'}
+              </h3>
                 <p className="expedicao-accordion-text">
                   {trilha02?.description || 'Participe de uma Creator Jam e desenvolva uma experiência jogável em 72 horas, seguindo um tema e regras definidas.'}
                 </p>
@@ -114,12 +139,14 @@ function ExpedicaoRobloxSection() {
                   </a>
                 </div>
               </div>
-            )}
           </div>
           <div className={`expedicao-accordion-item ${isImersaoOpen ? 'expedicao-accordion-open' : ''}`}>
             <button
               className="expedicao-feature-box expedicao-feature-box-3"
               onClick={toggleImersao}
+              aria-expanded={isImersaoOpen}
+              aria-controls={PANEL_IDS.imersao}
+              aria-haspopup="true"
             >
               <div className="expedicao-feature-content">
                 <span className="expedicao-feature-label">{trilha03?.label || 'TRILHA 03'}</span>
@@ -127,16 +154,21 @@ function ExpedicaoRobloxSection() {
               </div>
               <span className="expedicao-arrow">{isImersaoOpen ? '−' : '+'}</span>
             </button>
-            {isImersaoOpen && (
-              <div 
-                className="expedicao-accordion-content"
-                style={{
-                  backgroundImage: `url('/images/5.webp?t=${Date.now()}')`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
-                }}
-              >
+            <div 
+              className="expedicao-accordion-content"
+              id={PANEL_IDS.imersao}
+              data-testid={PANEL_IDS.imersao}
+              aria-hidden={!isImersaoOpen}
+              style={{
+                backgroundImage: `url('/images/5.webp?t=${Date.now()}')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            >
+              <h3 className="expedicao-accordion-heading">
+                {trilha03?.heading || 'Experiências presenciais na estrada'}
+              </h3>
                 <p className="expedicao-accordion-text">
                   {trilha03?.description || 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.'}
                 </p>
@@ -150,7 +182,6 @@ function ExpedicaoRobloxSection() {
                   </a>
                 </div>
               </div>
-            )}
           </div>
         </div>
       </div>
@@ -159,4 +190,3 @@ function ExpedicaoRobloxSection() {
 }
 
 export default ExpedicaoRobloxSection
-

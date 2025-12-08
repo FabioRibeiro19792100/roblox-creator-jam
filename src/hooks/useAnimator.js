@@ -48,3 +48,4 @@ export const useAnimator = (id, autoRegister = true) => {
 export default useAnimator;
 
 
+
