@@ -6,6 +6,7 @@ import ExpedicaoNaEstrada from './pages/ExpedicaoNaEstrada'
 import Admin from './pages/Admin'
 import ContactModal from './components/ContactModal'
 import MaterialModal from './components/MaterialModal'
+import RobloxCadastroPopup from './components/RobloxCadastroPopup'
 import './App.css'
 
 // Contexto para compartilhar estado de navegação
@@ -29,6 +30,7 @@ function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [isMaterialModalOpen, setIsMaterialModalOpen] = useState(false)
   const [materialModalType, setMaterialModalType] = useState('download')
+  const [showRobloxCadastro, setShowRobloxCadastro] = useState(false)
 
   useEffect(() => {
     // Escuta mudanças no hash
@@ -50,6 +52,31 @@ function App() {
     window.addEventListener('hashchange', handleHashChange)
     return () => window.removeEventListener('hashchange', handleHashChange)
   }, [])
+
+  useEffect(() => {
+    // Verificar se já viu o popup hoje ou se já se cadastrou
+    const cadastradoRoblox = localStorage.getItem('roblox_cadastrado')
+    const popupVistoHoje = localStorage.getItem('roblox_popup_visto')
+    const hoje = new Date().toDateString()
+    
+    // Se não cadastrou e não viu o popup hoje, mostrar
+    if (cadastradoRoblox !== 'true' && popupVistoHoje !== hoje) {
+      // Pequeno delay para melhor UX
+      setTimeout(() => {
+        setShowRobloxCadastro(true)
+      }, 1000)
+    }
+  }, [])
+
+  const handleRobloxCadastroClose = () => {
+    // Marcar que viu o popup hoje
+    localStorage.setItem('roblox_popup_visto', new Date().toDateString())
+    setShowRobloxCadastro(false)
+  }
+
+  const handleRobloxCadastroConfirmado = () => {
+    setShowRobloxCadastro(false)
+  }
 
   const navigateTo = (page) => {
     if (page === 'jam') {
@@ -112,13 +139,23 @@ function App() {
       <ContactModalContext.Provider value={{ openContactModal }}>
         <MaterialModalContext.Provider value={{ openMaterialModal }}>
           {currentPage === 'jam' ? <Jam /> : currentPage === 'biblioteca' ? <Biblioteca /> : currentPage === 'expedicao-na-estrada' ? <ExpedicaoNaEstrada /> : <Home />}
-          <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
+          <ContactModal 
+            isOpen={isContactModalOpen} 
+            onClose={closeContactModal}
+            tipoInscricao={currentPage === 'jam' ? 'jam' : currentPage === 'expedicao-na-estrada' ? 'estrada' : null}
+          />
           <MaterialModal 
             isOpen={isMaterialModalOpen} 
             onClose={closeMaterialModal}
             type={materialModalType}
             onSuccess={handleMaterialSuccess}
           />
+          {showRobloxCadastro && (
+            <RobloxCadastroPopup 
+              onClose={handleRobloxCadastroClose}
+              onCadastroConfirmado={handleRobloxCadastroConfirmado}
+            />
+          )}
         </MaterialModalContext.Provider>
       </ContactModalContext.Provider>
     </NavigationContext.Provider>

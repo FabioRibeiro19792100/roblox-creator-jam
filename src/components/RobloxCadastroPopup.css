@@ -1,0 +1,234 @@
+.roblox-cadastro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.roblox-cadastro-popup {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  max-width: 550px;
+  width: 100%;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  padding: 2rem;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.roblox-cadastro-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  font-family: inherit;
+}
+
+.roblox-cadastro-close:hover {
+  opacity: 1;
+}
+
+.roblox-cadastro-content {
+  padding: 0;
+}
+
+.roblox-cadastro-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.roblox-cadastro-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0 0 2rem 0;
+}
+
+.roblox-cadastro-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.roblox-cadastro-btn-primary {
+  background: rgb(83, 0, 255);
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.roblox-cadastro-btn-primary:hover {
+  background: rgb(100, 20, 255);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(83, 0, 255, 0.3);
+}
+
+.roblox-cadastro-btn-secondary {
+  background: transparent;
+  color: #000;
+  border: 2px solid #000;
+  padding: 0.875rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.roblox-cadastro-btn-secondary:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .roblox-cadastro-popup {
+    padding: 2.5rem;
+    max-width: 600px;
+  }
+
+  .roblox-cadastro-title {
+    font-size: 2.5rem;
+  }
+
+  .roblox-cadastro-description {
+    font-size: 1.125rem;
+  }
+
+  .roblox-cadastro-btn-primary,
+  .roblox-cadastro-btn-secondary {
+    font-size: 1.125rem;
+    padding: 1.125rem 2.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .roblox-cadastro-popup {
+    padding: 3rem;
+    max-width: 650px;
+  }
+
+  .roblox-cadastro-title {
+    font-size: 3rem;
+  }
+
+  .roblox-cadastro-description {
+    font-size: 1.25rem;
+  }
+
+  .roblox-cadastro-btn-primary,
+  .roblox-cadastro-btn-secondary {
+    font-size: 1.25rem;
+    padding: 1.25rem 3rem;
+  }
+}
+
+/* Botão flutuante */
+.roblox-float-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: rgb(83, 0, 255);
+  color: #fff;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(83, 0, 255, 0.4);
+  z-index: 9999;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: floatIn 0.5s ease;
+}
+
+@keyframes floatIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.roblox-float-button:hover {
+  background: rgb(100, 20, 255);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(83, 0, 255, 0.5);
+}
+
+.roblox-float-button:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .roblox-float-button {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+

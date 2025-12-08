@@ -6,6 +6,11 @@ function HomeHeroSection() {
   // Use static image URL - browser will cache it properly
   const imageUrl = `/images/4.webp`
 
+  const handleCadastrarRoblox = () => {
+    // Abrir página de cadastro do Roblox em nova aba
+    window.open('https://www.roblox.com/signup', '_blank')
+  }
+
   return (
     <section id="home-hero" className="home-hero-section">
       <div className="home-hero-container">
@@ -23,6 +28,14 @@ function HomeHeroSection() {
           <p className="home-hero-description-paragraph">
             {config?.hero?.home?.description?.[1] || 'Passo a passo, do primeiro clique no Studio até ver amigos jogando algo que você criou.'}
           </p>
+        </div>
+        <div className="home-hero-cta">
+          <button 
+            className="home-hero-roblox-button"
+            onClick={handleCadastrarRoblox}
+          >
+            Crie sua conta no Roblox
+          </button>
         </div>
       </div>
       <div className="home-hero-image-layer">
