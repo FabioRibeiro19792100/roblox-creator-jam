@@ -69,7 +69,7 @@ function HomeHeroSection() {
           width: '100px', 
           height: '100px',
           objectFit: 'contain',
-          zIndex: 10
+          zIndex: 9999
         }}
       />
       <div className="home-hero-inner" style={innerStyle}>
