@@ -52,10 +52,10 @@
 .home-hero-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover; /* Mudado de contain para cover para preencher */
   object-position: center;
   display: block;
-  transform: scale(3);
+  transform: scale(1.5); /* Ajustado escala para não ficar excessivo com cover */
   transform-origin: center center;
 }
 
