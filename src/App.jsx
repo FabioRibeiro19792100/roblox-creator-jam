@@ -127,7 +127,7 @@ function App() {
           <DebugKit />
           <BoundingBoxKit />
           <CoordinateGridKit />
-          <AnimatorDemo />
+          {/* <AnimatorDemo /> */}
           <IntroController />
           <ScrollRevealController />
         </MaterialModalContext.Provider>
