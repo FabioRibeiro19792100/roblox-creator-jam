@@ -1,4 +1,5 @@
 .quer-criar-section {
+  display: none;
   background-image: url('/images/build-masp.png');
   background-size: cover;
   background-position: center;
