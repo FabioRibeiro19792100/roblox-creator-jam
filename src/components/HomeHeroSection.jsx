@@ -36,7 +36,8 @@ function HomeHeroSection() {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingInline: siteHorizontalPadding /* Adicionando o respiro lateral */
   }
   const contentStyle = {
     display: 'flex',
