@@ -21,7 +21,11 @@ function HomeHeroSection() {
     position: 'relative',
     display: 'flex',
     alignItems: 'stretch',
-    zIndex: 'var(--layer-hero, 0)'
+    zIndex: 'var(--layer-hero, 0)',
+    backgroundImage: `url(${imageUrl})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat'
   }
   const innerStyle = {
     width: '100%',
@@ -31,11 +35,7 @@ function HomeHeroSection() {
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundImage: `url(${imageUrl})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat'
+    justifyContent: 'center'
   }
   const contentStyle = {
     display: 'flex',
