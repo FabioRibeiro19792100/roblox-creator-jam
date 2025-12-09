@@ -62,13 +62,27 @@
   padding: 0;
   position: relative;
   width: 100%;
-  background-image: url('/images/build-masp.png');
+  overflow: hidden; /* Garante que a imagem não vaze */
+}
+
+.expedicao-roblox-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/robloxian-fall.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  z-index: 0; /* Fica atrás do conteúdo por padrão, ajuste se quiser na frente */
+  pointer-events: none;
 }
 
 .expedicao-roblox-container {
+  position: relative;
+  z-index: 1; /* Conteúdo na frente */
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
