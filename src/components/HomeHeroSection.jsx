@@ -24,8 +24,8 @@ function HomeHeroSection() {
     zIndex: 'var(--layer-hero, 0)',
     backgroundColor: '#000',
     backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.1) 100%), url(${imageUrl})`,
-    backgroundSize: '100% auto',
-    backgroundPosition: 'center bottom',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center 120px',
     backgroundRepeat: 'no-repeat'
   }
   const innerStyle = {
