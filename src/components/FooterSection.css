@@ -23,7 +23,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(83, 0, 255, 0.85); /* Overlay azul */
+  background: rgba(83, 0, 255, 0.6); /* Overlay azul mais suave para nitidez */
   z-index: 1;
 }
 
