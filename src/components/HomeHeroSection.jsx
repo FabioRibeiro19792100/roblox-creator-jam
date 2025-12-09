@@ -33,8 +33,8 @@ function HomeHeroSection() {
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundImage: `url(${imageUrl})`,
-    backgroundSize: 'contain',
-    backgroundPosition: 'right center',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat'
   }
   const contentStyle = {
