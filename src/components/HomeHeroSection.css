@@ -67,7 +67,7 @@
 .home-hero-expedicao-roblox {
   font-size: 0.875rem; /* Slightly larger */
   font-weight: 900;
-  color: #000; /* Changed to black */
+  color: #fff; /* Changed to white */
   line-height: 1;
   letter-spacing: -0.3px;
   text-decoration: none;
@@ -77,7 +77,7 @@
 .home-hero-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #000;
+  color: #fff; /* Changed to white */
   margin: 0;
   line-height: 0.95;
   letter-spacing: -1px;
@@ -111,7 +111,7 @@
 .home-hero-description-paragraph {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #000;
+  color: #fff; /* Changed to white */
   margin: 0 0 1rem 0;
 }
 
