@@ -6,7 +6,7 @@ export const HERO_TOP_SPACING = 'calc(var(--header-height, 60px) + var(--events-
 
 function HomeHeroSection() {
   const config = useSiteConfig()
-  const imageUrl = `/images/build-masp.png`
+  const imageUrl = `/images/hero.png`
   const logoUrl = `/images/logo.png`
   const siteHorizontalPadding = 'var(--site-horizontal-padding, 1.5rem)'
   const heroHorizontalPadding = 'var(--hero-horizontal-padding, 2rem)'
