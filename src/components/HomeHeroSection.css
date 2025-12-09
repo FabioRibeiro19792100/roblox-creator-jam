@@ -63,7 +63,7 @@
 
 /* Título Principal - H1 - Muito mais impacto */
 .home-hero-title {
-  font-size: 3rem; /* Aumentado de 2.5rem */
+  font-size: 2.5rem; /* Igual ao manifesto no mobile */
   font-weight: 900;
   color: #fff;
   margin: 0;
@@ -76,7 +76,7 @@
 /* Descrição */
 .home-hero-description {
   width: 100%;
-  max-width: 420px; /* Reduzido de 480px */
+  max-width: 420px;
   margin-top: 0.5rem;
 }
 
@@ -129,7 +129,7 @@
   }
   
   .home-hero-title {
-    font-size: 4.5rem; /* Aumentado de 3.5rem */
+    font-size: 3.5rem; /* Igual ao manifesto no tablet */
   }
 
   .home-hero-description-paragraph {
@@ -149,7 +149,7 @@
   }
 
   .home-hero-title {
-    font-size: 6rem; /* Aumentado de 4.5rem */
+    font-size: 4.5rem; /* Igual ao manifesto no desktop */
     letter-spacing: -0.05em;
   }
 
@@ -158,7 +158,7 @@
   }
 
   .home-hero-description {
-    max-width: 460px; /* Reduzido de 520px */
+    max-width: 460px; 
   }
 }
 
@@ -169,7 +169,7 @@
   }
 
   .home-hero-title {
-    font-size: 7rem; /* Aumentado de 5.5rem */
+    font-size: 5.5rem; /* Igual ao manifesto no large desktop */
   }
   
   .home-hero-description-paragraph {
@@ -178,7 +178,7 @@
   }
   
   .home-hero-description {
-    max-width: 500px; /* Reduzido de 600px */
+    max-width: 500px;
   }
 }
 
