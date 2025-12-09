@@ -3,6 +3,10 @@
   padding: 0;
   position: relative;
   width: 100%;
+  background-image: url('/images/build-masp.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .quer-criar-title-container {
@@ -15,7 +19,7 @@
 .quer-criar-title-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #000;
+  color: #fff; /* Changed to white for contrast */
   margin: 0 0 1rem 0;
   line-height: 0.95;
   letter-spacing: -1px;
