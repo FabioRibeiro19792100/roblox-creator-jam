@@ -22,7 +22,8 @@ function HomeHeroSection() {
     display: 'flex',
     alignItems: 'stretch',
     zIndex: 'var(--layer-hero, 0)',
-    backgroundImage: `url(${imageUrl})`,
+    backgroundColor: '#000',
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${imageUrl})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat'
