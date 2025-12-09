@@ -25,7 +25,7 @@ function HomeHeroSection() {
     backgroundColor: '#000',
     backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0.1) 100%), url(${imageUrl})`,
     backgroundSize: '100% auto',
-    backgroundPosition: 'center 80%',
+    backgroundPosition: 'center bottom',
     backgroundRepeat: 'no-repeat'
   }
   const innerStyle = {
