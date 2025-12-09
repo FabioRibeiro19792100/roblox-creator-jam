@@ -1,13 +1,14 @@
 .home-hero-section {
-  min-height: var(--hero-min-height, 64vh);
+  /* Fallback inicial: desconta header e eventos */
+  min-height: calc(100vh - var(--header-height, 60px) - var(--events-height, 48px));
   position: relative;
-  z-index: var(--layer-hero, 0); /* Mantém o hero atrás do header e da barra de eventos */
+  z-index: var(--layer-hero, 0);
   width: 100%;
-  background: #ffffff;
+  background: #000;
   overflow: visible;
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   box-sizing: border-box;
 }
 
@@ -15,113 +16,85 @@
   width: 100%;
   max-width: 1200px;
   height: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, clamp(320px, 40vw, 520px));
-  gap: var(--hero-horizontal-padding, 2rem);
-  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* padding-inline REMOVIDO INTENCIONALMENTE - NÃO RECOLOCAR */
 }
 
 .home-hero-content {
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  gap: clamp(0.4rem, 0.85vw, 1rem);
-}
-
-.home-hero-content > .home-hero-header,
-.home-hero-content > .home-hero-title,
-.home-hero-content > .home-hero-description {
-  width: min(100%, var(--hero-content-max-width, 800px));
-}
-
-.home-hero-image-layer {
-  position: relative;
-  width: 100%;
-  background: transparent;
-  z-index: var(--layer-hero-image, 1);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
-  aspect-ratio: 3 / 4;
-  min-height: clamp(320px, 40vw, 520px);
-  max-height: clamp(360px, 60vh, 640px);
-}
-
-.home-hero-image {
+  align-items: flex-start;
+  /* Gap ajustado para melhor ritmo vertical */
+  gap: 1.5rem; 
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  display: block;
 }
 
 .home-hero-header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
-  flex-shrink: 0;
+  margin-bottom: 0;
+  position: relative; 
 }
 
-.home-hero-expedicao-roblox {
-  font-size: 0.875rem; /* Slightly larger */
-  font-weight: 900;
-  color: #fff; /* Changed to white */
-  line-height: 1;
-  letter-spacing: -0.3px;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.home-hero-title {
-  font-size: 2.5rem;
-  font-weight: 900;
-  color: #fff; /* Changed to white */
-  margin: 0;
-  line-height: 0.95;
-  letter-spacing: -1px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  align-self: flex-start;
-  text-align: left;
-}
-
-.title-line-wrapper {
+/* Logo ajustado para não brigar com o título */
+.home-hero-logo {
+  width: 140px; 
+  height: auto;
+  object-fit: contain;
   display: block;
-  overflow: hidden; /* Crucial para o efeito de surgir de baixo */
-  padding-bottom: 0.2em; /* Dá espaço para os descenders (g, j, p, q, y) */
-  margin-bottom: -0.2em; /* Compensa o padding para não alterar o layout */
+  margin-bottom: 0.5rem;
 }
 
-.title-word {
-  display: inline-block;
-  opacity: 0; /* Estado inicial invisível para a animação */
-  transform: translateY(100%); /* Estado inicial deslocado para baixo */
+/* Label textual OCULTO VISUALMENTE (SEO ONLY) */
+.home-hero-expedicao-roblox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-.home-hero-description {
-  max-width: 600px;
-  flex-shrink: 0;
-  align-self: flex-start;
+/* Título Principal - H1 - Muito mais impacto */
+.home-hero-title {
+  font-size: 3rem; /* Aumentado de 2.5rem */
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   text-align: left;
+  max-width: 12ch; /* Limita largura para quebrar bonito */
+}
+
+/* Descrição */
+.home-hero-description {
+  width: 100%;
+  max-width: 420px; /* Reduzido de 480px */
+  margin-top: 0.5rem;
 }
 
 .home-hero-description-paragraph {
   font-size: 1.125rem;
-  line-height: 1.6;
-  color: #fff; /* Changed to white */
-  margin: 0 0 1rem 0;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 1rem 0; 
+  font-weight: 400;
 }
 
 .home-hero-description-paragraph:last-child {
   margin-bottom: 0;
 }
 
+/* CTA Area */
 .home-hero-cta {
-  margin-top: 2rem;
-  flex-shrink: 0;
+  margin-top: 1rem;
 }
 
 .home-hero-roblox-button {
@@ -131,86 +104,107 @@
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 700;
-  font-family: inherit;
   cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px; /* Leve arredondamento para modernizar */
 }
 
 .home-hero-roblox-button:hover {
   background: rgb(100, 20, 255);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(83, 0, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(83, 0, 255, 0.4);
 }
 
-/* Tablet */
+/* Tablet Landscape */
 @media (min-width: 768px) {
-  .home-hero-header {
-    margin-bottom: 0.75rem;
+  .home-hero-content {
+    gap: 2rem;
   }
-
-  .home-hero-expedicao-roblox {
-    font-size: 1rem; /* Slightly larger */
+  
+  .home-hero-logo {
+    width: 160px; 
   }
-
+  
   .home-hero-title {
-    font-size: 3.5rem;
+    font-size: 4.5rem; /* Aumentado de 3.5rem */
   }
 
   .home-hero-description-paragraph {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
-
-<<<<<<< HEAD
-  .home-hero-inner {
-    padding: 5rem 2rem 0 2rem;
-=======
+  
   .home-hero-roblox-button {
+    padding: 1.25rem 2.5rem;
     font-size: 1.125rem;
-    padding: 1.125rem 2.5rem;
->>>>>>> origin/main
   }
 }
 
 /* Desktop */
 @media (min-width: 1024px) {
-  .home-hero-header {
-    margin-bottom: 1rem;
-  }
-
-  .home-hero-expedicao-roblox {
-    font-size: 1.125rem; /* Slightly larger */
+  .home-hero-logo {
+    width: 180px; 
   }
 
   .home-hero-title {
-    font-size: 4.5rem;
+    font-size: 6rem; /* Aumentado de 4.5rem */
+    letter-spacing: -0.05em;
+  }
+
+  .home-hero-content {
+    gap: 2.5rem;
   }
 
   .home-hero-description {
-    max-width: 700px;
-  }
-
-  .home-hero-description-paragraph {
-    font-size: 1.4rem;
-  }
-
-  .home-hero-roblox-button {
-    font-size: 1.25rem;
-    padding: 1.25rem 3rem;
+    max-width: 460px; /* Reduzido de 520px */
   }
 }
 
 /* Large Desktop */
 @media (min-width: 1440px) {
-  .home-hero-expedicao-roblox {
-    font-size: 1.25rem; /* Slightly larger */
+  .home-hero-logo {
+    width: 220px; 
   }
 
   .home-hero-title {
-    font-size: 5.5rem;
+    font-size: 7rem; /* Aumentado de 5.5rem */
+  }
+  
+  .home-hero-description-paragraph {
+    font-size: 1.35rem;
+    line-height: 1.5;
+  }
+  
+  .home-hero-description {
+    max-width: 500px; /* Reduzido de 600px */
+  }
+}
+
+/* Telas com pouca altura (Laptops pequenos e Landscape Mobile) */
+@media (max-height: 700px) {
+  .home-hero-content {
+    gap: 1rem !important;
+  }
+  
+  .home-hero-logo {
+    width: 120px !important; 
+    margin-bottom: 0 !important;
+  }
+
+  .home-hero-title {
+    font-size: 3rem !important; /* Aumentado de 2.5rem */
   }
 
   .home-hero-description-paragraph {
-    font-size: 1.5rem;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .home-hero-roblox-button {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 1rem !important;
   }
 }
