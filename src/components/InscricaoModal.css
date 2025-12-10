@@ -99,7 +99,7 @@
 }
 
 .required {
-  color: #ff0000;
+  color: #c00000;
 }
 
 .inscricao-form-input {
@@ -116,7 +116,7 @@
 }
 
 .inscricao-form-input:focus {
-  border-bottom-color: #666;
+  border-bottom-color: #3c3c3c;
 }
 
 .inscricao-form-input::placeholder {
@@ -124,12 +124,12 @@
 }
 
 .inscricao-form-input.error {
-  border-bottom-color: #ff0000;
+  border-bottom-color: #c00000;
 }
 
 .inscricao-form-error {
   font-size: 0.875rem;
-  color: #ff0000;
+  color: #c00000;
   margin-top: 0.25rem;
 }
 
@@ -169,7 +169,7 @@
 
 .inscricao-form-success p {
   font-size: 1rem;
-  color: #666;
+  color: #3c3c3c;
   margin: 0;
 }
 

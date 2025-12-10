@@ -61,7 +61,7 @@
   flex-shrink: 0;
   --plus-size: 2.5rem;
   --plus-stroke: 3px;
-  --plus-color: #666;
+  --plus-color: #3c3c3c;
   --plus-hover-color: #000;
   --plus-open-color: #000;
   --plus-hover-rotate: 90deg;
@@ -137,16 +137,16 @@
 }
 
 .convide-seus-amigos-input::placeholder {
-  color: #666;
+  color: #3c3c3c;
 }
 
 .convide-seus-amigos-input.error {
-  border-bottom-color: #ff0000;
+  border-bottom-color: #c00000;
 }
 
 .convide-seus-amigos-error {
   font-size: 0.875rem;
-  color: #ff0000;
+  color: #c00000;
   text-align: left;
   width: 100%;
 }
@@ -333,7 +333,7 @@
 }
 
 .convide-thank-you-close:hover {
-  color: #666;
+  color: #3c3c3c;
 }
 
 .convide-thank-you-title {

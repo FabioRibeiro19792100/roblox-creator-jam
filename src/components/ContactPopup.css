@@ -57,7 +57,7 @@
 }
 
 .contact-popup-close:hover {
-  color: #666;
+  color: #3c3c3c;
 }
 
 .contact-popup-title {
@@ -129,7 +129,7 @@
 }
 
 .required {
-  color: #ff0000;
+  color: #c00000;
 }
 
 .contact-popup-input,
@@ -176,12 +176,12 @@
 .contact-popup-input.error,
 .contact-popup-select.error,
 .contact-popup-textarea.error {
-  border-color: #ff0000;
+  border-color: #c00000;
 }
 
 .contact-popup-error {
   font-size: 0.875rem;
-  color: #ff0000;
+  color: #c00000;
   margin-top: 0.25rem;
 }
 

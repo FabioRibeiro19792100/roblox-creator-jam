@@ -66,3 +66,92 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+
+/* Global CTA Button Styles */
+.btn-cta-global {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  min-height: 52px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: transform 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  text-decoration: none; /* In case it's an anchor tag */
+  font-family: inherit;
+  border-radius: 0;
+}
+
+.btn-cta-global:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.btn-cta-global::before,
+.btn-cta-global::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+
+.btn-cta-global::before {
+  background: #0050ff;
+}
+
+.btn-cta-global::after {
+  background: #ff5b00;
+  transform: rotateX(-90deg);
+}
+
+.btn-cta-global:hover::before,
+.btn-cta-global:focus-visible::before {
+  transform: rotateX(90deg);
+}
+
+.btn-cta-global:hover::after,
+.btn-cta-global:focus-visible::after {
+  transform: rotateX(0deg);
+}
+
+.btn-cta-global-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 2rem;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  pointer-events: none; /* Clicks go to parent */
+}
+
+.btn-cta-global-label {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+/* Responsive adjustments matching Header */
+@media (min-width: 1024px) {
+  .btn-cta-global {
+    height: 56px;
+    font-size: 1.125rem;
+  }
+  
+  .btn-cta-global-inner {
+    padding: 0 2.5rem;
+  }
+}

@@ -88,7 +88,7 @@ export const siteConfig = {
     home: {
       items: [
         { label: 'Início', anchor: '#home-hero' },
-        { label: 'Manifesto', anchor: '#placeholder' },
+        { label: 'Manifesto', anchor: '#manifesto' },
         { label: 'A Expedição', anchor: '#expedicao-roblox' },
         { label: 'Studios', anchor: '#o-que-e-roblox-studio' },
         { label: 'Biblioteca', anchor: '#biblioteca', isLink: true },
@@ -435,9 +435,9 @@ export const siteConfig = {
     final: {
       text: 'Expedição Roblox é um projeto da Mastertech junto com o Roblox',
       social: [
-        { name: 'Instagram', url: '#' },
-        { name: 'WhatsApp', url: '#' },
-        { name: 'TikTok', url: '#' },
+        { name: 'Instagram', url: 'https://www.instagram.com/mastertech' },
+        { name: 'WhatsApp', url: 'https://wa.me/5511998901551' },
+        { name: 'TikTok', url: 'https://www.tiktok.com/@mastertech' },
       ],
     },
   },
@@ -752,4 +752,3 @@ export const getColor = (colorPath) => {
   }
   return value || colorPath
 }
-

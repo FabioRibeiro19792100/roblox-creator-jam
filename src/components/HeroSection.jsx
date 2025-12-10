@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import { ContactModalContext } from '../App'
 import BubbleButton from './utilitarios/BubbleButton'
 import './HeroSection.css'
 

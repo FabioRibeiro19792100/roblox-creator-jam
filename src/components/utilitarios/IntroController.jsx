@@ -6,15 +6,32 @@ const IntroController = () => {
     const manager = AnimatorManager.getInstance();
 
     const timeoutId = setTimeout(() => {
-      // --- 1. Animação do Título (Slide Up Sequencial) ---
-      const words = ['word-criar', 'word-e', 'word-o', 'word-novo', 'word-jogar'];
-      const staggerDelay = 200; 
-      
-      words.forEach((id, index) => {
+      // --- 1. Animação da Logo ---
+      if (manager.getElement('hero-logo')) {
+        const logo = manager.getElement('hero-logo');
+        logo.style.opacity = '0';
+        manager.animate('hero-logo', 
+          [
+            { opacity: 0, transform: 'translateY(20px) scale(0.95)' },
+            { opacity: 1, transform: 'translateY(0) scale(1)' }
+          ], 
+          { 
+            duration: 800, 
+            fill: 'forwards',
+            easing: 'cubic-bezier(0.25, 1, 0.5, 1)' 
+          }
+        );
+      }
+
+      // --- 2. Animação do Título ---
+      if (manager.getElement('hero-title')) {
+        const title = manager.getElement('hero-title');
+        title.style.opacity = '0';
+        // Pequeno delay em relação a logo
         setTimeout(() => {
-          manager.animate(id, 
+          manager.animate('hero-title', 
             [
-              { opacity: 0, transform: 'translateY(100%)' },
+              { opacity: 0, transform: 'translateY(30px)' },
               { opacity: 1, transform: 'translateY(0)' }
             ], 
             { 
@@ -23,19 +40,14 @@ const IntroController = () => {
               easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)' 
             }
           );
-        }, index * staggerDelay);
-      });
+        }, 150);
+      }
 
-      // --- 2. Animação de Fade In (Elementos Secundários) ---
-      // Começa junto com o título ou logo após? "Ao carregar o site" sugere junto.
-      // Vamos colocar um leve delay para não competir atenção com o título, ou rodar em paralelo.
-      // Optei por paralelo com duração suave.
-      const fadeElements = ['header-nav', 'hero-expedicao', 'hero-description', 'hero-image'];
+      // --- 3. Animação de Elementos Secundários ---
+      const fadeElements = ['header-nav', 'hero-expedicao', 'hero-description', 'hero-cta']; // Adicionei hero-cta se tiver ID
       
-      fadeElements.forEach(id => {
-        // Verifica se o elemento existe antes de animar (segurança extra)
+      fadeElements.forEach((id, index) => {
         if (manager.getElement(id)) {
-          // Definindo opacity inicial via JS para garantir (caso CSS não tenha)
           const el = manager.getElement(id);
           el.style.opacity = '0'; 
 
@@ -45,10 +57,10 @@ const IntroController = () => {
               { opacity: 1 }
             ],
             {
-              duration: 1200, // Um pouco mais lento que o título para ser sutil
+              duration: 1000,
               fill: 'forwards',
               easing: 'ease-out',
-              delay: 200 // Pequeno delay para o layout assentar
+              delay: 300 + (index * 100) // Efeito cascata suave
             }
           );
         }

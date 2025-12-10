@@ -65,10 +65,12 @@ function RobloxCadastroPopup({ onClose, onCadastroConfirmado }) {
           
           <div className="roblox-cadastro-buttons">
             <button 
-              className="roblox-cadastro-btn-primary"
+              className="btn-cta-global roblox-cadastro-btn-primary"
               onClick={handleCadastrarRoblox}
             >
-              Criar conta no Roblox
+              <span className="btn-cta-global-inner">
+                <span className="btn-cta-global-label">Criar conta no Roblox</span>
+              </span>
             </button>
             
             <button 

@@ -77,7 +77,7 @@
 
 .material-form-subtitle {
   font-size: 1rem;
-  color: #666;
+  color: #3c3c3c;
   margin: 0 0 1rem 0;
 }
 
@@ -95,7 +95,7 @@
 }
 
 .required {
-  color: #ff0000;
+  color: #c00000;
 }
 
 .material-form-input {
@@ -121,12 +121,12 @@
 }
 
 .material-form-input.error {
-  border-color: #ff0000;
+  border-color: #c00000;
 }
 
 .material-form-error {
   font-size: 0.875rem;
-  color: #ff0000;
+  color: #c00000;
   margin-top: 0.25rem;
 }
 
@@ -220,7 +220,7 @@
 }
 
 .material-invite-input.error {
-  border-color: #ff0000;
+  border-color: #c00000;
 }
 
 .material-invite-submit {

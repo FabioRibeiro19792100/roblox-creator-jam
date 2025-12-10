@@ -57,7 +57,7 @@
 }
 
 .contact-modal-close:hover {
-  color: #666;
+  color: #3c3c3c;
 }
 
 .contact-form {
@@ -89,7 +89,7 @@
 }
 
 .required {
-  color: #ff0000;
+  color: #c00000;
 }
 
 .contact-form-input {
@@ -115,12 +115,12 @@
 }
 
 .contact-form-input.error {
-  border-color: #ff0000;
+  border-color: #c00000;
 }
 
 .contact-form-error {
   font-size: 0.875rem;
-  color: #ff0000;
+  color: #c00000;
   margin-top: 0.25rem;
 }
 
@@ -214,7 +214,7 @@
 }
 
 .contact-invite-input.error {
-  border-color: #ff0000;
+  border-color: #c00000;
 }
 
 .contact-invite-submit {

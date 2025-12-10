@@ -58,13 +58,13 @@
 }
 
 .faq-popup-close:hover {
-  color: #666;
+  color: #3c3c3c;
 }
 
 .faq-popup-message {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #666;
+  color: #3c3c3c;
   margin: 0;
   font-weight: 400;
 }

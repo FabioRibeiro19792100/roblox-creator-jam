@@ -349,6 +349,9 @@ function Header() {
         >
           <ul className="nav-list">{renderNavLinks()}</ul>
         </nav>
+        <span id="missoes" className="sr-only" aria-hidden="true">
+          Missões
+        </span>
 
         {isHomePage && (
           <div

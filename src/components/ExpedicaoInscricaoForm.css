@@ -158,7 +158,7 @@
 }
 
 .required {
-  color: #ff0000;
+  color: #c00000;
 }
 
 .expedicao-inscricao-input {
@@ -178,7 +178,7 @@
 }
 
 .expedicao-inscricao-input.error {
-  border-color: #ff0000;
+  border-color: #c00000;
 }
 
 .expedicao-inscricao-input::placeholder {
@@ -187,13 +187,13 @@
 
 .expedicao-inscricao-hint {
   font-size: 0.875rem;
-  color: #666;
+  color: #3c3c3c;
   margin-top: -0.25rem;
 }
 
 .expedicao-inscricao-error {
   font-size: 0.875rem;
-  color: #ff0000;
+  color: #c00000;
 }
 
 .expedicao-inscricao-checkbox-label {
@@ -245,7 +245,7 @@
 }
 
 .expedicao-inscricao-select.error {
-  border-color: #ff0000;
+  border-color: #c00000;
 }
 
 .expedicao-inscricao-evento-selecionado {
@@ -276,7 +276,7 @@
 
 .expedicao-inscricao-evento-local {
   font-size: 0.95rem;
-  color: #666;
+  color: #3c3c3c;
   margin: 0;
 }
 

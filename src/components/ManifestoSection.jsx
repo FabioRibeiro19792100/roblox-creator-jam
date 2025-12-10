@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react'
 import { ContactModalContext } from '../App'
 import { useSiteConfig } from '../config/useSiteConfig'
-import './PlaceholderSection.css'
+import './ManifestoSection.css'
 
-function PlaceholderSection() {
+function ManifestoSection() {
   const config = useSiteConfig()
   const [isOpen, setIsOpen] = useState(false)
   const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
@@ -14,31 +14,31 @@ function PlaceholderSection() {
 
   return (
     <section 
-      id="placeholder" 
-      className={`placeholder-section sweep-fill ${isOpen ? 'manifesto-open sweep-fill-active' : ''}`}
+      id="manifesto" 
+      className={`manifesto-section sweep-fill ${isOpen ? 'manifesto-open sweep-fill-active' : ''}`}
       role="region"
-      aria-labelledby="placeholder-title"
+      aria-labelledby="manifesto-title"
     >
-      <div className="placeholder-container">
-        <div className={`placeholder-accordion-item ${isOpen ? 'placeholder-open' : ''}`}>
-          <h2 id="placeholder-title" className="placeholder-heading">
+      <div className="manifesto-container">
+        <div className={`manifesto-accordion-item ${isOpen ? 'manifesto-open' : ''}`}>
+          <h2 id="manifesto-title" className="manifesto-heading">
             <button
-              className="placeholder-header plus-indicator-trigger"
+              className="manifesto-header plus-indicator-trigger"
               onClick={toggleAccordion}
               aria-expanded={isOpen}
-              aria-controls="placeholder-manifesto-content"
+              aria-controls="manifesto-content"
             >
-              <span className="placeholder-title-text">{config?.manifesto?.title || 'E o jogo agora é seu.'}</span>
-              <span className={`placeholder-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
+              <span className="manifesto-title-text">{config?.manifesto?.title || 'E o jogo agora é seu.'}</span>
+              <span className={`manifesto-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
               <span className="sr-only">
                 {isOpen ? 'Ocultar manifesto' : 'Mostrar manifesto'}
               </span>
             </button>
           </h2>
           {isOpen && (
-            <div className="placeholder-content" id="placeholder-manifesto-content">
-              <div className="placeholder-manifesto">
-                <div className="placeholder-manifesto-column">
+            <div className="manifesto-content" id="manifesto-content">
+              <div className="manifesto-body">
+                <div className="manifesto-column">
                   {config?.manifesto?.content?.[0]?.paragraphs?.map((para, index) => (
                     <p key={index}>{para}</p>
                   )) || (
@@ -51,15 +51,15 @@ function PlaceholderSection() {
                     </>
                   )}
                 </div>
-                <div className="placeholder-manifesto-column">
+                <div className="manifesto-column">
                   {config?.manifesto?.content?.[1]?.paragraphs?.slice(0, -1).map((para, index) => (
                     <p key={index}>{para}</p>
                   ))}
                   {config?.manifesto?.content?.[1]?.paragraphs?.length > 0 && (
                     <>
                       <p>{config.manifesto.content[1].paragraphs[config.manifesto.content[1].paragraphs.length - 1]}</p>
-                      <div className="placeholder-manifesto-cta">
-                        <button className="placeholder-manifesto-button" onClick={openContactModal}>
+                      <div className="manifesto-cta">
+                        <button className="manifesto-button" onClick={openContactModal}>
                           {config?.manifesto?.cta?.text || 'Quero saber mais'}
                         </button>
                       </div>
@@ -71,8 +71,8 @@ function PlaceholderSection() {
                       <p>Quer criar com a gente?</p>
                       <p>Desce pro play.</p>
                       <p>Afinal, você pode aprender tudo o que quiser em uma escola que flui.</p>
-                      <div className="placeholder-manifesto-cta">
-                        <button className="placeholder-manifesto-button" onClick={openContactModal}>
+                      <div className="manifesto-cta">
+                        <button className="manifesto-button" onClick={openContactModal}>
                           Quero saber mais
                         </button>
                       </div>
@@ -88,4 +88,4 @@ function PlaceholderSection() {
   )
 }
 
-export default PlaceholderSection
+export default ManifestoSection

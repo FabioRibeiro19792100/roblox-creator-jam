@@ -4,6 +4,7 @@ import ConvideSeusAmigosSection from './ConvideSeusAmigosSection'
 import ContactPopup from './ContactPopup'
 import FAQPopup from './FAQPopup'
 import GlossarioSection from './GlossarioSection'
+import { useSiteConfig } from '../config/useSiteConfig'
 import './FooterSection.css'
 
 const CASCADE_DURATION_MS = 3000
@@ -96,6 +97,16 @@ function FooterSection() {
   const { navigateTo } = useContext(NavigationContext) || { navigateTo: () => {} }
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   const [isFAQPopupOpen, setIsFAQPopupOpen] = useState(false)
+  const config = useSiteConfig()
+  const footerFinalText =
+    config?.footer?.final?.text || 'Expedição Roblox é um projeto da Mastertech junto com o Roblox'
+  const defaultSocialLinks = [
+    { name: 'Instagram', url: 'https://www.instagram.com/mastertech' },
+    { name: 'WhatsApp', url: 'https://wa.me/5511998901551' },
+    { name: 'TikTok', url: 'https://www.tiktok.com/@mastertech' },
+  ]
+  const configuredSocialLinks = (config?.footer?.final?.social ?? []).filter((link) => link?.url)
+  const footerSocialLinks = configuredSocialLinks.length ? configuredSocialLinks : defaultSocialLinks
 
   const handleCardActions = [
     (setContactOpen) => setContactOpen(true),
@@ -156,7 +167,11 @@ function FooterSection() {
           <h2 className="footer-links-title">Central da Expedição</h2>
           <ul className="footer-links">
             {links.map((link, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                className="footer-link-item"
+                style={{ animationDelay: `${index * 120}ms` }}
+              >
                 <a href={link.href} className="footer-link" onClick={link.onClick || (() => {})}>
                   <span className="footer-arrow">→</span>
                   <span className="footer-link-text">{link.text}</span>
@@ -190,17 +205,20 @@ function FooterSection() {
       </div>
       <div className="footer-final">
         <div className="footer-final-container">
-          <p className="footer-final-text">Expedição Roblox é um projeto da Mastertech junto com o Roblox</p>
+          <p className="footer-final-text">{footerFinalText}</p>
           <div className="footer-final-social">
-            <a href="#" className="footer-social-link" aria-label="Instagram">
-              Instagram
-            </a>
-            <a href="#" className="footer-social-link" aria-label="WhatsApp">
-              WhatsApp
-            </a>
-            <a href="#" className="footer-social-link" aria-label="TikTok">
-              TikTok
-            </a>
+            {footerSocialLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                className="footer-social-link"
+                aria-label={link.name}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
       </div>

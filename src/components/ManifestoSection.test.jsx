@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
-import PlaceholderSection from './PlaceholderSection'
+import ManifestoSection from './ManifestoSection'
 
-describe('PlaceholderSection', () => {
+describe('ManifestoSection', () => {
   it('expõe um heading e vincula o section via aria-labelledby', () => {
-    render(<PlaceholderSection />)
+    render(<ManifestoSection />)
 
     const section = screen.getByRole('region', { name: /E o jogo agora é seu\./i })
     const heading = screen.getByRole('heading', { name: /E o jogo agora é seu\./i })
