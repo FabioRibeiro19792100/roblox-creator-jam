@@ -88,7 +88,6 @@
   font-weight: 700;
   padding: 1rem 2rem;
   cursor: pointer;
-  border-radius: 0;
   transition: all 0.2s ease;
   font-family: inherit;
   text-align: center;
@@ -200,7 +199,6 @@
   font-weight: 700;
   padding: 1rem 2rem;
   cursor: pointer;
-  border-radius: 0;
   transition: all 0.2s ease;
   font-family: inherit;
 }
@@ -218,7 +216,6 @@
   font-weight: 700;
   padding: 1rem 2rem;
   cursor: pointer;
-  border-radius: 0;
   transition: all 0.2s ease;
   font-family: inherit;
 }

@@ -24,7 +24,6 @@
 
 .expedicao-inscricao-modal {
   background: #ffffff;
-  border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   max-width: 600px;
   width: 100%;
@@ -108,7 +107,6 @@
   font-family: inherit;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-radius: 8px;
   width: 100%;
   text-align: center;
 }
@@ -129,7 +127,6 @@
   font-family: inherit;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-radius: 8px;
   width: 100%;
   text-align: center;
 }
@@ -165,7 +162,6 @@
   width: 100%;
   padding: 0.75rem;
   border: 2px solid #ddd;
-  border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
   color: #000;
@@ -214,7 +210,6 @@
 
 .expedicao-inscricao-age-check {
   border: 2px solid #ddd;
-  border-radius: 8px;
   padding: 1rem;
   background: #f9f9f9;
 }
@@ -230,7 +225,6 @@
   width: 100%;
   padding: 0.75rem;
   border: 2px solid #ddd;
-  border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
   color: #000;
@@ -250,7 +244,6 @@
 
 .expedicao-inscricao-evento-selecionado {
   border: 2px solid rgb(83, 0, 255);
-  border-radius: 8px;
   padding: 1rem;
   background: #f0f0ff;
 }
@@ -298,7 +291,6 @@
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  border-radius: 8px;
   width: 100%;
   transition: all 0.2s ease;
 }
@@ -322,7 +314,6 @@
   color: #fff;
   width: 24px;
   height: 24px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -347,7 +338,6 @@
   font-family: inherit;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-radius: 8px;
   width: 100%;
 }
 

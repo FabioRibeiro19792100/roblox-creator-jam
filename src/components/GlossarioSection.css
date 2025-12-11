@@ -3,6 +3,31 @@
   background: #ffffff;
   padding: 0;
   margin: 0;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+  --sweep-color: rgba(211, 47, 47, 0.95);
+  --sweep-duration: 0.45s;
+  --sweep-easing: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.glossario-section.glossario-open {
+  background: #d32f2f;
+  overflow: visible;
+}
+
+.glossario-section:hover,
+.glossario-section.glossario-open {
+  background: #d32f2f;
+}
+
+.glossario-section:hover .glossario-accordion-title,
+.glossario-section:hover .glossario-accordion-subtitle,
+.glossario-section:hover .glossario-accordion-arrow,
+.glossario-section:hover .glossario-accordion-item,
+.glossario-section:hover .glossario-termo,
+.glossario-section:hover .glossario-descricao {
+  color: #fff;
 }
 
 .glossario-container {
@@ -72,27 +97,40 @@
   font-weight: 100;
   color: #3c3c3c;
   line-height: 1;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   flex-shrink: 0;
   min-width: 30px;
   text-align: center;
 }
 
-.glossario-accordion-content {
-  padding: 2rem 0 0 0;
-  animation: fadeIn 0.3s ease;
+.glossario-section.glossario-open .glossario-accordion-title,
+.glossario-section.glossario-open .glossario-accordion-subtitle {
+  color: #fff;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.glossario-section.glossario-open .glossario-accordion-arrow {
+  color: #fff;
 }
+
+.glossario-section.glossario-open .glossario-item {
+  color: #fff;
+}
+
+.glossario-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  padding: 0;
+  opacity: 0;
+}
+
+.glossario-accordion-open .glossario-accordion-content {
+  max-height: 8000px;
+  padding: 2rem 0 0 0;
+  opacity: 1;
+}
+
+/* @keyframes fadeIn removed as it is replaced by transition */
 
 .glossario-list {
   display: grid;
@@ -131,6 +169,11 @@
   font-family: inherit;
 }
 
+.glossario-section.glossario-open .glossario-termo,
+.glossario-section.glossario-open .glossario-descricao {
+  color: #fff;
+}
+
 /* Tablet */
 @media (min-width: 768px) {
   .glossario-container {
@@ -149,7 +192,7 @@
     font-size: 3.5rem;
   }
 
-  .glossario-accordion-content {
+  .glossario-accordion-open .glossario-accordion-content {
     padding: 2.5rem 0 0 0;
   }
 
@@ -191,7 +234,7 @@
     font-size: 4.5rem;
   }
 
-  .glossario-accordion-content {
+  .glossario-accordion-open .glossario-accordion-content {
     padding: 3rem 0 0 0;
   }
 
@@ -214,4 +257,3 @@
     font-size: 1.125rem;
   }
 }
-

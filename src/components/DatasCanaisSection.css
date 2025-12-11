@@ -1,10 +1,8 @@
 .datas-canais-section {
-  background: #ffffff;
-  background-image:
-    radial-gradient(circle, #e3f2fd 1px, transparent 1px);
-  background-size: 30px 30px;
+  background: #f5f5f5;
   padding: 0;
   position: relative;
+  color: #000;
 }
 
 .datas-canais-container {
@@ -28,34 +26,12 @@
   border: none;
 }
 
-.datas-canais-content {
-  padding: 0 0 4rem 0;
-}
-
-.datas-canais-table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.datas-canais-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: #fff;
-  font-size: 1rem;
-  table-layout: fixed;
-}
-
-.datas-canais-table thead {
-  background: #000;
-}
-
 .datas-canais-table th {
   padding: 1rem 1rem 1rem 0;
   text-align: left;
   font-weight: 700;
   color: #fff;
-  border-bottom: 2px solid #999;
+  border-bottom: 2px solid #5300ff;
   font-size: 1rem;
   text-transform: none;
   letter-spacing: 0;
@@ -64,29 +40,29 @@
 .datas-canais-table th:first-child {
   width: 22%;
   padding-left: 0.5rem;
-  background: #f5f5f5;
-  color: #000;
+  background: #5300ff;
+  color: #fff;
 }
 
 .datas-canais-table th:nth-child(2) {
   width: 18%;
   padding-left: 0.5rem;
-  background: #fafafa;
-  color: #000;
+  background: #6a1fff;
+  color: #fff;
 }
 
 .datas-canais-table th:nth-child(3) {
   width: 18%;
   padding-left: 0.5rem;
-  background: #fafafa;
-  color: #000;
+  background: #6a1fff;
+  color: #fff;
 }
 
 .datas-canais-table th:last-child {
   width: 42%;
   padding-left: 0.5rem;
-  background: #fff;
-  color: #000;
+  background: #7f3fff;
+  color: #fff;
 }
 
 .datas-canais-table tbody tr {
@@ -162,35 +138,35 @@
   .datas-canais-table th {
     padding: 1.25rem 1.25rem 1.25rem 0;
     font-size: 1.05rem;
-    border-bottom: 2px solid #999;
+    border-bottom: 2px solid #5300ff;
   }
 
   .datas-canais-table th:first-child {
     width: 24%;
     padding-left: 0.75rem;
-    background: #f5f5f5;
-    color: #000;
+    background: #5300ff;
+    color: #fff;
   }
 
   .datas-canais-table th:nth-child(2) {
     width: 20%;
     padding-left: 0.75rem;
-    background: #fafafa;
-    color: #000;
+    background: #6a1fff;
+    color: #fff;
   }
 
   .datas-canais-table th:nth-child(3) {
     width: 20%;
     padding-left: 0.75rem;
-    background: #fafafa;
-    color: #000;
+    background: #6a1fff;
+    color: #fff;
   }
 
   .datas-canais-table th:last-child {
     width: 36%;
     padding-left: 0.75rem;
-    background: #fff;
-    color: #000;
+    background: #7f3fff;
+    color: #fff;
   }
 
   .datas-canais-table tbody tr {
@@ -256,80 +232,80 @@
   .datas-canais-table th {
     padding: 1.5rem 1.5rem 1.5rem 0;
     font-size: 1.1rem;
-    border-bottom: 2px solid #999;
+    border-bottom: 2px solid #5300ff;
   }
 
   .datas-canais-table th:first-child {
     width: 24%;
     padding-left: 1rem;
-    background: #f5f5f5;
-    color: #000;
+    background: #5300ff;
+    color: #fff;
   }
 
   .datas-canais-table th:nth-child(2) {
     width: 20%;
     padding-left: 1rem;
-    background: #fafafa;
-    color: #000;
+    background: #6a1fff;
+    color: #fff;
   }
 
   .datas-canais-table th:nth-child(3) {
     width: 20%;
     padding-left: 1rem;
-    background: #fafafa;
-    color: #000;
+    background: #6a1fff;
+    color: #fff;
   }
 
   .datas-canais-table th:last-child {
     width: 36%;
     padding-left: 1rem;
-    background: #fff;
-    color: #000;
+    background: #7f3fff;
+    color: #fff;
   }
 
-  .datas-canais-table tbody tr {
-    height: 6.5rem;
-  }
+.datas-canais-table tbody tr {
+  height: 6.5rem;
+}
 
-  .datas-canais-table td {
-    padding: 1.5rem 1.5rem 1.5rem 0;
-    font-size: 1rem;
-  }
+.datas-canais-table td {
+  padding: 1.5rem 1.5rem 1.5rem 0;
+  font-size: 1rem;
+}
 
-  .datas-canais-table td:first-child {
-    padding-left: 1rem;
-    background: #f5f5f5;
-    color: #000;
-  }
+.datas-canais-table td:first-child {
+  padding-left: 1rem;
+  background: #5300ff;
+  color: #fff;
+}
 
-  .datas-canais-table td:last-child {
-    padding-left: 1rem;
-  }
+.datas-canais-table td:last-child {
+  padding-left: 1rem;
+}
 
-  .datas-canais-table .etapa-cell {
-    font-size: 1.1rem;
-  }
+.datas-canais-table .etapa-cell {
+  font-size: 1.1rem;
+}
 
-  .datas-canais-table td:not(.etapa-cell) {
-    font-size: 1rem;
-    color: #555;
-    font-weight: 400;
-  }
+.datas-canais-table td:not(.etapa-cell) {
+  font-size: 1rem;
+  color: #555;
+  font-weight: 400;
+}
 
-  .datas-canais-table td:nth-child(2) {
-    padding-left: 1rem;
-    font-weight: 700;
-    font-size: 1rem;
-    background: #fafafa;
-    color: #000;
-  }
+.datas-canais-table td:nth-child(2) {
+  padding-left: 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  background: #6a1fff;
+  color: #fff;
+}
 
-  .datas-canais-table td:nth-child(3) {
-    padding-left: 1rem;
-    font-size: 1rem;
-    background: #fafafa;
-    color: #000;
-  }
+.datas-canais-table td:nth-child(3) {
+  padding-left: 1rem;
+  font-size: 1rem;
+  background: #6a1fff;
+  color: #fff;
+}
 }
 
 /* Large Desktop */
@@ -361,71 +337,69 @@
     width: 100%;
   }
 
-  .datas-canais-table tbody tr {
-    display: block;
-    margin-bottom: 1.5rem;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    padding: 1rem 0;
-    box-shadow: none;
-    border-bottom: 1px solid #d0d0d0;
-    height: auto !important;
-  }
+.datas-canais-table tbody tr {
+  margin-bottom: 1.5rem;
+  background: #fff;
+  border: none;
+  padding: 1rem 0;
+  box-shadow: none;
+  border-bottom: 1px solid #d0d0d0;
+  height: auto !important;
+}
 
-  .datas-canais-table tbody tr:last-child {
-    margin-bottom: 0;
-    border-bottom: none;
-  }
+.datas-canais-table tbody tr:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
 
-  .datas-canais-table tbody td {
-    display: block;
-    padding: 0.5rem 0;
-    border: none;
-    text-align: left;
-    background: transparent !important;
-    width: 100% !important;
-    height: auto !important;
-    font-size: 0.9rem;
-  }
+.datas-canais-table tbody td {
+  display: block;
+  padding: 0.5rem 0;
+  border: none;
+  text-align: left;
+  background: transparent !important;
+  width: 100% !important;
+  height: auto !important;
+  font-size: 0.9rem;
+}
 
-  .datas-canais-table tbody td:not(:last-child) {
-    margin-bottom: 0.75rem;
-  }
+.datas-canais-table tbody td:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
 
-  .datas-canais-table tbody td::before {
-    content: attr(data-label);
-    font-weight: 700;
-    color: #000;
-    display: block;
-    margin-bottom: 0.25rem;
-    font-size: 0.85rem;
-  }
+.datas-canais-table tbody td::before {
+  content: attr(data-label);
+  font-weight: 700;
+  color: #000;
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.85rem;
+}
 
-  .datas-canais-table .etapa-cell {
-    background: transparent !important;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #e0e0e0;
-  }
+.datas-canais-table .etapa-cell {
+  background: transparent !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #5300ff;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
 
-  .datas-canais-table .etapa-cell::before {
-    display: none;
-  }
+.datas-canais-table .etapa-cell::before {
+  display: none;
+}
 
-  .datas-canais-table tbody td:nth-child(2),
-  .datas-canais-table tbody td:nth-child(3),
-  .datas-canais-table tbody td:nth-child(4) {
-    color: #555;
-    font-weight: 400;
-  }
+.datas-canais-table tbody td:nth-child(2),
+.datas-canais-table tbody td:nth-child(3),
+.datas-canais-table tbody td:nth-child(4) {
+  color: #555;
+  font-weight: 400;
+}
 
-  .datas-canais-table tbody td:nth-child(2) {
-    font-weight: 700;
-    color: #000;
-  }
+.datas-canais-table tbody td:nth-child(2) {
+  font-weight: 700;
+  color: #000;
+}
 }
 

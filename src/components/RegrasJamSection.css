@@ -1,10 +1,8 @@
 .regras-jam-section {
-  background: #e0e0e0;
-  background-image:
-    radial-gradient(circle, #b0b0b0 1px, transparent 1px);
-  background-size: 30px 30px;
+  background: #000;
   padding: 0;
   position: relative;
+  color: #fff;
 }
 
 .regras-jam-container {
@@ -15,8 +13,8 @@
 }
 
 .regras-jam-title {
+  color: #fff;
   background: transparent;
-  color: #000;
   font-size: 2.5rem;
   font-weight: 900;
   text-transform: none;
@@ -33,10 +31,11 @@
 }
 
 .regra-item {
-  background: #fff;
+  background: #111;
   margin-bottom: 1.5rem;
   padding: 1.5rem;
-  border: none;
+  border: 1px solid #333;
+  color: #fff;
 }
 
 .regra-item:last-child {
@@ -53,7 +52,7 @@
 .regra-numero {
   font-size: 2rem;
   font-weight: 700;
-  color: #3c3c3c;
+  color: #3cfeff;
   line-height: 1;
   min-width: 40px;
   flex-shrink: 0;
@@ -63,7 +62,7 @@
   flex: 1;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #333;
+  color: #fff;
   line-height: 1.4;
   margin: 0;
 }
@@ -75,7 +74,7 @@
 .regra-descricao {
   font-size: 1.05rem;
   line-height: 1.6;
-  color: #555;
+  color: #ccc;
   margin: 0 0 0.5rem 0;
   text-decoration: underline;
   text-underline-offset: 0.3em;
@@ -98,7 +97,7 @@
   margin-bottom: 0;
   flex: 1;
   padding-left: 1rem;
-  border-left: 1px solid #000;
+  border-left: 1px solid #3cfeff;
 }
 
 @media (min-width: 768px) {
@@ -117,7 +116,7 @@
 .lista-titulo {
   font-size: 1rem;
   font-weight: 700;
-  color: #000;
+  color: #fff;
   margin: 0 0 0.75rem 0;
 }
 
@@ -130,7 +129,7 @@
 .lista-itens li {
   font-size: 0.75rem;
   line-height: 1.6;
-  color: #555;
+  color: #ccc;
   margin: 0 0 0.5rem 0;
   padding-left: 1.5rem;
   position: relative;
@@ -140,7 +139,7 @@
   content: '—';
   position: absolute;
   left: 0;
-  color: #000;
+  color: #fff;
   font-weight: 700;
 }
 

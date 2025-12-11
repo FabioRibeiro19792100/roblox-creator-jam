@@ -24,7 +24,6 @@
 
 .roblox-cadastro-popup {
   background: #ffffff;
-  border-radius: 12px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   max-width: 550px;
   width: 100%;
@@ -106,7 +105,6 @@
   font-family: inherit;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-radius: 0;
   width: 100%;
 }
 
@@ -126,7 +124,6 @@
   font-family: inherit;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-radius: 0;
   width: 100%;
 }
 
@@ -192,7 +189,6 @@
   font-weight: 700;
   font-family: inherit;
   cursor: pointer;
-  border-radius: 0;
   box-shadow: 0 4px 20px rgba(83, 0, 255, 0.4);
   z-index: 9999;
   transition: all 0.3s ease;

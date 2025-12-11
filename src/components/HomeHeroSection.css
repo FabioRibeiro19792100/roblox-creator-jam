@@ -109,7 +109,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px; /* Leve arredondamento para modernizar */
 }
 
 .home-hero-roblox-button:hover {

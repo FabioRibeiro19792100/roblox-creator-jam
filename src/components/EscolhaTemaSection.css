@@ -1,10 +1,8 @@
 .escolha-tema-section {
-  background: #e0e0e0;
-  background-image:
-    radial-gradient(circle, #b0b0b0 1px, transparent 1px);
-  background-size: 30px 30px;
+  background: #d9f124;
   padding: 0;
   position: relative;
+  color: #000;
 }
 
 .escolha-tema-container {
@@ -39,7 +37,7 @@
 .escolha-tema-intro p {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #333;
+  color: #000;
   margin: 0 0 0.5rem 0;
   text-decoration: underline;
   text-underline-offset: 0.3em;

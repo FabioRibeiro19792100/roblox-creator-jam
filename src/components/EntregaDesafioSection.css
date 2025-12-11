@@ -1,10 +1,8 @@
 .entrega-desafio-section {
-  background: #ffffff;
-  background-image: 
-    radial-gradient(circle, #e3f2fd 1px, transparent 1px);
-  background-size: 30px 30px;
+  background: rgb(60, 254, 207);
   padding: 0;
   position: relative;
+  color: #000;
 }
 
 .entrega-desafio-container {
@@ -39,7 +37,7 @@
 .entrega-desafio-intro p {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #333;
+  color: #000;
   margin: 0;
   text-decoration: underline;
   text-underline-offset: 0.3em;
@@ -65,7 +63,7 @@
   align-items: flex-start;
   background: transparent;
   padding: 2rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   height: 100%;
 }
 
@@ -76,7 +74,7 @@
 .entrega-number {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #000;
+  color: #5300ff;
   line-height: 1;
   margin-bottom: 1.5rem;
   flex-shrink: 0;
@@ -85,7 +83,7 @@
 .entrega-text {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #333;
+  color: #000;
   flex: 1;
 }
 

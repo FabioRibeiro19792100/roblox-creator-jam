@@ -85,7 +85,6 @@
   font-size: 1.125rem;
   font-weight: 700;
   cursor: pointer;
-  border-radius: 0;
   transition: all 0.2s ease;
   font-family: inherit;
 }
