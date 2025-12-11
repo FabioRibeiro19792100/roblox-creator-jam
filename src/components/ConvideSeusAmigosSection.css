@@ -47,6 +47,10 @@
   font-weight: normal;
 }
 
+.convide-seus-amigos-header:hover .convide-seus-amigos-title-text {
+  color: #fff;
+}
+
 .convide-seus-amigos-title-text {
   font-size: 2.5rem !important;
   font-weight: 900 !important;
@@ -55,6 +59,7 @@
   letter-spacing: -1px;
   margin: 0;
   font-family: inherit;
+  transition: color 0.2s ease;
 }
 
 .convide-seus-amigos-arrow {
@@ -166,7 +171,6 @@
   font-weight: 700;
   padding: 0.5rem 1.5rem;
   cursor: pointer;
-  border-radius: 0;
   transition: transform 0.2s ease;
   font-family: inherit;
   white-space: nowrap;
