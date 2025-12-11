@@ -132,12 +132,27 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease;
+  position: relative;
 }
 
 .footer-link:hover {
   color: #1a1a1a;
-  transform: translateX(6px);
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0a0a0a;
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%;
 }
 
 .footer-arrow {
@@ -196,7 +211,6 @@
   cursor: pointer;
   transition: box-shadow 0.25s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 1.25rem;
   background: linear-gradient(180deg, #ffffff 0%, #d9f124 100%);
   min-height: 280px;
   display: flex;
