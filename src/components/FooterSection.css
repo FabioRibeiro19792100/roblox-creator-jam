@@ -51,8 +51,17 @@
   letter-spacing: -1px;
 }
 
+/* Mobile - Default */
 .footer-cta-content {
   margin-top: 2rem;
+  max-width: 70%;
+}
+
+/* Tablet override */
+@media (min-width: 768px) {
+  .footer-cta-content {
+    max-width: 100%;
+  }
 }
 
 .footer-cta-text {
