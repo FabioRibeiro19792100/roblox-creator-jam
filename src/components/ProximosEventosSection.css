@@ -11,7 +11,7 @@
   transform: translateY(0);
   opacity: 1;
   transition: border-color 0.35s ease, transform 0.3s ease, opacity 0.3s ease;
-  --sweep-color: rgb(48, 0, 150);
+  --sweep-color: #00ff9d;
 }
 
 .proximos-eventos-section:not(.hidden):hover {
@@ -20,7 +20,7 @@
 }
 
 .proximos-eventos-section:not(.hidden):hover .proximos-eventos-title {
-  color: #000;
+  color: #fff;
 }
 
 .proximos-eventos-section:not(.hidden):hover .proximos-eventos-arrow {
