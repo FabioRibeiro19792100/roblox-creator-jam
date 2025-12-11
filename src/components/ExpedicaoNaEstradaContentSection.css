@@ -186,10 +186,34 @@
 
 .expedicao-na-estrada-accordion-open .expedicao-na-estrada-accordion-content {
   max-height: 5000px;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  background: #ffffff;
+}
+
+.expedicao-na-estrada-accordion-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.expedicao-na-estrada-accordion-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.expedicao-na-estrada-accordion-title-large {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0;
+  line-height: 1;
+  letter-spacing: -1px;
 }
 
 .expedicao-na-estrada-accordion-text {
@@ -198,6 +222,31 @@
   color: #000;
   margin: 0;
   text-align: left;
+  max-width: 600px;
+}
+
+.expedicao-na-estrada-accordion-image-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.expedicao-na-estrada-accordion-image-backdrop {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffe600; /* Amarelo da referência */
+  z-index: 0;
+}
+
+.expedicao-na-estrada-accordion-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  display: block;
 }
 
 .expedicao-na-estrada-atividade-description {
@@ -279,7 +328,16 @@
   }
 
   .expedicao-na-estrada-accordion-open .expedicao-na-estrada-accordion-content {
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 2.5rem 2rem;
+  }
+
+  .expedicao-na-estrada-accordion-layout {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .expedicao-na-estrada-accordion-image-wrapper {
+    max-width: 100%;
   }
 
   .expedicao-na-estrada-accordion-text {
@@ -348,7 +406,28 @@
   }
 
   .expedicao-na-estrada-accordion-open .expedicao-na-estrada-accordion-content {
-    padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+    padding: 3rem 2.5rem;
+  }
+
+  .expedicao-na-estrada-accordion-layout {
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .expedicao-na-estrada-accordion-text-wrapper {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .expedicao-na-estrada-accordion-image-wrapper {
+    flex: 1;
+    max-width: 50%;
+    margin-top: 0;
+  }
+
+  .expedicao-na-estrada-accordion-title-large {
+    font-size: 4.5rem;
   }
 
   .expedicao-na-estrada-accordion-text {
