@@ -135,22 +135,34 @@ function ExpedicaoRobloxSection() {
               data-testid={PANEL_IDS.jam}
               aria-hidden={!isJamOpen}
             >
-              <h3 className="expedicao-accordion-heading">
-                {trilha02?.heading || 'Criar durante uma Creator Jam'}
-              </h3>
-                <p className="expedicao-accordion-text">
-                  {trilha02?.description || 'Participe de uma Creator Jam e desenvolva uma experiência jogável em 72 horas, seguindo um tema e regras definidas.'}
-                </p>
-                <div className="expedicao-accordion-cta">
-                  <a 
-                    href="#jam" 
-                    className="expedicao-accordion-button expedicao-accordion-link"
-                    onClick={handleJamLinkClick}
-                  >
-                    {trilha02?.cta || 'Ir para a JAM'}
-                  </a>
+              <div className="expedicao-accordion-layout">
+                <div className="expedicao-accordion-text-col">
+                  <h3 className="expedicao-accordion-heading-large">
+                    {trilha02?.heading || 'Criar durante uma Creator Jam'}
+                  </h3>
+                  <p className="expedicao-accordion-text-editorial">
+                    {trilha02?.description || 'Participe de uma Creator Jam e desenvolva uma experiência jogável em 72 horas, seguindo um tema e regras definidas.\n\nVocê terá a oportunidade de trabalhar em equipe, testar suas habilidades e receber feedback da comunidade.'}
+                  </p>
+                  <div className="expedicao-accordion-cta">
+                    <a 
+                      href="#jam" 
+                      className="expedicao-accordion-button expedicao-accordion-link"
+                      onClick={handleJamLinkClick}
+                    >
+                      {trilha02?.cta || 'Ir para a JAM'}
+                    </a>
+                  </div>
+                </div>
+                <div className="expedicao-accordion-image-col">
+                  <div className="expedicao-accordion-backdrop"></div>
+                  <img 
+                    src="/images/3.webp" 
+                    alt="Creator Jam" 
+                    className="expedicao-accordion-image"
+                  />
                 </div>
               </div>
+            </div>
           </div>
           <div className={`expedicao-accordion-item ${isImersaoOpen ? 'expedicao-accordion-open' : ''}`}>
             <button
@@ -171,29 +183,35 @@ function ExpedicaoRobloxSection() {
               id={PANEL_IDS.imersao}
               data-testid={PANEL_IDS.imersao}
               aria-hidden={!isImersaoOpen}
-              style={{
-                backgroundImage: `url('/images/5.webp?t=${Date.now()}')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat'
-              }}
             >
-              <h3 className="expedicao-accordion-heading">
-                {trilha03?.heading || 'Experiências presenciais na estrada'}
-              </h3>
-                <p className="expedicao-accordion-text">
-                  {trilha03?.description || 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.'}
-                </p>
-                <div className="expedicao-accordion-cta">
-                  <a 
-                    href="#expedicao-na-estrada" 
-                    className="expedicao-accordion-button expedicao-accordion-link"
-                    onClick={handleExpedicaoNaEstradaClick}
-                  >
-                    {trilha03?.cta || 'Ir para Expedição na Estrada'}
-                  </a>
+              <div className="expedicao-accordion-layout">
+                <div className="expedicao-accordion-text-col">
+                  <h3 className="expedicao-accordion-heading-large">
+                    {trilha03?.heading || 'Experiências presenciais na estrada'}
+                  </h3>
+                  <p className="expedicao-accordion-text-editorial">
+                    {trilha03?.description || 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.\n\nConecte-se com outros criadores, aprenda com especialistas e vivencie a comunidade Roblox de perto.'}
+                  </p>
+                  <div className="expedicao-accordion-cta">
+                    <a 
+                      href="#expedicao-na-estrada" 
+                      className="expedicao-accordion-button expedicao-accordion-link"
+                      onClick={handleExpedicaoNaEstradaClick}
+                    >
+                      {trilha03?.cta || 'Ir para Expedição na Estrada'}
+                    </a>
+                  </div>
+                </div>
+                <div className="expedicao-accordion-image-col">
+                  <div className="expedicao-accordion-backdrop"></div>
+                  <img 
+                    src="/images/5.webp" 
+                    alt="Expedição na Estrada" 
+                    className="expedicao-accordion-image"
+                  />
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
