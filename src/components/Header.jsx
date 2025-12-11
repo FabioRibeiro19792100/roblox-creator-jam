@@ -94,6 +94,7 @@ function Header() {
 
   const isHomePage = currentPage === 'home' || (!currentPage && window.location.hash !== '#jam' && window.location.hash !== '#biblioteca' && window.location.hash !== '#expedicao-na-estrada')
   const isBibliotecaPage = currentPage === 'biblioteca' || window.location.hash === '#biblioteca'
+  const isExpedicaoNaEstradaPage = currentPage === 'expedicao-na-estrada' || window.location.hash === '#expedicao-na-estrada'
   const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
   const hasHeaderAnimated =
     typeof window !== 'undefined' ? Boolean(window[HEADER_ANIMATION_FLAG]) : false
@@ -120,6 +121,11 @@ function Header() {
   const handleBibliotecaScroll = (id, e) => {
     e.preventDefault()
     updateHash(`#${id}`, { replace: true })
+    scrollToSection(id)
+  }
+
+  const handleExpedicaoNaEstradaScroll = (id, e) => {
+    e.preventDefault()
     scrollToSection(id)
   }
 
@@ -225,6 +231,33 @@ function Header() {
           <li>
             <a href="#footer-container-wrapper" onClick={(e) => handleBibliotecaScroll('footer-container-wrapper', e)}>
               Central da Expedição
+            </a>
+          </li>
+        </>
+      )
+    }
+
+    if (isExpedicaoNaEstradaPage) {
+      return (
+        <>
+          <li>
+            <a href="/" onClick={(e) => handleNavClick('home', e)}>
+              Início
+            </a>
+          </li>
+          <li>
+            <a href="#expedicao-na-estrada-content" onClick={(e) => handleExpedicaoNaEstradaScroll('expedicao-na-estrada-content', e)}>
+              Atividades
+            </a>
+          </li>
+          <li>
+            <a href="#eventos-na-estrada" onClick={(e) => handleExpedicaoNaEstradaScroll('eventos-na-estrada', e)}>
+              Eventos
+            </a>
+          </li>
+          <li>
+            <a href="#footer-container-wrapper" onClick={(e) => handleExpedicaoNaEstradaScroll('footer-container-wrapper', e)}>
+              Contato
             </a>
           </li>
         </>
