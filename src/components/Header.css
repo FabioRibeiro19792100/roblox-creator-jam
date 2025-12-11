@@ -142,7 +142,7 @@
 }
 
 .nav-dropdown li a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: #5300ff;
   color: #fff;
 }
 
@@ -186,7 +186,6 @@
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 0;
   transition: transform 0.3s ease;
   transform-origin: center;
   backface-visibility: hidden;
@@ -264,7 +263,6 @@
   height: 3px;
   width: 100%;
   background: var(--hamburger-line-color, #fff);
-  border-radius: 2px;
   transition: all 0.3s ease;
   transform-origin: center;
 }
