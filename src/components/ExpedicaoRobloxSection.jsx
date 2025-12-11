@@ -90,16 +90,28 @@ function ExpedicaoRobloxSection() {
               data-testid={PANEL_IDS.trilhas}
               aria-hidden={!isTrilhasOpen}
             >
-              <h3 className="expedicao-accordion-heading">
-                {trilha01?.heading || 'O que as trilhas entregam'}
-              </h3>
-              <p className="expedicao-accordion-text">
-                {trilha01?.description || 'As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.'}
-              </p>
-              <div className="expedicao-accordion-cta">
-                <button className="expedicao-accordion-button" onClick={openContactModal}>
-                  {trilha01?.cta || 'Quero começar a criar'}
-                </button>
+              <div className="expedicao-accordion-layout">
+                <div className="expedicao-accordion-text-col">
+                  <h3 className="expedicao-accordion-heading-large">
+                    {trilha01?.heading || 'Take Pupils on a Learning Journey'}
+                  </h3>
+                  <p className="expedicao-accordion-text-editorial">
+                    {trilha01?.description || 'Year-over-year pupils expand, apply and deepen their knowledge of STEAM concepts.\n\nThey build increasing sophistication, independence and fluency in approaching problems hands-on, and cultivate effective habits of systematic creativity, critical thinking, collaboration and communication.'}
+                  </p>
+                  <div className="expedicao-accordion-cta">
+                    <button className="expedicao-accordion-button" onClick={openContactModal}>
+                      {trilha01?.cta || 'Quero começar a criar'}
+                    </button>
+                  </div>
+                </div>
+                <div className="expedicao-accordion-image-col">
+                  <div className="expedicao-accordion-backdrop"></div>
+                  <img 
+                    src="/images/2.webp" 
+                    alt="Learning Journey" 
+                    className="expedicao-accordion-image"
+                  />
+                </div>
               </div>
             </div>
           </div>

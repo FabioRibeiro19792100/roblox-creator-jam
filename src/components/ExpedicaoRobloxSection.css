@@ -309,7 +309,7 @@
 
 .expedicao-accordion-cta {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start; /* Changed to start to align with text */
   width: 100%;
   position: relative;
   z-index: 1;
@@ -376,6 +376,58 @@
   box-shadow: none;
 }
 
+/* Editorial Layout Styles */
+.expedicao-accordion-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.expedicao-accordion-text-col {
+  width: 100%;
+}
+
+.expedicao-accordion-image-col {
+  width: 100%;
+  position: relative;
+  margin-top: 2rem; /* Give space for backdrop on mobile */
+}
+
+.expedicao-accordion-backdrop {
+  position: absolute;
+  top: 1.5rem;
+  right: -1rem;
+  bottom: -1.5rem;
+  left: 2rem;
+  background-color: #ffe600; /* Yellow backdrop */
+  z-index: 0;
+}
+
+.expedicao-accordion-image {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.expedicao-accordion-heading-large {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.1;
+  margin: 0 0 1.5rem 0;
+}
+
+.expedicao-accordion-text-editorial {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0 0 1rem 0;
+  white-space: pre-line; /* Handle newlines in text */
+}
+
 /* Tablet */
 @media (min-width: 768px) {
   .expedicao-roblox-container {
@@ -391,14 +443,14 @@
     margin-bottom: 2.5rem;
   }
 
-        .expedicao-roblox-description {
-          font-size: 1.3rem;
-          margin-bottom: 1rem;
-        }
+  .expedicao-roblox-description {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
 
-        .expedicao-features {
-          padding: 1rem 0 2rem 0;
-        }
+  .expedicao-features {
+    padding: 1rem 0 2rem 0;
+  }
 
   .expedicao-feature-box {
     padding: 1.5rem 2rem;
@@ -451,14 +503,14 @@
     margin-bottom: 3rem;
   }
 
-        .expedicao-roblox-description {
-          font-size: 1.4rem;
-          margin-bottom: 1rem;
-        }
+  .expedicao-roblox-description {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
 
-        .expedicao-features {
-          padding: 1rem 0 2rem 0;
-        }
+  .expedicao-features {
+    padding: 1rem 0 2rem 0;
+  }
 
   .expedicao-feature-box {
     padding: 1.75rem 2.5rem;
@@ -482,23 +534,52 @@
     padding: 1.5rem 3rem;
   }
 
-        .expedicao-feature-text {
-          font-size: 1.4rem;
-          padding-left: 2rem;
-        }
+  .expedicao-feature-text {
+    font-size: 1.4rem;
+    padding-left: 2rem;
+  }
 
-        .expedicao-feature-content .expedicao-feature-text {
-          padding-left: 0;
-        }
+  .expedicao-feature-content .expedicao-feature-text {
+    padding-left: 0;
+  }
 
-        .expedicao-feature-label {
-          font-size: 1rem;
-        }
+  .expedicao-feature-label {
+    font-size: 1rem;
+  }
 
-        .expedicao-feature-label {
-          font-size: 1rem;
-        }
+  /* Editorial Layout Desktop */
+  .expedicao-accordion-layout {
+    flex-direction: row;
+    gap: 4rem;
+    align-items: center;
+  }
 
+  .expedicao-accordion-text-col {
+    flex: 1;
+    width: 50%;
+  }
+
+  .expedicao-accordion-image-col {
+    flex: 1;
+    width: 50%;
+    margin-top: 0;
+  }
+
+  .expedicao-accordion-backdrop {
+    top: 2rem;
+    right: -2rem;
+    bottom: -2rem;
+    left: 2rem;
+  }
+
+  .expedicao-accordion-heading-large {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .expedicao-accordion-text-editorial {
+    font-size: 1.25rem;
+  }
 }
 
 /* Large Desktop */
@@ -524,16 +605,24 @@
     font-size: 1.5rem;
   }
 
-        .expedicao-feature-text {
-          font-size: 1.5rem;
-          padding-left: 0;
-        }
+  .expedicao-feature-text {
+    font-size: 1.5rem;
+    padding-left: 0;
+  }
 
-        .expedicao-feature-content .expedicao-feature-text {
-          padding-left: 0;
-        }
+  .expedicao-feature-content .expedicao-feature-text {
+    padding-left: 0;
+  }
 
-        .expedicao-feature-label {
-          font-size: 1.125rem;
-        }
+  .expedicao-feature-label {
+    font-size: 1.125rem;
+  }
+  
+  .expedicao-accordion-heading-large {
+    font-size: 4rem;
+  }
+  
+  .expedicao-accordion-text-editorial {
+    font-size: 1.4rem;
+  }
 }
