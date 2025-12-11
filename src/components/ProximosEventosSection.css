@@ -15,7 +15,16 @@
 }
 
 .proximos-eventos-section:not(.hidden):hover {
+  background-color: #d9f124;
   border-bottom-color: rgba(0, 255, 157, 0.6);
+}
+
+.proximos-eventos-section:not(.hidden):hover .proximos-eventos-title {
+  color: #000;
+}
+
+.proximos-eventos-section:not(.hidden):hover .proximos-eventos-arrow {
+  --plus-color: #000;
 }
 
 .proximos-eventos-section.hidden {
@@ -53,6 +62,7 @@
   font-weight: 400;
   color: #fff;
   margin: 0;
+  transition: color 0.3s ease;
 }
 
 .proximos-eventos-arrow {
