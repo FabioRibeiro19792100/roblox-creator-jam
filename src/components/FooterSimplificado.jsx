@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react'
+import { useSiteConfig } from '../config/useSiteConfig'
 import { NavigationContext } from '../App'
 import ContactPopup from './ContactPopup'
 import FAQPopup from './FAQPopup'
@@ -6,49 +7,42 @@ import GlossarioSection from './GlossarioSection'
 import './FooterSection.css'
 
 function FooterSimplificado() {
+  const config = useSiteConfig()
   const { navigateTo } = useContext(NavigationContext) || { navigateTo: () => {} }
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   const [isFAQPopupOpen, setIsFAQPopupOpen] = useState(false)
   
-  const handleTrilha01Click = (e) => {
+  const handleTrilhaClick = (trilha, e) => {
     e.preventDefault()
-    setIsContactPopupOpen(true)
+    if (trilha.action === 'contact') {
+      setIsContactPopupOpen(true)
+    } else if (trilha.action === 'jam') {
+      navigateTo('jam')
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 100)
+    } else if (trilha.action === 'expedicao-na-estrada') {
+      navigateTo('expedicao-na-estrada')
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 100)
+    }
   }
   
-  const handleTrilha02Click = (e) => {
-    e.preventDefault()
-    navigateTo('jam')
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, 100)
-  }
-  
-  const handleTrilha03Click = (e) => {
-    e.preventDefault()
-    navigateTo('expedicao-na-estrada')
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, 100)
-  }
-  
-  const links = [
-    {
-      text: 'Converse com a Mastertech',
-      href: '#',
-      onClick: (e) => {
-        e.preventDefault()
+  const links = config?.footer?.centralExpedicao?.links?.map(link => ({
+    text: link.text,
+    href: '#',
+    onClick: (e) => {
+      e.preventDefault()
+      if (link.action === 'contact') {
         setIsContactPopupOpen(true)
-      }
-    },
-    {
-      text: 'Perguntas frequentes',
-      href: '#',
-      onClick: (e) => {
-        e.preventDefault()
+      } else if (link.action === 'faq') {
         setIsFAQPopupOpen(true)
       }
     }
-  ]
+  })) || []
+  
+  const trilhas = config?.footer?.centralExpedicao?.trilhas || []
 
   return (
     <>
