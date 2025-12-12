@@ -1,8 +1,12 @@
 import { useState } from 'react'
+import { useSiteConfig } from '../config/useSiteConfig'
 import './TrilhasSection.css'
 
 function TrilhasSection() {
+  const config = useSiteConfig()
   const [isOpen, setIsOpen] = useState(false)
+  
+  const trilha01 = config?.expedicaoRoblox?.trilhas?.find(t => t.id === 'trilha-01') || {}
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen)
@@ -17,17 +21,17 @@ function TrilhasSection() {
             onClick={toggleAccordion}
             aria-expanded={isOpen}
           >
-            <p className="trilhas-header-text">Aprender Roblox Studio do zero em nossas trilhas de conteúdos</p>
+            <p className="trilhas-header-text">{trilha01.title || 'Aprender Roblox Studio do zero em nossas trilhas de conteúdos'}</p>
             <span className="trilhas-arrow">{isOpen ? '−' : '+'}</span>
           </button>
           {isOpen && (
             <div className="trilhas-content">
               <p className="trilhas-text">
-                As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.
+                {trilha01.description || 'As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.'}
               </p>
               <div className="trilhas-cta">
                 <button className="trilhas-cta-button">
-                  Quero começar a criar
+                  {trilha01.cta || 'Quero começar a criar'}
                 </button>
               </div>
             </div>

@@ -1,8 +1,10 @@
 import { useContext } from 'react'
+import { useSiteConfig } from '../config/useSiteConfig'
 import { ContactModalContext } from '../App'
 import './HeroSection.css'
 
 function HeroSection() {
+  const config = useSiteConfig()
   const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
   
   const scrollToSection = (id) => {
@@ -26,13 +28,13 @@ function HeroSection() {
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-title">
-            <h1 className="title-roblox">Roblox</h1>
-            <h2 className="title-creator-jam">Creator Jam</h2>
+            <h1 className="title-roblox">{config?.jam?.hero?.titleRoblox || 'Roblox'}</h1>
+            <h2 className="title-creator-jam">{config?.jam?.hero?.titleCreatorJam || 'Creator Jam'}</h2>
           </div>
 
           <div className="hero-description">
             <p>
-              A Creator Jam é um desafio de criação rápida, no qual os participantes<br />têm um tempo curto para desenvolver uma ideia jogável a partir<br />de um tema e seguindo regras definidas.
+              {config?.jam?.hero?.description || 'A Creator Jam é um desafio de criação rápida, no qual os participantes têm um tempo curto para desenvolver uma ideia jogável a partir de um tema e seguindo regras definidas.'}
             </p>
           </div>
 
@@ -41,7 +43,7 @@ function HeroSection() {
               className="cta-button"
               onClick={openContactModal}
             >
-              Inscreva-se
+              {config?.jam?.hero?.ctaText || 'Inscreva-se'}
             </button>
           </div>
         </div>

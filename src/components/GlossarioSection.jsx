@@ -1,14 +1,12 @@
 import { useState } from 'react'
+import { useSiteConfig } from '../config/useSiteConfig'
 import './GlossarioSection.css'
 
 function GlossarioSection() {
+  const config = useSiteConfig()
   const [isOpen, setIsOpen] = useState(false)
 
-  const termos = [
-    {
-      termo: 'Age-check',
-      descricao: 'Verificação de idade na plataforma Roblox que determina a faixa etária do usuário e as funcionalidades disponíveis.'
-    },
+  const termos = config?.glossario?.termos || []
     {
       termo: 'Assets',
       descricao: 'Recursos utilizados na criação, como modelos 3D, imagens, sons e outros elementos que compõem uma experiência.'
@@ -149,12 +147,6 @@ function GlossarioSection() {
       termo: 'Username',
       descricao: 'Nome de usuário único na plataforma Roblox, usado para identificação e login na conta.'
     },
-    {
-      termo: '72 horas',
-      descricao: 'Período padrão de duração de uma Game Jam, durante o qual as equipes desenvolvem suas experiências do zero.'
-    }
-  ]
-
   return (
     <section className="glossario-section">
       <div className="glossario-container">
@@ -164,8 +156,8 @@ function GlossarioSection() {
             onClick={() => setIsOpen(!isOpen)}
           >
             <div className="glossario-title-wrapper">
-              <span className="glossario-accordion-title">Glossário</span>
-              <span className="glossario-accordion-subtitle">Dicionário das expressões da Expedição Roblox</span>
+              <span className="glossario-accordion-title">{config?.glossario?.title || 'Glossário'}</span>
+              <span className="glossario-accordion-subtitle">{config?.glossario?.subtitle || 'Dicionário das expressões da Expedição Roblox'}</span>
             </div>
             <span className="glossario-accordion-arrow">{isOpen ? '−' : '+'}</span>
           </button>

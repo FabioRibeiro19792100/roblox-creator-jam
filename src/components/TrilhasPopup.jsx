@@ -1,28 +1,17 @@
+import { useSiteConfig } from '../config/useSiteConfig'
 import './TrilhasPopup.css'
 
 function TrilhasPopup({ isOpen, onClose, onSelectTrilha }) {
+  const config = useSiteConfig()
+  
   if (!isOpen) return null
 
-  const trilhas = [
-    {
-      id: 'trilha-01',
-      numero: 'TRILHA 01',
-      titulo: 'Aprenda Roblox Studio do zero em nossas trilhas de conteúdos',
-      descricao: 'As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.'
-    },
-    {
-      id: 'trilha-02',
-      numero: 'TRILHA 02',
-      titulo: 'Inscreva-se numa jam e crie experiências jogáveis de verdade;',
-      descricao: 'Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.'
-    },
-    {
-      id: 'trilha-03',
-      numero: 'TRILHA 03',
-      titulo: 'Participe da imersão presencial em um evento na sua capital.',
-      descricao: 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.'
-    }
-  ]
+  const trilhas = config?.expedicaoRoblox?.trilhas?.map(trilha => ({
+    id: trilha.id,
+    numero: trilha.label || `TRILHA ${trilha.id?.split('-')[1] || ''}`,
+    titulo: trilha.title || '',
+    descricao: trilha.description || ''
+  })) || []
 
   const handleCardClick = (trilhaId) => {
     if (onSelectTrilha) {
@@ -47,7 +36,7 @@ function TrilhasPopup({ isOpen, onClose, onSelectTrilha }) {
         >
           ×
         </button>
-        <h3 className="trilhas-popup-title">Escolha uma das trilhas</h3>
+        <h3 className="trilhas-popup-title">{config?.footer?.centralExpedicao?.callsTitle || 'Escolha uma das trilhas'}</h3>
         <ul className="trilhas-popup-list">
           {trilhas.map((trilha) => (
             <li key={trilha.id}>
