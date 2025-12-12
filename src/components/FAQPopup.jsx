@@ -1,6 +1,9 @@
+import { useSiteConfig } from '../config/useSiteConfig'
 import './FAQPopup.css'
 
 function FAQPopup({ isOpen, onClose }) {
+  const config = useSiteConfig()
+  
   if (!isOpen) return null
 
   return (
@@ -19,7 +22,8 @@ function FAQPopup({ isOpen, onClose }) {
         >
           ×
         </button>
-        <p className="faq-popup-message">Em breve</p>
+        <h2 className="faq-popup-title">{config?.faq?.title || 'Perguntas frequentes'}</h2>
+        <p className="faq-popup-message">{config?.faq?.message || 'Em breve'}</p>
       </div>
     </div>
   )
