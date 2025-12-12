@@ -1508,12 +1508,14 @@ function JamHeroEditor({ config, updateConfig, updateConfigDirectly }) {
 
 // Componente para editar Como Participar
 function ComoParticiparEditor({ config, updateConfig, updateConfigDirectly }) {
+  const steps = config.jam?.comoParticipar?.steps || []
+  const regrasChecagem = config.jam?.comoParticipar?.regrasChecagem || []
+  const qaItems = config.jam?.comoParticipar?.qaItems || []
+
   return (
     <div className="admin-section">
       <h2>📝 Como Participar</h2>
-      <p style={{ color: '#666', marginBottom: '1rem' }}>
-        Esta seção contém conteúdo complexo com accordions. Para editar completamente, modifique o arquivo siteConfig.js diretamente.
-      </p>
+      
       <div className="admin-field-group">
         <label>Título da Seção</label>
         <input
@@ -1523,18 +1525,168 @@ function ComoParticiparEditor({ config, updateConfig, updateConfigDirectly }) {
           className="admin-input"
         />
       </div>
+
+      <h3>Passos ({steps.length} passos)</h3>
+      {steps.map((step, index) => (
+        <div key={index} className="admin-card">
+          <h4>Passo {step.number}</h4>
+          <div className="admin-field-group">
+            <label>Título</label>
+            <input
+              type="text"
+              value={step.title || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.comoParticipar) newConfig.jam.comoParticipar = {}
+                  if (!newConfig.jam.comoParticipar.steps) newConfig.jam.comoParticipar.steps = []
+                  if (!newConfig.jam.comoParticipar.steps[index]) newConfig.jam.comoParticipar.steps[index] = {}
+                  newConfig.jam.comoParticipar.steps[index].title = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Descrição</label>
+            <textarea
+              value={step.description || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.comoParticipar) newConfig.jam.comoParticipar = {}
+                  if (!newConfig.jam.comoParticipar.steps) newConfig.jam.comoParticipar.steps = []
+                  if (!newConfig.jam.comoParticipar.steps[index]) newConfig.jam.comoParticipar.steps[index] = {}
+                  newConfig.jam.comoParticipar.steps[index].description = e.target.value
+                })
+              }}
+              className="admin-textarea"
+              rows="3"
+            />
+          </div>
+        </div>
+      ))}
+
+      <h3>Regras de Checagem de Idade</h3>
+      {regrasChecagem.map((regra, index) => (
+        <div key={index} className="admin-card">
+          <h4>Faixa Etária: {regra.faixaEtaria}</h4>
+          <div className="admin-field-group">
+            <label>Chat Permitido</label>
+            <input
+              type="text"
+              value={regra.chatPermitido || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.comoParticipar) newConfig.jam.comoParticipar = {}
+                  if (!newConfig.jam.comoParticipar.regrasChecagem) newConfig.jam.comoParticipar.regrasChecagem = []
+                  if (!newConfig.jam.comoParticipar.regrasChecagem[index]) newConfig.jam.comoParticipar.regrasChecagem[index] = {}
+                  newConfig.jam.comoParticipar.regrasChecagem[index].chatPermitido = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Equipes Permitidas</label>
+            <input
+              type="text"
+              value={regra.equipesPermitidas || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.comoParticipar) newConfig.jam.comoParticipar = {}
+                  if (!newConfig.jam.comoParticipar.regrasChecagem) newConfig.jam.comoParticipar.regrasChecagem = []
+                  if (!newConfig.jam.comoParticipar.regrasChecagem[index]) newConfig.jam.comoParticipar.regrasChecagem[index] = {}
+                  newConfig.jam.comoParticipar.regrasChecagem[index].equipesPermitidas = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Trusted Connection</label>
+            <input
+              type="text"
+              value={regra.trustedConnection || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.comoParticipar) newConfig.jam.comoParticipar = {}
+                  if (!newConfig.jam.comoParticipar.regrasChecagem) newConfig.jam.comoParticipar.regrasChecagem = []
+                  if (!newConfig.jam.comoParticipar.regrasChecagem[index]) newConfig.jam.comoParticipar.regrasChecagem[index] = {}
+                  newConfig.jam.comoParticipar.regrasChecagem[index].trustedConnection = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+        </div>
+      ))}
+
+      <h3>Perguntas e Respostas - Conexão Confiável</h3>
+      {qaItems.map((item, index) => (
+        <div key={index} className="admin-card">
+          <div className="admin-field-group">
+            <label>Pergunta</label>
+            <input
+              type="text"
+              value={item.question || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.comoParticipar) newConfig.jam.comoParticipar = {}
+                  if (!newConfig.jam.comoParticipar.qaItems) newConfig.jam.comoParticipar.qaItems = []
+                  if (!newConfig.jam.comoParticipar.qaItems[index]) newConfig.jam.comoParticipar.qaItems[index] = {}
+                  newConfig.jam.comoParticipar.qaItems[index].question = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Resposta</label>
+            <textarea
+              value={item.answer || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.comoParticipar) newConfig.jam.comoParticipar = {}
+                  if (!newConfig.jam.comoParticipar.qaItems) newConfig.jam.comoParticipar.qaItems = []
+                  if (!newConfig.jam.comoParticipar.qaItems[index]) newConfig.jam.comoParticipar.qaItems[index] = {}
+                  newConfig.jam.comoParticipar.qaItems[index].answer = e.target.value
+                })
+              }}
+              className="admin-textarea"
+              rows="2"
+            />
+          </div>
+        </div>
+      ))}
+
+      <div className="admin-field-group">
+        <label>Introdução da Conexão Confiável</label>
+        <textarea
+          value={config.jam?.comoParticipar?.trustedConnectionIntro || ''}
+          onChange={(e) => updateConfig('jam.comoParticipar.trustedConnectionIntro', e.target.value)}
+          className="admin-textarea"
+          rows="3"
+        />
+      </div>
     </div>
   )
 }
 
 // Componente para editar Escolha Tema
 function EscolhaTemaEditor({ config, updateConfig, updateConfigDirectly }) {
+  const temas = config.jam?.escolhaTema?.temas || []
+  const intro = config.jam?.escolhaTema?.intro || []
+
   return (
     <div className="admin-section">
       <h2>🎯 Escolha Tema</h2>
-      <p style={{ color: '#666', marginBottom: '1rem' }}>
-        Esta seção contém múltiplos temas. Para editar completamente, modifique o arquivo siteConfig.js diretamente.
-      </p>
+      
       <div className="admin-field-group">
         <label>Título da Seção</label>
         <input
@@ -1544,6 +1696,67 @@ function EscolhaTemaEditor({ config, updateConfig, updateConfigDirectly }) {
           className="admin-input"
         />
       </div>
+
+      <h3>Texto de Introdução</h3>
+      {intro.map((text, index) => (
+        <div key={index} className="admin-field-group">
+          <label>Linha {index + 1}</label>
+          <input
+            type="text"
+            value={text || ''}
+            onChange={(e) => {
+              updateConfigDirectly((newConfig) => {
+                if (!newConfig.jam) newConfig.jam = {}
+                if (!newConfig.jam.escolhaTema) newConfig.jam.escolhaTema = {}
+                if (!newConfig.jam.escolhaTema.intro) newConfig.jam.escolhaTema.intro = []
+                newConfig.jam.escolhaTema.intro[index] = e.target.value
+              })
+            }}
+            className="admin-input"
+          />
+        </div>
+      ))}
+
+      <h3>Temas ({temas.length} temas)</h3>
+      {temas.map((tema, index) => (
+        <div key={index} className="admin-card">
+          <h4>Tema {index + 1}</h4>
+          <div className="admin-field-group">
+            <label>Nome do Tema</label>
+            <input
+              type="text"
+              value={tema.tema || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.escolhaTema) newConfig.jam.escolhaTema = {}
+                  if (!newConfig.jam.escolhaTema.temas) newConfig.jam.escolhaTema.temas = []
+                  if (!newConfig.jam.escolhaTema.temas[index]) newConfig.jam.escolhaTema.temas[index] = {}
+                  newConfig.jam.escolhaTema.temas[index].tema = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Descrição</label>
+            <input
+              type="text"
+              value={tema.descricao || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.escolhaTema) newConfig.jam.escolhaTema = {}
+                  if (!newConfig.jam.escolhaTema.temas) newConfig.jam.escolhaTema.temas = []
+                  if (!newConfig.jam.escolhaTema.temas[index]) newConfig.jam.escolhaTema.temas[index] = {}
+                  newConfig.jam.escolhaTema.temas[index].descricao = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
@@ -1586,30 +1799,185 @@ function DesafioJamEditor({ config, updateConfig, updateConfigDirectly }) {
 
 // Componente para editar Regras JAM
 function RegrasJamEditor({ config, updateConfig, updateConfigDirectly }) {
+  const regras = config.jam?.regras?.regras || []
+
   return (
     <div className="admin-section">
       <h2>📋 Regras JAM</h2>
-      <p style={{ color: '#666', marginBottom: '1rem' }}>
-        Esta seção contém múltiplas regras. Para editar completamente, modifique o arquivo siteConfig.js diretamente.
-      </p>
+      
       <div className="admin-field-group">
         <label>Título da Seção</label>
         <input
           type="text"
-          value={config.jam?.regras?.title || 'Regras da JAM'}
+          value={config.jam?.regras?.title || 'Regras'}
           onChange={(e) => updateConfig('jam.regras.title', e.target.value)}
           className="admin-input"
         />
       </div>
+
+      <h3>Regras ({regras.length} regras)</h3>
+      {regras.map((regra, index) => (
+        <div key={index} className="admin-card">
+          <h4>Regra {regra.numero}</h4>
+          <div className="admin-field-group">
+            <label>Título</label>
+            <input
+              type="text"
+              value={regra.titulo || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.regras) newConfig.jam.regras = {}
+                  if (!newConfig.jam.regras.regras) newConfig.jam.regras.regras = []
+                  if (!newConfig.jam.regras.regras[index]) newConfig.jam.regras.regras[index] = {}
+                  newConfig.jam.regras.regras[index].titulo = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Descrição</label>
+            <textarea
+              value={regra.descricao || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.regras) newConfig.jam.regras = {}
+                  if (!newConfig.jam.regras.regras) newConfig.jam.regras.regras = []
+                  if (!newConfig.jam.regras.regras[index]) newConfig.jam.regras.regras[index] = {}
+                  newConfig.jam.regras.regras[index].descricao = e.target.value
+                })
+              }}
+              className="admin-textarea"
+              rows="3"
+            />
+          </div>
+          {regra.permitido && (
+            <>
+              <h5>Permitido</h5>
+              {regra.permitido.map((item, itemIndex) => (
+                <div key={itemIndex} className="admin-field-group">
+                  <input
+                    type="text"
+                    value={item || ''}
+                    onChange={(e) => {
+                      updateConfigDirectly((newConfig) => {
+                        if (!newConfig.jam) newConfig.jam = {}
+                        if (!newConfig.jam.regras) newConfig.jam.regras = {}
+                        if (!newConfig.jam.regras.regras) newConfig.jam.regras.regras = []
+                        if (!newConfig.jam.regras.regras[index]) newConfig.jam.regras.regras[index] = {}
+                        if (!newConfig.jam.regras.regras[index].permitido) newConfig.jam.regras.regras[index].permitido = []
+                        newConfig.jam.regras.regras[index].permitido[itemIndex] = e.target.value
+                      })
+                    }}
+                    className="admin-input"
+                  />
+                </div>
+              ))}
+            </>
+          )}
+          {regra.naoPermitido && (
+            <>
+              <h5>Não Permitido</h5>
+              {regra.naoPermitido.map((item, itemIndex) => (
+                <div key={itemIndex} className="admin-field-group">
+                  <input
+                    type="text"
+                    value={item || ''}
+                    onChange={(e) => {
+                      updateConfigDirectly((newConfig) => {
+                        if (!newConfig.jam) newConfig.jam = {}
+                        if (!newConfig.jam.regras) newConfig.jam.regras = {}
+                        if (!newConfig.jam.regras.regras) newConfig.jam.regras.regras = []
+                        if (!newConfig.jam.regras.regras[index]) newConfig.jam.regras.regras[index] = {}
+                        if (!newConfig.jam.regras.regras[index].naoPermitido) newConfig.jam.regras.regras[index].naoPermitido = []
+                        newConfig.jam.regras.regras[index].naoPermitido[itemIndex] = e.target.value
+                      })
+                    }}
+                    className="admin-input"
+                  />
+                </div>
+              ))}
+            </>
+          )}
+          {regra.topicos && (
+            <>
+              <h5>Tópicos</h5>
+              {regra.topicos.map((item, itemIndex) => (
+                <div key={itemIndex} className="admin-field-group">
+                  <input
+                    type="text"
+                    value={item || ''}
+                    onChange={(e) => {
+                      updateConfigDirectly((newConfig) => {
+                        if (!newConfig.jam) newConfig.jam = {}
+                        if (!newConfig.jam.regras) newConfig.jam.regras = {}
+                        if (!newConfig.jam.regras.regras) newConfig.jam.regras.regras = []
+                        if (!newConfig.jam.regras.regras[index]) newConfig.jam.regras.regras[index] = {}
+                        if (!newConfig.jam.regras.regras[index].topicos) newConfig.jam.regras.regras[index].topicos = []
+                        newConfig.jam.regras.regras[index].topicos[itemIndex] = e.target.value
+                      })
+                    }}
+                    className="admin-input"
+                  />
+                </div>
+              ))}
+            </>
+          )}
+          {regra.descricaoFinal && (
+            <div className="admin-field-group">
+              <label>Descrição Final</label>
+              <textarea
+                value={regra.descricaoFinal || ''}
+                onChange={(e) => {
+                  updateConfigDirectly((newConfig) => {
+                    if (!newConfig.jam) newConfig.jam = {}
+                    if (!newConfig.jam.regras) newConfig.jam.regras = {}
+                    if (!newConfig.jam.regras.regras) newConfig.jam.regras.regras = []
+                    if (!newConfig.jam.regras.regras[index]) newConfig.jam.regras.regras[index] = {}
+                    newConfig.jam.regras.regras[index].descricaoFinal = e.target.value
+                  })
+                }}
+                className="admin-textarea"
+                rows="2"
+              />
+            </div>
+          )}
+          {regra.observacao && (
+            <div className="admin-field-group">
+              <label>Observação</label>
+              <textarea
+                value={regra.observacao || ''}
+                onChange={(e) => {
+                  updateConfigDirectly((newConfig) => {
+                    if (!newConfig.jam) newConfig.jam = {}
+                    if (!newConfig.jam.regras) newConfig.jam.regras = {}
+                    if (!newConfig.jam.regras.regras) newConfig.jam.regras.regras = []
+                    if (!newConfig.jam.regras.regras[index]) newConfig.jam.regras.regras[index] = {}
+                    newConfig.jam.regras.regras[index].observacao = e.target.value
+                  })
+                }}
+                className="admin-textarea"
+                rows="2"
+              />
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   )
 }
 
 // Componente para editar Entrega Desafio
 function EntregaDesafioEditor({ config, updateConfig, updateConfigDirectly }) {
+  const entregas = config.jam?.entrega?.entregas || []
+  const intro = config.jam?.entrega?.intro || []
+
   return (
     <div className="admin-section">
       <h2>📦 Entrega Desafio</h2>
+      
       <div className="admin-field-group">
         <label>Título</label>
         <input
@@ -1619,18 +1987,62 @@ function EntregaDesafioEditor({ config, updateConfig, updateConfigDirectly }) {
           className="admin-input"
         />
       </div>
-      <p style={{ color: '#666', marginBottom: '1rem' }}>
-        Esta seção contém lista de entregas. Para editar completamente, modifique o arquivo siteConfig.js diretamente.
-      </p>
+
+      <h3>Texto de Introdução</h3>
+      {intro.map((text, index) => (
+        <div key={index} className="admin-field-group">
+          <label>Linha {index + 1}</label>
+          <textarea
+            value={text || ''}
+            onChange={(e) => {
+              updateConfigDirectly((newConfig) => {
+                if (!newConfig.jam) newConfig.jam = {}
+                if (!newConfig.jam.entrega) newConfig.jam.entrega = {}
+                if (!newConfig.jam.entrega.intro) newConfig.jam.entrega.intro = []
+                newConfig.jam.entrega.intro[index] = e.target.value
+              })
+            }}
+            className="admin-textarea"
+            rows="2"
+          />
+        </div>
+      ))}
+
+      <h3>Entregas ({entregas.length} itens)</h3>
+      {entregas.map((entrega, index) => (
+        <div key={index} className="admin-card">
+          <h4>Entrega {entrega.number}</h4>
+          <div className="admin-field-group">
+            <label>Texto</label>
+            <textarea
+              value={entrega.text || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.entrega) newConfig.jam.entrega = {}
+                  if (!newConfig.jam.entrega.entregas) newConfig.jam.entrega.entregas = []
+                  if (!newConfig.jam.entrega.entregas[index]) newConfig.jam.entrega.entregas[index] = {}
+                  newConfig.jam.entrega.entregas[index].text = e.target.value
+                })
+              }}
+              className="admin-textarea"
+              rows="2"
+            />
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
 
 // Componente para editar Premiação
 function PremiacaoEditor({ config, updateConfig, updateConfigDirectly }) {
+  const premiacoes = config.jam?.premiacao?.premiacoes || []
+
   return (
     <div className="admin-section">
       <h2>🏆 Premiação</h2>
+      
       <div className="admin-field-group">
         <label>Título</label>
         <input
@@ -1640,18 +2052,94 @@ function PremiacaoEditor({ config, updateConfig, updateConfigDirectly }) {
           className="admin-input"
         />
       </div>
-      <p style={{ color: '#666', marginBottom: '1rem' }}>
-        Esta seção contém múltiplas premiações. Para editar completamente, modifique o arquivo siteConfig.js diretamente.
-      </p>
+
+      <h3>Premiações ({premiacoes.length} premiações)</h3>
+      {premiacoes.map((premiacao, index) => (
+        <div key={index} className="admin-card">
+          <h4>{premiacao.lugar}</h4>
+          <div className="admin-field-group">
+            <label>Lugar</label>
+            <input
+              type="text"
+              value={premiacao.lugar || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.premiacao) newConfig.jam.premiacao = {}
+                  if (!newConfig.jam.premiacao.premiacoes) newConfig.jam.premiacao.premiacoes = []
+                  if (!newConfig.jam.premiacao.premiacoes[index]) newConfig.jam.premiacao.premiacoes[index] = {}
+                  newConfig.jam.premiacao.premiacoes[index].lugar = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Cor do Lugar</label>
+            <input
+              type="text"
+              value={premiacao.lugarColor || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.premiacao) newConfig.jam.premiacao = {}
+                  if (!newConfig.jam.premiacao.premiacoes) newConfig.jam.premiacao.premiacoes = []
+                  if (!newConfig.jam.premiacao.premiacoes[index]) newConfig.jam.premiacao.premiacoes[index] = {}
+                  newConfig.jam.premiacao.premiacoes[index].lugarColor = e.target.value
+                })
+              }}
+              className="admin-input"
+              placeholder="#000000"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Título do Prêmio</label>
+            <input
+              type="text"
+              value={premiacao.titulo || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.premiacao) newConfig.jam.premiacao = {}
+                  if (!newConfig.jam.premiacao.premiacoes) newConfig.jam.premiacao.premiacoes = []
+                  if (!newConfig.jam.premiacao.premiacoes[index]) newConfig.jam.premiacao.premiacoes[index] = {}
+                  newConfig.jam.premiacao.premiacoes[index].titulo = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Descrição</label>
+            <textarea
+              value={premiacao.descricao || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.premiacao) newConfig.jam.premiacao = {}
+                  if (!newConfig.jam.premiacao.premiacoes) newConfig.jam.premiacao.premiacoes = []
+                  if (!newConfig.jam.premiacao.premiacoes[index]) newConfig.jam.premiacao.premiacoes[index] = {}
+                  newConfig.jam.premiacao.premiacoes[index].descricao = e.target.value
+                })
+              }}
+              className="admin-textarea"
+              rows="2"
+            />
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
 
 // Componente para editar Datas e Canais
 function DatasCanaisEditor({ config, updateConfig, updateConfigDirectly }) {
+  const etapas = config.jam?.datasCanais?.etapas || []
+
   return (
     <div className="admin-section">
       <h2>📅 Datas e Canais</h2>
+      
       <div className="admin-field-group">
         <label>Título</label>
         <input
@@ -1661,9 +2149,81 @@ function DatasCanaisEditor({ config, updateConfig, updateConfigDirectly }) {
           className="admin-input"
         />
       </div>
-      <p style={{ color: '#666', marginBottom: '1rem' }}>
-        Esta seção contém múltiplas etapas. Para editar completamente, modifique o arquivo siteConfig.js diretamente.
-      </p>
+
+      <h3>Etapas ({etapas.length} etapas)</h3>
+      {etapas.map((etapa, index) => (
+        <div key={index} className="admin-card">
+          <h4>Etapa {index + 1}</h4>
+          <div className="admin-field-group">
+            <label>Etapa</label>
+            <input
+              type="text"
+              value={etapa.etapa || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.datasCanais) newConfig.jam.datasCanais = {}
+                  if (!newConfig.jam.datasCanais.etapas) newConfig.jam.datasCanais.etapas = []
+                  if (!newConfig.jam.datasCanais.etapas[index]) newConfig.jam.datasCanais.etapas[index] = {}
+                  newConfig.jam.datasCanais.etapas[index].etapa = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Plataforma</label>
+            <input
+              type="text"
+              value={etapa.plataforma || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.datasCanais) newConfig.jam.datasCanais = {}
+                  if (!newConfig.jam.datasCanais.etapas) newConfig.jam.datasCanais.etapas = []
+                  if (!newConfig.jam.datasCanais.etapas[index]) newConfig.jam.datasCanais.etapas[index] = {}
+                  newConfig.jam.datasCanais.etapas[index].plataforma = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Quando</label>
+            <input
+              type="text"
+              value={etapa.quando || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.datasCanais) newConfig.jam.datasCanais = {}
+                  if (!newConfig.jam.datasCanais.etapas) newConfig.jam.datasCanais.etapas = []
+                  if (!newConfig.jam.datasCanais.etapas[index]) newConfig.jam.datasCanais.etapas[index] = {}
+                  newConfig.jam.datasCanais.etapas[index].quando = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>O quê</label>
+            <input
+              type="text"
+              value={etapa.oQue || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.jam) newConfig.jam = {}
+                  if (!newConfig.jam.datasCanais) newConfig.jam.datasCanais = {}
+                  if (!newConfig.jam.datasCanais.etapas) newConfig.jam.datasCanais.etapas = []
+                  if (!newConfig.jam.datasCanais.etapas[index]) newConfig.jam.datasCanais.etapas[index] = {}
+                  newConfig.jam.datasCanais.etapas[index].oQue = e.target.value
+                })
+              }}
+              className="admin-input"
+            />
+          </div>
+        </div>
+      ))}
     </div>
   )
 }

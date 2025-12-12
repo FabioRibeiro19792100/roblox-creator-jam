@@ -1,8 +1,10 @@
 import { useState, useContext } from 'react'
 import { NavigationContext, ContactModalContext } from '../App'
+import { useSiteConfig } from '../config/useSiteConfig'
 import './Header.css'
 
 function Header() {
+  const config = useSiteConfig()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMissoesOpen, setIsMissoesOpen] = useState(false)
   const { navigateTo, currentPage } = useContext(NavigationContext) || { 
@@ -98,145 +100,100 @@ function Header() {
           <ul className="nav-list">
             {isHomePage ? (
               <>
-                <li>
-                  <a href="#home-hero" onClick={scrollToTop}>
-                    Início
-                  </a>
-                </li>
-                <li>
-                  <a href="#expedicao-roblox" onClick={(e) => handleHomeScroll('expedicao-roblox', e)}>
-                    A Expedição
-                  </a>
-                </li>
-                <li 
-                  className="nav-item-with-dropdown"
-                  onMouseEnter={() => setIsMissoesOpen(true)}
-                  onMouseLeave={() => setIsMissoesOpen(false)}
-                >
-                  <a 
-                    href="#missoes" 
-                    onClick={(e) => {
-                      e.preventDefault()
-                      setIsMissoesOpen(!isMissoesOpen)
-                    }}
-                  >
-                    Missões
-                  </a>
-                  <ul 
-                    className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
-                    onMouseEnter={() => setIsMissoesOpen(true)}
-                    onMouseLeave={() => setIsMissoesOpen(false)}
-                  >
-                    <li>
-                      <a href="#biblioteca" onClick={(e) => {
-                        e.preventDefault()
-                        handleNavClick('biblioteca', e)
-                        setIsMissoesOpen(false)
+                {config?.menu?.home?.items?.map((item, index) => {
+                  if (item.isLink) {
+                    return (
+                      <li key={index}>
+                        <a href={item.link === 'home' ? '/' : `#${item.link}`} onClick={(e) => {
+                          e.preventDefault()
+                          if (item.link === 'home') {
+                            scrollToTop(e)
+                          } else {
+                            handleNavClick(item.link, e)
+                          }
+                        }}>
+                          {item.label}
+                        </a>
+                      </li>
+                    )
+                  }
+                  return (
+                    <li key={index}>
+                      <a href={item.anchor || '#'} onClick={(e) => {
+                        if (item.anchor) {
+                          handleHomeScroll(item.anchor.replace('#', ''), e)
+                        }
                       }}>
-                        Trilhas de conteúdo
+                        {item.label}
                       </a>
                     </li>
-                    <li>
-                      <a href="#jam" onClick={(e) => {
-                        e.preventDefault()
-                        handleNavClick('jam', e)
-                        setIsMissoesOpen(false)
-                      }}>
-                        Jam
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#expedicao-na-estrada" onClick={(e) => {
-                        e.preventDefault()
-                        handleNavClick('expedicao-na-estrada', e)
-                        setIsMissoesOpen(false)
-                      }}>
-                        Estrada
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
-                    Contato
-                  </a>
-                </li>
+                  )
+                })}
               </>
             ) : isBibliotecaPage ? (
               <>
-                <li>
-                  <a href="/" onClick={(e) => handleNavClick('home', e)}>
-                    Início
-                  </a>
-                </li>
-                <li>
-                  <a href="#biblioteca-tutorial" onClick={(e) => handleBibliotecaScroll('biblioteca-tutorial', e)}>
-                    Tutorial Roblox Studios
-                  </a>
-                </li>
-                <li>
-                  <a href="#biblioteca-mochilao" onClick={(e) => handleBibliotecaScroll('biblioteca-mochilao', e)}>
-                    Mochilão
-                  </a>
-                </li>
-                <li>
-                  <a href="#biblioteca-acampamento" onClick={(e) => handleBibliotecaScroll('biblioteca-acampamento', e)}>
-                    Acampamento
-                  </a>
-                </li>
-                <li>
-                  <a href="#biblioteca-sobrevivencia" onClick={(e) => handleBibliotecaScroll('biblioteca-sobrevivencia', e)}>
-                    Sobrevivência
-                  </a>
-                </li>
-                <li>
-                  <a href="#footer-container-wrapper" onClick={(e) => handleBibliotecaScroll('footer-container-wrapper', e)}>
-                    Central da Expedição
-                  </a>
-                </li>
+                {config?.menu?.biblioteca?.items?.map((item, index) => {
+                  if (item.isLink) {
+                    return (
+                      <li key={index}>
+                        <a href={item.link === 'home' ? '/' : `#${item.link}`} onClick={(e) => {
+                          e.preventDefault()
+                          if (item.link === 'home') {
+                            handleNavClick('home', e)
+                          } else {
+                            handleNavClick(item.link, e)
+                          }
+                        }}>
+                          {item.label}
+                        </a>
+                      </li>
+                    )
+                  }
+                  return (
+                    <li key={index}>
+                      <a href={item.anchor || '#'} onClick={(e) => {
+                        if (item.anchor) {
+                          handleBibliotecaScroll(item.anchor.replace('#', ''), e)
+                        }
+                      }}>
+                        {item.label}
+                      </a>
+                    </li>
+                  )
+                })}
               </>
             ) : (
               <>
-                <li>
-                  <a href="/" onClick={(e) => handleNavClick('home', e)}>
-                    Início
-                  </a>
-                </li>
-                <li>
-                  <a href="#como-participar" onClick={(e) => { e.preventDefault(); scrollToSection('como-participar') }}>
-                    Como Participar
-                  </a>
-                </li>
-                <li>
-                  <a href="#escolha-tema" onClick={(e) => { e.preventDefault(); scrollToSection('escolha-tema') }}>
-                    Temas
-                  </a>
-                </li>
-                <li>
-                  <a href="#desafio-jam" onClick={(e) => { e.preventDefault(); scrollToSection('desafio-jam') }}>
-                    Desafio
-                  </a>
-                </li>
-                <li>
-                  <a href="#regras-jam" onClick={(e) => { e.preventDefault(); scrollToSection('regras-jam') }}>
-                    Regras
-                  </a>
-                </li>
-                <li>
-                  <a href="#entrega-desafio" onClick={(e) => { e.preventDefault(); scrollToSection('entrega-desafio') }}>
-                    Entrega
-                  </a>
-                </li>
-                <li>
-                  <a href="#premiacao" onClick={(e) => { e.preventDefault(); scrollToSection('premiacao') }}>
-                    Premiação
-                  </a>
-                </li>
-                <li>
-                  <a href="#datas-canais" onClick={(e) => { e.preventDefault(); scrollToSection('datas-canais') }}>
-                    Datas e Canais
-                  </a>
-                </li>
+                {config?.menu?.jam?.items?.map((item, index) => {
+                  if (item.isLink) {
+                    return (
+                      <li key={index}>
+                        <a href={item.link === 'home' ? '/' : `#${item.link}`} onClick={(e) => {
+                          e.preventDefault()
+                          if (item.link === 'home') {
+                            handleNavClick('home', e)
+                          } else {
+                            handleNavClick(item.link, e)
+                          }
+                        }}>
+                          {item.label}
+                        </a>
+                      </li>
+                    )
+                  }
+                  return (
+                    <li key={index}>
+                      <a href={item.anchor || '#'} onClick={(e) => {
+                        e.preventDefault()
+                        if (item.anchor) {
+                          scrollToSection(item.anchor.replace('#', ''))
+                        }
+                      }}>
+                        {item.label}
+                      </a>
+                    </li>
+                  )
+                })}
                 <li 
                   className="nav-item-with-dropdown"
                   onMouseEnter={() => setIsMissoesOpen(true)}
@@ -293,19 +250,19 @@ function Header() {
           </ul>
         </nav>
 
-        {isHomePage && (
+        {isHomePage && config?.menu?.home?.cta && (
           <div className="header-cta-wrapper">
             <div className="header-cta-button">
-              <span className="header-cta-line-1">Quer criar?</span>
+              <span className="header-cta-line-1">{config.menu.home.cta.line1 || 'Quer criar?'}</span>
               <a 
-                href="#expedicao-roblox" 
+                href={config.menu.home.cta.anchor || '#expedicao-roblox'} 
                 className="header-cta-link"
                 onClick={(e) => {
                   e.preventDefault()
-                  scrollToSection('expedicao-roblox')
+                  scrollToSection((config.menu.home.cta.anchor || '#expedicao-roblox').replace('#', ''))
                 }}
               >
-                Desce pro play.
+                {config.menu.home.cta.line2 || 'Desce pro play.'}
               </a>
             </div>
           </div>

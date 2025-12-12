@@ -696,6 +696,105 @@ export const siteConfig = {
         color: 'rgb(216, 243, 31)',
       },
     },
+    publicos: {
+      criadores: {
+        label: 'Conteúdos para criadores',
+        trilhas: {
+          tutorial: {
+            nome: 'Tutorial Roblox Studios',
+            conteudos: [
+              { id: 1, titulo: 'Tutorial 1', pdf: '/pdfs/tutorial1.pdf', imagem: '/placeholder.jpg' },
+              { id: 2, titulo: 'Tutorial 2', pdf: '/pdfs/tutorial2.pdf', imagem: '/placeholder.jpg' },
+            ]
+          },
+          mochilao: {
+            nome: 'Mochilão',
+            conteudos: [
+              { id: 1, titulo: 'Concepção do jogo', pdf: '/pdfs/concepcao.pdf', imagem: '/placeholder.jpg' },
+              { id: 2, titulo: 'Construção do ambiente', pdf: '/pdfs/construcao.pdf', imagem: '/placeholder.jpg' },
+              { id: 3, titulo: 'Criação de personagens', pdf: '/pdfs/personagens.pdf', imagem: '/placeholder.jpg' },
+              { id: 4, titulo: 'Conteúdo 4', pdf: '/pdfs/conteudo4.pdf', imagem: '/placeholder.jpg' },
+              { id: 5, titulo: 'Conteúdo 5', pdf: '/pdfs/conteudo5.pdf', imagem: '/placeholder.jpg' },
+            ]
+          },
+          acampamento: {
+            nome: 'Acampamento',
+            conteudos: [
+              { id: 1, titulo: 'Criação assistida por IA', pdf: '/pdfs/ia.pdf', imagem: '/placeholder.jpg' },
+              { id: 2, titulo: 'Colaboração e co-criação', pdf: '/pdfs/colaboracao.pdf', imagem: '/placeholder.jpg' },
+              { id: 3, titulo: 'Teste e depuração', pdf: '/pdfs/teste.pdf', imagem: '/placeholder.jpg' },
+            ]
+          },
+          sobrevivencia: {
+            nome: 'Sobrevivência',
+            conteudos: [
+              { id: 1, titulo: 'Publicação e narrativa', pdf: '/pdfs/publicacao.pdf', imagem: '/placeholder.jpg' },
+              { id: 2, titulo: 'Reflexão e compartilhamento', pdf: '/pdfs/reflexao.pdf', imagem: '/placeholder.jpg' },
+            ]
+          }
+        }
+      },
+      educadores: {
+        label: 'Conteúdos para educadores',
+        trilhas: {
+          tutorial: {
+            nome: 'Tutorial Roblox Studios',
+            conteudos: [
+              { id: 1, titulo: 'Tutorial Educador 1', pdf: '/pdfs/tutorial-educador1.pdf', imagem: '/placeholder.jpg' },
+            ]
+          },
+          mochilao: {
+            nome: 'Mochilão',
+            conteudos: [
+              { id: 1, titulo: 'Conteúdo Educador 1', pdf: '/pdfs/educador1.pdf', imagem: '/placeholder.jpg' },
+              { id: 2, titulo: 'Conteúdo Educador 2', pdf: '/pdfs/educador2.pdf', imagem: '/placeholder.jpg' },
+            ]
+          },
+          acampamento: {
+            nome: 'Acampamento',
+            conteudos: [
+              { id: 1, titulo: 'Conteúdo Educador 3', pdf: '/pdfs/educador3.pdf', imagem: '/placeholder.jpg' },
+            ]
+          },
+          sobrevivencia: {
+            nome: 'Sobrevivência',
+            conteudos: [
+              { id: 1, titulo: 'Conteúdo Educador 4', pdf: '/pdfs/educador4.pdf', imagem: '/placeholder.jpg' },
+            ]
+          }
+        }
+      },
+      pais: {
+        label: 'Conteúdos para pais, mães e responsáveis',
+        trilhas: {
+          tutorial: {
+            nome: 'Tutorial Roblox Studios',
+            conteudos: [
+              { id: 1, titulo: 'Tutorial Pais 1', pdf: '/pdfs/tutorial-pais1.pdf', imagem: '/placeholder.jpg' },
+            ]
+          },
+          mochilao: {
+            nome: 'Mochilão',
+            conteudos: [
+              { id: 1, titulo: 'Conteúdo Pais 1', pdf: '/pdfs/pais1.pdf', imagem: '/placeholder.jpg' },
+              { id: 2, titulo: 'Conteúdo Pais 2', pdf: '/pdfs/pais2.pdf', imagem: '/placeholder.jpg' },
+            ]
+          },
+          acampamento: {
+            nome: 'Acampamento',
+            conteudos: [
+              { id: 1, titulo: 'Conteúdo Pais 3', pdf: '/pdfs/pais3.pdf', imagem: '/placeholder.jpg' },
+            ]
+          },
+          sobrevivencia: {
+            nome: 'Sobrevivência',
+            conteudos: [
+              { id: 1, titulo: 'Conteúdo Pais 4', pdf: '/pdfs/pais4.pdf', imagem: '/placeholder.jpg' },
+            ]
+          }
+        }
+      }
+    }
   },
 
   // ========== JAM PAGE ==========
@@ -704,6 +803,296 @@ export const siteConfig = {
       title: 'Roblox Creator Jam',
       subtitle: 'Crie, compartilhe e ganhe prêmios',
     },
+    comoParticipar: {
+      title: 'Como Participar',
+      steps: [
+        {
+          number: 1,
+          title: 'Crie sua conta Roblox',
+          description: 'Os participantes precisam ter entre 13 e 18 anos e possuir uma conta Roblox. A conta e o nome de usuário podem ser criados via mobile. Se for auxiliar na criação do jogo, é necessário um computador com Roblox Studio instalado.'
+        },
+        {
+          number: 2,
+          title: 'Faça sua inscrição',
+          description: 'Os participantes devem preencher um formulário oficial informando seu nome de usuário Roblox, o tema que deseja trabalhar, se prefere participar individualmente ou em equipe, e o e-mail do responsável. A inscrição é individual.'
+        },
+        {
+          number: 3,
+          title: 'Aguarde a autorização familiar',
+          description: 'O responsável recebe um e-mail com um código de confirmação. Após autorizar, a participação em equipe é habilitada. Sem autorização, a participação é no modo individual.'
+        },
+        {
+          number: 4,
+          title: 'Forme seu time de trabalho (conexões confiáveis)',
+          description: 'O sistema forma automaticamente as equipes com base na faixa etária oficial do Roblox do participante, tema escolhido, preferência (solo ou equipe) e vínculos familiares existentes (Conexão Confiável). Cada pessoa é colocada em uma equipe apropriada para sua faixa etária.'
+        },
+        {
+          number: 5,
+          title: 'Entre no Discord da Jam',
+          description: 'Os participantes recebem um link de acesso ao servidor oficial do Discord, que contém anúncios da Jam, tutoriais, canais de perguntas e respostas e um canal privado da equipe. A comunicação da Jam ocorre lá em um ambiente moderado e seguro.'
+        },
+        {
+          number: 6,
+          title: 'Crie sua experiência no Roblox Studio',
+          description: 'Com sua equipe, os participantes desenvolvem uma experiência representando o tema escolhido. Cada grupo trabalha em seu próprio projeto e pode publicar a experiência quando estiver pronta.'
+        }
+      ],
+      regrasChecagem: [
+        {
+          faixaEtaria: '13-15',
+          chatPermitido: '13-15, 16-17',
+          equipesPermitidas: '13-15, 16-17',
+          trustedConnection: 'Necessária para equipe com 18'
+        },
+        {
+          faixaEtaria: '16-17',
+          chatPermitido: '13-15, 16-17, 18',
+          equipesPermitidas: '13-15, 16-17, 18',
+          trustedConnection: 'Nunca necessária'
+        },
+        {
+          faixaEtaria: '18',
+          chatPermitido: '16-17, 18',
+          equipesPermitidas: '16-17, 18',
+          trustedConnection: 'Necessária para equipe com 13-15'
+        }
+      ],
+      qaItems: [
+        {
+          question: 'Quem cria?',
+          answer: 'O próprio usuário (jovem) com permissão da família, dentro da plataforma Roblox.'
+        },
+        {
+          question: 'Onde é criada?',
+          answer: 'No próprio Roblox, dentro da conta do usuário, após o age-check.'
+        },
+        {
+          question: 'Quando é criada?',
+          answer: 'Antes da Jam. Nunca durante. A Jam não cria nem gerencia isso.'
+        },
+        {
+          question: 'Quando importa na Jam?',
+          answer: 'Exatamente em UM caso: permitir equipe entre 13-15 e 18.'
+        }
+      ],
+      trustedConnectionIntro: 'Um vínculo seguro entre duas contas que informa ao Roblox que essas pessoas se conhecem na vida real e podem conversar e interagir mesmo estando em faixas etárias que normalmente não conversam.'
+    },
+    escolhaTema: {
+      title: 'Qual vai ser\no tema da Jam?',
+      intro: [
+        'Cada participante escolhe um tema no momento da inscrição.',
+        'O tema escolhido não pode ser alterado depois da formação da equipe.'
+      ],
+      temas: [
+        {
+          tema: 'Empatia',
+          descricao: 'Criar situações que mostram outro ponto de vista.'
+        },
+        {
+          tema: 'Convivência e diferenças',
+          descricao: 'Como pessoas diferentes dividem o mesmo espaço.'
+        },
+        {
+          tema: 'Uso responsável de IA',
+          descricao: 'Limites e escolhas no uso de IA.'
+        },
+        {
+          tema: 'Segurança digital',
+          descricao: 'Riscos, decisões e proteção online.'
+        },
+        {
+          tema: 'Sustentabilidade',
+          descricao: 'Impacto, recursos e uso consciente.'
+        },
+        {
+          tema: 'Mudanças climáticas',
+          descricao: 'Adaptações, desafios e consequências práticas.'
+        },
+        {
+          tema: 'Acesso e inclusão',
+          descricao: 'Experiências que qualquer pessoa consegue usar.'
+        },
+        {
+          tema: 'Mobilidade urbana',
+          descricao: 'Rotas, movimento e organização da cidade.'
+        },
+        {
+          tema: 'Cidades inteligentes',
+          descricao: 'Tecnologia aplicada à vida urbana.'
+        },
+        {
+          tema: 'Saúde emocional',
+          descricao: 'Pressão, equilíbrio e bem-estar.'
+        }
+      ]
+    },
+    desafio: {
+      title: 'O desafio\nda JAM',
+      description: 'A entrega da Jam é o protótipo funcional publicado no Roblox Studio, uma experiência que apresenta a ideia da equipe em funcionamento e oferece ao jogador uma forma concreta de interagir com o tema escolhido.',
+      subtitle: 'Exemplos de protótipos'
+    },
+    regras: {
+      title: 'Regras',
+      regras: [
+        {
+          numero: 1,
+          titulo: 'Criação durante as 72 horas',
+          descricao: 'O projeto deve ser feito dentro do período oficial da Jam e seguir o tema escolhido. Experiências criadas totalmente antes ou depois desse período não entram na avaliação.'
+        },
+        {
+          numero: 2,
+          titulo: 'Uso de recursos, modelos e materiais prontos',
+          descricao: 'Você pode usar materiais que já existem, desde que tenha direito de usar e informe isso na sua entrega.',
+          permitido: [
+            'modelos do Roblox Toolbox com licença Free to Use',
+            'recursos criados por você em outros projetos',
+            'assets feitos por alguém do seu time antes da Jam',
+            'assets gratuitos de sites que permitem uso em jogos',
+            'IA para gerar imagens, sons ou textos (desde que você tenha direito de uso)',
+            'plugins gratuitos do Roblox Studio',
+            'scripts básicos de uso público'
+          ],
+          naoPermitido: [
+            'usar conteúdos pagos sem ter comprado',
+            'usar materiais protegidos por copyright sem permissão',
+            'copiar jogos prontos e publicar como se fossem seus',
+            'usar assets de terceiros que não permitem redistribuição'
+          ],
+          observacao: 'O que você precisa informar na submissão: nome do recurso, de onde você pegou, link da fonte (se houver). Regra simples: Use o que for permitido, mas seja transparente.'
+        },
+        {
+          numero: 3,
+          titulo: 'Equipes de 1 a 5 pessoas',
+          descricao: 'Cada equipe pode ter entre 1 e 5 participantes. Participar sozinho também vale. A formação final das equipes segue as regras da Jam (faixa etária, autorização e preferências).'
+        },
+        {
+          numero: 4,
+          titulo: 'Publicação do projeto',
+          descricao: 'A experiência deve estar publicada no Roblox — como Public ou Unlisted (link-only) — e o link precisa abrir normalmente.'
+        },
+        {
+          numero: 5,
+          titulo: 'Convivência e comportamento',
+          descricao: 'Durante toda a Jam, os participantes seguem:',
+          topicos: [
+            'Termos de Uso do Roblox',
+            'Padrões da Comunidade',
+            'regras de participação da Jam'
+          ],
+          descricaoFinal: 'Os canais oficiais da Jam são moderados, com DMs desativadas.'
+        },
+        {
+          numero: 6,
+          titulo: 'Ambiente seguro',
+          descricao: 'Toda a comunicação oficial ocorre no Discord da Jam, no canal da sua equipe e nos canais públicos. Logs ficam ativos para manter tudo seguro.'
+        }
+      ]
+    },
+    entrega: {
+      title: 'Entrega do\ndesafio',
+      intro: [
+        'A entrega é realizada por meio do formulário oficial de submissão.',
+        'No formulário, a equipe insere: <strong>a divisão de responsabilidades,</strong> Indicando o papel de cada participante no desenvolvimento do projeto.'
+      ],
+      entregas: [
+        {
+          number: 1,
+          text: 'o link da experiência publicada'
+        },
+        {
+          number: 2,
+          text: 'A descrição da ideia, com conceito da experiência, o tema escolhido e a ação central proposta ao jogador.'
+        }
+      ]
+    },
+    premiacao: {
+      title: 'Premiação',
+      premiacoes: [
+        {
+          lugar: 'Primeiro lugar',
+          lugarColor: '#000',
+          titulo: 'Melhor Protótipo da Jam',
+          descricao: 'Reconhece a experiência que apresenta a melhor combinação de conceito, jogabilidade e execução.'
+        },
+        {
+          lugar: 'Segundo lugar',
+          lugarColor: '#666',
+          titulo: 'Prêmio Criatividade',
+          descricao: 'Destaca a abordagem mais original dentro dos temas propostos.'
+        },
+        {
+          lugar: 'Terceiro lugar',
+          lugarColor: '#999',
+          titulo: 'Prêmio da Comunidade',
+          descricao: 'Votação entre participantes da faixa etária da Jam (13-18), em canal moderado.'
+        }
+      ]
+    },
+    datasCanais: {
+      title: 'Datas e canais',
+      etapas: [
+        {
+          etapa: 'Inscrição',
+          plataforma: 'Formulário',
+          quando: '30 a 7 dias antes da Jam',
+          oQue: 'Coleta username, tema e envio da autorização familiar'
+        },
+        {
+          etapa: 'Orientações e Lives',
+          plataforma: 'Discord',
+          quando: 'Na última semana antes da Jam',
+          oQue: 'Abertura, tutoriais e Q&A'
+        },
+        {
+          etapa: 'Formação das equipes',
+          plataforma: 'Sistema Mastertech',
+          quando: '7 dias antes da Jam',
+          oQue: 'Times criados automaticamente, seguindo idade e autorizações'
+        },
+        {
+          etapa: 'Abertura oficial da Jam',
+          plataforma: 'Discord',
+          quando: 'Dia da Jam — horário oficial',
+          oQue: 'Tema revelado e início das 72h de criação'
+        },
+        {
+          etapa: 'Criação dos projetos',
+          plataforma: 'Roblox Studio',
+          quando: 'Durante as 72 horas da Jam',
+          oQue: 'Cada equipe desenvolve sua experiência'
+        },
+        {
+          etapa: 'Comunicação da equipe',
+          plataforma: 'Discord',
+          quando: 'Durante as 72 horas da Jam',
+          oQue: 'Canais públicos + canal privado de cada time'
+        },
+        {
+          etapa: 'Publicação do projeto',
+          plataforma: 'Roblox Studio',
+          quando: 'Até o final das 72 horas',
+          oQue: 'Experiência publicada como Public ou Unlisted'
+        },
+        {
+          etapa: 'Entrega oficial',
+          plataforma: 'Formulário',
+          quando: 'Até o final das 72 horas',
+          oQue: 'Envio do link do projeto + descrição + responsabilidades'
+        },
+        {
+          etapa: 'Avaliação',
+          plataforma: 'Painel interno',
+          quando: '3 dias após a Jam',
+          oQue: 'Jurados Mastertech + Roblox avaliam os projetos'
+        },
+        {
+          etapa: 'Anúncio dos vencedores',
+          plataforma: 'Discord',
+          quando: '7 dias após a Jam',
+          oQue: 'Live com os resultados'
+        }
+      ]
+    }
   },
 
   // ========== FAQ ==========

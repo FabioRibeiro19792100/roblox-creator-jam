@@ -1,7 +1,9 @@
 import { useState } from 'react'
+import { useSiteConfig } from '../config/useSiteConfig'
 import './OQueERobloxStudioSection.css'
 
 function OQueERobloxStudioSection() {
+  const config = useSiteConfig()
   const [isVideoOpen, setIsVideoOpen] = useState(false)
 
   const openVideo = () => {
@@ -17,16 +19,15 @@ function OQueERobloxStudioSection() {
       <section id="o-que-e-roblox-studio" className="o-que-roblox-studio-section">
         <div className="o-que-roblox-studio-container">
           <h2 className="o-que-roblox-studio-title">
-            O que é o Roblox Studios
+            {config?.robloxStudio?.title || 'O que é o Roblox Studios'}
           </h2>
           <div className="o-que-roblox-studio-content">
             <div className="o-que-roblox-studio-text">
-              <p className="o-que-roblox-studio-paragraph">
-                Roblox Studio é a ferramenta de criação que permite construir qualquer coisa que você possa imaginar.
-              </p>
-              <p className="o-que-roblox-studio-paragraph">
-                Nossa missão é potencializar a imaginação de milhões de pessoas ao redor do mundo.
-              </p>
+              {config?.robloxStudio?.description?.map((text, index) => (
+                <p key={index} className="o-que-roblox-studio-paragraph">
+                  {text}
+                </p>
+              ))}
             </div>
             <div className="o-que-roblox-studio-video">
               <div className="video-placeholder" onClick={openVideo}>
