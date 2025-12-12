@@ -3,28 +3,43 @@ import { useState, useEffect } from 'react'
 import { siteConfig as defaultConfig } from './siteConfig'
 
 // Função para fazer merge profundo (deep merge)
+// target = defaultConfig (base completa)
+// source = savedConfig (alterações do admin)
 function deepMerge(target, source) {
+  if (!isObject(target) || !isObject(source)) {
+    return target
+  }
+  
   const output = { ...target }
   
-  if (isObject(target) && isObject(source)) {
-    Object.keys(source).forEach(key => {
-      if (isObject(source[key])) {
-        if (!(key in target)) {
-          Object.assign(output, { [key]: source[key] })
-        } else {
-          output[key] = deepMerge(target[key], source[key])
-        }
-      } else if (Array.isArray(source[key])) {
-        // Para arrays, usar o do source se existir, senão manter o do target
-        output[key] = source[key] && source[key].length > 0 ? source[key] : (target[key] || [])
+  // Primeiro, garantir que todas as chaves do target estão no output
+  Object.keys(target).forEach(key => {
+    if (isObject(target[key]) && isObject(source[key])) {
+      output[key] = deepMerge(target[key], source[key])
+    } else if (Array.isArray(target[key])) {
+      // Se target tem array e source também tem array não vazio, usar source
+      // Se source não tem ou está vazio, usar target
+      if (Array.isArray(source[key]) && source[key].length > 0) {
+        output[key] = source[key]
       } else {
-        // Para valores primitivos, usar o do source se existir, senão manter o do target
-        output[key] = source[key] !== undefined && source[key] !== null && source[key] !== '' 
-          ? source[key] 
-          : (target[key] !== undefined ? target[key] : source[key])
+        output[key] = target[key]
       }
-    })
-  }
+    } else {
+      // Para valores primitivos, usar source se existir e não for vazio, senão target
+      if (source[key] !== undefined && source[key] !== null && source[key] !== '') {
+        output[key] = source[key]
+      } else {
+        output[key] = target[key]
+      }
+    }
+  })
+  
+  // Depois, adicionar chaves que existem só no source (caso raro, mas pode acontecer)
+  Object.keys(source).forEach(key => {
+    if (!(key in output)) {
+      output[key] = source[key]
+    }
+  })
   
   return output
 }
