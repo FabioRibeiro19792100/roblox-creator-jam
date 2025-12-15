@@ -162,6 +162,7 @@ function Admin() {
       sections: [
         { id: 'biblioteca-menu', label: 'Menu/Header', icon: '📋' },
         { id: 'biblioteca-hero', label: 'Hero', icon: '⭐' },
+        { id: 'biblioteca-publicos', label: 'Labels dos Públicos', icon: '👥' },
         { id: 'biblioteca-tutorial', label: 'Tutorial Roblox Studios', icon: '🎓' },
         { id: 'biblioteca-mochilao', label: 'Mochilão', icon: '🎒' },
         { id: 'biblioteca-acampamento', label: 'Acampamento', icon: '⛺' },
@@ -359,6 +360,9 @@ function Admin() {
           )}
           {activeSection === 'biblioteca-hero' && (
             <BibliotecaHeroEditor config={config} updateConfig={updateConfig} updateConfigDirectly={updateConfigDirectly} />
+          )}
+          {activeSection === 'biblioteca-publicos' && (
+            <BibliotecaPublicosEditor config={config} updateConfig={updateConfig} updateConfigDirectly={updateConfigDirectly} />
           )}
           {activeSection === 'biblioteca-tutorial' && (
             <BibliotecaSectionEditor config={config} updateConfig={updateConfig} sectionKey="tutorial" />
@@ -2517,6 +2521,41 @@ function ExpedicaoNaEstradaContentEditor({ config, updateConfig, updateConfigDir
               }}
               className="admin-textarea"
               rows="3"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// Componente para editar Labels dos Públicos da Biblioteca
+function BibliotecaPublicosEditor({ config, updateConfig, updateConfigDirectly }) {
+  const publicos = config?.biblioteca?.publicos || {}
+  
+  return (
+    <div className="admin-section">
+      <h2>👥 Labels dos Públicos - Biblioteca</h2>
+      <p className="admin-description">Edite os labels que aparecem nos cards de seleção de público na página Biblioteca</p>
+      
+      {Object.entries(publicos).map(([key, publico]) => (
+        <div key={key} className="admin-card">
+          <h4>{key === 'criadores' ? '👨‍💻 Criadores' : key === 'educadores' ? '👩‍🏫 Educadores' : '👨‍👩‍👧 Pais, Mães e Responsáveis'}</h4>
+          <div className="admin-field-group">
+            <label>Label (texto do card)</label>
+            <input
+              type="text"
+              value={publico.label || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.biblioteca) newConfig.biblioteca = {}
+                  if (!newConfig.biblioteca.publicos) newConfig.biblioteca.publicos = {}
+                  if (!newConfig.biblioteca.publicos[key]) newConfig.biblioteca.publicos[key] = {}
+                  newConfig.biblioteca.publicos[key].label = e.target.value
+                })
+              }}
+              className="admin-input"
+              placeholder="Conteúdos para criadores"
             />
           </div>
         </div>
