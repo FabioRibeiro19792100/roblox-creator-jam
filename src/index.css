@@ -12,7 +12,6 @@
   --text-light: #666;
   --bg-color: #ffffff;
   --bg-light: #f8f9fa;
-  --border-radius: 12px;
   --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
   --header-height: 60px;
@@ -89,7 +88,6 @@ body {
   -webkit-appearance: none;
   text-decoration: none; /* In case it's an anchor tag */
   font-family: inherit;
-  border-radius: 0;
 }
 
 .btn-cta-global:focus-visible {
@@ -102,7 +100,6 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 0;
   transition: transform 0.3s ease;
   transform-origin: center;
   backface-visibility: hidden;

@@ -162,7 +162,6 @@
 .modal-close-button {
   background: rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(57, 255, 20, 0.45);
-  border-radius: 999px;
   color: #39ff14;
   width: 44px;
   height: 44px;

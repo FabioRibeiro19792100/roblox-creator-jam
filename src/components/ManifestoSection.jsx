@@ -58,11 +58,6 @@ function ManifestoSection() {
                   {config?.manifesto?.content?.[1]?.paragraphs?.length > 0 && (
                     <>
                       <p>{config.manifesto.content[1].paragraphs[config.manifesto.content[1].paragraphs.length - 1]}</p>
-                      <div className="manifesto-cta">
-                        <button className="manifesto-button" onClick={openContactModal}>
-                          {config?.manifesto?.cta?.text || 'Quero saber mais'}
-                        </button>
-                      </div>
                     </>
                   )}
                   {(!config?.manifesto?.content?.[1]?.paragraphs || config.manifesto.content[1].paragraphs.length === 0) && (
@@ -71,11 +66,6 @@ function ManifestoSection() {
                       <p>Quer criar com a gente?</p>
                       <p>Desce pro play.</p>
                       <p>Afinal, você pode aprender tudo o que quiser em uma escola que flui.</p>
-                      <div className="manifesto-cta">
-                        <button className="manifesto-button" onClick={openContactModal}>
-                          Quero saber mais
-                        </button>
-                      </div>
                     </>
                   )}
                 </div>

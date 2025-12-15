@@ -54,7 +54,6 @@ const AnimatorDemo = () => {
     <div style={{ 
       padding: '20px', 
       border: '1px solid #333', 
-      borderRadius: '8px',
       margin: '20px',
       backgroundColor: '#111',
       color: '#fff',
@@ -69,7 +68,6 @@ const AnimatorDemo = () => {
           width: '100px',
           height: '100px',
           backgroundColor: '#00b06f', // Roblox Green ish
-          borderRadius: '12px',
           marginBottom: '20px',
           display: 'flex',
           alignItems: 'center',
@@ -97,6 +95,10 @@ const AnimatorDemo = () => {
 };
 
 export default AnimatorDemo;
+
+
+
+
 
 
 

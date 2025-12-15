@@ -4,6 +4,8 @@ import './GlossarioSection.css'
 function GlossarioSection() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const contentId = 'glossario-accordion-content'
+
   const termos = [
     {
       termo: 'Age-check',
@@ -156,12 +158,19 @@ function GlossarioSection() {
   ]
 
   return (
-    <section className="glossario-section">
+    <section
+      className={`glossario-section sweep-fill ${isOpen ? 'glossario-open sweep-fill-active' : ''}`}
+      role="region"
+      aria-labelledby="glossario-accordion-header"
+    >
       <div className="glossario-container">
         <div className={`glossario-accordion-item ${isOpen ? 'glossario-accordion-open' : ''}`}>
           <button
             className="glossario-accordion-header"
             onClick={() => setIsOpen(!isOpen)}
+            aria-expanded={isOpen}
+            aria-controls={contentId}
+            id="glossario-accordion-header"
           >
             <div className="glossario-title-wrapper">
               <span className="glossario-accordion-title">Glossário</span>
@@ -169,18 +178,16 @@ function GlossarioSection() {
             </div>
             <span className="glossario-accordion-arrow">{isOpen ? '−' : '+'}</span>
           </button>
-          {isOpen && (
-            <div className="glossario-accordion-content">
-              <div className="glossario-list">
-                {termos.map((item, index) => (
-                  <div key={index} className="glossario-item">
-                    <dt className="glossario-termo">{item.termo}</dt>
-                    <dd className="glossario-descricao">{item.descricao}</dd>
-                  </div>
-                ))}
-              </div>
+          <div className="glossario-accordion-content" id={contentId}>
+            <div className="glossario-list">
+              {termos.map((item, index) => (
+                <div key={index} className="glossario-item">
+                  <dt className="glossario-termo">{item.termo}</dt>
+                  <dd className="glossario-descricao">{item.descricao}</dd>
+                </div>
+              ))}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
@@ -188,4 +195,3 @@ function GlossarioSection() {
 }
 
 export default GlossarioSection
-

@@ -72,7 +72,6 @@ export const DebugKit: React.FC<DebugKitProps> = ({ isActive: controlledActive, 
           z-index: 99999; /* Z-index altíssimo para sobrepor tudo */
           pointer-events: none;
           white-space: nowrap;
-          border-radius: 2px;
           box-shadow: 0 2px 4px rgba(0,0,0,0.2);
           border: 1px solid white;
         }
@@ -114,7 +113,6 @@ export const DebugKit: React.FC<DebugKitProps> = ({ isActive: controlledActive, 
         backgroundColor: active ? 'red' : '#333',
         color: 'white',
         border: '2px solid white',
-        borderRadius: '50px',
         fontWeight: 'bold',
         cursor: 'pointer',
         boxShadow: buttonPressed ? '0 6px 12px rgba(0,0,0,0.4)' : '0 4px 6px rgba(0,0,0,0.3)',

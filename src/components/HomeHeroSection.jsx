@@ -183,17 +183,6 @@ function HomeHeroSection() {
               {config?.hero?.home?.description?.[1] || 'Passo a passo, do primeiro clique no Studio até ver amigos jogando algo que você criou.'}
             </p>
           </div>
-          
-          <div className="home-hero-cta" data-animate-id="hero-cta">
-            <button 
-              className="btn-cta-global home-hero-roblox-button"
-              onClick={handleCadastrarRoblox}
-            >
-              <span className="btn-cta-global-inner">
-                <span className="btn-cta-global-label">Crie sua conta no Roblox</span>
-              </span>
-            </button>
-          </div>
         </div>
       </div>
     </section>

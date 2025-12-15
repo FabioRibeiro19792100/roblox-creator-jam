@@ -64,7 +64,6 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  border-radius: 50%;
   background: var(--button-bg-color);
   transition: background 0.1s ease-out;
 }
@@ -92,6 +91,10 @@
   height: 1px;
   pointer-events: none;
 }
+
+
+
+
 
 
 

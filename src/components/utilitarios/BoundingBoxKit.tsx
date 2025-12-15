@@ -56,7 +56,6 @@ export const BoundingBoxKit: React.FC = () => {
         backgroundColor: active ? 'red' : '#222',
         color: 'white',
         border: '2px solid white',
-        borderRadius: '50px',
         fontWeight: 'bold',
         cursor: 'pointer',
         boxShadow: buttonPressed ? '0 6px 12px rgba(0,0,0,0.4)' : '0 4px 6px rgba(0,0,0,0.3)',

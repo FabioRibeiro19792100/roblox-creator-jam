@@ -250,7 +250,6 @@ export const CoordinateGridKit: React.FC = () => {
               backgroundColor: 'rgba(255, 230, 140, 0.2)',
               border: '2px solid rgba(255, 196, 0, 0.6)',
               boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-              borderRadius: '4px'
             }}
           />
         )}
@@ -264,7 +263,6 @@ export const CoordinateGridKit: React.FC = () => {
               transform: 'translate(4px, 2px)',
               padding: '1px 3px',
               backgroundColor: 'rgba(255, 255, 255, 0.6)',
-              borderRadius: '2px',
               border: '1px solid rgba(18, 88, 26, 0.15)',
               boxShadow: '0 1px 2px rgba(0, 0, 0, 0.08)',
               fontSize: '9px',
@@ -293,7 +291,6 @@ export const CoordinateGridKit: React.FC = () => {
           backgroundColor: active ? '#12581a' : '#222',
           color: 'white',
           border: '2px solid white',
-          borderRadius: '50px',
           fontWeight: 'bold',
           cursor: 'pointer',
           boxShadow: buttonPressed ? '0 6px 12px rgba(0,0,0,0.4)' : '0 4px 6px rgba(0,0,0,0.3)',
