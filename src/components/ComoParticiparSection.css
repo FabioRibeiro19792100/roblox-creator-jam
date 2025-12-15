@@ -32,6 +32,16 @@
 }
 
 .step-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
   color: #000;
 }
 
@@ -40,43 +50,163 @@
 }
 
 .step-number {
+  font-size: 2rem;
+  font-weight: 700;
   color: #5300ff;
+  line-height: 1;
+  min-width: 40px;
+  flex-shrink: 0;
 }
 
 .step-title {
+  flex: 1;
+  font-size: 1.25rem;
+  font-weight: 600;
   color: #000;
+  line-height: 1.4;
 }
 
 .step-arrow {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  font-weight: 300;
   color: #000;
+  line-height: 1;
+  min-width: 24px;
+  text-align: center;
 }
 
 .step-icon {
+  flex-shrink: 0;
   color: #000;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 1.5rem;
+}
+
+.step-open .step-content {
+  max-height: 5000px;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+}
+
+.step-description {
+  padding-left: 56px;
+  padding-top: 0;
 }
 
 .step-description p,
 .step-description-paragraph {
+  font-size: 1.05rem;
+  line-height: 1.6;
   color: #333;
+  margin: 0 0 0.5rem 0;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+.step-description-paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.checagem-idade-wrapper {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  padding-left: 56px;
+  border-top: 1px solid #ddd;
 }
 
 .checagem-idade-title,
 .conexao-confiavel-title {
+  font-size: 1.2rem;
+  font-weight: 700;
   color: #000;
+  margin: 0 0 1rem 0;
 }
 
-.checagem-idade-wrapper .regras-table th,
-.checagem-idade-wrapper .regras-table td,
+.checagem-idade-wrapper .regras-table th {
+  color: #333;
+  border-bottom: 1px solid #999;
+}
+
+.checagem-idade-wrapper .regras-table td {
+  color: #333;
+}
+
+.checagem-idade-wrapper .regras-table tbody tr {
+  border-bottom: 1px solid #999;
+}
+
 .checagem-idade-wrapper .regras-table .faixa-etaria {
   color: #333;
 }
 
+.conexao-confiavel-wrapper {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  padding-left: 56px;
+  border-top: 1px solid #ddd;
+}
+
+.conexao-confiavel-wrapper .trusted-connection-intro {
+  margin-bottom: 2rem;
+}
+
+.conexao-confiavel-wrapper .trusted-connection-intro .step-description-paragraph {
+  font-size: 1.05rem;
+}
+
+.conexao-confiavel-wrapper .qa-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+.conexao-confiavel-wrapper .qa-card {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  min-width: 0;
+  height: 100%;
+}
+
+.conexao-confiavel-wrapper .qa-question {
+  background: transparent;
+  border-bottom: 1px solid #666;
+  padding: 0.75rem 0 0.625rem 0;
+  flex-shrink: 0;
+}
+
 .conexao-confiavel-wrapper .qa-question h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
   color: #000;
+  margin: 0;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.conexao-confiavel-wrapper .qa-answer {
+  background: transparent;
+  padding: 0.6rem 0;
 }
 
 .conexao-confiavel-wrapper .qa-answer p {
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: #333;
+  margin: 0;
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
