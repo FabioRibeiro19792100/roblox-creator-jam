@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* padding-inline REMOVIDO INTENCIONALMENTE - NÃO RECOLOCAR */
+  padding: 0 1.5rem; /* Padding adicionado */
 }
 
 .home-hero-content {
@@ -119,6 +119,10 @@
 
 /* Tablet Landscape */
 @media (min-width: 768px) {
+  .home-hero-inner {
+    padding: 0 2rem;
+  }
+
   .home-hero-content {
     gap: 2rem;
   }
@@ -143,6 +147,10 @@
 
 /* Desktop */
 @media (min-width: 1024px) {
+  .home-hero-inner {
+    padding: 0 2rem;
+  }
+
   .home-hero-logo {
     width: 180px; 
   }
