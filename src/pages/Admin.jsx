@@ -799,23 +799,28 @@ function FooterEditor({ config, updateConfig, updateConfigDirectly }) {
         <div key={index} className="admin-card">
           <h4>Trilha {index + 1}</h4>
           <div className="admin-field-group">
-            <label>Label</label>
+            <label>Label (ex: TRILHA 01)</label>
             <input
               type="text"
-              value={trilha.label}
+              value={trilha.label || ''}
               onChange={(e) => {
                 updateConfigDirectly((newConfig) => {
+                  if (!newConfig.footer) newConfig.footer = {}
+                  if (!newConfig.footer.centralExpedicao) newConfig.footer.centralExpedicao = {}
+                  if (!newConfig.footer.centralExpedicao.trilhas) newConfig.footer.centralExpedicao.trilhas = []
+                  if (!newConfig.footer.centralExpedicao.trilhas[index]) newConfig.footer.centralExpedicao.trilhas[index] = {}
                   newConfig.footer.centralExpedicao.trilhas[index].label = e.target.value
                 })
               }}
               className="admin-input"
+              placeholder="TRILHA 01"
             />
           </div>
           <div className="admin-field-group">
             <label>Título</label>
             <input
               type="text"
-              value={trilha.title}
+              value={trilha.title || ''}
               onChange={(e) => {
                 updateConfigDirectly((newConfig) => {
                   if (!newConfig.footer) newConfig.footer = {}
@@ -826,6 +831,23 @@ function FooterEditor({ config, updateConfig, updateConfigDirectly }) {
                 })
               }}
               className="admin-input"
+            />
+          </div>
+          <div className="admin-field-group">
+            <label>Descrição</label>
+            <textarea
+              value={trilha.description || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.footer) newConfig.footer = {}
+                  if (!newConfig.footer.centralExpedicao) newConfig.footer.centralExpedicao = {}
+                  if (!newConfig.footer.centralExpedicao.trilhas) newConfig.footer.centralExpedicao.trilhas = []
+                  if (!newConfig.footer.centralExpedicao.trilhas[index]) newConfig.footer.centralExpedicao.trilhas[index] = {}
+                  newConfig.footer.centralExpedicao.trilhas[index].description = e.target.value
+                })
+              }}
+              className="admin-textarea"
+              rows="3"
             />
           </div>
         </div>
@@ -908,7 +930,24 @@ function ExpedicaoEditor({ config, updateConfig, updateConfigDirectly }) {
       <h3>Trilhas</h3>
       {config.expedicaoRoblox?.trilhas?.map((trilha, index) => (
         <div key={index} className="admin-card">
-          <h4>{trilha.label || `Trilha ${index + 1}`}</h4>
+          <h4>Trilha {index + 1}</h4>
+          <div className="admin-field-group">
+            <label>Label (ex: TRILHA 01)</label>
+            <input
+              type="text"
+              value={trilha.label || ''}
+              onChange={(e) => {
+                updateConfigDirectly((newConfig) => {
+                  if (!newConfig.expedicaoRoblox) newConfig.expedicaoRoblox = {}
+                  if (!newConfig.expedicaoRoblox.trilhas) newConfig.expedicaoRoblox.trilhas = []
+                  if (!newConfig.expedicaoRoblox.trilhas[index]) newConfig.expedicaoRoblox.trilhas[index] = {}
+                  newConfig.expedicaoRoblox.trilhas[index].label = e.target.value
+                })
+              }}
+              className="admin-input"
+              placeholder="TRILHA 01"
+            />
+          </div>
           <div className="admin-field-group">
             <label>Título</label>
             <input
@@ -943,6 +982,24 @@ function ExpedicaoEditor({ config, updateConfig, updateConfigDirectly }) {
               rows="3"
             />
           </div>
+          {trilha.cta && (
+            <div className="admin-field-group">
+              <label>Texto do Botão CTA</label>
+              <input
+                type="text"
+                value={trilha.cta || ''}
+                onChange={(e) => {
+                  updateConfigDirectly((newConfig) => {
+                    if (!newConfig.expedicaoRoblox) newConfig.expedicaoRoblox = {}
+                    if (!newConfig.expedicaoRoblox.trilhas) newConfig.expedicaoRoblox.trilhas = []
+                    if (!newConfig.expedicaoRoblox.trilhas[index]) newConfig.expedicaoRoblox.trilhas[index] = {}
+                    newConfig.expedicaoRoblox.trilhas[index].cta = e.target.value
+                  })
+                }}
+                className="admin-input"
+              />
+            </div>
+          )}
         </div>
       )) || <p>Nenhuma trilha encontrada</p>}
     </div>
