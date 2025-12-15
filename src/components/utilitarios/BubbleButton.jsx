@@ -36,9 +36,9 @@ const BubbleButton = ({ children, onClick, className = '', style = {}, color, ..
       // Movimento de expansão e distorção
       manager.animate(`bubble-tl-${index}-${Date.now()}`, circle, [
         { transform: 'translate(0, 0) scale(1)', offset: 0 },
-        { transform: 'translate(-25px, -25px) scaleY(2)', offset: 0.4 },
-        { transform: `translate(${index === 0 ? 6 : index === 1 ? -10 : -15}px, ${index === 0 ? -2 : index === 1 ? -7 : 6}px) scale(${index === 1 ? '1, 0.8' : '0.2'})`, offset: 0.5 },
-        { transform: `translate(${index === 0 ? -5 : index === 1 ? -10 : -15}px, ${index === 0 ? -15 : index === 1 ? -10 : 5}px) scale(0)`, opacity: 0, offset: 1 }
+        { transform: 'translate(-10px, -10px) scaleY(1.5)', offset: 0.4 },
+        { transform: `translate(${index === 0 ? 3 : index === 1 ? -5 : -7}px, ${index === 0 ? -1 : index === 1 ? -3 : 3}px) scale(${index === 1 ? '1, 0.8' : '0.2'})`, offset: 0.5 },
+        { transform: `translate(${index === 0 ? -2 : index === 1 ? -5 : -7}px, ${index === 0 ? -7 : index === 1 ? -5 : 2}px) scale(0)`, opacity: 0, offset: 1 }
       ], {
         duration: 600, // Acelerado em relação ao original (1.2s / 2)
         easing: 'cubic-bezier(0.1, 0.7, 1.0, 0.1)', // Simula SlowMo
@@ -55,9 +55,9 @@ const BubbleButton = ({ children, onClick, className = '', style = {}, color, ..
   
         manager.animate(`bubble-br-${index}-${Date.now()}`, circle, [
           { transform: 'translate(0, 0) scale(1)', offset: 0 },
-          { transform: 'translate(30px, 30px) scale(1)', offset: 0.4 },
-          { transform: `translate(${index === 0 ? -6 : index === 1 ? 7 : 15}px, ${index === 0 ? 3 : index === 1 ? 3 : -6}px) scale(${index === 1 ? '0.8' : '0.2'})`, offset: 0.5 },
-          { transform: `translate(${index === 0 ? 5 : index === 1 ? 7 : 15}px, ${index === 0 ? 15 : index === 1 ? 7 : -5}px) scale(0)`, opacity: 0, offset: 1 }
+          { transform: 'translate(15px, 15px) scale(1)', offset: 0.4 },
+          { transform: `translate(${index === 0 ? -3 : index === 1 ? 3 : 7}px, ${index === 0 ? 1 : index === 1 ? 1 : -3}px) scale(${index === 1 ? '0.8' : '0.2'})`, offset: 0.5 },
+          { transform: `translate(${index === 0 ? 2 : index === 1 ? 3 : 7}px, ${index === 0 ? 7 : index === 1 ? 3 : -2}px) scale(0)`, opacity: 0, offset: 1 }
         ], {
           duration: 600,
           easing: 'cubic-bezier(0.1, 0.7, 1.0, 0.1)',
@@ -118,6 +118,7 @@ const BubbleButton = ({ children, onClick, className = '', style = {}, color, ..
 };
 
 export default BubbleButton;
+
 
 
 

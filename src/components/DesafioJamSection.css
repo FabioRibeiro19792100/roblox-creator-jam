@@ -34,6 +34,7 @@
 
 .desafio-jam-intro {
   margin-top: 2rem;
+  padding: 0 1.5rem;
 }
 
 .desafio-jam-intro p {
@@ -56,6 +57,7 @@
   color: #000;
   margin: 0 0 2rem 0;
   line-height: 1.2;
+  padding: 0 1.5rem;
 }
 
 .prototipos-grid {
@@ -92,6 +94,7 @@
 
   .desafio-jam-intro {
     margin-top: 2.5rem;
+    padding: 0 2rem;
   }
 
   .desafio-jam-intro p {
@@ -106,6 +109,7 @@
   .prototipos-subtitle {
     font-size: 1.75rem;
     margin: 0 0 2.5rem 0;
+    padding: 0 2rem;
   }
 
   .prototipos-grid {
@@ -135,6 +139,7 @@
 
   .desafio-jam-intro {
     margin-top: 1.5rem;
+    padding: 0 2.5rem;
   }
 
   .desafio-jam-intro p {
@@ -149,6 +154,7 @@
   .prototipos-subtitle {
     font-size: 2rem;
     margin: 0 0 3rem 0;
+    padding: 0 2.5rem;
   }
 
   .prototipos-grid {
