@@ -246,10 +246,10 @@ export const siteConfig = {
       {
         id: 'rio-de-janeiro',
         cidade: 'Rio de Janeiro',
-        data: '10 de março de 2025',
+        data: '11 de abril de 2026',
         local: {
           nome: 'Senac Candelária',
-          endereco: 'Avenida presidente Vargas, 1500, 2 andar'
+          endereco: 'Avenida Presidente Vargas, 1500, 2º andar, Centro'
         },
         sessoes: [
           {
@@ -260,17 +260,17 @@ export const siteConfig = {
           {
             id: 'sessao-2',
             nome: 'Inscreva-se na sessão 2',
-            horario: 'Das 14h às 18hs'
+            horario: 'Das 09h às 13hs'
           }
         ]
       },
       {
         id: 'sao-paulo',
         cidade: 'São Paulo',
-        data: '17 de março de 2025',
+        data: '05 de maio de 2026',
         local: {
-          nome: 'Local a definir',
-          endereco: 'Endereço a definir'
+          nome: 'Centro de Convenções Anhembi',
+          endereco: 'Av. Olavo Fontoura, 1209, Santana, São Paulo - SP, 02012-021'
         },
         sessoes: [
           {
@@ -281,17 +281,17 @@ export const siteConfig = {
           {
             id: 'sessao-2',
             nome: 'Inscreva-se na sessão 2',
-            horario: 'Das 14h às 18hs'
+            horario: 'Das 09h às 13hs'
           }
         ]
       },
       {
         id: 'belo-horizonte',
-        cidade: 'Belo Horizonte',
-        data: '24 de março de 2025',
+        cidade: 'Manaus',
+        data: '22 de agosto de 2026',
         local: {
-          nome: 'Local a definir',
-          endereco: 'Endereço a definir'
+          nome: 'Centro de Convenções Manaus',
+          endereco: 'Av. Amazonas, 6200, Gameleira, Manaus - AM'
         },
         sessoes: [
           {
@@ -302,17 +302,17 @@ export const siteConfig = {
           {
             id: 'sessao-2',
             nome: 'Inscreva-se na sessão 2',
-            horario: 'Das 14h às 18hs'
+            horario: 'Das 09h às 13hs'
           }
         ]
       },
       {
         id: 'brasilia',
         cidade: 'Brasília',
-        data: '31 de março de 2025',
+        data: '30 de maio de 2026',
         local: {
-          nome: 'Local a definir',
-          endereco: 'Endereço a definir'
+          nome: 'Centro de Convenções Ulysses Guimarães',
+          endereco: 'SDC - Eixo Monumental, Lote 05, Asa Norte, Brasília - DF, 70070-350'
         },
         sessoes: [
           {
@@ -323,38 +323,38 @@ export const siteConfig = {
           {
             id: 'sessao-2',
             nome: 'Inscreva-se na sessão 2',
-            horario: 'Das 14h às 18hs'
+            horario: 'Das 09h às 13hs'
+          }
+        ]
+      },
+      {
+        id: 'recife',
+        cidade: 'Recife',
+        data: '26 de setembro de 2026',
+        local: {
+          nome: 'Centro de Convenções de Pernambuco',
+          endereco: 'Complexo de Salgadinho, Av. Prof. Andrade Bezerra, s/n, Salgadinho, Olinda - PE'
+        },
+        sessoes: [
+          {
+            id: 'sessao-1',
+            nome: 'Inscreva-se na sessão 1',
+            horario: 'Das 09h às 13hs'
+          },
+          {
+            id: 'sessao-2',
+            nome: 'Inscreva-se na sessão 2',
+            horario: 'Das 09h às 13hs'
           }
         ]
       },
       {
         id: 'curitiba',
-        cidade: 'Curitiba',
-        data: '7 de abril de 2025',
-        local: {
-          nome: 'Local a definir',
-          endereco: 'Endereço a definir'
-        },
-        sessoes: [
-          {
-            id: 'sessao-1',
-            nome: 'Inscreva-se na sessão 1',
-            horario: 'Das 09h às 13hs'
-          },
-          {
-            id: 'sessao-2',
-            nome: 'Inscreva-se na sessão 2',
-            horario: 'Das 14h às 18hs'
-          }
-        ]
-      },
-      {
-        id: 'porto-alegre',
         cidade: 'Porto Alegre',
-        data: '14 de abril de 2025',
+        data: '17 de outubro de 2026',
         local: {
-          nome: 'Local a definir',
-          endereco: 'Endereço a definir'
+          nome: 'Fabrica Fundação',
+          endereco: 'R. Prof. Pedro Viriato Parigot de Souza, 5300, Campo Comprido, Porto Alegre - RS'
         },
         sessoes: [
           {
@@ -365,7 +365,7 @@ export const siteConfig = {
           {
             id: 'sessao-2',
             nome: 'Inscreva-se na sessão 2',
-            horario: 'Das 14h às 18hs'
+            horario: 'Das 09h às 13hs'
           }
         ]
       }

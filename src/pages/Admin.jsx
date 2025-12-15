@@ -118,6 +118,32 @@ function Admin() {
     }
   }
 
+  const handleExport = () => {
+    try {
+      const configToExport = JSON.stringify(config, null, 2)
+      // Criar um blob e fazer download
+      const blob = new Blob([configToExport], { type: 'application/json' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'siteConfig-export.json'
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      URL.revokeObjectURL(url)
+      
+      // Também copiar para clipboard
+      navigator.clipboard.writeText(configToExport).then(() => {
+        alert('✅ Configuração exportada e copiada para a área de transferência!')
+      }).catch(() => {
+        alert('✅ Configuração exportada! (Não foi possível copiar automaticamente)')
+      })
+    } catch (e) {
+      console.error('Erro ao exportar configuração:', e)
+      alert('Erro ao exportar configuração')
+    }
+  }
+
   const [expandedPages, setExpandedPages] = useState({
     home: true,
     jam: false,
@@ -247,6 +273,13 @@ function Admin() {
             onClick={handleReset}
           >
             🔄 Restaurar Original
+          </button>
+          <button 
+            className="admin-btn admin-btn-export" 
+            onClick={handleExport}
+            style={{ backgroundColor: '#4CAF50', color: 'white' }}
+          >
+            📥 Exportar Config
           </button>
           <a href="/" className="admin-btn admin-btn-back">
             ← Voltar ao Site
