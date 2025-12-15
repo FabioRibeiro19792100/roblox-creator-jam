@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSiteConfig } from '../config/useSiteConfig'
 import './ComoParticiparSection.css'
 import './RegrasPareamentoSection.css'
 import './TrustedConnectionSection.css'
@@ -14,91 +15,24 @@ const splitByPeriod = (text) => {
   ))
 }
 
-const regrasChecagem = [
-  {
-    faixaEtaria: '13-15',
-    chatPermitido: '13-15, 16-17',
-    equipesPermitidas: '13-15, 16-17',
-    trustedConnection: 'Necessária para equipe com 18'
-  },
-  {
-    faixaEtaria: '16-17',
-    chatPermitido: '13-15, 16-17, 18',
-    equipesPermitidas: '13-15, 16-17, 18',
-    trustedConnection: 'Nunca necessária'
-  },
-  {
-    faixaEtaria: '18',
-    chatPermitido: '16-17, 18',
-    equipesPermitidas: '16-17, 18',
-    trustedConnection: 'Necessária para equipe com 13-15'
-  }
-]
-
-const qaItems = [
-  {
-    question: 'Quem cria?',
-    answer: 'O próprio usuário (jovem) com permissão da família, dentro da plataforma Roblox.'
-  },
-  {
-    question: 'Onde é criada?',
-    answer: 'No próprio Roblox, dentro da conta do usuário, após o age-check.'
-  },
-  {
-    question: 'Quando é criada?',
-    answer: 'Antes da Jam. Nunca durante. A Jam não cria nem gerencia isso.'
-  },
-  {
-    question: 'Quando importa na Jam?',
-    answer: 'Exatamente em UM caso: permitir equipe entre 13-15 e 18.'
-  }
-]
-
-const steps = [
-  {
-    number: 1,
-    title: 'Crie sua conta Roblox',
-    description: 'Os participantes precisam ter entre 13 e 18 anos e possuir uma conta Roblox. A conta e o nome de usuário podem ser criados via mobile. Se for auxiliar na criação do jogo, é necessário um computador com Roblox Studio instalado.'
-  },
-  {
-    number: 2,
-    title: 'Faça sua inscrição',
-    description: 'Os participantes devem preencher um formulário oficial informando seu nome de usuário Roblox, o tema que deseja trabalhar, se prefere participar individualmente ou em equipe, e o e-mail do responsável. A inscrição é individual.'
-  },
-  {
-    number: 3,
-    title: 'Aguarde a autorização familiar',
-    description: 'O responsável recebe um e-mail com um código de confirmação. Após autorizar, a participação em equipe é habilitada. Sem autorização, a participação é no modo individual.'
-  },
-  {
-    number: 4,
-    title: 'Forme seu time de trabalho (conexões confiáveis)',
-    description: 'O sistema forma automaticamente as equipes com base na faixa etária oficial do Roblox do participante, tema escolhido, preferência (solo ou equipe) e vínculos familiares existentes (Conexão Confiável). Cada pessoa é colocada em uma equipe apropriada para sua faixa etária.'
-  },
-  {
-    number: 5,
-    title: 'Entre no Discord da Jam',
-    description: 'Os participantes recebem um link de acesso ao servidor oficial do Discord, que contém anúncios da Jam, tutoriais, canais de perguntas e respostas e um canal privado da equipe. A comunicação da Jam ocorre lá em um ambiente moderado e seguro.'
-  },
-  {
-    number: 6,
-    title: 'Crie sua experiência no Roblox Studio',
-    description: 'Com sua equipe, os participantes desenvolvem uma experiência representando o tema escolhido. Cada grupo trabalha em seu próprio projeto e pode publicar a experiência quando estiver pronta.'
-  }
-]
-
 function ComoParticiparSection() {
+  const config = useSiteConfig()
   const [openStep, setOpenStep] = useState(null)
 
   const toggleStep = (stepNumber) => {
     setOpenStep(openStep === stepNumber ? null : stepNumber)
   }
 
+  const steps = config.jam?.comoParticipar?.steps || []
+  const regrasChecagem = config.jam?.comoParticipar?.regrasChecagem || []
+  const qaItems = config.jam?.comoParticipar?.qaItems || []
+  const trustedConnectionIntro = config.jam?.comoParticipar?.trustedConnectionIntro || ''
+
   return (
     <section id="como-participar" className="como-participar-section">
       <div className="como-participar-container">
         <h2 className="como-participar-title">
-          Como Participar
+          {config.jam?.comoParticipar?.title || 'Como Participar'}
         </h2>
         <div className="como-participar-content">
           <div className="steps-accordion">
@@ -153,7 +87,7 @@ function ComoParticiparSection() {
                           <h3 className="conexao-confiavel-title">Conexão Confiável</h3>
                           <div className="trusted-connection-intro">
                             <p className="step-description-paragraph">
-                              Um vínculo seguro entre duas contas que informa ao Roblox que essas pessoas se conhecem na vida real e podem conversar e interagir mesmo estando em faixas etárias que normalmente não conversam.
+                              {trustedConnectionIntro}
                             </p>
                           </div>
                           <div className="qa-grid">

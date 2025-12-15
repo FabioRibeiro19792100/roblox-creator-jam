@@ -1,38 +1,15 @@
 import { useState, useContext, useEffect, useRef } from 'react'
 import { MaterialModalContext, NavigationContext } from '../App'
+import { useSiteConfig } from '../config/useSiteConfig'
 import ConvideSeusAmigosSection from './ConvideSeusAmigosSection'
 import ContactPopup from './ContactPopup'
 import FAQPopup from './FAQPopup'
 import GlossarioSection from './GlossarioSection'
-import { useSiteConfig } from '../config/useSiteConfig'
 import './FooterSection.css'
 
 const CASCADE_DURATION_MS = 3000
 
-const footerCardsData = [
-  {
-    id: 'footer-card-trilha-01',
-    label: 'TRILHA 01',
-    title: 'Aprenda Roblox Studio do zero em nossas trilhas de conteúdos',
-    description:
-      'As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.'
-  },
-  {
-    id: 'footer-card-trilha-02',
-    label: 'TRILHA 02',
-    title: 'Inscreva-se numa jam e crie experiências jogáveis de verdade;',
-    description:
-      'Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.'
-  },
-  {
-    id: 'footer-card-trilha-03',
-    label: 'TRILHA 03',
-    title: 'Participe da imersão presencial em um evento na sua capital.',
-    description: 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.'
-  }
-]
-
-function FooterCard({ card, action, index, totalCards, setContactOpen, navigateTo }) {
+function FooterCard({ card, onClick, index, totalCards }) {
   const ref = useRef(null)
   const [hasAnimated, setHasAnimated] = useState(false)
 
@@ -58,13 +35,13 @@ function FooterCard({ card, action, index, totalCards, setContactOpen, navigateT
 
   const handleClick = (event) => {
     event.preventDefault()
-    action(setContactOpen, navigateTo)
+    onClick(event)
   }
 
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
-      action(setContactOpen, navigateTo)
+      onClick(event)
     }
   }
 
@@ -79,10 +56,10 @@ function FooterCard({ card, action, index, totalCards, setContactOpen, navigateT
       onKeyDown={handleKeyDown}
       role="button"
       tabIndex={0}
-      aria-label={`${card.label} - ${card.title}`}
+      aria-label={`${card.label || ''} - ${card.title || ''}`}
     >
       <div className="footer-card-label-wrapper">
-        <span className="footer-card-label">{card.label}</span>
+        <span className="footer-card-label">{card.label || `TRILHA ${index + 1}`}</span>
       </div>
       <div className="footer-card-content">
         <h4 className="footer-card-title">{card.title}</h4>
@@ -93,70 +70,55 @@ function FooterCard({ card, action, index, totalCards, setContactOpen, navigateT
 }
 
 function FooterSection() {
+  const config = useSiteConfig()
   const { openMaterialModal } = useContext(MaterialModalContext) || { openMaterialModal: () => {} }
   const { navigateTo } = useContext(NavigationContext) || { navigateTo: () => {} }
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   const [isFAQPopupOpen, setIsFAQPopupOpen] = useState(false)
-  const config = useSiteConfig()
-  const footerFinalText =
-    config?.footer?.final?.text || 'Expedição Roblox é um projeto da Mastertech junto com o Roblox'
-  const defaultSocialLinks = [
-    { name: 'Instagram', url: 'https://www.instagram.com/mastertech' },
-    { name: 'WhatsApp', url: 'https://wa.me/5511998901551' },
-    { name: 'TikTok', url: 'https://www.tiktok.com/@mastertech' },
-  ]
-  const configuredSocialLinks = (config?.footer?.final?.social ?? []).filter((link) => link?.url)
-  const footerSocialLinks = configuredSocialLinks.length ? configuredSocialLinks : defaultSocialLinks
 
-  const handleCardActions = [
-    (setContactOpen) => setContactOpen(true),
-    (_setContactOpen, navigate) => {
-      navigate('jam')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    },
-    (_setContactOpen, navigate) => {
-      navigate('expedicao-na-estrada')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+  const handleTrilhaClick = (trilha, e) => {
+    e.preventDefault()
+    if (trilha.action === 'contact') {
+      setIsContactPopupOpen(true)
+    } else if (trilha.action === 'jam') {
+      navigateTo('jam')
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 100)
+    } else if (trilha.action === 'expedicao-na-estrada') {
+      navigateTo('expedicao-na-estrada')
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }, 100)
     }
-  ]
-
-  const links = [
-    {
-      text: 'Converse com a Mastertech',
-      href: '#',
-      onClick: (event) => {
-        event.preventDefault()
+  }
+  
+  const links = config?.footer?.centralExpedicao?.links?.map(link => ({
+    text: link.text,
+    href: '#',
+    onClick: (e) => {
+      e.preventDefault()
+      if (link.action === 'contact') {
         setIsContactPopupOpen(true)
-      }
-    },
-    {
-      text: 'Perguntas frequentes',
-      href: '#',
-      onClick: (event) => {
-        event.preventDefault()
+      } else if (link.action === 'faq') {
         setIsFAQPopupOpen(true)
       }
     }
-  ]
+  })) || []
+  
+  const trilhas = config?.footer?.centralExpedicao?.trilhas || []
 
   return (
     <section id="footer" className="footer-section">
       <div className="footer-cta">
         <div className="footer-cta-container">
           <div className="footer-title">
-            <h1 className="footer-title-roblox">É pai, tutor ou responsável?</h1>
+            <h1 className="footer-title-roblox">{config?.footer?.cta?.title || 'É pai, tutor ou responsável?'}</h1>
           </div>
           <div className="footer-cta-content">
             <p className="footer-cta-text">
-              Temos um material pra você. <br />
-              Clique para{' '}
-              <button className="footer-link-button" onClick={() => openMaterialModal('download')}>
-                baixar
-              </button>{' '}
-              ou{' '}
-              <button className="footer-link-button" onClick={() => openMaterialModal('video')}>
-                assista o vídeo
-              </button>
+              {config?.footer?.cta?.text || 'Temos um material pra você.'} <br />
+              Clique para <button className="footer-link-button" onClick={() => openMaterialModal('download')}>{config?.footer?.cta?.links?.download || 'baixar'}</button> ou <button className="footer-link-button" onClick={() => openMaterialModal('video')}>{config?.footer?.cta?.links?.video || 'assista o vídeo'}</button>
             </p>
           </div>
         </div>
@@ -164,7 +126,7 @@ function FooterSection() {
       <ConvideSeusAmigosSection />
       <div id="footer-container-wrapper" className="footer-container-wrapper">
         <div className="footer-container">
-          <h2 className="footer-links-title">Central da Expedição</h2>
+          <h2 className="footer-links-title">{config?.footer?.centralExpedicao?.title || 'Central da Expedição'}</h2>
           <ul className="footer-links">
             {links.map((link, index) => (
               <li
@@ -179,21 +141,21 @@ function FooterSection() {
               </li>
             ))}
           </ul>
-
-          <div className="footer-separator" />
-
-          <h3 className="footer-calls-title">Escolha uma das trilhas</h3>
-
+          
+          {config?.footer?.centralExpedicao?.separator && <div className="footer-separator"></div>}
+          
+          {config?.footer?.centralExpedicao?.callsTitle && (
+            <h3 className="footer-calls-title">{config.footer.centralExpedicao.callsTitle}</h3>
+          )}
+          
           <div className="footer-cards">
-            {footerCardsData.map((card, index) => (
+            {trilhas.map((trilha, index) => (
               <FooterCard
-                key={card.id}
-                card={card}
-                action={handleCardActions[index]}
+                key={trilha.id || index}
+                card={trilha}
+                onClick={(e) => handleTrilhaClick(trilha, e)}
                 index={index}
-                totalCards={footerCardsData.length}
-                setContactOpen={setIsContactPopupOpen}
-                navigateTo={navigateTo}
+                totalCards={trilhas.length}
               />
             ))}
           </div>
@@ -205,18 +167,13 @@ function FooterSection() {
       </div>
       <div className="footer-final">
         <div className="footer-final-container">
-          <p className="footer-final-text">{footerFinalText}</p>
+          <p className="footer-final-text">
+            {config?.footer?.final?.text || 'Expedição Roblox é um projeto da Mastertech junto com o Roblox'}
+          </p>
           <div className="footer-final-social">
-            {footerSocialLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                className="footer-social-link"
-                aria-label={link.name}
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                {link.name}
+            {config?.footer?.final?.social?.map((social, index) => (
+              <a key={index} href={social.url || '#'} className="footer-social-link" aria-label={social.name} target="_blank" rel="noreferrer noopener">
+                {social.name}
               </a>
             ))}
           </div>

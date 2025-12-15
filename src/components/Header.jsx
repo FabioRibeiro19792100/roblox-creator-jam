@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect, useRef, useMemo } from 'react'
 import { NavigationContext, ContactModalContext, resolvePageFromHash } from '../App'
 import { scrollToElementById, scrollWindowTo, updateHash } from '../utils/scrollHelpers'
+import { useSiteConfig } from '../config/useSiteConfig'
 import useMediaQuery from '../hooks/useMediaQuery'
 import './Header.css'
 
@@ -17,6 +18,7 @@ const getFallbackCurrentPage = () => {
 }
 
 function Header() {
+  const config = useSiteConfig()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMissoesOpen, setIsMissoesOpen] = useState(false)
   const navigationContext = useContext(NavigationContext)
@@ -130,23 +132,50 @@ function Header() {
   }
 
   const renderNavLinks = () => {
+    // Usando config da Main para gerar links dinamicamente
     if (isHomePage) {
       return (
         <>
-          <li>
-            <a href="#home-hero" onClick={scrollToTop}>
-              Início
-            </a>
-          </li>
-          <li>
-            <a href="#expedicao-roblox" onClick={(e) => handleHomeScroll('expedicao-roblox', e)}>
-              A Expedição
-            </a>
-          </li>
+          {config?.menu?.home?.items?.map((item, index) => {
+            if (item.isLink) {
+              return (
+                <li key={index}>
+                  <a href={item.link === 'home' ? '/' : `#${item.link}`} onClick={(e) => {
+                    e.preventDefault()
+                    if (item.link === 'home') {
+                      scrollToTop(e)
+                    } else {
+                      handleNavClick(item.link, e)
+                    }
+                  }}>
+                    {item.label}
+                  </a>
+                </li>
+              )
+            }
+            return (
+              <li key={index}>
+                <a href={item.anchor || '#'} onClick={(e) => {
+                  if (item.anchor) {
+                    handleHomeScroll(item.anchor.replace('#', ''), e)
+                  }
+                }}>
+                  {item.label}
+                </a>
+              </li>
+            )
+          })}
+          
+          {/* Item Missoes Fixo/Hardcoded ou via Config? A main tem Missoes hardcoded no final da lista home */}
           <li 
             className="nav-item-with-dropdown"
             onMouseEnter={() => setIsMissoesOpen(true)}
-            onMouseLeave={() => setIsMissoesOpen(false)}
+            onMouseLeave={(e) => {
+                const relatedTarget = e.relatedTarget
+                if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
+                  setIsMissoesOpen(false)
+                }
+              }}
           >
             <a 
               href="#missoes" 
@@ -159,8 +188,6 @@ function Header() {
             </a>
             <ul 
               className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
-              onMouseEnter={() => setIsMissoesOpen(true)}
-              onMouseLeave={() => setIsMissoesOpen(false)}
             >
               <li>
                 <a href="#biblioteca" onClick={(e) => {
@@ -191,6 +218,7 @@ function Header() {
               </li>
             </ul>
           </li>
+
           <li>
             <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
               Contato
@@ -203,31 +231,35 @@ function Header() {
     if (isBibliotecaPage) {
       return (
         <>
-          <li>
-            <a href="/" onClick={(e) => handleNavClick('home', e)}>
-              Início
-            </a>
-          </li>
-          <li>
-            <a href="#biblioteca-tutorial" onClick={(e) => handleBibliotecaScroll('biblioteca-tutorial', e)}>
-              Tutorial Roblox Studios
-            </a>
-          </li>
-          <li>
-            <a href="#biblioteca-mochilao" onClick={(e) => handleBibliotecaScroll('biblioteca-mochilao', e)}>
-              Mochilão
-            </a>
-          </li>
-          <li>
-            <a href="#biblioteca-acampamento" onClick={(e) => handleBibliotecaScroll('biblioteca-acampamento', e)}>
-              Acampamento
-            </a>
-          </li>
-          <li>
-            <a href="#biblioteca-sobrevivencia" onClick={(e) => handleBibliotecaScroll('biblioteca-sobrevivencia', e)}>
-              Sobrevivência
-            </a>
-          </li>
+           {config?.menu?.biblioteca?.items?.map((item, index) => {
+              if (item.isLink) {
+                return (
+                  <li key={index}>
+                    <a href={item.link === 'home' ? '/' : `#${item.link}`} onClick={(e) => {
+                      e.preventDefault()
+                      if (item.link === 'home') {
+                        handleNavClick('home', e)
+                      } else {
+                        handleNavClick(item.link, e)
+                      }
+                    }}>
+                      {item.label}
+                    </a>
+                  </li>
+                )
+              }
+              return (
+                <li key={index}>
+                  <a href={item.anchor || '#'} onClick={(e) => {
+                    if (item.anchor) {
+                      handleBibliotecaScroll(item.anchor.replace('#', ''), e)
+                    }
+                  }}>
+                    {item.label}
+                  </a>
+                </li>
+              )
+            })}
           <li>
             <a href="#footer-container-wrapper" onClick={(e) => handleBibliotecaScroll('footer-container-wrapper', e)}>
               Central da Expedição
@@ -238,6 +270,9 @@ function Header() {
     }
 
     if (isExpedicaoNaEstradaPage) {
+       // A main tem config para jam mas não vi para expedicao-na-estrada explicitamente no diff, vou manter hardcoded da HEAD ou adaptar
+       // O diff da main tinha: {config?.menu?.jam?.items?.map...} mas estava num bloco else que parecia ser genérico.
+       // Vou manter o hardcoded da HEAD para Expedição na Estrada pois parece seguro e específico.
       return (
         <>
           <li>
@@ -264,48 +299,40 @@ function Header() {
       )
     }
 
-    const navItems = (
+    // Default / Jam Page (que usa config.menu.jam na main)
+    return (
       <>
-        <li>
-          <a href="/" onClick={(e) => handleNavClick('home', e)}>
-            Início
-          </a>
-        </li>
-        <li>
-          <a href="#como-participar" onClick={(e) => { e.preventDefault(); scrollToSection('como-participar') }}>
-            Como Participar
-          </a>
-        </li>
-        <li>
-          <a href="#escolha-tema" onClick={(e) => { e.preventDefault(); scrollToSection('escolha-tema') }}>
-            Temas
-          </a>
-        </li>
-        <li>
-          <a href="#desafio-jam" onClick={(e) => { e.preventDefault(); scrollToSection('desafio-jam') }}>
-            Desafio
-          </a>
-        </li>
-        <li>
-          <a href="#regras-jam" onClick={(e) => { e.preventDefault(); scrollToSection('regras-jam') }}>
-            Regras
-          </a>
-        </li>
-        <li>
-          <a href="#entrega-desafio" onClick={(e) => { e.preventDefault(); scrollToSection('entrega-desafio') }}>
-            Entrega
-          </a>
-        </li>
-        <li>
-          <a href="#premiacao" onClick={(e) => { e.preventDefault(); scrollToSection('premiacao') }}>
-            Premiação
-          </a>
-        </li>
-        <li>
-          <a href="#datas-canais" onClick={(e) => { e.preventDefault(); scrollToSection('datas-canais') }}>
-            Datas e Canais
-          </a>
-        </li>
+        {config?.menu?.jam?.items?.map((item, index) => {
+            if (item.isLink) {
+            return (
+                <li key={index}>
+                <a href={item.link === 'home' ? '/' : `#${item.link}`} onClick={(e) => {
+                    e.preventDefault()
+                    if (item.link === 'home') {
+                    handleNavClick('home', e)
+                    } else {
+                    handleNavClick(item.link, e)
+                    }
+                }}>
+                    {item.label}
+                </a>
+                </li>
+            )
+            }
+            return (
+            <li key={index}>
+                <a href={item.anchor || '#'} onClick={(e) => {
+                e.preventDefault()
+                if (item.anchor) {
+                    scrollToSection(item.anchor.replace('#', ''))
+                }
+                }}>
+                {item.label}
+                </a>
+            </li>
+            )
+        })}
+        
         <li 
           className="nav-item-with-dropdown"
           onMouseEnter={() => setIsMissoesOpen(true)}
@@ -359,8 +386,6 @@ function Header() {
         </li>
       </>
     )
-
-    return navItems
   }
 
   return (
@@ -386,7 +411,7 @@ function Header() {
           Missões
         </span>
 
-        {isHomePage && (
+        {isHomePage && config?.menu?.home?.cta && (
           <div
             className="header-cta-wrapper"
             style={{ paddingLeft: CTA_WRAPPER_PADDING_X, paddingRight: CTA_WRAPPER_PADDING_X }}
@@ -396,11 +421,16 @@ function Header() {
               className="header-cta-button"
               onClick={(e) => {
                 e.preventDefault()
-                scrollToSection('expedicao-roblox')
+                const anchor = config.menu.home.cta.anchor || '#expedicao-roblox'
+                scrollToSection(anchor.replace('#', ''))
               }}
             >
               <span className="header-cta-inner">
-                <span className="header-cta-label">Quer criar? Desce pro play.</span>
+                {/* Combinando estrutura visual HEAD com texto Main */}
+                <span className="header-cta-label" style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
+                   {config.menu.home.cta.line1 && <span style={{ fontSize: '0.8em', opacity: 0.9 }}>{config.menu.home.cta.line1}</span>}
+                   <span>{config.menu.home.cta.line2 || 'Desce pro play.'}</span>
+                </span>
               </span>
             </button>
           </div>

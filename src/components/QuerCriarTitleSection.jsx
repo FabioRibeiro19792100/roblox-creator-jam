@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { useSiteConfig } from '../config/useSiteConfig'
 import TrilhasPopup from './TrilhasPopup'
 import './QuerCriarTitleSection.css'
 
 function QuerCriarTitleSection() {
+  const config = useSiteConfig()
   const [isTrilhasPopupOpen, setIsTrilhasPopupOpen] = useState(false)
 
   const scrollToSection = (id) => {
@@ -51,15 +53,15 @@ function QuerCriarTitleSection() {
       <section id="quer-criar-title" className="quer-criar-title-section">
         <div className="quer-criar-title-container">
           <h2 className="quer-criar-title-title">
-            <span className="quer-criar-title-line-1">Quer criar</span>
-            <span className="quer-criar-title-line-2">com a gente?</span>
+            <span className="quer-criar-title-line-1">{config?.querCriar?.title?.line1 || 'Quer criar'}</span>
+            <span className="quer-criar-title-line-2">{config?.querCriar?.title?.line2 || 'com a gente?'}</span>
           </h2>
           <a 
             href="#expedicao-roblox" 
             className="quer-criar-title-subtitle"
             onClick={handleDesceProPlayClick}
           >
-            Desce pro play.
+            {config?.querCriar?.subtitle || 'Desce pro play.'}
           </a>
         </div>
       </section>

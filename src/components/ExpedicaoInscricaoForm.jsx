@@ -292,7 +292,7 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
           // PASSO 2: Alias + Checar Idade
           <div className="expedicao-inscricao-step">
             <h2 className="expedicao-inscricao-title">
-              Informe seu alias e verifique sua idade
+              Informe seu username e verifique sua idade
             </h2>
             <p className="expedicao-inscricao-description">
               Precisamos do seu username do Roblox e verificação de idade para continuar.
@@ -301,7 +301,7 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
             <form className="expedicao-inscricao-form" onSubmit={handleAliasAndAgeSubmit}>
               <div className="expedicao-inscricao-field">
                 <label htmlFor="robloxAlias" className="expedicao-inscricao-label">
-                  Alias do Roblox (username) <span className="required">*</span>
+                  @ no Roblox <span className="required">*</span>
                 </label>
                 <input
                   type="text"
