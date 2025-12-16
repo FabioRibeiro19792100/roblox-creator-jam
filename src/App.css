@@ -27,9 +27,22 @@
   margin-bottom: 1rem;
 }
 
+p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.86);
+  margin: 0 0 1rem 0;
+}
+
 .section-placeholder p {
-  font-size: 1.1rem;
-  color: #666;
+  color: inherit;
+}
+
+@media (max-width: 767px) {
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 }
 
 @media (min-width: 768px) {

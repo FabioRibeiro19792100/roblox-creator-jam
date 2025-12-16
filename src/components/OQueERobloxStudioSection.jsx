@@ -30,7 +30,11 @@ function OQueERobloxStudioSection() {
               ))}
             </div>
             <div className="o-que-roblox-studio-video">
-              <div className="video-placeholder" onClick={openVideo}>
+              <div 
+                className="video-placeholder hover-fill" 
+                onClick={openVideo}
+                style={{ '--fill-color': 'rgba(255, 0, 80, 0.8)' }} /* Rosa vibrante com transparência */
+              >
                 <div className="play-button">
                   <span className="play-icon">▶</span>
                 </div>

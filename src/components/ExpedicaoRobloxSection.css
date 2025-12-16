@@ -113,6 +113,7 @@
   width: 100%;
   padding: 0 0 2rem 0;
   margin-top: 0;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .expedicao-feature-box {
@@ -121,7 +122,7 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  transition: all 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
   transform: scale(1);
   opacity: 1;
   display: flex;
@@ -170,7 +171,8 @@
 }
 
 .expedicao-feature-box:hover {
-  transform: scale(1);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
 }
 
 .expedicao-feature-box:hover .expedicao-feature-text {
@@ -210,6 +212,12 @@
 
 .expedicao-accordion-item {
   width: 100%;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.expedicao-accordion-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
 }
 
 .expedicao-accordion-content {
@@ -265,6 +273,20 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 1;
+}
+
+.expedicao-accordion-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.75rem 0;
+  color: #222;
+}
+
+.expedicao-accordion-item:last-child .expedicao-accordion-heading {
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .expedicao-accordion-cta {
@@ -499,4 +521,3 @@
           font-size: 1.125rem;
         }
 }
-

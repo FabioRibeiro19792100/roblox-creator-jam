@@ -4,18 +4,19 @@
   left: 0;
   right: 0;
   background: #000;
-  z-index: 1000;
+  z-index: var(--layer-header, 1002); /* Garante que o header fique acima da cascata (proximos eventos & home hero) */
   transition: all 0.3s ease;
 }
 
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 1rem var(--site-horizontal-padding, 1.5rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 60px;
+  height: 60px; /* Altura fixa para garantir consistência */
 }
 
 .logo {
@@ -42,6 +43,10 @@
 }
 
 .nav {
+  display: block;
+}
+
+.nav-mobile {
   display: none;
 }
 
@@ -147,50 +152,86 @@
 
 .header-cta-wrapper {
   display: none;
+  align-items: center;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .header-cta-button {
-  background: #fff;
-  border: none;
-  color: #000;
-  font-size: 0.875rem;
-  font-weight: 700;
-  text-transform: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0;
-  display: flex;
-  flex-direction: row;
+  position: relative;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  padding: 0;
+  min-height: 52px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background: transparent;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: 0;
   transition: transform 0.2s ease;
-  font-family: inherit;
-  line-height: 1.2;
-  gap: 0.5rem;
-  transform: scale(1);
+}
+
+.header-cta-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.header-cta-button::before,
+.header-cta-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+
+.header-cta-button::before {
+  background: #0050ff;
+}
+
+.header-cta-button::after {
+  background: #ff5b00;
+  transform: rotateX(-90deg);
+}
+
+.header-cta-button:hover::before,
+.header-cta-button:focus-visible::before {
+  transform: rotateX(90deg);
+}
+
+.header-cta-button:hover::after,
+.header-cta-button:focus-visible::after {
+  transform: rotateX(0deg);
+}
+
+.header-cta-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 2rem;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header-cta-label {
+  position: relative;
+  z-index: 1;
   white-space: nowrap;
 }
 
-.header-cta-button:hover {
-  transform: scale(1.01);
-}
-
-.header-cta-line-1 {
-  display: inline;
-}
-
-.header-cta-link {
-  color: #000;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  font-weight: 700;
-  font-size: 0.875rem;
-}
-
-.header-cta-link:hover {
-  color: #666;
+@media (min-width: 1024px) {
+  .header-cta-button {
+    height: 56px;
+    font-size: 1.125rem;
+  }
 }
 
 .menu-toggle {
@@ -217,16 +258,32 @@
 }
 
 .hamburger span {
+  position: absolute;
+  left: 0;
   display: block;
   height: 3px;
   width: 100%;
-  background: #fff;
+  background: var(--hamburger-line-color, #fff);
   border-radius: 2px;
   transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.hamburger span:nth-child(2) {
+  top: 7.5px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 15px;
 }
 
 .hamburger-open span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
+  top: 7.5px;
+  transform: rotate(45deg);
 }
 
 .hamburger-open span:nth-child(2) {
@@ -234,54 +291,63 @@
 }
 
 .hamburger-open span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  top: 7.5px;
+  transform: rotate(-45deg);
 }
 
 /* Mobile Menu */
 @media (max-width: 767px) {
-  .nav {
+  .nav-desktop {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: block;
     position: fixed;
     top: 60px;
     left: 0;
     right: 0;
-    background: #000;
+    background: rgba(83, 0, 255, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    z-index: 10002;
+    padding: 0;
   }
 
-  .nav-open {
+  .nav-mobile.nav-open {
     max-height: 400px;
     padding: 1rem 0;
   }
 
-  .nav-list {
+  .nav-mobile .nav-list {
     flex-direction: column;
     gap: 0;
     padding: 0 1.5rem;
   }
 
-  .nav-list li {
+  .nav-mobile .nav-list li {
     border-bottom: 1px solid #333;
   }
 
-  .nav-list li:last-child {
+  .nav-mobile .nav-list li:last-child {
     border-bottom: none;
   }
 
-  .nav-list li a {
+  .nav-mobile .nav-list li a {
     display: block;
     padding: 1rem 0;
     font-size: 1rem;
     color: #fff;
   }
 
-  .nav-list li a::after {
+  .nav-mobile .nav-list li a::after {
     display: none;
   }
 
-  .nav-dropdown {
+  .nav-mobile .nav-dropdown {
     position: static;
     background: #111;
     margin-top: 0;
@@ -296,28 +362,32 @@
     transition: max-height 0.3s ease, padding 0.3s ease;
   }
 
-  .nav-dropdown-open {
+  .nav-mobile .nav-dropdown-open {
     max-height: 300px;
     padding: 0.5rem 0 0.5rem 1.5rem;
   }
 
-  .nav-dropdown li {
+  .nav-mobile .nav-dropdown li {
     border-bottom: 1px solid #222;
   }
 
-  .nav-dropdown li:last-child {
+  .nav-mobile .nav-dropdown li:last-child {
     border-bottom: none;
   }
 
-  .nav-dropdown li a {
+  .nav-mobile .nav-dropdown li a {
     padding: 0.75rem 0;
   }
 }
 
 /* Tablet */
 @media (min-width: 768px) {
-  .nav {
+  .nav-desktop {
     display: block;
+  }
+
+  .nav-mobile {
+    display: none;
   }
 
   .menu-toggle {
@@ -325,25 +395,23 @@
   }
 
   .header-container {
-    padding: 1.25rem 2rem;
+    padding: 1.25rem var(--site-horizontal-padding, 2rem);
     min-height: 70px;
+    height: 70px; /* Altura fixa tablet */
   }
 
   .header-cta-wrapper {
-    display: block;
-  }
-
-  .header-cta-button {
-    font-size: 1rem;
-    padding: 0.625rem 2rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
   }
 }
-
 /* Desktop */
 @media (min-width: 1024px) {
   .header-container {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem var(--site-horizontal-padding, 2rem);
     min-height: 80px;
+    height: 80px; /* Altura fixa desktop */
   }
 
   .nav-list {
@@ -365,11 +433,6 @@
 
   .header-cta-button {
     font-size: 1.125rem;
-    padding: 0.75rem 2.5rem;
-  }
-
-  .header-cta-link {
-    font-size: 1.125rem;
+    padding: 0 2.5rem;
   }
 }
-

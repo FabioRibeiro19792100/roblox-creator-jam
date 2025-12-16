@@ -4,11 +4,21 @@
   position: relative;
   width: 100%;
   transition: background 0.3s ease;
+  --sweep-color: #39ff14;
+  --sweep-duration: 0.4s;
+  --sweep-easing: cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .placeholder-section.manifesto-open {
   background: #ffffff;
+  overflow: visible;
 }
+
+.placeholder-section:hover,
+.placeholder-section.manifesto-open {
+  background: #d32f2f;
+}
+
 
 .placeholder-container {
   max-width: 1200px;
@@ -22,10 +32,15 @@
   border: none;
   transition: all 0.3s ease;
   padding: 0;
+  overflow: visible; /* evita cortar o conteúdo quando o sweep-fill do pai está ativo */
 }
 
-.placeholder-accordion-item.placeholder-open {
-  background: transparent;
+.placeholder-heading {
+  margin: 0;
+}
+
+.placeholder-heading .placeholder-header {
+  width: 100%;
 }
 
 .placeholder-header {
@@ -41,30 +56,41 @@
   text-align: left;
   transition: background 0.2s ease;
   font-family: inherit;
+  position: relative;
+  z-index: 1;
 }
 
 .placeholder-header:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: transparent;
 }
 
-.placeholder-title-text {
-  font-size: 2.5rem !important;
-  font-weight: 900 !important;
+.placeholder-heading .placeholder-title-text {
+  font-size: 2.5rem;
+  font-weight: 900;
   color: #000;
-  line-height: 0.95;
+  line-height: 1.1; /* evita cortar descendentes como "g" quando o container anima */
   letter-spacing: -1px;
   margin: 0;
   font-family: inherit;
+  transition: color 0.3s ease;
+}
+
+.placeholder-section:hover .placeholder-heading .placeholder-title-text,
+.placeholder-section.manifesto-open .placeholder-heading .placeholder-title-text,
+.placeholder-header:focus-visible .placeholder-title-text {
+  color: #000; /* garante contraste mesmo durante o sweep-fill */
 }
 
 .placeholder-arrow {
   flex-shrink: 0;
-  font-size: 2.5rem;
-  font-weight: 100;
-  color: #666;
-  line-height: 1;
-  min-width: 30px;
-  text-align: center;
+  --plus-size: 2.5rem;
+  --plus-stroke: 3px;
+  --plus-color: #666;
+  --plus-hover-color: #000;
+  --plus-open-color: #000;
+  --plus-hover-rotate: 90deg;
+  --plus-open-rotate: 45deg;
+  --plus-hover-scale: 1.1;
 }
 
 .placeholder-content {
@@ -141,7 +167,7 @@
 }
 
 .placeholder-manifesto-button:hover {
-  background: #333;
+  background: #0056d6;
   transform: translateY(-2px);
   box-shadow: none;
 }
@@ -161,9 +187,9 @@
     padding: 0;
   }
 
-  .placeholder-title-text {
-    font-size: 3.5rem !important;
-    font-weight: 900 !important;
+  .placeholder-heading .placeholder-title-text {
+    font-size: 3.5rem;
+    font-weight: 900;
   }
 
   .placeholder-arrow {
@@ -227,9 +253,9 @@
     padding: 0;
   }
 
-  .placeholder-title-text {
-    font-size: 4.5rem !important;
-    font-weight: 900 !important;
+  .placeholder-heading .placeholder-title-text {
+    font-size: 4.5rem;
+    font-weight: 900;
   }
 
   .placeholder-arrow {
@@ -285,9 +311,9 @@
 
 /* Large Desktop */
 @media (min-width: 1440px) {
-  .placeholder-title-text {
-    font-size: 5.5rem !important;
-    font-weight: 900 !important;
+  .placeholder-heading .placeholder-title-text {
+    font-size: 5.5rem;
+    font-weight: 900;
   }
 
   .placeholder-arrow {

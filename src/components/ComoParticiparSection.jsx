@@ -42,9 +42,10 @@ function ComoParticiparSection() {
                 className={`step-item ${openStep === step.number ? 'step-open' : ''}`}
               >
                 <button
-                  className="step-header"
+                  className="step-header hover-fill"
                   onClick={() => toggleStep(step.number)}
                   aria-expanded={openStep === step.number}
+                  style={{ '--fill-color': '#b621fe' }} /* Roxo neon análogo ao tema de participação/regras */
                 >
                   <span className="step-number">{step.number}</span>
                   <span className="step-title">{step.title}</span>

@@ -1,0 +1,97 @@
+/* Variáveis padrão */
+:root {
+  --button-bg-color: #222;
+  --button-text-color: #fff;
+  --button-action-color: #90feb5; /* Cor ao passar o mouse */
+}
+
+.bubble-button-container {
+  position: relative;
+  display: inline-block;
+  /* Remove margens automáticas para alinhar melhor */
+}
+
+.bubble-button {
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--button-bg-color);
+  border: none;
+  color: var(--button-text-color);
+  display: inline-block;
+  font-family: inherit; /* Herda fonte do projeto */
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  letter-spacing: 0.5px;
+  padding: 1rem 2rem; /* Ajustado para mobile */
+  text-transform: none; /* Mantém case original do projeto */
+  transition: all 0.1s ease-out;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  width: 100%; /* Ocupa largura do container */
+}
+
+.bubble-button:hover {
+  background-color: var(--button-action-color, #90feb5); /* Fallback se variavel não existir */
+  color: #fff;
+}
+
+.bubble-button:active {
+  transform: scale(0.95);
+}
+
+/* Container dos efeitos (Bolhas) */
+.bubble-effect-container {
+  position: absolute;
+  display: block;
+  width: 200%;
+  height: 400%;
+  top: -150%;
+  left: -50%;
+  -webkit-filter: url("#goo");
+  filter: url("#goo"); /* Aplica o filtro de "gosma" SVG */
+  transition: all 0.1s ease-out;
+  pointer-events: none; /* Não interfere no clique */
+  z-index: 1; /* Atrás do botão */
+}
+
+.bubble-button:active + .bubble-effect-container {
+  transform: scale(0.95);
+}
+
+.circle {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--button-bg-color);
+  transition: background 0.1s ease-out;
+}
+
+/* Mudança de cor das bolhas no hover do botão */
+.bubble-button:hover + .bubble-effect-container .circle {
+  background: var(--button-action-color, #90feb5);
+}
+
+.circle.top-left {
+  top: 40%;
+  left: 27%;
+}
+
+.circle.bottom-right {
+  bottom: 40%;
+  right: 27%;
+}
+
+/* Definição SVG oculta */
+.goo-filter-def {
+  position: absolute;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+
+
