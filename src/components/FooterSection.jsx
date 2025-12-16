@@ -127,8 +127,9 @@ function FooterSection() {
         event.preventDefault()
         setIsFAQPopupOpen(true)
       }
-    })) || []
-  
+    }
+  ]
+
   const trilhas = config?.footer?.centralExpedicao?.trilhas || []
 
   return (
