@@ -12,21 +12,21 @@ const CASCADE_DURATION_MS = 3000
 const footerCardsData = [
   {
     id: 'footer-card-trilha-01',
-    label: 'TRILHA 01',
+    label: 'APRENDIZADO',
     title: 'Aprenda Roblox Studio do zero em nossas trilhas de conteúdos',
     description:
       'As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.'
   },
   {
     id: 'footer-card-trilha-02',
-    label: 'TRILHA 02',
+    label: 'PRÁTICA',
     title: 'Inscreva-se numa jam e crie experiências jogáveis de verdade;',
     description:
       'Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.'
   },
   {
     id: 'footer-card-trilha-03',
-    label: 'TRILHA 03',
+    label: 'VIVÊNCIA',
     title: 'Participe da imersão presencial em um evento na sua capital.',
     description: 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.'
   }

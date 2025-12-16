@@ -1,6 +1,6 @@
 // Hook para usar siteConfig com suporte a alterações do admin
 import { useState, useEffect } from 'react'
-import { siteConfig as defaultConfig } from './siteConfig'
+import defaultConfig from './siteConfig.json'
 
 // Função para fazer merge profundo (deep merge)
 // target = defaultConfig (base completa)

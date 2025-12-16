@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect, useRef, useMemo } from 'react'
 import { NavigationContext, ContactModalContext, resolvePageFromHash } from '../App'
 import { scrollToElementById, scrollWindowTo, updateHash } from '../utils/scrollHelpers'
+import { useSiteConfig } from '../config/useSiteConfig'
 import useMediaQuery from '../hooks/useMediaQuery'
 import './Header.css'
 
