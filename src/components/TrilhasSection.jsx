@@ -28,7 +28,7 @@ function TrilhasSection() {
           {isOpen && (
             <div className="trilhas-content">
               <p className="trilhas-text">
-                {trilha01.description || 'As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.'}
+                {trilha01.description || 'Baixe o plugin exclusivo da Mastertech para fazer suas primeiras criações e aprender de um jeito diferente. Além disso consuma conteúdos conceituais e práticos para que você possa compreender mais sobre o universo de criações digitais e Roblox'}
               </p>
               <div className="trilhas-cta">
                 <BubbleButton 

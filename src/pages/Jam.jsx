@@ -11,7 +11,7 @@ import FooterSection from '../components/FooterSection'
 
 function Jam() {
   return (
-    <div className="app">
+    <div className="app" id="jam">
       <Header />
       <HeroSection />
       <ComoParticiparSection />
