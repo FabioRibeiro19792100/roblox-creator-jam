@@ -8,11 +8,20 @@ function EventosNaEstradaSection() {
   const expedicaoNaEstrada = config?.expedicaoNaEstrada || {}
   const eventos = expedicaoNaEstrada?.eventos || []
   const [isInscricaoModalOpen, setIsInscricaoModalOpen] = useState(false)
+  const [eventoSelecionado, setEventoSelecionado] = useState(null)
   const gridRef = useRef(null)
   
-  const handleInscricaoClick = (e) => {
+  const handleInscricaoClick = (evento, sessao, e) => {
     e.preventDefault()
     e.stopPropagation()
+    setEventoSelecionado({
+      id: `${evento.id}-${sessao.id}`,
+      cidade: evento.cidade,
+      data: evento.data,
+      local: evento.local,
+      sessaoNome: sessao.nome,
+      sessaoHorario: sessao.horario
+    })
     setIsInscricaoModalOpen(true)
   }
 
@@ -33,7 +42,7 @@ function EventosNaEstradaSection() {
     {
       id: 'rio-de-janeiro',
       cidade: 'Rio de Janeiro',
-      data: '10 de março de 2025',
+      data: '11 de abril de 2026',
       local: {
         nome: 'Senac Candelária',
         endereco: 'Avenida Presidente Vargas, 1500, 2º andar, Centro'
@@ -54,7 +63,7 @@ function EventosNaEstradaSection() {
     {
       id: 'sao-paulo',
       cidade: 'São Paulo',
-      data: '10 de março de 2025',
+      data: '05 de maio de 2026',
       local: {
         nome: 'Centro de Convenções Anhembi',
         endereco: 'Av. Olavo Fontoura, 1209, Santana, São Paulo - SP, 02012-021'
@@ -75,7 +84,7 @@ function EventosNaEstradaSection() {
     {
       id: 'recife',
       cidade: 'Recife',
-      data: '10 de março de 2025',
+      data: '26 de setembro de 2026',
       local: {
         nome: 'Centro de Convenções de Pernambuco',
         endereco: 'Complexo de Salgadinho, Av. Prof. Andrade Bezerra, s/n, Salgadinho, Olinda - PE'
@@ -95,11 +104,11 @@ function EventosNaEstradaSection() {
     },
     {
       id: 'belo-horizonte',
-      cidade: 'Belo Horizonte',
-      data: '10 de março de 2025',
+      cidade: 'Manaus',
+      data: '22 de agosto de 2026',
       local: {
-        nome: 'Centro de Convenções Expominas',
-        endereco: 'Av. Amazonas, 6200, Gameleira, Belo Horizonte - MG'
+        nome: 'Centro de Convenções Manaus',
+        endereco: 'Av. Amazonas, 6200, Gameleira, Manaus - AM'
       },
       sessoes: [
         {
@@ -117,7 +126,7 @@ function EventosNaEstradaSection() {
     {
       id: 'brasilia',
       cidade: 'Brasília',
-      data: '10 de março de 2025',
+      data: '30 de maio de 2026',
       local: {
         nome: 'Centro de Convenções Ulysses Guimarães',
         endereco: 'SDC - Eixo Monumental, Lote 05, Asa Norte, Brasília - DF, 70070-350'
@@ -137,11 +146,11 @@ function EventosNaEstradaSection() {
     },
     {
       id: 'curitiba',
-      cidade: 'Curitiba',
-      data: '10 de março de 2025',
+      cidade: 'Porto Alegre',
+      data: '17 de outubro de 2026',
       local: {
-        nome: 'Expo Unimed Curitiba',
-        endereco: 'R. Prof. Pedro Viriato Parigot de Souza, 5300, Campo Comprido, Curitiba - PR'
+        nome: 'Fabrica Fundação',
+        endereco: 'R. Prof. Pedro Viriato Parigot de Souza, 5300, Campo Comprido, Porto Alegre - RS'
       },
       sessoes: [
         {
@@ -203,7 +212,7 @@ function EventosNaEstradaSection() {
                     <button 
                       key={sessao.id} 
                       className="eventos-na-estrada-sessao-box"
-                      onClick={handleInscricaoClick}
+                      onClick={(e) => handleInscricaoClick(evento, sessao, e)}
                     >
                       <p className="eventos-na-estrada-sessao-nome">{sessao.nome}</p>
                       <p className="eventos-na-estrada-sessao-horario">{sessao.horario}</p>
@@ -217,7 +226,13 @@ function EventosNaEstradaSection() {
       </div>
       <InscricaoModal 
         isOpen={isInscricaoModalOpen} 
-        onClose={() => setIsInscricaoModalOpen(false)} 
+        onClose={() => {
+          setIsInscricaoModalOpen(false)
+          setEventoSelecionado(null)
+        }}
+        tipoInscricao="estrada"
+        eventoSelecionado={eventoSelecionado}
+        eventosDisponiveis={eventosData}
       />
     </section>
   )

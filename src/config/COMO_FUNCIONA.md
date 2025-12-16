@@ -60,3 +60,8 @@ function MeuComponente() {
 - Para salvar permanentemente no arquivo, será necessário um backend
 - Por enquanto, as alterações são temporárias (mas funcionam!)
 
+
+
+
+
+

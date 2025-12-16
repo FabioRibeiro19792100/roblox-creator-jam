@@ -47,3 +47,8 @@ Para salvar permanentemente:
 2. Criar uma API para salvar no arquivo `siteConfig.js`
 3. Ou migrar para um Headless CMS (Strapi, Sanity, etc.)
 
+
+
+
+
+

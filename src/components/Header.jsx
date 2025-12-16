@@ -17,6 +17,7 @@ const getFallbackCurrentPage = () => {
 }
 
 function Header() {
+  const config = useSiteConfig()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMissoesOpen, setIsMissoesOpen] = useState(false)
   const navigationContext = useContext(NavigationContext)

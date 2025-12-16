@@ -2,6 +2,11 @@
 
 Landing page responsiva para o evento Roblox Creator Jam, desenvolvida com Vite + React.
 
+## 🔗 Links
+
+- **Preview Local**: [http://localhost:3000](http://localhost:3000)
+- **Repositório GitHub**: [https://github.com/FabioRibeiro19792100/roblox-creator-jam](https://github.com/FabioRibeiro19792100/roblox-creator-jam)
+
 ## 🚀 Como executar
 
 ### Pré-requisitos
@@ -12,7 +17,7 @@ Landing page responsiva para o evento Roblox Creator Jam, desenvolvida com Vite 
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/SEU_USUARIO/roblox-creator-jam.git
+git clone https://github.com/FabioRibeiro19792100/roblox-creator-jam.git
 cd roblox-creator-jam
 ```
 
@@ -26,7 +31,7 @@ npm install
 npm run dev
 ```
 
-4. Abra o navegador em `http://localhost:5173`
+4. Abra o navegador em `http://localhost:3000`
 
 ### Build para produção
 

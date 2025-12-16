@@ -1,32 +1,15 @@
+import { useSiteConfig } from '../config/useSiteConfig'
 import './PremiacaoSection.css'
 
 function PremiacaoSection() {
-  const premiacoes = [
-    {
-      lugar: 'Primeiro lugar',
-      lugarColor: '#000',
-      titulo: 'Melhor Protótipo da Jam',
-      descricao: 'Reconhece a experiência que apresenta a melhor combinação de conceito, jogabilidade e execução.'
-    },
-    {
-      lugar: 'Segundo lugar',
-      lugarColor: '#666',
-      titulo: 'Prêmio Criatividade',
-      descricao: 'Destaca a abordagem mais original dentro dos temas propostos.'
-    },
-    {
-      lugar: 'Terceiro lugar',
-      lugarColor: '#999',
-      titulo: 'Prêmio da Comunidade',
-      descricao: 'Votação entre participantes da faixa etária da Jam (13-18), em canal moderado.'
-    }
-  ]
+  const config = useSiteConfig()
+  const premiacoes = config.jam?.premiacao?.premiacoes || []
 
   return (
     <section id="premiacao" className="premiacao-section">
       <div className="premiacao-container">
         <h2 className="premiacao-title">
-          Premiação
+          {config.jam?.premiacao?.title || 'Premiação'}
         </h2>
 
         <div className="premiacao-content">

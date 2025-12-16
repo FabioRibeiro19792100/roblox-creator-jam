@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect, useRef } from 'react'
 import { MaterialModalContext, NavigationContext } from '../App'
+import { useSiteConfig } from '../config/useSiteConfig'
 import ConvideSeusAmigosSection from './ConvideSeusAmigosSection'
 import ContactPopup from './ContactPopup'
 import FAQPopup from './FAQPopup'
@@ -92,6 +93,7 @@ function FooterCard({ card, action, index, totalCards, setContactOpen, navigateT
 }
 
 function FooterSection() {
+  const config = useSiteConfig()
   const { openMaterialModal } = useContext(MaterialModalContext) || { openMaterialModal: () => {} }
   const { navigateTo } = useContext(NavigationContext) || { navigateTo: () => {} }
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
@@ -126,14 +128,16 @@ function FooterSection() {
         setIsFAQPopupOpen(true)
       }
     }
-  ]
+  })) || []
+  
+  const trilhas = config?.footer?.centralExpedicao?.trilhas || []
 
   return (
     <section id="footer" className="footer-section">
       <div className="footer-cta">
         <div className="footer-cta-container">
           <div className="footer-title">
-            <h1 className="footer-title-roblox">É pai, tutor ou responsável?</h1>
+            <h1 className="footer-title-roblox">{config?.footer?.cta?.title || 'É pai, tutor ou responsável?'}</h1>
           </div>
           <div className="footer-cta-content">
             <p className="footer-cta-text">
@@ -153,7 +157,7 @@ function FooterSection() {
       <ConvideSeusAmigosSection />
       <div id="footer-container-wrapper" className="footer-container-wrapper">
         <div className="footer-container">
-          <h2 className="footer-links-title">Central da Expedição</h2>
+          <h2 className="footer-links-title">{config?.footer?.centralExpedicao?.title || 'Central da Expedição'}</h2>
           <ul className="footer-links">
             {links.map((link, index) => (
               <li key={index}>

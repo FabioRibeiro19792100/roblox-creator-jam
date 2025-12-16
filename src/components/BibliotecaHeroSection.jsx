@@ -1,6 +1,8 @@
+import { useSiteConfig } from '../config/useSiteConfig'
 import './BibliotecaHeroSection.css'
 
 function BibliotecaHeroSection() {
+  const config = useSiteConfig()
   // Force reload by using timestamp in URL
   const imageUrl = `/images/2.webp?t=${new Date().getTime()}`
 
@@ -8,19 +10,18 @@ function BibliotecaHeroSection() {
     <section id="biblioteca-hero" className="biblioteca-hero-section">
       <div className="biblioteca-hero-container">
         <div className="biblioteca-hero-header">
-          <span className="biblioteca-hero-expedicao-roblox">EXPEDIÇÃO ROBLOX</span>
+          <span className="biblioteca-hero-expedicao-roblox">{config?.hero?.biblioteca?.label || 'EXPEDIÇÃO ROBLOX'}</span>
         </div>
         <h1 className="biblioteca-hero-title">
-          <span className="biblioteca-title-line-1">Conteúdos da</span>
-          <span className="biblioteca-title-line-2">expedição</span>
+          <span className="biblioteca-title-line-1">{config?.hero?.biblioteca?.title?.line1 || 'Conteúdos da'}</span>
+          <span className="biblioteca-title-line-2">{config?.hero?.biblioteca?.title?.line2 || 'expedição'}</span>
         </h1>
         <div className="biblioteca-hero-description">
-          <p className="biblioteca-hero-description-paragraph">
-            Explore nossa biblioteca completa de materiais educativos, tutoriais e recursos para aprender Roblox Studio do zero.
-          </p>
-          <p className="biblioteca-hero-description-paragraph">
-            Acesse conteúdos organizados por trilhas e desenvolva suas habilidades passo a passo.
-          </p>
+          {config?.hero?.biblioteca?.description?.map((text, index) => (
+            <p key={index} className="biblioteca-hero-description-paragraph">
+              {text}
+            </p>
+          ))}
         </div>
       </div>
       <div className="biblioteca-hero-image-layer">
