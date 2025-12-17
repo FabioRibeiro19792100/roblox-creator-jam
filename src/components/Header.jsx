@@ -141,7 +141,6 @@ function Header() {
     if (isHomePage) {
       return (
         <>
-<<<<<<< HEAD
           {config?.menu?.home?.items?.map((item, index) => {
             if (item.isLink) {
               return (
@@ -174,19 +173,6 @@ function Header() {
           
           {/* Item Missoes Fixo/Hardcoded ou via Config? A main tem Missoes hardcoded no final da lista home */}
           <li 
-=======
-          <li>
-            <a href="#home-hero" onClick={scrollToTop}>
-              Início
-            </a>
-          </li>
-          <li>
-            <a href="#expedicao-roblox" onClick={(e) => handleHomeScroll('expedicao-roblox', e)}>
-              A Expedição
-            </a>
-          </li>
-          <li
->>>>>>> origin/main
             className="nav-item-with-dropdown"
             onMouseEnter={() => setIsMissoesOpen(true)}
             onMouseLeave={(e) => {
@@ -321,7 +307,7 @@ function Header() {
     // Default / Jam Page (que usa config.menu.jam na main)
     return (
       <>
-          {config?.menu?.jam?.items?.map((item, index) => {
+        {config?.menu?.jam?.items?.map((item, index) => {
             if (item.isLink) {
             return (
                 <li key={index}>
