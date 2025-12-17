@@ -1,8 +1,9 @@
 import { useState, useContext, useEffect, useRef, useMemo } from 'react'
-import { NavigationContext, ContactModalContext, InscricaoModalContext, resolvePageFromHash } from '../App'
-import { scrollToElementById, scrollWindowTo, updateHash } from '../utils/scrollHelpers'
+import { NavigationContext, InscricaoModalContext, resolvePageFromHash } from '../App'
+import { scrollToElementById } from '../utils/scrollHelpers'
 import { useSiteConfig } from '../config/useSiteConfig'
 import useMediaQuery from '../hooks/useMediaQuery'
+import { ContactModalContext } from '../context/ContactModalContext'
 import './Header.css'
 
 const HAMBURGER_COLOR = '#fff'
@@ -95,10 +96,10 @@ function Header() {
     if (currentPage !== 'home') {
       navigateTo('home')
       setTimeout(() => {
-        scrollWindowTo({ top: 0, behavior: 'smooth' })
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }, 100)
     } else {
-      scrollWindowTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
     setIsMenuOpen(false)
     setIsMoreOpen(false)
@@ -135,7 +136,7 @@ function Header() {
 
   const handleBibliotecaScroll = (id, e) => {
     e.preventDefault()
-    updateHash(`#${id}`, { replace: true })
+    // updateHash(`#${id}`, { replace: true }) // Removed as updateHash is not defined in scope, and scrollToSection is enough
     scrollToSection(id)
   }
 
@@ -150,8 +151,6 @@ function Header() {
       let items = config?.menu?.home?.items || []
       
       // Filtrar "Contato" da lista do JSON se ele já for renderizado hardcoded abaixo
-      // O código original tinha um link "Contato" hardcoded no final. 
-      // Se quisermos manter o hardcoded, removemos do JSON para evitar duplicação.
       items = items.filter(item => item.label !== 'Contato')
 
       let visibleItems = items
@@ -250,7 +249,6 @@ function Header() {
             </li>
           )}
           
-          {/* Item Missoes Fixo/Hardcoded ou via Config? A main tem Missoes hardcoded no final da lista home */}
           <li 
             className="nav-item-with-dropdown"
             onMouseEnter={() => setIsMissoesOpen(true)}
@@ -369,9 +367,6 @@ function Header() {
     }
 
     if (isExpedicaoNaEstradaPage) {
-       // A main tem config para jam mas não vi para expedicao-na-estrada explicitamente no diff, vou manter hardcoded da HEAD ou adaptar
-       // O diff da main tinha: {config?.menu?.jam?.items?.map...} mas estava num bloco else que parecia ser genérico.
-       // Vou manter o hardcoded da HEAD para Expedição na Estrada pois parece seguro e específico.
       return (
         <>
           <li>
@@ -398,7 +393,7 @@ function Header() {
       )
     }
 
-    // Default / Jam Page (que usa config.menu.jam na main)
+    // Default / Jam Page
     let jamItems = config?.menu?.jam?.items || []
     let visibleJamItems = jamItems
     let hiddenJamItems = []
@@ -500,12 +495,7 @@ function Header() {
         <li 
           className="nav-item-with-dropdown"
           onMouseEnter={() => setIsMissoesOpen(true)}
-          onMouseLeave={(e) => {
-            const relatedTarget = e.relatedTarget
-            if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
-              setIsMissoesOpen(false)
-            }
-          }}
+          onMouseLeave={() => setIsMissoesOpen(false)}
         >
           <a
             href="#trilhas"
@@ -518,6 +508,8 @@ function Header() {
           </a>
           <ul
             className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
+            onMouseEnter={() => setIsMissoesOpen(true)}
+            onMouseLeave={() => setIsMissoesOpen(false)}
           >
             <li>
               <a href="#biblioteca" onClick={(e) => {
@@ -547,6 +539,11 @@ function Header() {
               </a>
             </li>
           </ul>
+        </li>
+        <li>
+          <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
+            Contato
+          </a>
         </li>
       </>
     )

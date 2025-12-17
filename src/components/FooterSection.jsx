@@ -1,11 +1,12 @@
-import { useState, useContext, useEffect, useRef } from 'react'
-import { MaterialModalContext, NavigationContext } from '../App'
+import { useState, useRef, useEffect, useContext } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
+import { NavigationContext } from '../App'
 import ConvideSeusAmigosSection from './ConvideSeusAmigosSection'
 import ContactPopup from './ContactPopup'
 import FAQPopup from './FAQPopup'
 import GlossarioSection from './GlossarioSection'
 import './FooterSection.css'
+import { InscricaoModalContext } from '../App'
 
 const CASCADE_DURATION_MS = 3000
 
@@ -71,10 +72,11 @@ function FooterCard({ card, onClick, index, totalCards }) {
 
 function FooterSection() {
   const config = useSiteConfig()
-  const { openMaterialModal } = useContext(MaterialModalContext) || { openMaterialModal: () => {} }
-  const { navigateTo } = useContext(NavigationContext) || { navigateTo: () => {} }
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   const [isFAQPopupOpen, setIsFAQPopupOpen] = useState(false)
+  const navigationContext = useContext(NavigationContext)
+  const navigateTo = navigationContext?.navigateTo || (() => {})
+  const { openInscricaoModal } = useContext(InscricaoModalContext) || { openInscricaoModal: () => {} }
 
   const handleTrilhaClick = (trilha, e) => {
     e.preventDefault()
@@ -106,7 +108,13 @@ function FooterSection() {
     }
   })) || []
 
-  const trilhas = config?.footer?.centralExpedicao?.trilhas || []
+  const trilhas = config?.expedicaoRoblox?.trilhas || []
+
+  // Helper for CTA buttons
+  const openMaterialModal = (type) => {
+      // Implementar lógica de modal de materiais se houver
+      console.log('Open material modal:', type)
+  }
 
   return (
     <section id="footer" className="footer-section">
@@ -126,7 +134,7 @@ function FooterSection() {
       <ConvideSeusAmigosSection />
       <div id="footer-container-wrapper" className="footer-container-wrapper">
         <div className="footer-container">
-          <h2 className="footer-links-title">{config?.footer?.centralExpedicao?.title || 'Central da Expedição'}</h2>
+          <h2 className="footer-links-title">{config?.footer?.centralExpedicao?.title || 'Contato'}</h2>
           <ul className="footer-links">
             {links.map((link, index) => (
               <li

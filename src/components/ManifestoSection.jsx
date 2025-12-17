@@ -1,12 +1,10 @@
-import { useState, useContext } from 'react'
-import { ContactModalContext } from '../App'
+import { useState } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
 import './ManifestoSection.css'
 
 function ManifestoSection() {
   const config = useSiteConfig()
   const [isOpen, setIsOpen] = useState(false)
-  const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen)

@@ -145,8 +145,7 @@ function HomeHeroSection() {
   }
 
   const handleCadastrarRoblox = () => {
-    // Abrir página de cadastro do Roblox em nova aba
-    window.open('https://www.roblox.com/signup', '_blank')
+    window.open('https://www.roblox.com/', '_blank')
   }
 
   return (
@@ -173,7 +172,9 @@ function HomeHeroSection() {
             />
           </div>
           <h1 className="home-hero-title" data-align="content" data-animate-id="hero-title">
-            {config?.hero?.home?.title?.full || 'Criar é o novo jogar'}
+            <span className="title-line-1">{config?.hero?.home?.title?.line1 || 'Criar é'}</span>
+            <br className="mobile-only" />
+            <span className="title-line-2">{config?.hero?.home?.title?.line2 || 'o novo jogar'}</span>
           </h1>
           <div className="home-hero-description" data-animate-id="hero-description">
             <p className="home-hero-description-paragraph">

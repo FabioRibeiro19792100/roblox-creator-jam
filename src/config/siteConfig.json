@@ -76,16 +76,8 @@
           "anchor": "#home-hero"
         },
         {
-          "label": "Manifesto",
-          "anchor": "#manifesto"
-        },
-        {
           "label": "A Expedição",
           "anchor": "#expedicao-roblox"
-        },
-        {
-          "label": "Studios",
-          "anchor": "#o-que-e-roblox-studio"
         },
         {
           "label": "Biblioteca",
@@ -127,7 +119,7 @@
           "anchor": "#biblioteca-sobrevivencia"
         },
         {
-          "label": "Central da Expedição",
+          "label": "Contato",
           "anchor": "#footer-container-wrapper"
         }
       ]
@@ -454,39 +446,10 @@
       }
     },
     "centralExpedicao": {
-      "title": "Central da Expedição",
+      "title": "Contato",
       "links": [
         {
           "text": "Converse com a Mastertech",
-          "action": "contact"
-        },
-        {
-          "text": "Perguntas frequentes",
-          "action": "faq"
-        }
-      ],
-      "separator": true,
-      "callsTitle": "Escolha uma das trilhas",
-      "trilhas": [
-        {
-          "id": "trilha-01",
-          "label": "APRENDIZADO",
-          "title": "Aprenda Roblox Studio do zero em nossas trilhas de conteúdos",
-          "description": "Baixe o plugin exclusivo da Mastertech para fazer suas primeiras criações e aprender de um jeito diferente. Além disso consuma conteúdos conceituais e práticos para que você possa compreender mais sobre o universo de criações digitais e Roblox",
-          "action": "contact"
-        },
-        {
-          "id": "trilha-02",
-          "label": "PRÁTICA",
-          "title": "Inscreva-se numa jam e crie experiências jogáveis de verdade;",
-          "description": "Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.",
-          "action": "jam"
-        },
-        {
-          "id": "trilha-03",
-          "label": "VIVÊNCIA",
-          "title": "Participe da imersão presencial em um evento na sua capital.",
-          "description": "Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.",
           "action": "contact"
         }
       ]
