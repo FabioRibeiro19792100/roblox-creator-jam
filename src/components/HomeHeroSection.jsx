@@ -182,6 +182,14 @@ function HomeHeroSection() {
             <p className="home-hero-description-paragraph">
               {config?.hero?.home?.description?.[1] || 'Passo a passo, do primeiro clique no Studio até ver amigos jogando algo que você criou.'}
             </p>
+            <div className="home-hero-cta">
+              <button 
+                className="home-hero-roblox-button"
+                onClick={handleCadastrarRoblox}
+              >
+                Crie sua conta no Roblox
+              </button>
+            </div>
           </div>
         </div>
       </div>

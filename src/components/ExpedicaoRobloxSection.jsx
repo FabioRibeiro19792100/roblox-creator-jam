@@ -90,6 +90,7 @@ function ExpedicaoRobloxSection() {
               data-testid={PANEL_IDS.trilhas}
               aria-hidden={!isTrilhasOpen}
             >
+<<<<<<< HEAD
               <div className="expedicao-accordion-layout">
                 <div className="expedicao-accordion-text-col">
                   <h3 className="expedicao-accordion-heading-large">
@@ -112,6 +113,18 @@ function ExpedicaoRobloxSection() {
                     className="expedicao-accordion-image"
                   />
                 </div>
+=======
+              <h3 className="expedicao-accordion-heading">
+                {trilha01?.heading || 'O que essa trilha entrega'}
+              </h3>
+              <p className="expedicao-accordion-text">
+                {trilha01?.description || 'Baixe o plugin exclusivo da Mastertech para fazer suas primeiras criações e aprender de um jeito diferente. Além disso consuma conteúdos conceituais e práticos para que você possa compreender mais sobre o universo de criações digitais e Roblox.'}
+              </p>
+              <div className="expedicao-accordion-cta">
+                <button className="expedicao-accordion-button" onClick={openContactModal}>
+                  {trilha01?.cta || 'Quero começar a criar'}
+                </button>
+>>>>>>> origin/main
               </div>
             </div>
           </div>

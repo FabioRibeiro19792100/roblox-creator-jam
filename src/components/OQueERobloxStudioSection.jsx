@@ -30,10 +30,15 @@ function OQueERobloxStudioSection() {
               ))}
             </div>
             <div className="o-que-roblox-studio-video">
-              <div 
-                className="video-placeholder hover-fill" 
+              <div
+                className="video-placeholder hover-fill"
                 onClick={openVideo}
-                style={{ '--fill-color': 'rgba(255, 0, 80, 0.8)' }} /* Rosa vibrante com transparência */
+                style={{
+                  '--fill-color': 'rgba(255, 0, 80, 0.8)',
+                  backgroundImage: 'url(https://img.youtube.com/vi/nORMxlw7cWc/maxresdefault.jpg)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
               >
                 <div className="play-button">
                   <span className="play-icon">▶</span>
@@ -49,11 +54,9 @@ function OQueERobloxStudioSection() {
           <div className="video-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="video-modal-close" onClick={closeVideo}>×</button>
             <div className="video-player-container">
-              {/* Substitua pela URL do seu vídeo (YouTube, Vimeo, etc) */}
               <iframe
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                src="https://www.youtube.com/embed/nORMxlw7cWc?autoplay=1"
                 title="Roblox Studio Video"
-                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="video-player"

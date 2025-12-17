@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { siteConfig } from '../config/siteConfig'
+import siteConfig from '../config/siteConfig.json'
 import './Admin.css'
 
 function Admin() {
@@ -126,7 +126,7 @@ function Admin() {
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
-      a.download = 'siteConfig-export.json'
+      a.download = 'siteConfig.json'
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)

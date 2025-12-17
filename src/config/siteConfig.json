@@ -1,0 +1,1321 @@
+{
+  "colors": {
+    "primary": "rgb(83, 0, 255)",
+    "secondary": "rgb(60, 254, 207)",
+    "accent": "rgb(216, 243, 31)",
+    "tutorial": "rgb(255, 194, 231)",
+    "footer": "#4a4a4a",
+    "white": "#ffffff",
+    "black": "#000000",
+    "gray": "#666666",
+    "lightGray": "rgba(255, 255, 255, 0.15)",
+    "separatorGray": "rgba(255, 255, 255, 0.25)"
+  },
+  "fonts": {
+    "heroTitle": {
+      "mobile": "2.5rem",
+      "tablet": "3.5rem",
+      "desktop": "4.5rem"
+    },
+    "sectionTitle": {
+      "mobile": "2.5rem",
+      "tablet": "3.5rem",
+      "desktop": "4.5rem"
+    },
+    "subtitle": {
+      "mobile": "1.125rem",
+      "tablet": "1.3rem",
+      "desktop": "1.4rem"
+    },
+    "body": {
+      "mobile": "1.125rem",
+      "tablet": "1.3rem",
+      "desktop": "1.4rem"
+    },
+    "label": {
+      "mobile": "0.875rem",
+      "tablet": "1rem",
+      "desktop": "1.125rem"
+    },
+    "weights": {
+      "normal": 400,
+      "semibold": 600,
+      "bold": 700,
+      "black": 900
+    }
+  },
+  "hero": {
+    "home": {
+      "label": "EXPEDIÇÃO ROBLOX",
+      "title": {
+        "line1": "Criar é",
+        "line2": "o novo jogar"
+      },
+      "description": [
+        "Ao longo de 2026, 10 mil jovens vão sair do 'só jogar' pra publicar seus próprios mundos no Roblox.",
+        "Passo a passo, do primeiro clique no Studio até ver amigos jogando algo que você criou."
+      ]
+    },
+    "biblioteca": {
+      "label": "EXPEDIÇÃO ROBLOX",
+      "title": {
+        "line1": "Conteúdos da",
+        "line2": "expedição"
+      },
+      "description": [
+        "Explore nossa biblioteca completa de materiais educativos, tutoriais e recursos para aprender Roblox Studio do zero.",
+        "Acesse conteúdos organizados por trilhas e desenvolva suas habilidades passo a passo."
+      ]
+    }
+  },
+  "menu": {
+    "home": {
+      "items": [
+        {
+          "label": "Início",
+          "anchor": "#home-hero"
+        },
+        {
+          "label": "Manifesto",
+          "anchor": "#placeholder"
+        },
+        {
+          "label": "A Expedição",
+          "anchor": "#expedicao-roblox"
+        },
+        {
+          "label": "Studios",
+          "anchor": "#o-que-e-roblox-studio"
+        },
+        {
+          "label": "Biblioteca",
+          "anchor": "#biblioteca",
+          "isLink": true
+        },
+        {
+          "label": "Contato",
+          "anchor": "#footer-container-wrapper"
+        }
+      ],
+      "cta": {
+        "line1": "Quer criar?",
+        "line2": "Desce pro play.",
+        "anchor": "#expedicao-roblox"
+      }
+    },
+    "biblioteca": {
+      "items": [
+        {
+          "label": "Início",
+          "isLink": true,
+          "link": "home"
+        },
+        {
+          "label": "Tutorial Roblox Studios",
+          "anchor": "#biblioteca-tutorial"
+        },
+        {
+          "label": "Mochilão",
+          "anchor": "#biblioteca-mochilao"
+        },
+        {
+          "label": "Acampamento",
+          "anchor": "#biblioteca-acampamento"
+        },
+        {
+          "label": "Sobrevivência",
+          "anchor": "#biblioteca-sobrevivencia"
+        },
+        {
+          "label": "Central da Expedição",
+          "anchor": "#footer-container-wrapper"
+        }
+      ]
+    },
+    "jam": {
+      "items": [
+        {
+          "label": "Início",
+          "isLink": true,
+          "link": "home"
+        },
+        {
+          "label": "Como Participar",
+          "anchor": "#como-participar"
+        },
+        {
+          "label": "Temas",
+          "anchor": "#escolha-tema"
+        },
+        {
+          "label": "Desafio",
+          "anchor": "#desafio-jam"
+        },
+        {
+          "label": "Regras",
+          "anchor": "#regras-jam"
+        },
+        {
+          "label": "Entrega",
+          "anchor": "#entrega-desafio"
+        },
+        {
+          "label": "Premiação",
+          "anchor": "#premiacao"
+        },
+        {
+          "label": "Datas e Canais",
+          "anchor": "#datas-canais"
+        }
+      ]
+    }
+  },
+  "proximosEventos": {
+    "title": "Próximos eventos",
+    "eventos": [
+      {
+        "data": "13/03/2026",
+        "titulo": "Jam Inaugural",
+        "local": "Online"
+      },
+      {
+        "data": "27/03/2026",
+        "titulo": "Jam #1",
+        "local": "Online"
+      },
+      {
+        "data": "11/04/2026",
+        "titulo": "Expedição Roblox Na Estrada",
+        "local": "Rio de Janeiro"
+      },
+      {
+        "data": "17/04/2026",
+        "titulo": "Jam #2",
+        "local": "Online"
+      },
+      {
+        "data": "09/05/2026",
+        "titulo": "Expedição Roblox Na Estrada",
+        "local": "São Paulo"
+      }
+    ],
+    "calendarTitle": "Próximos Eventos"
+  },
+  "manifesto": {
+    "title": "E o jogo agora é seu.",
+    "content": [
+      {
+        "column": 1,
+        "paragraphs": [
+          "Nós somos a Mastertech, uma escola de inovação e de ensino de tecnologias, e estamos lançando um novo projeto.",
+          "Ao longo de 2026 vamos liderar experiências no Roblox Studio que estimulam imaginação, criação e descoberta, fortalecendo habilidades criativas em um ambiente divertido e seguro.",
+          "O projeto reúne trilhas formativas para jovens e educadores explorarem conceitos educacionais por meio da criação, além de imersões que revelam as possibilidades dos jogos digitais como laboratório de aprendizado sobre novas tecnologias.",
+          "A Expedição, realizada em parceria com a Roblox, é uma iniciativa nacional aberta a todos e sem pré-requisitos, com atividades quase totalmente online.",
+          "Sim, quase. Porque teremos também eventos presenciais em seis capitais brasileiras."
+        ]
+      },
+      {
+        "column": 2,
+        "paragraphs": [
+          "Nesses encontros vamos reunir pais, responsáveis e jovens criativos para construir ambientes que ampliem a noção de segurança digital e que sejam divertidos e significativos como experiência de aprendizado.",
+          "Quer criar com a gente?",
+          "Desce pro play.",
+          "Afinal, você pode aprender tudo o que quiser em uma escola que flui."
+        ]
+      }
+    ],
+    "cta": {
+      "text": "Quero saber mais"
+    }
+  },
+  "expedicaoRoblox": {
+    "title": {
+      "line1": "Gratuito, online",
+      "line2": "e sem pré-requisitos."
+    },
+    "subtitle": "As trilhas da expedição",
+    "trilhas": [
+      {
+        "id": "trilha-01",
+        "label": "APRENDIZADO",
+        "title": "Aprenda Roblox Studio do zero em nossas trilhas de conteúdos",
+        "description": "Baixe o plugin exclusivo da Mastertech para fazer suas primeiras criações e aprender de um jeito diferente. Além disso consuma conteúdos conceituais e práticos para que você possa compreender mais sobre o universo de criações digitais e Roblox",
+        "cta": "Quero começar a criar",
+        "action": "contact"
+      },
+      {
+        "id": "trilha-02",
+        "label": "PRÁTICA",
+        "title": "Inscreva-se numa jam e crie experiências jogáveis de verdade;",
+        "description": "Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.",
+        "action": "jam"
+      },
+      {
+        "id": "trilha-03",
+        "label": "VIVÊNCIA",
+        "title": "Participe da imersão presencial em um evento na sua capital.",
+        "description": "Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.",
+        "cta": "Quero saber mais",
+        "action": "contact"
+      }
+    ]
+  },
+  "expedicaoNaEstrada": {
+    "hero": {
+      "title": {
+        "line1": "Expedição",
+        "line2": "Roblox",
+        "line3": "na Estrada"
+      },
+      "description": "Nesses encontros vamos reunir mãe, pais, responsáveis e jovens criativos para construir ambientes que ampliem a noção de segurança digital e que sejam divertidos e significativos como experiência de aprendizado.",
+      "ctaText": "Quero saber mais",
+      "image": "/images/5.webp"
+    },
+    "content": {
+      "title": {
+        "line1": "Expedição",
+        "line2": "Roblox",
+        "line3": "na Estrada"
+      },
+      "description": "Nas capitais, o projeto abre sua programação com encontros que combinam criação no Roblox, participação das famílias e introdução aos quatro formatos que compõem a experiência.",
+      "atividades": [
+        {
+          "id": "mundos-em-familia",
+          "title": "Mundos em Família",
+          "description": "Jovens e responsáveis imaginam juntos \"mundos melhores\" e desenham as primeiras ideias de experiências no Roblox."
+        },
+        {
+          "id": "construtores-do-futuro",
+          "title": "Construtores do Futuro",
+          "description": "Oficinas práticas de criação no Roblox, com foco em cooperação, sustentabilidade e desafios reais do dia a dia."
+        },
+        {
+          "id": "cidadania-digital",
+          "title": "Cidadania Digital",
+          "description": "Conversa guiada sobre segurança online, cidadania digital e equilíbrio saudável com as telas — com espaço aberto para dúvidas e relatos."
+        },
+        {
+          "id": "showcase-de-mundos",
+          "title": "Showcase de Mundos",
+          "description": "Apresentação dos mundos criados pelas crianças para familiares e especialistas, com reconhecimento simbólico e convite para seguir criando no Roblox."
+        }
+      ]
+    },
+    "eventos": [
+      {
+        "id": "rio-de-janeiro",
+        "cidade": "Rio de Janeiro",
+        "data": "11 de abril de 2026",
+        "local": {
+          "nome": "Senac Candelária",
+          "endereco": "Avenida Presidente Vargas, 1500, 2º andar, Centro"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Inscreva-se na sessão 1",
+            "horario": "Das 09h às 13hs"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Inscreva-se na sessão 2",
+            "horario": "Das 09h às 13hs"
+          }
+        ]
+      },
+      {
+        "id": "sao-paulo",
+        "cidade": "São Paulo",
+        "data": "05 de maio de 2026",
+        "local": {
+          "nome": "Centro de Convenções Anhembi",
+          "endereco": "Av. Olavo Fontoura, 1209, Santana, São Paulo - SP, 02012-021"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Inscreva-se na sessão 1",
+            "horario": "Das 09h às 13hs"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Inscreva-se na sessão 2",
+            "horario": "Das 09h às 13hs"
+          }
+        ]
+      },
+      {
+        "id": "belo-horizonte",
+        "cidade": "Manaus",
+        "data": "22 de agosto de 2026",
+        "local": {
+          "nome": "Centro de Convenções Manaus",
+          "endereco": "Av. Amazonas, 6200, Gameleira, Manaus - AM"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Inscreva-se na sessão 1",
+            "horario": "Das 09h às 13hs"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Inscreva-se na sessão 2",
+            "horario": "Das 09h às 13hs"
+          }
+        ]
+      },
+      {
+        "id": "brasilia",
+        "cidade": "Brasília",
+        "data": "30 de maio de 2026",
+        "local": {
+          "nome": "Centro de Convenções Ulysses Guimarães",
+          "endereco": "SDC - Eixo Monumental, Lote 05, Asa Norte, Brasília - DF, 70070-350"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Inscreva-se na sessão 1",
+            "horario": "Das 09h às 13hs"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Inscreva-se na sessão 2",
+            "horario": "Das 09h às 13hs"
+          }
+        ]
+      },
+      {
+        "id": "recife",
+        "cidade": "Recife",
+        "data": "26 de setembro de 2026",
+        "local": {
+          "nome": "Centro de Convenções de Pernambuco",
+          "endereco": "Complexo de Salgadinho, Av. Prof. Andrade Bezerra, s/n, Salgadinho, Olinda - PE"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Inscreva-se na sessão 1",
+            "horario": "Das 09h às 13hs"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Inscreva-se na sessão 2",
+            "horario": "Das 09h às 13hs"
+          }
+        ]
+      },
+      {
+        "id": "curitiba",
+        "cidade": "Porto Alegre",
+        "data": "17 de outubro de 2026",
+        "local": {
+          "nome": "Fabrica Fundação",
+          "endereco": "R. Prof. Pedro Viriato Parigot de Souza, 5300, Campo Comprido, Porto Alegre - RS"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Inscreva-se na sessão 1",
+            "horario": "Das 09h às 13hs"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Inscreva-se na sessão 2",
+            "horario": "Das 09h às 13hs"
+          }
+        ]
+      }
+    ]
+  },
+  "robloxStudio": {
+    "title": "O que é o Roblox Studios",
+    "description": [
+      "Roblox Studio é a ferramenta de criação que permite construir qualquer coisa que você possa imaginar.",
+      "Nossa missão é potencializar a imaginação de milhões de pessoas ao redor do mundo."
+    ]
+  },
+  "querCriar": {
+    "title": {
+      "line1": "Quer criar",
+      "line2": "com a gente?"
+    },
+    "subtitle": "Desce pro play."
+  },
+  "footer": {
+    "cta": {
+      "title": "É mãe, pai, ou responsável?",
+      "text": "Temos um material pra você.",
+      "links": {
+        "download": "baixar",
+        "video": "assista o vídeo"
+      }
+    },
+    "centralExpedicao": {
+      "title": "Central da Expedição",
+      "links": [
+        {
+          "text": "Converse com a Mastertech",
+          "action": "contact"
+        },
+        {
+          "text": "Perguntas frequentes",
+          "action": "faq"
+        }
+      ],
+      "separator": true,
+      "callsTitle": "Escolha uma das trilhas",
+      "trilhas": [
+        {
+          "id": "trilha-01",
+          "label": "APRENDIZADO",
+          "title": "Aprenda Roblox Studio do zero em nossas trilhas de conteúdos",
+          "description": "Baixe o plugin exclusivo da Mastertech para fazer suas primeiras criações e aprender de um jeito diferente. Além disso consuma conteúdos conceituais e práticos para que você possa compreender mais sobre o universo de criações digitais e Roblox",
+          "action": "contact"
+        },
+        {
+          "id": "trilha-02",
+          "label": "PRÁTICA",
+          "title": "Inscreva-se numa jam e crie experiências jogáveis de verdade;",
+          "description": "Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.",
+          "action": "jam"
+        },
+        {
+          "id": "trilha-03",
+          "label": "VIVÊNCIA",
+          "title": "Participe da imersão presencial em um evento na sua capital.",
+          "description": "Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.",
+          "action": "contact"
+        }
+      ]
+    },
+    "final": {
+      "text": "Expedição Roblox é um projeto da Mastertech junto com o Roblox",
+      "social": [
+        {
+          "name": "Instagram",
+          "url": "#"
+        },
+        {
+          "name": "WhatsApp",
+          "url": "#"
+        },
+        {
+          "name": "TikTok",
+          "url": "#"
+        }
+      ]
+    }
+  },
+  "convideAmigos": {
+    "title": "Convide seus amigos(as)",
+    "description": [
+      "A cada 3 amigos(as) indicados que se inscrevam em alguma ação da expedição,",
+      "você ganha acesso a eventos exclusivos como mentoria com especialistas sobre criação no Roblox."
+    ],
+    "form": {
+      "emailLabel": "Email do amigo(a)",
+      "button": "Enviar convite",
+      "thankYou": {
+        "title": "Obrigado!",
+        "message": "Seu convite foi enviado com sucesso."
+      }
+    }
+  },
+  "glossario": {
+    "title": "Glossário",
+    "subtitle": "Dicionário das expressões da Expedição Roblox",
+    "termos": [
+      {
+        "termo": "Age-check",
+        "descricao": "Verificação de idade na plataforma Roblox que determina a faixa etária do usuário e as funcionalidades disponíveis."
+      },
+      {
+        "termo": "Assets",
+        "descricao": "Recursos utilizados na criação, como modelos 3D, imagens, sons e outros elementos que compõem uma experiência."
+      },
+      {
+        "termo": "Co-criação",
+        "descricao": "Processo de criação colaborativa em equipe, onde múltiplos desenvolvedores trabalham juntos no mesmo projeto."
+      },
+      {
+        "termo": "Copyright",
+        "descricao": "Direitos autorais sobre conteúdo criativo. É importante respeitar os direitos de uso de materiais de terceiros."
+      },
+      {
+        "termo": "Criação assistida por IA",
+        "descricao": "Uso de inteligência artificial para auxiliar no processo de criação, gerando imagens, sons ou textos."
+      },
+      {
+        "termo": "Depuração",
+        "descricao": "Processo de encontrar e corrigir erros (bugs) no código ou na experiência criada."
+      },
+      {
+        "termo": "DM (Direct Message)",
+        "descricao": "Mensagem direta privada entre usuários. Durante a Jam, DMs são desativadas para maior segurança."
+      },
+      {
+        "termo": "Expedição Roblox",
+        "descricao": "Projeto educacional que conecta trilhas de aprendizado, Game Jams e encontros presenciais para ensinar criação no Roblox."
+      },
+      {
+        "termo": "Expedição Roblox na Estrada",
+        "descricao": "Eventos presenciais realizados em diferentes capitais brasileiras como parte da Expedição Roblox."
+      },
+      {
+        "termo": "Experiência",
+        "descricao": "Termo usado no Roblox para se referir a jogos ou mundos criados na plataforma (não se usa \"jogo\")."
+      },
+      {
+        "termo": "Faixa etária",
+        "descricao": "Categoria de idade do usuário no Roblox (13-15, 16-17, 18+), que determina com quem pode interagir."
+      },
+      {
+        "termo": "Free to Use",
+        "descricao": "Recursos que podem ser usados gratuitamente, geralmente encontrados no Roblox Toolbox com licença apropriada."
+      },
+      {
+        "termo": "Game Jam",
+        "descricao": "Evento de criação intensiva de jogos em tempo limitado, onde equipes desenvolvem experiências completas em 72 horas."
+      },
+      {
+        "termo": "Imersão presencial",
+        "descricao": "Evento físico presencial onde participantes se encontram pessoalmente para atividades práticas."
+      },
+      {
+        "termo": "Jam",
+        "descricao": "Abreviação de Game Jam, evento de criação de experiências em tempo limitado."
+      },
+      {
+        "termo": "Logs",
+        "descricao": "Registros de conversas e atividades mantidos para garantir segurança e transparência nos canais oficiais."
+      },
+      {
+        "termo": "Moderado",
+        "descricao": "Ambiente supervisionado por moderadores que garantem que as regras sejam seguidas e o ambiente seja seguro."
+      },
+      {
+        "termo": "Narrativa",
+        "descricao": "História contada pela experiência, incluindo personagens, enredo e elementos que envolvem o jogador."
+      },
+      {
+        "termo": "Padrões da Comunidade",
+        "descricao": "Normas de comportamento estabelecidas pela plataforma Roblox que todos os usuários devem seguir."
+      },
+      {
+        "termo": "Plugins",
+        "descricao": "Extensões do Roblox Studio que adicionam funcionalidades extras para facilitar a criação."
+      },
+      {
+        "termo": "Portfólio",
+        "descricao": "Conjunto de projetos criados que demonstram as habilidades e o trabalho desenvolvido pelo criador."
+      },
+      {
+        "termo": "Protótipo",
+        "descricao": "Versão inicial funcional de uma experiência que demonstra a ideia principal e permite interação básica."
+      },
+      {
+        "termo": "Public",
+        "descricao": "Experiência publicada no Roblox que é visível publicamente e pode ser encontrada por qualquer usuário."
+      },
+      {
+        "termo": "Redistribuição",
+        "descricao": "Compartilhamento de assets criados por outros. É importante verificar se o material permite redistribuição."
+      },
+      {
+        "termo": "Roblox",
+        "descricao": "Plataforma online de jogos e criação onde usuários podem criar, compartilhar e jogar experiências desenvolvidas por outros usuários."
+      },
+      {
+        "termo": "Roblox Studio",
+        "descricao": "Ferramenta de criação oficial do Roblox que permite construir qualquer tipo de experiência, desde jogos simples até mundos complexos."
+      },
+      {
+        "termo": "Scripts",
+        "descricao": "Código de programação que controla comportamentos, interações e funcionalidades dentro de uma experiência no Roblox."
+      },
+      {
+        "termo": "Segurança digital",
+        "descricao": "Práticas e conhecimentos para manter-se seguro no ambiente online, protegendo informações pessoais e evitando riscos."
+      },
+      {
+        "termo": "Submissão",
+        "descricao": "Entrega oficial do projeto criado através do formulário da Jam, incluindo link, descrição e responsabilidades da equipe."
+      },
+      {
+        "termo": "Termos de Uso do Roblox",
+        "descricao": "Regras e diretrizes estabelecidas pela plataforma Roblox que todos os usuários devem seguir ao usar a plataforma."
+      },
+      {
+        "termo": "Tempo de tela",
+        "descricao": "Tempo gasto em frente a telas e dispositivos. A Expedição transforma esse tempo em aprendizado produtivo."
+      },
+      {
+        "termo": "Toolbox",
+        "descricao": "Biblioteca de recursos do Roblox Studio que contém modelos, sons e scripts prontos que podem ser usados gratuitamente."
+      },
+      {
+        "termo": "Trilha",
+        "descricao": "Caminho de aprendizado organizado por níveis de dificuldade, incluindo Mochilão (iniciante), Acampamento (intermediário) e Sobrevivência (avançado)."
+      },
+      {
+        "termo": "Trusted Connection",
+        "descricao": "Vínculo seguro entre duas contas Roblox que informa à plataforma que essas pessoas se conhecem na vida real, permitindo interação mesmo entre faixas etárias diferentes."
+      },
+      {
+        "termo": "Unlisted",
+        "descricao": "Experiência publicada no Roblox que não aparece nas buscas públicas, sendo acessível apenas através de link direto."
+      },
+      {
+        "termo": "Username",
+        "descricao": "Nome de usuário único na plataforma Roblox, usado para identificação e login na conta."
+      },
+      {
+        "termo": "72 horas",
+        "descricao": "Período padrão de duração de uma Game Jam, durante o qual as equipes desenvolvem suas experiências do zero."
+      }
+    ]
+  },
+  "forms": {
+    "contact": {
+      "title": "Receba as novidades em primeira mão",
+      "fields": {
+        "nome": {
+          "label": "Nome",
+          "placeholder": "Seu nome",
+          "required": true
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Seu email",
+          "required": true
+        },
+        "idade": {
+          "label": "Idade",
+          "placeholder": "Sua idade",
+          "required": true
+        },
+        "emailResponsavel": {
+          "label": "Email do responsável",
+          "placeholder": "responsavel@email.com",
+          "required": true
+        }
+      },
+      "submit": "Enviar",
+      "success": "Obrigado! Entraremos em contato em breve."
+    },
+    "contactPopup": {
+      "title": "Fale com a Mastertech",
+      "whatsapp": {
+        "label": "Contato por WhatsApp",
+        "number": "+5511998901551"
+      },
+      "form": {
+        "fields": {
+          "nome": {
+            "label": "Nome",
+            "placeholder": "Seu nome",
+            "required": true
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "Seu email",
+            "required": true
+          },
+          "assunto": {
+            "label": "Assunto",
+            "placeholder": "Selecione um assunto",
+            "options": [
+              "Mochilão",
+              "Acampamento",
+              "Sobrevivência",
+              "Outros"
+            ],
+            "required": true
+          },
+          "mensagem": {
+            "label": "Mensagem",
+            "placeholder": "Sua mensagem",
+            "required": true
+          }
+        },
+        "submit": "Enviar"
+      }
+    },
+    "emailGate": {
+      "existing": {
+        "title": "Área Especial para Membros",
+        "description": "Você está entrando em uma área especial para membros da Expedição Roblox.\nConfirme seu email para continuar.",
+        "button": "Confirmar e Acessar"
+      },
+      "new": {
+        "title": "Ainda não faz parte da Expedição?",
+        "description": "Faça seu cadastro para acessar nossa biblioteca completa de conteúdos.",
+        "button": "Cadastrar e Acessar"
+      },
+      "fields": {
+        "nome": {
+          "placeholder": "Seu nome",
+          "required": true
+        },
+        "email": {
+          "placeholder": "Seu email",
+          "required": true
+        }
+      }
+    }
+  },
+  "biblioteca": {
+    "sections": {
+      "tutorial": {
+        "label": "CONTEÚDOS",
+        "title": "Tutorial Roblox Studios",
+        "color": "rgb(255, 194, 231)"
+      },
+      "mochilao": {
+        "label": "CONTEÚDOS",
+        "title": "Mochilão",
+        "color": "rgb(83, 0, 255)"
+      },
+      "acampamento": {
+        "label": "CONTEÚDOS",
+        "title": "Acampamento",
+        "color": "rgb(255, 61, 0)"
+      },
+      "sobrevivencia": {
+        "label": "CONTEÚDOS",
+        "title": "Sobrevivência",
+        "color": "rgb(216, 243, 31)"
+      }
+    },
+    "publicos": {
+      "criadores": {
+        "label": "Conteúdos para criadores",
+        "trilhas": {
+          "tutorial": {
+            "nome": "Tutorial Roblox Studios",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Tutorial 1",
+                "pdf": "/pdfs/tutorial1.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Tutorial 2",
+                "pdf": "/pdfs/tutorial2.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "mochilao": {
+            "nome": "Mochilão",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Concepção do jogo",
+                "pdf": "/pdfs/concepcao.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Construção do ambiente",
+                "pdf": "/pdfs/construcao.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 3,
+                "titulo": "Criação de personagens",
+                "pdf": "/pdfs/personagens.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 4,
+                "titulo": "Conteúdo 4",
+                "pdf": "/pdfs/conteudo4.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 5,
+                "titulo": "Conteúdo 5",
+                "pdf": "/pdfs/conteudo5.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "acampamento": {
+            "nome": "Acampamento",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Criação assistida por IA",
+                "pdf": "/pdfs/ia.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Colaboração e co-criação",
+                "pdf": "/pdfs/colaboracao.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 3,
+                "titulo": "Teste e depuração",
+                "pdf": "/pdfs/teste.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "sobrevivencia": {
+            "nome": "Sobrevivência",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Publicação e narrativa",
+                "pdf": "/pdfs/publicacao.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Reflexão e compartilhamento",
+                "pdf": "/pdfs/reflexao.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          }
+        }
+      },
+      "educadores": {
+        "label": "Conteúdos para educadores",
+        "trilhas": {
+          "tutorial": {
+            "nome": "Tutorial Roblox Studios",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Tutorial Educador 1",
+                "pdf": "/pdfs/tutorial-educador1.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "mochilao": {
+            "nome": "Mochilão",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Conteúdo Educador 1",
+                "pdf": "/pdfs/educador1.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Conteúdo Educador 2",
+                "pdf": "/pdfs/educador2.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "acampamento": {
+            "nome": "Acampamento",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Conteúdo Educador 3",
+                "pdf": "/pdfs/educador3.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "sobrevivencia": {
+            "nome": "Sobrevivência",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Conteúdo Educador 4",
+                "pdf": "/pdfs/educador4.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          }
+        }
+      },
+      "pais": {
+        "label": "Conteúdos para pais, mães e responsáveis",
+        "trilhas": {
+          "tutorial": {
+            "nome": "Tutorial Roblox Studios",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Tutorial Pais 1",
+                "pdf": "/pdfs/tutorial-pais1.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "mochilao": {
+            "nome": "Mochilão",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Conteúdo Pais 1",
+                "pdf": "/pdfs/pais1.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Conteúdo Pais 2",
+                "pdf": "/pdfs/pais2.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "acampamento": {
+            "nome": "Acampamento",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Conteúdo Pais 3",
+                "pdf": "/pdfs/pais3.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "sobrevivencia": {
+            "nome": "Sobrevivência",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Conteúdo Pais 4",
+                "pdf": "/pdfs/pais4.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "jam": {
+    "hero": {
+      "title": "Roblox Creator Jam",
+      "subtitle": "Crie, compartilhe e ganhe prêmios"
+    },
+    "comoParticipar": {
+      "title": "Como Participar",
+      "steps": [
+        {
+          "number": 1,
+          "title": "Crie sua conta Roblox",
+          "description": "Os participantes precisam ter entre 13 e 18 anos e possuir uma conta Roblox. A conta e o nome de usuário podem ser criados via mobile. Se for auxiliar na criação do jogo, é necessário um computador com Roblox Studio instalado."
+        },
+        {
+          "number": 2,
+          "title": "Faça sua inscrição",
+          "description": "Os participantes devem preencher um formulário oficial informando seu nome de usuário Roblox, o tema que deseja trabalhar, se prefere participar individualmente ou em equipe, e o e-mail do responsável. A inscrição é individual."
+        },
+        {
+          "number": 3,
+          "title": "Aguarde a autorização familiar",
+          "description": "O responsável recebe um e-mail com um código de confirmação. Após autorizar, a participação em equipe é habilitada. Sem autorização, a participação é no modo individual."
+        },
+        {
+          "number": 4,
+          "title": "Forme seu time de trabalho (conexões confiáveis)",
+          "description": "O sistema forma automaticamente as equipes com base na faixa etária oficial do Roblox do participante, tema escolhido, preferência (solo ou equipe) e vínculos familiares existentes (Conexão Confiável). Cada pessoa é colocada em uma equipe apropriada para sua faixa etária."
+        },
+        {
+          "number": 5,
+          "title": "Entre no Discord da Jam",
+          "description": "Os participantes recebem um link de acesso ao servidor oficial do Discord, que contém anúncios da Jam, tutoriais, canais de perguntas e respostas e um canal privado da equipe. A comunicação da Jam ocorre lá em um ambiente moderado e seguro."
+        },
+        {
+          "number": 6,
+          "title": "Crie sua experiência no Roblox Studio",
+          "description": "Com sua equipe, os participantes desenvolvem uma experiência representando o tema escolhido. Cada grupo trabalha em seu próprio projeto e pode publicar a experiência quando estiver pronta."
+        }
+      ],
+      "regrasChecagem": [
+        {
+          "faixaEtaria": "13-15",
+          "chatPermitido": "13-15, 16-17",
+          "equipesPermitidas": "13-15, 16-17",
+          "trustedConnection": "Necessária para equipe com 18"
+        },
+        {
+          "faixaEtaria": "16-17",
+          "chatPermitido": "13-15, 16-17, 18",
+          "equipesPermitidas": "13-15, 16-17, 18",
+          "trustedConnection": "Nunca necessária"
+        },
+        {
+          "faixaEtaria": "18",
+          "chatPermitido": "16-17, 18",
+          "equipesPermitidas": "16-17, 18",
+          "trustedConnection": "Necessária para equipe com 13-15"
+        }
+      ],
+      "qaItems": [
+        {
+          "question": "Quem cria?",
+          "answer": "O próprio usuário (jovem) com permissão da família, dentro da plataforma Roblox."
+        },
+        {
+          "question": "Onde é criada?",
+          "answer": "No próprio Roblox, dentro da conta do usuário, após o age-check."
+        },
+        {
+          "question": "Quando é criada?",
+          "answer": "Antes da Jam. Nunca durante. A Jam não cria nem gerencia isso."
+        },
+        {
+          "question": "Quando importa na Jam?",
+          "answer": "Exatamente em UM caso: permitir equipe entre 13-15 e 18."
+        }
+      ],
+      "trustedConnectionIntro": "Um vínculo seguro entre duas contas que informa ao Roblox que essas pessoas se conhecem na vida real e podem conversar e interagir mesmo estando em faixas etárias que normalmente não conversam."
+    },
+    "escolhaTema": {
+      "title": "Qual vai ser\no tema da Jam?",
+      "intro": [
+        "Cada participante escolhe um tema no momento da inscrição.",
+        "O tema escolhido não pode ser alterado depois da formação da equipe."
+      ],
+      "temas": [
+        {
+          "tema": "Empatia",
+          "descricao": "Criar situações que mostram outro ponto de vista."
+        },
+        {
+          "tema": "Convivência e diferenças",
+          "descricao": "Como pessoas diferentes dividem o mesmo espaço."
+        },
+        {
+          "tema": "Uso responsável de IA",
+          "descricao": "Limites e escolhas no uso de IA."
+        },
+        {
+          "tema": "Segurança digital",
+          "descricao": "Riscos, decisões e proteção online."
+        },
+        {
+          "tema": "Sustentabilidade",
+          "descricao": "Impacto, recursos e uso consciente."
+        },
+        {
+          "tema": "Mudanças climáticas",
+          "descricao": "Adaptações, desafios e consequências práticas."
+        },
+        {
+          "tema": "Acesso e inclusão",
+          "descricao": "Experiências que qualquer pessoa consegue usar."
+        },
+        {
+          "tema": "Mobilidade urbana",
+          "descricao": "Rotas, movimento e organização da cidade."
+        },
+        {
+          "tema": "Cidades inteligentes",
+          "descricao": "Tecnologia aplicada à vida urbana."
+        },
+        {
+          "tema": "Saúde emocional",
+          "descricao": "Pressão, equilíbrio e bem-estar."
+        }
+      ]
+    },
+    "desafio": {
+      "title": "O desafio\nda JAM",
+      "description": "A entrega da Jam é o protótipo funcional publicado no Roblox Studio, uma experiência que apresenta a ideia da equipe em funcionamento e oferece ao jogador uma forma concreta de interagir com o tema escolhido.",
+      "subtitle": "Exemplos de protótipos"
+    },
+    "regras": {
+      "title": "Regras",
+      "regras": [
+        {
+          "numero": 1,
+          "titulo": "Criação durante as 72 horas",
+          "descricao": "O projeto deve ser feito dentro do período oficial da Jam e seguir o tema escolhido. Experiências criadas totalmente antes ou depois desse período não entram na avaliação."
+        },
+        {
+          "numero": 2,
+          "titulo": "Uso de recursos, modelos e materiais prontos",
+          "descricao": "Você pode usar materiais que já existem, desde que tenha direito de usar e informe isso na sua entrega.",
+          "permitido": [
+            "modelos do Roblox Toolbox com licença Free to Use",
+            "recursos criados por você em outros projetos",
+            "assets feitos por alguém do seu time antes da Jam",
+            "assets gratuitos de sites que permitem uso em jogos",
+            "IA para gerar imagens, sons ou textos (desde que você tenha direito de uso)",
+            "plugins gratuitos do Roblox Studio",
+            "scripts básicos de uso público"
+          ],
+          "naoPermitido": [
+            "usar conteúdos pagos sem ter comprado",
+            "usar materiais protegidos por copyright sem permissão",
+            "copiar jogos prontos e publicar como se fossem seus",
+            "usar assets de terceiros que não permitem redistribuição"
+          ],
+          "observacao": "O que você precisa informar na submissão: nome do recurso, de onde você pegou, link da fonte (se houver). Regra simples: Use o que for permitido, mas seja transparente."
+        },
+        {
+          "numero": 3,
+          "titulo": "Equipes de 1 a 5 pessoas",
+          "descricao": "Cada equipe pode ter entre 1 e 5 participantes. Participar sozinho também vale. A formação final das equipes segue as regras da Jam (faixa etária, autorização e preferências)."
+        },
+        {
+          "numero": 4,
+          "titulo": "Publicação do projeto",
+          "descricao": "A experiência deve estar publicada no Roblox — como Public ou Unlisted (link-only) — e o link precisa abrir normalmente."
+        },
+        {
+          "numero": 5,
+          "titulo": "Convivência e comportamento",
+          "descricao": "Durante toda a Jam, os participantes seguem:",
+          "topicos": [
+            "Termos de Uso do Roblox",
+            "Padrões da Comunidade",
+            "regras de participação da Jam"
+          ],
+          "descricaoFinal": "Os canais oficiais da Jam são moderados, com DMs desativadas."
+        },
+        {
+          "numero": 6,
+          "titulo": "Ambiente seguro",
+          "descricao": "Toda a comunicação oficial ocorre no Discord da Jam, no canal da sua equipe e nos canais públicos. Logs ficam ativos para manter tudo seguro."
+        }
+      ]
+    },
+    "entrega": {
+      "title": "Entrega do\ndesafio",
+      "intro": [
+        "A entrega é realizada por meio do formulário oficial de submissão.",
+        "No formulário, a equipe insere: <strong>a divisão de responsabilidades,</strong> Indicando o papel de cada participante no desenvolvimento do projeto."
+      ],
+      "entregas": [
+        {
+          "number": 1,
+          "text": "o link da experiência publicada"
+        },
+        {
+          "number": 2,
+          "text": "A descrição da ideia, com conceito da experiência, o tema escolhido e a ação central proposta ao jogador."
+        }
+      ]
+    },
+    "premiacao": {
+      "title": "Premiação",
+      "premiacoes": [
+        {
+          "lugar": "Primeiro lugar",
+          "lugarColor": "#000",
+          "titulo": "Melhor Protótipo da Jam",
+          "descricao": "Reconhece a experiência que apresenta a melhor combinação de conceito, jogabilidade e execução."
+        },
+        {
+          "lugar": "Segundo lugar",
+          "lugarColor": "#666",
+          "titulo": "Prêmio Criatividade",
+          "descricao": "Destaca a abordagem mais original dentro dos temas propostos."
+        },
+        {
+          "lugar": "Terceiro lugar",
+          "lugarColor": "#999",
+          "titulo": "Prêmio da Comunidade",
+          "descricao": "Votação entre participantes da faixa etária da Jam (13-18), em canal moderado."
+        }
+      ]
+    },
+    "datasCanais": {
+      "title": "Datas e canais",
+      "etapas": [
+        {
+          "etapa": "Inscrição",
+          "plataforma": "Formulário",
+          "quando": "30 a 7 dias antes da Jam",
+          "oQue": "Coleta username, tema e envio da autorização familiar"
+        },
+        {
+          "etapa": "Orientações e Lives",
+          "plataforma": "Email e Youtube",
+          "quando": "Na última semana antes da Jam",
+          "oQue": "Abertura, tutoriais e Q&A"
+        },
+        {
+          "etapa": "Formação das equipes",
+          "plataforma": "Sistema Mastertech",
+          "quando": "7 dias antes da Jam",
+          "oQue": "Times criados automaticamente, seguindo idade e autorizações"
+        },
+        {
+          "etapa": "Abertura oficial da Jam",
+          "plataforma": "Live no TikTok da Expedição Roblox",
+          "quando": "Dia da Jam — horário oficial",
+          "oQue": "Tema revelado e início das 72h de criação"
+        },
+        {
+          "etapa": "Criação dos projetos",
+          "plataforma": "Roblox Studio",
+          "quando": "Durante as 72 horas da Jam",
+          "oQue": "Cada equipe desenvolve sua experiência"
+        },
+        {
+          "etapa": "Comunicação da equipe",
+          "plataforma": "Discord",
+          "quando": "Durante as 72 horas da Jam",
+          "oQue": "Canais públicos + canal privado de cada time"
+        },
+        {
+          "etapa": "Publicação do projeto",
+          "plataforma": "Roblox Studio",
+          "quando": "Até o final das 72 horas",
+          "oQue": "Experiência publicada como Public ou Unlisted"
+        },
+        {
+          "etapa": "Entrega oficial",
+          "plataforma": "Formulário",
+          "quando": "Até o final das 72 horas",
+          "oQue": "Envio do link do projeto + descrição + responsabilidades"
+        },
+        {
+          "etapa": "Avaliação",
+          "plataforma": "Painel interno",
+          "quando": "3 dias após a Jam",
+          "oQue": "Jurados Mastertech + Roblox avaliam os projetos"
+        },
+        {
+          "etapa": "Anúncio dos vencedores",
+          "plataforma": "Discord",
+          "quando": "7 dias após a Jam",
+          "oQue": "Live com os resultados"
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "Perguntas frequentes",
+    "message": "Em breve"
+  },
+  "spacing": {
+    "sectionPadding": {
+      "mobile": "2.1rem 1.5rem",
+      "tablet": "2.6rem 2rem",
+      "desktop": "3.1rem 2rem"
+    },
+    "heroPadding": {
+      "mobile": "0.25rem 1.5rem",
+      "tablet": "0.5rem 2rem",
+      "desktop": "1rem 2rem"
+    }
+  },
+  "images": {
+    "homeHero": "/images/4.webp",
+    "bibliotecaHero": "/images/2.webp",
+    "jamHero": "/images/6.webp",
+    "expedicaoEstrada": "/images/5.webp"
+  }
+}

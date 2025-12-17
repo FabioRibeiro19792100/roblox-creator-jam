@@ -139,10 +139,16 @@
   .home-hero-description-paragraph {
     font-size: 1.25rem;
   }
+<<<<<<< HEAD
   
   .home-hero-roblox-button {
     padding: 1.25rem 2.5rem;
     font-size: 1.125rem;
+=======
+
+  .home-hero-inner {
+    padding: 5rem 2rem 0 2rem;
+>>>>>>> origin/main
   }
 }
 

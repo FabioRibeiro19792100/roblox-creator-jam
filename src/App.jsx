@@ -6,6 +6,7 @@ import ExpedicaoNaEstrada from './pages/ExpedicaoNaEstrada'
 import Admin from './pages/Admin'
 import ContactModal from './components/ContactModal'
 import MaterialModal from './components/MaterialModal'
+import InscricaoModal from './components/InscricaoModal'
 import { DebugKit } from './components/utilitarios/DebugKit'
 import { BoundingBoxKit } from './components/utilitarios/BoundingBoxKit'
 import { CoordinateGridKit } from './components/utilitarios/CoordinateGridKit'
@@ -36,6 +37,8 @@ export const NavigationContext = React.createContext()
 export const ContactModalContext = React.createContext()
 // Contexto para compartilhar estado do modal de material
 export const MaterialModalContext = React.createContext()
+// Contexto para compartilhar estado do modal de inscrição
+export const InscricaoModalContext = React.createContext()
 
 function App() {
   const [currentPage, setCurrentPage] = useState(() => resolvePageFromHash(window.location.hash))
@@ -43,6 +46,8 @@ function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   const [isMaterialModalOpen, setIsMaterialModalOpen] = useState(false)
   const [materialModalType, setMaterialModalType] = useState('download')
+  const [isInscricaoModalOpen, setIsInscricaoModalOpen] = useState(false)
+  const [showRobloxCadastro, setShowRobloxCadastro] = useState(false)
 
   useEffect(() => {
     // Escuta mudanças no hash
@@ -88,6 +93,14 @@ function App() {
     setIsMaterialModalOpen(false)
   }
 
+  const openInscricaoModal = () => {
+    setIsInscricaoModalOpen(true)
+  }
+
+  const closeInscricaoModal = () => {
+    setIsInscricaoModalOpen(false)
+  }
+
   const handleMaterialSuccess = (formData) => {
     // Aqui você pode enviar os dados para um backend
     console.log('Dados coletados:', formData)
@@ -116,6 +129,7 @@ function App() {
       <AutoAnimatorObserver>
         <ContactModalContext.Provider value={{ openContactModal }}>
         <MaterialModalContext.Provider value={{ openMaterialModal }}>
+        <InscricaoModalContext.Provider value={{ openInscricaoModal }}>
           {currentPage === 'jam' ? <Jam /> : currentPage === 'biblioteca' ? <Biblioteca /> : currentPage === 'expedicao-na-estrada' ? <ExpedicaoNaEstrada /> : <Home />}
           <ContactModal 
             isOpen={isContactModalOpen} 
@@ -132,8 +146,14 @@ function App() {
           <BoundingBoxKit />
           <CoordinateGridKit />
           {/* <AnimatorDemo /> */}
+          <InscricaoModal
+            isOpen={isInscricaoModalOpen}
+            onClose={closeInscricaoModal}
+            tipoInscricao="geral"
+          />
           <IntroController key={currentPage} />
           <ScrollRevealController />
+        </InscricaoModalContext.Provider>
         </MaterialModalContext.Provider>
         </ContactModalContext.Provider>
       </AutoAnimatorObserver>

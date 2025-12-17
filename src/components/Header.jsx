@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect, useRef, useMemo } from 'react'
-import { NavigationContext, ContactModalContext, resolvePageFromHash } from '../App'
+import { NavigationContext, ContactModalContext, InscricaoModalContext, resolvePageFromHash } from '../App'
 import { scrollToElementById, scrollWindowTo, updateHash } from '../utils/scrollHelpers'
 import { useSiteConfig } from '../config/useSiteConfig'
 import useMediaQuery from '../hooks/useMediaQuery'
@@ -102,6 +102,7 @@ function Header() {
   const isBibliotecaPage = currentPage === 'biblioteca' || window.location.hash === '#biblioteca'
   const isExpedicaoNaEstradaPage = currentPage === 'expedicao-na-estrada' || window.location.hash === '#expedicao-na-estrada'
   const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
+  const { openInscricaoModal } = useContext(InscricaoModalContext) || { openInscricaoModal: () => {} }
   const hasHeaderAnimated =
     typeof window !== 'undefined' ? Boolean(window[HEADER_ANIMATION_FLAG]) : false
   const isFirstHeaderInstanceRef = useRef(!hasHeaderAnimated)
@@ -140,6 +141,7 @@ function Header() {
     if (isHomePage) {
       return (
         <>
+<<<<<<< HEAD
           {config?.menu?.home?.items?.map((item, index) => {
             if (item.isLink) {
               return (
@@ -172,6 +174,19 @@ function Header() {
           
           {/* Item Missoes Fixo/Hardcoded ou via Config? A main tem Missoes hardcoded no final da lista home */}
           <li 
+=======
+          <li>
+            <a href="#home-hero" onClick={scrollToTop}>
+              Início
+            </a>
+          </li>
+          <li>
+            <a href="#expedicao-roblox" onClick={(e) => handleHomeScroll('expedicao-roblox', e)}>
+              A Expedição
+            </a>
+          </li>
+          <li
+>>>>>>> origin/main
             className="nav-item-with-dropdown"
             onMouseEnter={() => setIsMissoesOpen(true)}
             onMouseLeave={(e) => {
@@ -181,16 +196,16 @@ function Header() {
                 }
               }}
           >
-            <a 
-              href="#missoes" 
+            <a
+              href="#trilhas"
               onClick={(e) => {
                 e.preventDefault()
                 setIsMissoesOpen(!isMissoesOpen)
               }}
             >
-              Missões
+              Trilhas
             </a>
-            <ul 
+            <ul
               className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
             >
               <li>
@@ -199,7 +214,7 @@ function Header() {
                   handleNavClick('biblioteca', e)
                   setIsMissoesOpen(false)
                 }}>
-                  Trilhas de conteúdo
+                  Aprendizado
                 </a>
               </li>
               <li>
@@ -208,7 +223,7 @@ function Header() {
                   handleNavClick('jam', e)
                   setIsMissoesOpen(false)
                 }}>
-                  Jam
+                  Prática
                 </a>
               </li>
               <li>
@@ -217,7 +232,7 @@ function Header() {
                   handleNavClick('expedicao-na-estrada', e)
                   setIsMissoesOpen(false)
                 }}>
-                  Estrada
+                  Vivência
                 </a>
               </li>
             </ul>
@@ -306,7 +321,7 @@ function Header() {
     // Default / Jam Page (que usa config.menu.jam na main)
     return (
       <>
-        {config?.menu?.jam?.items?.map((item, index) => {
+          {config?.menu?.jam?.items?.map((item, index) => {
             if (item.isLink) {
             return (
                 <li key={index}>
@@ -347,16 +362,16 @@ function Header() {
             }
           }}
         >
-          <a 
-            href="#missoes" 
+          <a
+            href="#trilhas"
             onClick={(e) => {
               e.preventDefault()
               setIsMissoesOpen(!isMissoesOpen)
             }}
           >
-            Missões
+            Trilhas
           </a>
-          <ul 
+          <ul
             className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
           >
             <li>
@@ -365,7 +380,7 @@ function Header() {
                 handleNavClick('biblioteca', e)
                 setIsMissoesOpen(false)
               }}>
-                Trilhas de conteúdo
+                Aprendizado
               </a>
             </li>
             <li>
@@ -374,7 +389,7 @@ function Header() {
                 handleNavClick('jam', e)
                 setIsMissoesOpen(false)
               }}>
-                Jam
+                Prática
               </a>
             </li>
             <li>
@@ -383,7 +398,7 @@ function Header() {
                 handleNavClick('expedicao-na-estrada', e)
                 setIsMissoesOpen(false)
               }}>
-                Estrada
+                Vivência
               </a>
             </li>
           </ul>
@@ -425,8 +440,7 @@ function Header() {
               className="header-cta-button"
               onClick={(e) => {
                 e.preventDefault()
-                const anchor = config.menu.home.cta.anchor || '#expedicao-roblox'
-                scrollToSection(anchor.replace('#', ''))
+                openInscricaoModal()
               }}
             >
               <span className="header-cta-inner">
