@@ -66,6 +66,10 @@ function Header() {
   const handleNavClick = (page, e) => {
     e.preventDefault()
     navigateTo(page)
+    // Force scroll to top when navigating to a new page
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 50)
     setIsMenuOpen(false)
   }
 

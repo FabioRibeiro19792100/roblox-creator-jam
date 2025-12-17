@@ -10,7 +10,7 @@
 }
 
 .convide-seus-amigos-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
   padding-top: 2.1rem;

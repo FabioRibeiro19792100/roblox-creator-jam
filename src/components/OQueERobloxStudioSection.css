@@ -6,7 +6,7 @@
 }
 
 .o-que-roblox-studio-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
   padding: 4rem 1.5rem;
@@ -199,7 +199,7 @@
 .video-modal-content {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   background: #000;
 }
 

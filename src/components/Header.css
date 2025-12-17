@@ -9,7 +9,7 @@
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   margin: 0 auto;
   padding: 1rem var(--site-horizontal-padding, 1.5rem);
   display: flex;

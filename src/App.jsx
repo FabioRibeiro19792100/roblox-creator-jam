@@ -132,7 +132,7 @@ function App() {
           <BoundingBoxKit />
           <CoordinateGridKit />
           {/* <AnimatorDemo /> */}
-          <IntroController />
+          <IntroController key={currentPage} />
           <ScrollRevealController />
         </MaterialModalContext.Provider>
         </ContactModalContext.Provider>

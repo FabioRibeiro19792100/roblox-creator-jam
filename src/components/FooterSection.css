@@ -28,7 +28,7 @@
 }
 
 .footer-cta-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
   padding: 4rem 1.5rem;
@@ -99,7 +99,7 @@
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
   padding-top: 2.1rem;
@@ -391,7 +391,7 @@
 }
 
 .footer-final-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;

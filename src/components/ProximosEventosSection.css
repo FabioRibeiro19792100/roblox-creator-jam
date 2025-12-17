@@ -34,7 +34,7 @@
 }
 
 .proximos-eventos-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
   padding: 0.4rem 1.5rem 0.7rem 1.5rem; /* More padding-bottom to move label down */
