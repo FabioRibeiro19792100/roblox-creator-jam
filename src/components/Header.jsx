@@ -364,11 +364,6 @@ function Header() {
                 </li>
               )
             })}
-          <li>
-            <a href="#footer-container-wrapper" onClick={(e) => handleBibliotecaScroll('footer-container-wrapper', e)}>
-              Central da Expedição
-            </a>
-          </li>
         </>
       )
     }
@@ -404,9 +399,19 @@ function Header() {
     }
 
     // Default / Jam Page (que usa config.menu.jam na main)
+    let jamItems = config?.menu?.jam?.items || []
+    let visibleJamItems = jamItems
+    let hiddenJamItems = []
+
+    if (isLaptop) {
+      const MAX_VISIBLE = 3
+      visibleJamItems = jamItems.slice(0, MAX_VISIBLE)
+      hiddenJamItems = jamItems.slice(MAX_VISIBLE)
+    }
+
     return (
       <>
-        {config?.menu?.jam?.items?.map((item, index) => {
+        {visibleJamItems.map((item, index) => {
             if (item.isLink) {
             return (
                 <li key={index}>
@@ -436,6 +441,61 @@ function Header() {
             </li>
             )
         })}
+
+        {/* Menu "Mais" para itens escondidos na Jam */}
+        {hiddenJamItems.length > 0 && (
+            <li 
+              className="nav-item-with-dropdown"
+              onMouseEnter={() => setIsMoreOpen(true)}
+              onMouseLeave={(e) => {
+                const relatedTarget = e.relatedTarget
+                if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
+                  setIsMoreOpen(false)
+                }
+              }}
+            >
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setIsMoreOpen(!isMoreOpen)
+                }}
+              >
+                Mais ▾
+              </a>
+              <ul
+                className={`nav-dropdown ${isMoreOpen ? 'nav-dropdown-open' : ''}`}
+              >
+                {hiddenJamItems.map((item, index) => (
+                  <li key={`more-jam-${index}`}>
+                    {item.isLink ? (
+                      <a href={item.link === 'home' ? '/' : `#${item.link}`} onClick={(e) => {
+                        e.preventDefault()
+                        if (item.link === 'home') {
+                            handleNavClick('home', e)
+                        } else {
+                            handleNavClick(item.link, e)
+                        }
+                        setIsMoreOpen(false)
+                      }}>
+                        {item.label}
+                      </a>
+                    ) : (
+                      <a href={item.anchor || '#'} onClick={(e) => {
+                        e.preventDefault()
+                        if (item.anchor) {
+                           scrollToSection(item.anchor.replace('#', ''))
+                        }
+                        setIsMoreOpen(false)
+                      }}>
+                        {item.label}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </li>
+        )}
         
         <li 
           className="nav-item-with-dropdown"

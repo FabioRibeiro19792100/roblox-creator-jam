@@ -45,12 +45,18 @@ function ConvideSeusAmigosSection() {
   }
 
   return (
-    <section className={`convide-seus-amigos-section sweep-fill ${isOpen ? 'convide-open sweep-fill-active' : ''}`}>
+    <section 
+      className={`convide-seus-amigos-section sweep-fill ${isOpen ? 'convide-open sweep-fill-active' : ''}`}
+      onClick={toggleAccordion}
+    >
       <div className="convide-seus-amigos-container">
         <div className={`convide-seus-amigos-accordion-item ${isOpen ? 'convide-open' : ''}`}>
           <button
             className="convide-seus-amigos-header plus-indicator-trigger"
-            onClick={toggleAccordion}
+            onClick={(e) => {
+              e.stopPropagation()
+              toggleAccordion()
+            }}
             aria-expanded={isOpen}
             aria-controls="convide-amigos-content"
           >
@@ -61,7 +67,11 @@ function ConvideSeusAmigosSection() {
             </span>
           </button>
           {isOpen && (
-            <div className="convide-seus-amigos-content" id="convide-amigos-content">
+            <div 
+              className="convide-seus-amigos-content" 
+              id="convide-amigos-content"
+              onClick={(e) => e.stopPropagation()}
+            >
               <p className="convide-seus-amigos-description">
                 <span className="convide-line-1">{config?.convideAmigos?.description?.[0] || 'A cada 3 amigos indicados que se inscrevam em alguma ação da expedição,'}</span>
                 <br />

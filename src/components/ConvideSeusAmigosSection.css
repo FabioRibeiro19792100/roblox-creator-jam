@@ -7,6 +7,7 @@
   --sweep-color: rgba(60, 254, 207, 0.65);
   --sweep-duration: 0.4s;
   --sweep-easing: cubic-bezier(0.215, 0.610, 0.355, 1);
+  cursor: pointer;
 }
 
 .convide-seus-amigos-container {
@@ -47,8 +48,12 @@
   font-weight: normal;
 }
 
-.convide-seus-amigos-header:hover .convide-seus-amigos-title-text {
+.convide-seus-amigos-section:hover .convide-seus-amigos-title-text {
   color: #fff;
+}
+
+.convide-seus-amigos-section:hover .convide-seus-amigos-arrow {
+  --plus-color: #fff;
 }
 
 .convide-seus-amigos-title-text {
@@ -79,6 +84,7 @@
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
   padding: 0;
+  cursor: default;
 }
 
 .convide-open .convide-seus-amigos-content {

@@ -7,13 +7,18 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 60vh; /* Altura mínima inicial para mobile */
+  display: flex;
+  align-items: center;
 }
 
 .quer-criar-title-container {
   max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 1.5rem; /* Further reduced padding-top to move content up */
+  padding: 4rem 1.5rem; /* Aumentado padding base */
+  position: relative;
+  z-index: 2;
 }
 
 .quer-criar-title-title {
@@ -34,9 +39,26 @@
 }
 
 .quer-criar-title-subtitle {
-  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
   margin: 0 0 3rem 0;
-  min-width: 200px;
+}
+
+.quer-criar-title-subtitle:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .quer-criar-title-label {
@@ -49,8 +71,12 @@
 
        /* Tablet */
        @media (min-width: 768px) {
+         .quer-criar-title-section {
+           min-height: 70vh;
+         }
+
          .quer-criar-title-container {
-           padding: 3rem 2rem; /* Further reduced padding-top to move content up */
+           padding: 5rem 2rem;
          }
 
   .quer-criar-title-title {
@@ -59,14 +85,20 @@
   }
 
   .quer-criar-title-subtitle {
+    font-size: 1.125rem;
+    padding: 1.25rem 2.5rem;
     margin-bottom: 4rem;
   }
 }
 
        /* Desktop */
        @media (min-width: 1024px) {
+         .quer-criar-title-section {
+           min-height: 80vh;
+         }
+
          .quer-criar-title-container {
-           padding: 4rem 2rem; /* Further reduced padding-top to move content up */
+           padding: 6rem 2rem;
          }
 
   .quer-criar-title-title {
@@ -75,6 +107,8 @@
   }
 
   .quer-criar-title-subtitle {
+    font-size: 1.25rem;
+    padding: 1.5rem 3rem;
     margin-bottom: 5rem;
   }
 }
@@ -86,6 +120,7 @@
   }
 
   .quer-criar-title-subtitle {
+    font-size: 1.5rem;
     margin-bottom: 5.5rem;
   }
 }
