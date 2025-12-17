@@ -1,5 +1,4 @@
-import { useState, useContext, useEffect, useRef } from 'react'
-import { MaterialModalContext, NavigationContext } from '../App'
+import { useState } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
 import ConvideSeusAmigosSection from './ConvideSeusAmigosSection'
 import ContactPopup from './ContactPopup'
@@ -7,109 +6,10 @@ import FAQPopup from './FAQPopup'
 import GlossarioSection from './GlossarioSection'
 import './FooterSection.css'
 
-const CASCADE_DURATION_MS = 3000
-
-const footerCardsData = [
-  {
-    id: 'footer-card-trilha-01',
-    label: 'APRENDIZADO',
-    title: 'Aprenda Roblox Studio do zero em nossas trilhas de conteúdos',
-    description:
-      'Baixe o plugin exclusivo da Mastertech para fazer suas primeiras criações e aprender de um jeito diferente. '
-  },
-  {
-    id: 'footer-card-trilha-02',
-    label: 'PRÁTICA',
-    title: 'Inscreva-se numa jam e crie experiências jogáveis de verdade;',
-    description:
-      'Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.'
-  },
-  {
-    id: 'footer-card-trilha-03',
-    label: 'VIVÊNCIA',
-    title: 'Participe da imersão presencial em um evento na sua capital.',
-    description: 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.'
-  }
-]
-
-function FooterCard({ card, action, index, totalCards, setContactOpen, navigateTo }) {
-  const ref = useRef(null)
-  const [hasAnimated, setHasAnimated] = useState(false)
-
-  useEffect(() => {
-    const element = ref.current
-    if (!element || hasAnimated) return
-
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true)
-            obs.disconnect()
-          }
-        })
-      },
-      { threshold: 0.4 }
-    )
-
-    observer.observe(element)
-    return () => observer.disconnect()
-  }, [hasAnimated])
-
-  const handleClick = (event) => {
-    event.preventDefault()
-    action(setContactOpen, navigateTo)
-  }
-
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      action(setContactOpen, navigateTo)
-    }
-  }
-
-  const delay = totalCards ? (CASCADE_DURATION_MS / totalCards) * index : 0
-
-  return (
-    <div
-      ref={ref}
-      className={`footer-card ${hasAnimated ? 'footer-card--visible' : ''}`}
-      style={hasAnimated ? { '--flip-delay': `${delay}ms` } : undefined}
-      onClick={handleClick}
-      onKeyDown={handleKeyDown}
-      role="button"
-      tabIndex={0}
-      aria-label={`${card.label} - ${card.title}`}
-    >
-      <div className="footer-card-label-wrapper">
-        <span className="footer-card-label">{card.label}</span>
-      </div>
-      <div className="footer-card-content">
-        <h4 className="footer-card-title">{card.title}</h4>
-        <p className="footer-card-description">{card.description}</p>
-      </div>
-    </div>
-  )
-}
-
 function FooterSection() {
   const config = useSiteConfig()
-  const { openMaterialModal } = useContext(MaterialModalContext) || { openMaterialModal: () => {} }
-  const { navigateTo } = useContext(NavigationContext) || { navigateTo: () => {} }
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   const [isFAQPopupOpen, setIsFAQPopupOpen] = useState(false)
-
-  const handleCardActions = [
-    (setContactOpen) => setContactOpen(true),
-    (_setContactOpen, navigate) => {
-      navigate('jam')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    },
-    (_setContactOpen, navigate) => {
-      navigate('expedicao-na-estrada')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  ]
 
   const links = [
     {
@@ -130,34 +30,12 @@ function FooterSection() {
     }
   ]
 
-  const trilhas = config?.footer?.centralExpedicao?.trilhas || []
-
   return (
     <section id="footer" className="footer-section">
-      <div className="footer-cta">
-        <div className="footer-cta-container">
-          <div className="footer-title">
-            <h1 className="footer-title-roblox">{config?.footer?.cta?.title || 'É pai, tutor ou responsável?'}</h1>
-          </div>
-          <div className="footer-cta-content">
-            <p className="footer-cta-text">
-              Temos um material pra você. <br />
-              Clique para{' '}
-              <button className="footer-link-button" onClick={() => openMaterialModal('download')}>
-                baixar
-              </button>{' '}
-              ou{' '}
-              <button className="footer-link-button" onClick={() => openMaterialModal('video')}>
-                assista o vídeo
-              </button>
-            </p>
-          </div>
-        </div>
-      </div>
       <ConvideSeusAmigosSection />
       <div id="footer-container-wrapper" className="footer-container-wrapper">
         <div className="footer-container">
-          <h2 className="footer-links-title">{config?.footer?.centralExpedicao?.title || 'Central da Expedição'}</h2>
+          <h2 className="footer-links-title">{config?.footer?.centralExpedicao?.title || 'Contato'}</h2>
           <ul className="footer-links">
             {links.map((link, index) => (
               <li key={index}>
@@ -168,24 +46,6 @@ function FooterSection() {
               </li>
             ))}
           </ul>
-
-          <div className="footer-separator" />
-
-          <h3 className="footer-calls-title">Escolha uma das trilhas</h3>
-
-          <div className="footer-cards">
-            {footerCardsData.map((card, index) => (
-              <FooterCard
-                key={card.id}
-                card={card}
-                action={handleCardActions[index]}
-                index={index}
-                totalCards={footerCardsData.length}
-                setContactOpen={setIsContactPopupOpen}
-                navigateTo={navigateTo}
-              />
-            ))}
-          </div>
 
           <div className="footer-separator" />
 

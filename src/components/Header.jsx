@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect, useRef, useMemo } from 'react'
-import { NavigationContext, ContactModalContext, InscricaoModalContext, resolvePageFromHash } from '../App'
-import { scrollToElementById, scrollWindowTo, updateHash } from '../utils/scrollHelpers'
+import { NavigationContext, InscricaoModalContext, resolvePageFromHash } from '../App'
+import { scrollToElementById } from '../utils/scrollHelpers'
 import { useSiteConfig } from '../config/useSiteConfig'
 import useMediaQuery from '../hooks/useMediaQuery'
 import './Header.css'
@@ -81,22 +81,6 @@ function Header() {
     }
   }
 
-  const scrollToTop = (e) => {
-    e.preventDefault()
-    if (currentPage !== 'home') {
-      navigateTo('home')
-      setTimeout(() => {
-        scrollWindowTo({ top: 0, behavior: 'smooth' })
-      }, 100)
-    } else {
-      scrollWindowTo({ top: 0, behavior: 'smooth' })
-    }
-    setIsMenuOpen(false)
-  }
-
-  const isHomePage = currentPage === 'home' || (!currentPage && window.location.hash !== '#jam' && window.location.hash !== '#biblioteca' && window.location.hash !== '#expedicao-na-estrada')
-  const isBibliotecaPage = currentPage === 'biblioteca' || window.location.hash === '#biblioteca'
-  const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
   const { openInscricaoModal } = useContext(InscricaoModalContext) || { openInscricaoModal: () => {} }
   const hasHeaderAnimated =
     typeof window !== 'undefined' ? Boolean(window[HEADER_ANIMATION_FLAG]) : false
@@ -120,121 +104,8 @@ function Header() {
     }
   }, [hasHeaderAnimated])
 
-  const handleBibliotecaScroll = (id, e) => {
-    e.preventDefault()
-    updateHash(`#${id}`, { replace: true })
-    scrollToSection(id)
-  }
-
   const renderNavLinks = () => {
-    if (isHomePage) {
-      return (
-        <>
-          <li>
-            <a href="#home-hero" onClick={scrollToTop}>
-              Início
-            </a>
-          </li>
-          <li>
-            <a href="#expedicao-roblox" onClick={(e) => handleHomeScroll('expedicao-roblox', e)}>
-              A Expedição
-            </a>
-          </li>
-          <li
-            className="nav-item-with-dropdown"
-            onMouseEnter={() => setIsMissoesOpen(true)}
-            onMouseLeave={() => setIsMissoesOpen(false)}
-          >
-            <a
-              href="#trilhas"
-              onClick={(e) => {
-                e.preventDefault()
-                setIsMissoesOpen(!isMissoesOpen)
-              }}
-            >
-              Trilhas
-            </a>
-            <ul
-              className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
-              onMouseEnter={() => setIsMissoesOpen(true)}
-              onMouseLeave={() => setIsMissoesOpen(false)}
-            >
-              <li>
-                <a href="#biblioteca" onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick('biblioteca', e)
-                  setIsMissoesOpen(false)
-                }}>
-                  Aprendizado
-                </a>
-              </li>
-              <li>
-                <a href="#jam" onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick('jam', e)
-                  setIsMissoesOpen(false)
-                }}>
-                  Prática
-                </a>
-              </li>
-              <li>
-                <a href="#expedicao-na-estrada" onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick('expedicao-na-estrada', e)
-                  setIsMissoesOpen(false)
-                }}>
-                  Vivência
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
-              Contato
-            </a>
-          </li>
-        </>
-      )
-    }
-
-    if (isBibliotecaPage) {
-      return (
-        <>
-          <li>
-            <a href="/" onClick={(e) => handleNavClick('home', e)}>
-              Início
-            </a>
-          </li>
-          <li>
-            <a href="#biblioteca-tutorial" onClick={(e) => handleBibliotecaScroll('biblioteca-tutorial', e)}>
-              Tutorial Roblox Studios
-            </a>
-          </li>
-          <li>
-            <a href="#biblioteca-mochilao" onClick={(e) => handleBibliotecaScroll('biblioteca-mochilao', e)}>
-              Mochilão
-            </a>
-          </li>
-          <li>
-            <a href="#biblioteca-acampamento" onClick={(e) => handleBibliotecaScroll('biblioteca-acampamento', e)}>
-              Acampamento
-            </a>
-          </li>
-          <li>
-            <a href="#biblioteca-sobrevivencia" onClick={(e) => handleBibliotecaScroll('biblioteca-sobrevivencia', e)}>
-              Sobrevivência
-            </a>
-          </li>
-          <li>
-            <a href="#footer-container-wrapper" onClick={(e) => handleBibliotecaScroll('footer-container-wrapper', e)}>
-              Central da Expedição
-            </a>
-          </li>
-        </>
-      )
-    }
-
-    const navItems = (
+    return (
       <>
         <li>
           <a href="/" onClick={(e) => handleNavClick('home', e)}>
@@ -242,49 +113,14 @@ function Header() {
           </a>
         </li>
         <li>
-          <a href="#como-participar" onClick={(e) => { e.preventDefault(); scrollToSection('como-participar') }}>
-            Como Participar
-          </a>
-        </li>
-        <li>
-          <a href="#escolha-tema" onClick={(e) => { e.preventDefault(); scrollToSection('escolha-tema') }}>
-            Temas
-          </a>
-        </li>
-        <li>
-          <a href="#desafio-jam" onClick={(e) => { e.preventDefault(); scrollToSection('desafio-jam') }}>
-            Desafio
-          </a>
-        </li>
-        <li>
-          <a href="#regras-jam" onClick={(e) => { e.preventDefault(); scrollToSection('regras-jam') }}>
-            Regras
-          </a>
-        </li>
-        <li>
-          <a href="#entrega-desafio" onClick={(e) => { e.preventDefault(); scrollToSection('entrega-desafio') }}>
-            Entrega
-          </a>
-        </li>
-        <li>
-          <a href="#premiacao" onClick={(e) => { e.preventDefault(); scrollToSection('premiacao') }}>
-            Premiação
-          </a>
-        </li>
-        <li>
-          <a href="#datas-canais" onClick={(e) => { e.preventDefault(); scrollToSection('datas-canais') }}>
-            Datas e Canais
+          <a href="#expedicao-roblox" onClick={(e) => handleHomeScroll('expedicao-roblox', e)}>
+            A Expedição
           </a>
         </li>
         <li
           className="nav-item-with-dropdown"
           onMouseEnter={() => setIsMissoesOpen(true)}
-          onMouseLeave={(e) => {
-            const relatedTarget = e.relatedTarget
-            if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
-              setIsMissoesOpen(false)
-            }
-          }}
+          onMouseLeave={() => setIsMissoesOpen(false)}
         >
           <a
             href="#trilhas"
@@ -297,6 +133,8 @@ function Header() {
           </a>
           <ul
             className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
+            onMouseEnter={() => setIsMissoesOpen(true)}
+            onMouseLeave={() => setIsMissoesOpen(false)}
           >
             <li>
               <a href="#biblioteca" onClick={(e) => {
@@ -327,10 +165,13 @@ function Header() {
             </li>
           </ul>
         </li>
+        <li>
+          <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
+            Contato
+          </a>
+        </li>
       </>
     )
-
-    return navItems
   }
 
   return (
@@ -353,25 +194,23 @@ function Header() {
           <ul className="nav-list">{renderNavLinks()}</ul>
         </nav>
 
-        {isHomePage && (
-          <div
-            className="header-cta-wrapper"
-            style={{ paddingLeft: CTA_WRAPPER_PADDING_X, paddingRight: CTA_WRAPPER_PADDING_X }}
+        <div
+          className="header-cta-wrapper"
+          style={{ paddingLeft: CTA_WRAPPER_PADDING_X, paddingRight: CTA_WRAPPER_PADDING_X }}
+        >
+          <button
+            type="button"
+            className="header-cta-button"
+            onClick={(e) => {
+              e.preventDefault()
+              openInscricaoModal()
+            }}
           >
-            <button
-              type="button"
-              className="header-cta-button"
-              onClick={(e) => {
-                e.preventDefault()
-                openInscricaoModal()
-              }}
-            >
-              <span className="header-cta-inner">
-                <span className="header-cta-label">Quer criar? Desce pro play.</span>
-              </span>
-            </button>
-          </div>
-        )}
+            <span className="header-cta-inner">
+              <span className="header-cta-label">Quer criar? Desce pro play.</span>
+            </span>
+          </button>
+        </div>
 
         <button
           className="menu-toggle"

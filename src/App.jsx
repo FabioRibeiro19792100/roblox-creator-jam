@@ -149,12 +149,14 @@ function App() {
     return <Admin />
   }
 
+  const inscricaoModalValue = { openInscricaoModal, closeInscricaoModal }
+
   return (
     <NavigationContext.Provider value={{ navigateTo, currentPage }}>
       <AutoAnimatorObserver>
         <ContactModalContext.Provider value={{ openContactModal }}>
         <MaterialModalContext.Provider value={{ openMaterialModal }}>
-        <InscricaoModalContext.Provider value={{ openInscricaoModal }}>
+        <InscricaoModalContext.Provider value={inscricaoModalValue}>
           {currentPage === 'jam' ? <Jam /> : currentPage === 'biblioteca' ? <Biblioteca /> : currentPage === 'expedicao-na-estrada' ? <ExpedicaoNaEstrada /> : <Home />}
           <ContactModal 
             isOpen={isContactModalOpen} 

@@ -1,12 +1,10 @@
-import { useState, useContext } from 'react'
-import { ContactModalContext } from '../App'
+import { useState } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
 import './PlaceholderSection.css'
 
 function PlaceholderSection() {
   const config = useSiteConfig()
   const [isOpen, setIsOpen] = useState(false)
-  const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen)
@@ -56,14 +54,7 @@ function PlaceholderSection() {
                     <p key={index}>{para}</p>
                   ))}
                   {config?.manifesto?.content?.[1]?.paragraphs?.length > 0 && (
-                    <>
-                      <p>{config.manifesto.content[1].paragraphs[config.manifesto.content[1].paragraphs.length - 1]}</p>
-                      <div className="placeholder-manifesto-cta">
-                        <button className="placeholder-manifesto-button" onClick={openContactModal}>
-                          {config?.manifesto?.cta?.text || 'Quero saber mais'}
-                        </button>
-                      </div>
-                    </>
+                    <p>{config.manifesto.content[1].paragraphs[config.manifesto.content[1].paragraphs.length - 1]}</p>
                   )}
                   {(!config?.manifesto?.content?.[1]?.paragraphs || config.manifesto.content[1].paragraphs.length === 0) && (
                     <>
@@ -71,11 +62,6 @@ function PlaceholderSection() {
                       <p>Quer criar com a gente?</p>
                       <p>Desce pro play.</p>
                       <p>Afinal, você pode aprender tudo o que quiser em uma escola que flui.</p>
-                      <div className="placeholder-manifesto-cta">
-                        <button className="placeholder-manifesto-button" onClick={openContactModal}>
-                          Quero saber mais
-                        </button>
-                      </div>
                     </>
                   )}
                 </div>

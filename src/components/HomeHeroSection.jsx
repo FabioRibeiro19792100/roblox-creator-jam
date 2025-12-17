@@ -49,11 +49,6 @@ function HomeHeroSection() {
     marginBottom: heroVerticalPadding
   }
 
-  const handleCadastrarRoblox = () => {
-    // Abrir página de cadastro do Roblox em nova aba
-    window.open('https://www.roblox.com/signup', '_blank')
-  }
-
   return (
     <section
       id="home-hero"
@@ -64,14 +59,14 @@ function HomeHeroSection() {
       role="region"
       aria-label="Hero principal"
     >
-      <img 
-        src={logoUrl} 
-        alt="Logo" 
+      <img
+        src={logoUrl}
+        alt="Logo"
         style={{
           position: 'fixed',
-          top: '100px', 
-          left: '50px', 
-          width: '100px', 
+          top: '180px',
+          left: '50px',
+          width: '100px',
           height: '100px',
           objectFit: 'contain',
           zIndex: 99999
@@ -79,9 +74,6 @@ function HomeHeroSection() {
       />
       <div className="home-hero-inner" style={innerStyle}>
         <div className="home-hero-content" style={contentStyle}>
-          <div className="home-hero-header" style={{ marginBottom: heroVerticalPadding }}>
-            <span className="home-hero-expedicao-roblox">{config?.hero?.home?.label || 'EXPEDIÇÃO ROBLOX'}</span>
-          </div>
           <h1 className="home-hero-title" style={{ marginBottom: heroVerticalPadding }} data-align="content">
             <span className="title-line-1">{config?.hero?.home?.title?.line1 || 'Criar é'}</span>
             <span className="title-line-2">{config?.hero?.home?.title?.line2 || 'o novo jogar'}</span>
@@ -94,14 +86,6 @@ function HomeHeroSection() {
               {config?.hero?.home?.description?.[1] || 'Passo a passo, do primeiro clique no Studio até ver amigos jogando algo que você criou.'}
             </p>
           </div>
-        </div>
-        <div className="home-hero-cta">
-          <button 
-            className="home-hero-roblox-button"
-            onClick={handleCadastrarRoblox}
-          >
-            Crie sua conta no Roblox
-          </button>
         </div>
       </div>
     </section>

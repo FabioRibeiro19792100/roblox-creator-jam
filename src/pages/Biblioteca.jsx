@@ -127,11 +127,12 @@ function Biblioteca() {
         <div className="biblioteca-selecao-container">
           <div className="biblioteca-selecao-cards">
             {Object.entries(publicos).map(([key, publico]) => (
-              <div 
+              <div
                 key={key}
                 className="biblioteca-selecao-card"
                 onClick={() => handlePublicoSelect(key)}
               >
+                <span className="biblioteca-badge-em-breve">EM BREVE</span>
                 <h3 className="biblioteca-selecao-card-title">{publico.label}</h3>
               </div>
             ))}
