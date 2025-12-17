@@ -76,7 +76,6 @@ function FooterSection() {
   const [isContactPopupOpen, setIsContactPopupOpen] = useState(false)
   const [isFAQPopupOpen, setIsFAQPopupOpen] = useState(false)
 
-<<<<<<< HEAD
   const handleTrilhaClick = (trilha, e) => {
     e.preventDefault()
     if (trilha.action === 'contact') {
@@ -142,7 +141,6 @@ function FooterSection() {
               </li>
             ))}
           </ul>
-<<<<<<< HEAD
           
           {config?.footer?.centralExpedicao?.separator && <div className="footer-separator"></div>}
           
