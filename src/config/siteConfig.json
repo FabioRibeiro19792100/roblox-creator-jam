@@ -1055,11 +1055,8 @@
       "trustedConnectionIntro": "Um vínculo seguro entre duas contas que informa ao Roblox que essas pessoas se conhecem na vida real e podem conversar e interagir mesmo estando em faixas etárias que normalmente não conversam."
     },
     "escolhaTema": {
-      "title": "Qual vai ser\no tema da Jam?",
-      "intro": [
-        "Cada participante escolhe um tema no momento da inscrição.",
-        "O tema escolhido não pode ser alterado depois da formação da equipe."
-      ],
+      "title": "Quais serão os possíveis temas das experiências?",
+      "intro": [],
       "temas": [
         {
           "tema": "Empatia",
