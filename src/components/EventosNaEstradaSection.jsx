@@ -1,29 +1,12 @@
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
-import InscricaoModal from './InscricaoModal'
 import './EventosNaEstradaSection.css'
 
 function EventosNaEstradaSection() {
   const config = useSiteConfig()
   const expedicaoNaEstrada = config?.expedicaoNaEstrada || {}
   const eventos = expedicaoNaEstrada?.eventos || []
-  const [isInscricaoModalOpen, setIsInscricaoModalOpen] = useState(false)
-  const [eventoSelecionado, setEventoSelecionado] = useState(null)
   const gridRef = useRef(null)
-  
-  const handleInscricaoClick = (evento, sessao, e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setEventoSelecionado({
-      id: `${evento.id}-${sessao.id}`,
-      cidade: evento.cidade,
-      data: evento.data,
-      local: evento.local,
-      sessaoNome: sessao.nome,
-      sessaoHorario: sessao.horario
-    })
-    setIsInscricaoModalOpen(true)
-  }
 
   const scrollLeft = () => {
     if (gridRef.current) {
@@ -198,42 +181,11 @@ function EventosNaEstradaSection() {
                   <h3 className="eventos-na-estrada-cidade">{evento.cidade}</h3>
                   <p className="eventos-na-estrada-data">{evento.data}</p>
                 </div>
-                
-                <div className="eventos-na-estrada-separator"></div>
-                
-              <div className="eventos-na-estrada-local">
-                <p className="eventos-na-estrada-local-label">Onde:</p>
-                <p className="eventos-na-estrada-local-nome">{evento.local?.nome || ''}</p>
-                <p className="eventos-na-estrada-local-endereco">{evento.local?.endereco || ''}</p>
-              </div>
-              
-              <div className="eventos-na-estrada-sessoes">
-                  {evento.sessoes?.map((sessao) => (
-                    <button 
-                      key={sessao.id} 
-                      className="eventos-na-estrada-sessao-box"
-                      onClick={(e) => handleInscricaoClick(evento, sessao, e)}
-                    >
-                      <p className="eventos-na-estrada-sessao-nome">{sessao.nome}</p>
-                      <p className="eventos-na-estrada-sessao-horario">{sessao.horario}</p>
-                    </button>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-      <InscricaoModal 
-        isOpen={isInscricaoModalOpen} 
-        onClose={() => {
-          setIsInscricaoModalOpen(false)
-          setEventoSelecionado(null)
-        }}
-        tipoInscricao="estrada"
-        eventoSelecionado={eventoSelecionado}
-        eventosDisponiveis={eventosData}
-      />
     </section>
   )
 }

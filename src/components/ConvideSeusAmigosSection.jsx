@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
+import { enviarConviteAmigo } from '../services/emailService'
 import './ConvideSeusAmigosSection.css'
 
 function ConvideSeusAmigosSection() {
@@ -9,6 +10,7 @@ function ConvideSeusAmigosSection() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
   const [showThankYouModal, setShowThankYouModal] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen)
@@ -19,29 +21,43 @@ function ConvideSeusAmigosSection() {
     setError('')
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     e.stopPropagation()
-    
+
     if (!email.trim()) {
       setError('Campo obrigatório')
       return
     }
-    
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       setError('Email inválido')
       return
     }
-    
-    // Aqui você pode adicionar a lógica para enviar o convite para um backend
+
+    setIsSubmitting(true)
     setError('')
-    setEmail('')
-    setShowThankYouModal(true)
-    
-    // Fechar o modal após 3 segundos
-    setTimeout(() => {
-      setShowThankYouModal(false)
-    }, 3000)
+
+    try {
+      const result = await enviarConviteAmigo(email)
+
+      if (result.success) {
+        setEmail('')
+        setShowThankYouModal(true)
+
+        // Fechar o modal após 3 segundos
+        setTimeout(() => {
+          setShowThankYouModal(false)
+        }, 3000)
+      } else {
+        setError('Erro ao enviar convite. Tente novamente.')
+      }
+    } catch (err) {
+      console.error('Erro ao enviar convite:', err)
+      setError('Erro ao enviar convite. Tente novamente.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -76,8 +92,13 @@ function ConvideSeusAmigosSection() {
                     className={`convide-seus-amigos-input ${error ? 'error' : ''}`}
                     placeholder={config?.convideAmigos?.form?.emailLabel || 'Email do amigo'}
                   />
-                  <button type="submit" className="convide-seus-amigos-submit" onClick={(e) => e.stopPropagation()}>
-                    {config?.convideAmigos?.form?.button || 'Enviar convite'}
+                  <button
+                    type="submit"
+                    className="convide-seus-amigos-submit"
+                    onClick={(e) => e.stopPropagation()}
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Enviando...' : (config?.convideAmigos?.form?.button || 'Enviar convite')}
                   </button>
                 </div>
                 {error && <span className="convide-seus-amigos-error">{error}</span>}
