@@ -29,7 +29,7 @@
   justify-content: center;
   align-items: flex-start;
   /* Gap ajustado para melhor ritmo vertical */
-  gap: 1.5rem; 
+  gap: 1.25rem; 
   width: 100%;
 }
 
@@ -46,7 +46,7 @@
   height: auto;
   object-fit: contain;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 /* Label textual OCULTO VISUALMENTE (SEO ONLY) */
@@ -146,7 +146,7 @@
   }
 
   .home-hero-inner {
-    padding: 5rem 2rem 0 2rem;
+    padding: 0 2rem;
   }
 }
 

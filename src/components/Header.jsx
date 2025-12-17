@@ -21,6 +21,7 @@ function Header() {
   const config = useSiteConfig()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isMissoesOpen, setIsMissoesOpen] = useState(false)
+  const [isMoreOpen, setIsMoreOpen] = useState(false) // Novo estado para o menu "Mais"
   const navigationContext = useContext(NavigationContext)
   const fallbackCurrentPage = useMemo(() => getFallbackCurrentPage(), [])
   const navigateTo = navigationContext?.navigateTo ?? noopNavigate
@@ -31,6 +32,7 @@ function Header() {
       const next = !prev
       if (!next) {
         setIsMissoesOpen(false)
+        setIsMoreOpen(false)
       }
       return next
     })
@@ -61,6 +63,7 @@ function Header() {
       behavior: 'smooth'
     })
     setIsMenuOpen(false)
+    setIsMoreOpen(false)
   }
 
   const handleNavClick = (page, e) => {
@@ -71,6 +74,7 @@ function Header() {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }, 50)
     setIsMenuOpen(false)
+    setIsMoreOpen(false)
   }
 
   const handleHomeScroll = (id, e) => {
@@ -83,6 +87,7 @@ function Header() {
     } else {
       scrollToSection(id)
     }
+    setIsMoreOpen(false)
   }
 
   const scrollToTop = (e) => {
@@ -96,6 +101,7 @@ function Header() {
       scrollWindowTo({ top: 0, behavior: 'smooth' })
     }
     setIsMenuOpen(false)
+    setIsMoreOpen(false)
   }
 
   const isHomePage = currentPage === 'home' || (!currentPage && window.location.hash !== '#jam' && window.location.hash !== '#biblioteca' && window.location.hash !== '#expedicao-na-estrada')
@@ -107,10 +113,12 @@ function Header() {
     typeof window !== 'undefined' ? Boolean(window[HEADER_ANIMATION_FLAG]) : false
   const isFirstHeaderInstanceRef = useRef(!hasHeaderAnimated)
   const isMobileViewport = useMediaQuery(MOBILE_QUERY)
+  const isLaptop = useMediaQuery('(min-width: 768px) and (max-width: 1280px)')
 
   useEffect(() => {
     setIsMenuOpen(false)
     setIsMissoesOpen(false)
+    setIsMoreOpen(false)
   }, [currentPage])
 
   useEffect(() => {
@@ -139,9 +147,26 @@ function Header() {
   const renderNavLinks = () => {
     // Usando config da Main para gerar links dinamicamente
     if (isHomePage) {
+      let items = config?.menu?.home?.items || []
+      
+      // Filtrar "Contato" da lista do JSON se ele já for renderizado hardcoded abaixo
+      // O código original tinha um link "Contato" hardcoded no final. 
+      // Se quisermos manter o hardcoded, removemos do JSON para evitar duplicação.
+      items = items.filter(item => item.label !== 'Contato')
+
+      let visibleItems = items
+      let hiddenItems = []
+
+      // Lógica de Prioridade para Laptop/Tablet
+      if (isLaptop) {
+        const MAX_VISIBLE = 3 // Mostra os 3 primeiros, esconde o resto
+        visibleItems = items.slice(0, MAX_VISIBLE)
+        hiddenItems = items.slice(MAX_VISIBLE)
+      }
+
       return (
         <>
-          {config?.menu?.home?.items?.map((item, index) => {
+          {visibleItems.map((item, index) => {
             if (item.isLink) {
               return (
                 <li key={index}>
@@ -170,6 +195,60 @@ function Header() {
               </li>
             )
           })}
+
+          {/* Menu "Mais" para itens escondidos */}
+          {hiddenItems.length > 0 && (
+            <li 
+              className="nav-item-with-dropdown"
+              onMouseEnter={() => setIsMoreOpen(true)}
+              onMouseLeave={(e) => {
+                const relatedTarget = e.relatedTarget
+                if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
+                  setIsMoreOpen(false)
+                }
+              }}
+            >
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setIsMoreOpen(!isMoreOpen)
+                }}
+              >
+                Mais ▾
+              </a>
+              <ul
+                className={`nav-dropdown ${isMoreOpen ? 'nav-dropdown-open' : ''}`}
+              >
+                {hiddenItems.map((item, index) => (
+                  <li key={`more-${index}`}>
+                    {item.isLink ? (
+                      <a href={item.link === 'home' ? '/' : `#${item.link}`} onClick={(e) => {
+                        e.preventDefault()
+                        if (item.link === 'home') {
+                          scrollToTop(e)
+                        } else {
+                          handleNavClick(item.link, e)
+                        }
+                        setIsMoreOpen(false)
+                      }}>
+                        {item.label}
+                      </a>
+                    ) : (
+                      <a href={item.anchor || '#'} onClick={(e) => {
+                        if (item.anchor) {
+                          handleHomeScroll(item.anchor.replace('#', ''), e)
+                        }
+                        setIsMoreOpen(false)
+                      }}>
+                        {item.label}
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          )}
           
           {/* Item Missoes Fixo/Hardcoded ou via Config? A main tem Missoes hardcoded no final da lista home */}
           <li 
@@ -229,6 +308,26 @@ function Header() {
               Contato
             </a>
           </li>
+
+          {config?.menu?.home?.cta && (
+            <li className="header-nav-cta-item">
+              <button
+                type="button"
+                className="header-cta-button"
+                onClick={(e) => {
+                  e.preventDefault()
+                  openInscricaoModal()
+                }}
+              >
+                <span className="header-cta-inner">
+                  <span className="header-cta-label" style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
+                     {config.menu.home.cta.line1 && <span style={{ fontSize: '0.8em', opacity: 0.9 }}>{config.menu.home.cta.line1}</span>}
+                     <span>{config.menu.home.cta.line2 || 'Desce pro play.'}</span>
+                  </span>
+                </span>
+              </button>
+            </li>
+          )}
         </>
       )
     }
@@ -404,6 +503,11 @@ function Header() {
             : undefined
         }
       >
+        <div className="logo" onClick={(e) => handleNavClick('home', e)}>
+          <span className="logo-roblox">Roblox</span>
+          <span className="logo-creator-jam">Creator Jam</span>
+        </div>
+
         <nav
           id="header-mobile-nav"
           className={`nav ${isMobileViewport ? 'nav-mobile' : 'nav-desktop'}${isMobileViewport && isMenuOpen ? ' nav-open' : ''}`}
@@ -415,30 +519,6 @@ function Header() {
         <span id="missoes" className="sr-only" aria-hidden="true">
           Missões
         </span>
-
-        {isHomePage && config?.menu?.home?.cta && (
-          <div
-            className="header-cta-wrapper"
-            style={{ paddingLeft: CTA_WRAPPER_PADDING_X, paddingRight: CTA_WRAPPER_PADDING_X }}
-          >
-            <button
-              type="button"
-              className="header-cta-button"
-              onClick={(e) => {
-                e.preventDefault()
-                openInscricaoModal()
-              }}
-            >
-              <span className="header-cta-inner">
-                {/* Combinando estrutura visual HEAD com texto Main */}
-                <span className="header-cta-label" style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
-                   {config.menu.home.cta.line1 && <span style={{ fontSize: '0.8em', opacity: 0.9 }}>{config.menu.home.cta.line1}</span>}
-                   <span>{config.menu.home.cta.line2 || 'Desce pro play.'}</span>
-                </span>
-              </span>
-            </button>
-          </div>
-        )}
 
         <button
           className="menu-toggle"
