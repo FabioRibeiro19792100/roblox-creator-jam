@@ -56,14 +56,11 @@ function FooterSection() {
         <div className="footer-final-container">
           <p className="footer-final-text">Expedição Roblox é um projeto da Mastertech junto com o Roblox</p>
           <div className="footer-final-social">
-            <a href="#" className="footer-social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/mastertech.tech/" className="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
-            <a href="#" className="footer-social-link" aria-label="WhatsApp">
+            <a href="https://wa.me/5511919522455" className="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
               WhatsApp
-            </a>
-            <a href="#" className="footer-social-link" aria-label="TikTok">
-              TikTok
             </a>
           </div>
         </div>
