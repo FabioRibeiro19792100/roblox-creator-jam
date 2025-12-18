@@ -44,10 +44,24 @@
   display: flex;
   align-items: center;
   min-height: 3.5rem;
+  position: relative;
+  overflow: visible;
+  padding-right: 4rem;
 }
 
 .premiacao-titulo {
   color: #ffffff;
+}
+
+.premiacao-trophy-icon {
+  position: absolute;
+  right: -50px; /* Ajuste para compensar o aumento de tamanho */
+  top: 50%;
+  transform: translateY(-50%);
+  height: 260%; /* Dobrado de 130% */
+  width: auto;
+  z-index: 10;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); /* Sombra um pouco mais forte */
 }
 
 .premiacao-descricao {
@@ -94,6 +108,7 @@
     min-height: 4.5rem;
     display: flex;
     align-items: center;
+    padding-right: 5rem;
   }
 
   .premiacao-titulo {
@@ -149,6 +164,7 @@
     min-height: 5.5rem;
     display: flex;
     align-items: center;
+    padding-right: 6rem;
   }
 
   .premiacao-titulo {

@@ -317,29 +317,38 @@
     top: 60px;
     left: 0;
     right: 0;
-    background: rgba(83, 0, 255, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    bottom: 0;
+    background: #000;
+    /* Transição de fade e slide sutil */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    
+    transition: all 0.3s ease;
     z-index: 10002;
-    padding: 0;
+    padding: 2rem 2rem;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
   }
 
   .nav-mobile.nav-open {
-    max-height: 400px;
-    padding: 1rem 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .nav-mobile .nav-list {
     flex-direction: column;
     gap: 0;
-    padding: 0 1.5rem;
+    padding: 0;
+    align-items: flex-start;
   }
 
   .nav-mobile .nav-list li {
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
   }
 
   .nav-mobile .nav-list li:last-child {
@@ -348,18 +357,21 @@
 
   .nav-mobile .nav-list li a {
     display: block;
-    padding: 1rem 0;
-    font-size: 1rem;
+    padding: 1.25rem 0;
+    font-size: 1.35rem;
+    font-weight: 600;
     color: #fff;
+    text-align: left;
   }
 
   .nav-mobile .nav-list li a::after {
     display: none;
   }
 
+  /* Ajuste Dropdown Mobile */
   .nav-mobile .nav-dropdown {
     position: static;
-    background: #111;
+    background: transparent;
     margin-top: 0;
     padding: 0;
     box-shadow: none;
@@ -369,24 +381,34 @@
     pointer-events: auto;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.3s ease;
+    /* Indentação visual */
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    border-left: 1px solid #444;
   }
 
   .nav-mobile .nav-dropdown-open {
-    max-height: 300px;
-    padding: 0.5rem 0 0.5rem 1.5rem;
+    max-height: 500px; /* Altura suficiente para exibir os itens */
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .nav-mobile .nav-dropdown li {
-    border-bottom: 1px solid #222;
-  }
-
-  .nav-mobile .nav-dropdown li:last-child {
     border-bottom: none;
   }
 
   .nav-mobile .nav-dropdown li a {
-    padding: 0.75rem 0;
+    padding: 0.6rem 0;
+    font-size: 1.1rem;
+    color: #ccc;
+    font-weight: 400;
+  }
+  
+  .nav-mobile .nav-dropdown li a:hover,
+  .nav-mobile .nav-dropdown li a:active {
+      color: #fff;
+      background: transparent;
   }
 }
 

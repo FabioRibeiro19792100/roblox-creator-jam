@@ -1,0 +1,989 @@
+{
+  "ui": {
+    "header": {
+      "nav": {
+        "home": "Home",
+        "expedition": "The Expedition",
+        "library": "Library",
+        "contact": "Contact",
+        "more": "More",
+        "tracks": "Tracks",
+        "activities": "Activities",
+        "events": "Events"
+      },
+      "tracks": {
+        "learning": "Learning",
+        "practice": "Practice",
+        "experience": "Experience"
+      },
+      "cta": {
+        "line1": "Want to create?",
+        "line2": "Join the game."
+      }
+    }
+  },
+  "colors": {
+    "primary": "rgb(83, 0, 255)",
+    "secondary": "rgb(60, 254, 207)",
+    "accent": "rgb(216, 243, 31)",
+    "tutorial": "rgb(255, 194, 231)",
+    "footer": "#4a4a4a",
+    "white": "#ffffff",
+    "black": "#000000",
+    "gray": "#666666",
+    "lightGray": "rgba(255, 255, 255, 0.15)",
+    "separatorGray": "rgba(255, 255, 255, 0.25)"
+  },
+  "fonts": {
+    "heroTitle": {
+      "mobile": "2.5rem",
+      "tablet": "3.5rem",
+      "desktop": "4.5rem"
+    },
+    "sectionTitle": {
+      "mobile": "2.5rem",
+      "tablet": "3.5rem",
+      "desktop": "4.5rem"
+    },
+    "subtitle": {
+      "mobile": "1.125rem",
+      "tablet": "1.3rem",
+      "desktop": "1.4rem"
+    },
+    "body": {
+      "mobile": "1.125rem",
+      "tablet": "1.3rem",
+      "desktop": "1.4rem"
+    },
+    "label": {
+      "mobile": "0.875rem",
+      "tablet": "1rem",
+      "desktop": "1.125rem"
+    },
+    "weights": {
+      "normal": 400,
+      "semibold": 600,
+      "bold": 700,
+      "black": 900
+    }
+  },
+  "hero": {
+    "home": {
+      "label": "ROBLOX EXPEDITION",
+      "title": {
+        "line1": "Creating is",
+        "line2": "the new playing"
+      },
+      "description": [
+        "Throughout 2026, 10,000 young people will go from 'just playing' to publishing their own worlds on Roblox.",
+        "Step by step, from the first click in Studio to seeing friends play something you created."
+      ]
+    },
+    "biblioteca": {
+      "label": "ROBLOX EXPEDITION",
+      "title": {
+        "line1": "Contents of",
+        "line2": "the expedition"
+      },
+      "description": [
+        "Explore our complete library of educational materials, tutorials, and resources to learn Roblox Studio from scratch.",
+        "Access content organized by tracks and develop your skills step by step."
+      ]
+    }
+  },
+  "menu": {
+    "home": {
+      "items": [
+        {
+          "label": "Home",
+          "anchor": "#home-hero"
+        },
+        {
+          "label": "The Expedition",
+          "anchor": "#expedicao-roblox"
+        },
+        {
+          "label": "Library",
+          "anchor": "#biblioteca",
+          "isLink": true
+        },
+        {
+          "label": "Contact",
+          "anchor": "#footer-container-wrapper"
+        }
+      ],
+      "cta": {
+        "line1": "Want to create?",
+        "line2": "Join the game.",
+        "anchor": "#expedicao-roblox"
+      }
+    },
+    "biblioteca": {
+      "items": [
+        {
+          "label": "Home",
+          "isLink": true,
+          "link": "home"
+        },
+        {
+          "label": "Roblox Studio Tutorial",
+          "anchor": "#biblioteca-tutorial"
+        },
+        {
+          "label": "Backpacking",
+          "anchor": "#biblioteca-mochilao"
+        },
+        {
+          "label": "Camping",
+          "anchor": "#biblioteca-acampamento"
+        },
+        {
+          "label": "Survival",
+          "anchor": "#biblioteca-sobrevivencia"
+        },
+        {
+          "label": "Contact",
+          "anchor": "#footer-container-wrapper"
+        }
+      ]
+    },
+    "jam": {
+      "items": [
+        {
+          "label": "Home",
+          "isLink": true,
+          "link": "home"
+        },
+        {
+          "label": "How to Join",
+          "anchor": "#como-participar"
+        },
+        {
+          "label": "Themes",
+          "anchor": "#escolha-tema"
+        },
+        {
+          "label": "Challenge",
+          "anchor": "#desafio-jam"
+        },
+        {
+          "label": "Rules",
+          "anchor": "#regras-jam"
+        },
+        {
+          "label": "Submission",
+          "anchor": "#entrega-desafio"
+        },
+        {
+          "label": "Awards",
+          "anchor": "#premiacao"
+        },
+        {
+          "label": "Dates & Channels",
+          "anchor": "#datas-canais"
+        }
+      ]
+    }
+  },
+  "proximosEventos": {
+    "title": "Upcoming Events",
+    "eventos": [
+      {
+        "data": "03/13/2026",
+        "titulo": "Inaugural Jam",
+        "local": "Online"
+      },
+      {
+        "data": "03/27/2026",
+        "titulo": "Jam #1",
+        "local": "Online"
+      },
+      {
+        "data": "04/11/2026",
+        "titulo": "Roblox Expedition On The Road",
+        "local": "Rio de Janeiro"
+      },
+      {
+        "data": "04/17/2026",
+        "titulo": "Jam #2",
+        "local": "Online"
+      },
+      {
+        "data": "05/09/2026",
+        "titulo": "Roblox Expedition On The Road",
+        "local": "São Paulo"
+      }
+    ],
+    "calendarTitle": "Upcoming Events"
+  },
+  "manifesto": {
+    "title": "And the game is now yours.",
+    "content": [
+      {
+        "column": 1,
+        "paragraphs": [
+          "We are Mastertech, an innovation and technology school, and we are launching a new project.",
+          "Throughout 2026, we will lead experiences in Roblox Studio that stimulate imagination, creation, and discovery, strengthening creative skills in a fun and safe environment.",
+          "The project brings together training tracks for young people and educators to explore educational concepts through creation, as well as immersions that reveal the possibilities of digital games as a learning laboratory for new technologies.",
+          "The Expedition, held in partnership with Roblox, is a national initiative open to everyone with no prerequisites, with activities almost entirely online.",
+          "Yes, almost. Because we will also have in-person events in six Brazilian capitals."
+        ]
+      },
+      {
+        "column": 2,
+        "paragraphs": [
+          "In these meetings, we will gather parents, guardians, and young creatives to build environments that expand the notion of digital safety and are fun and meaningful as a learning experience.",
+          "Want to create with us?",
+          "Join the game.",
+          "After all, you can learn anything you want in a school that flows."
+        ]
+      }
+    ],
+    "cta": {
+      "text": "I want to know more"
+    }
+  },
+  "expedicaoRoblox": {
+    "title": {
+      "line1": "Free, online",
+      "line2": "and no prerequisites."
+    },
+    "subtitle": "Expedition Tracks",
+    "trilhas": [
+      {
+        "id": "trilha-01",
+        "label": "LEARNING",
+        "title": "Learn Roblox Studio from scratch in our content tracks",
+        "description": "Download the exclusive Mastertech plugin to make your first creations and learn in a different way. Also consume conceptual and practical content so you can understand more about the universe of digital creations and Roblox",
+        "cta": "I want to start creating",
+        "action": "contact"
+      },
+      {
+        "id": "trilha-02",
+        "label": "PRACTICE",
+        "title": "Sign up for a jam and create real playable experiences;",
+        "description": "Participate in Game Jams where you develop complete experiences in 72 hours, working as a team and creating real projects for Roblox.",
+        "action": "jam"
+      },
+      {
+        "id": "trilha-03",
+        "label": "EXPERIENCE",
+        "title": "Participate in the in-person immersion at an event in your capital.",
+        "description": "Check the Roblox Expedition On The Road calendar soon for in-person events in your city.",
+        "cta": "I want to know more",
+        "action": "contact"
+      }
+    ]
+  },
+  "expedicaoNaEstrada": {
+    "hero": {
+      "title": {
+        "line1": "Roblox",
+        "line2": "Expedition",
+        "line3": "On The Road"
+      },
+      "description": "In these meetings, we will gather mothers, parents, guardians, and young creatives to build environments that expand the notion of digital safety and are fun and meaningful as a learning experience.",
+      "ctaText": "I want to know more",
+      "image": "/images/5.webp"
+    },
+    "content": {
+      "title": {
+        "line1": "Roblox",
+        "line2": "Expedition",
+        "line3": "On The Road"
+      },
+      "description": "In the capitals, the project opens its schedule with meetings that combine creation in Roblox, family participation, and introduction to the four formats that make up the experience.",
+      "atividades": [
+        {
+          "id": "mundos-em-familia",
+          "title": "Worlds in Family",
+          "description": "Young people and guardians imagine 'better worlds' together and design the first ideas for experiences in Roblox."
+        },
+        {
+          "id": "construtores-do-futuro",
+          "title": "Builders of the Future",
+          "description": "Practical workshops on creation in Roblox, focusing on cooperation, sustainability, and real-world challenges."
+        },
+        {
+          "id": "cidadania-digital",
+          "title": "Digital Citizenship",
+          "description": "Guided conversation about online safety, digital citizenship, and healthy balance with screens — with open space for questions and reports."
+        },
+        {
+          "id": "showcase-de-mundos",
+          "title": "World Showcase",
+          "description": "Presentation of the worlds created by children to family members and experts, with symbolic recognition and an invitation to continue creating in Roblox."
+        }
+      ]
+    },
+    "eventos": [
+      {
+        "id": "rio-de-janeiro",
+        "cidade": "Rio de Janeiro",
+        "data": "April 11, 2026",
+        "local": {
+          "nome": "Senac Candelária",
+          "endereco": "Avenida Presidente Vargas, 1500, 2nd floor, Centro"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Sign up for session 1",
+            "horario": "From 09h to 13h"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Sign up for session 2",
+            "horario": "From 09h to 13h"
+          }
+        ]
+      },
+      {
+        "id": "sao-paulo",
+        "cidade": "São Paulo",
+        "data": "May 05, 2026",
+        "local": {
+          "nome": "Centro de Convenções Anhembi",
+          "endereco": "Av. Olavo Fontoura, 1209, Santana, São Paulo - SP, 02012-021"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Sign up for session 1",
+            "horario": "From 09h to 13h"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Sign up for session 2",
+            "horario": "From 09h to 13h"
+          }
+        ]
+      },
+      {
+        "id": "belo-horizonte",
+        "cidade": "Manaus",
+        "data": "August 22, 2026",
+        "local": {
+          "nome": "Centro de Convenções Manaus",
+          "endereco": "Av. Amazonas, 6200, Gameleira, Manaus - AM"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Sign up for session 1",
+            "horario": "From 09h to 13h"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Sign up for session 2",
+            "horario": "From 09h to 13h"
+          }
+        ]
+      },
+      {
+        "id": "brasilia",
+        "cidade": "Brasília",
+        "data": "May 30, 2026",
+        "local": {
+          "nome": "Centro de Convenções Ulysses Guimarães",
+          "endereco": "SDC - Eixo Monumental, Lote 05, Asa Norte, Brasília - DF, 70070-350"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Sign up for session 1",
+            "horario": "From 09h to 13h"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Sign up for session 2",
+            "horario": "From 09h to 13h"
+          }
+        ]
+      },
+      {
+        "id": "recife",
+        "cidade": "Recife",
+        "data": "September 26, 2026",
+        "local": {
+          "nome": "Centro de Convenções de Pernambuco",
+          "endereco": "Complexo de Salgadinho, Av. Prof. Andrade Bezerra, s/n, Salgadinho, Olinda - PE"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Sign up for session 1",
+            "horario": "From 09h to 13h"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Sign up for session 2",
+            "horario": "From 09h to 13h"
+          }
+        ]
+      },
+      {
+        "id": "curitiba",
+        "cidade": "Porto Alegre",
+        "data": "October 17, 2026",
+        "local": {
+          "nome": "Fabrica Fundação",
+          "endereco": "R. Prof. Pedro Viriato Parigot de Souza, 5300, Campo Comprido, Porto Alegre - RS"
+        },
+        "sessoes": [
+          {
+            "id": "sessao-1",
+            "nome": "Sign up for session 1",
+            "horario": "From 09h to 13h"
+          },
+          {
+            "id": "sessao-2",
+            "nome": "Sign up for session 2",
+            "horario": "From 09h to 13h"
+          }
+        ]
+      }
+    ]
+  },
+  "robloxStudio": {
+    "title": "What is Roblox Studio",
+    "description": [
+      "Roblox Studio is the creation tool that lets you build anything you can imagine.",
+      "Our mission is to empower the imagination of millions of people around the world."
+    ]
+  },
+  "querCriar": {
+    "title": {
+      "line1": "Want to create",
+      "line2": "with us?"
+    },
+    "subtitle": "Join the game."
+  },
+  "footer": {
+    "cta": {
+      "title": "Are you a mother, father, or guardian?",
+      "text": "We have material for you.",
+      "links": {
+        "download": "download",
+        "video": "watch the video"
+      }
+    },
+    "centralExpedicao": {
+      "title": "Contact",
+      "links": [
+        {
+          "text": "Talk to Mastertech",
+          "action": "contact"
+        }
+      ]
+    },
+    "final": {
+      "text": "Roblox Expedition is a project by Mastertech together with Roblox",
+      "social": [
+        {
+          "name": "Instagram",
+          "url": "#"
+        },
+        {
+          "name": "WhatsApp",
+          "url": "#"
+        },
+        {
+          "name": "TikTok",
+          "url": "#"
+        }
+      ]
+    },
+    "convideAmigos": {
+      "title": "Invite your friends",
+      "description": [
+        "Share the Roblox Expedition with your friends and invite them",
+        "to participate in the actions and learning tracks."
+      ],
+      "form": {
+        "emailLabel": "Friend's Email",
+        "button": "Send invitation",
+        "thankYou": {
+          "title": "Thank you!",
+          "message": "Your invitation was sent successfully."
+        }
+      }
+    }
+  },
+  "glossario": {
+    "title": "Glossary",
+    "subtitle": "Dictionary of Roblox Expedition expressions",
+    "termos": [
+      {
+        "termo": "Age-check",
+        "descricao": "Age verification on the Roblox platform that determines the user's age group and available features."
+      },
+      {
+        "termo": "Assets",
+        "descricao": "Resources used in creation, such as 3D models, images, sounds, and other elements that make up an experience."
+      },
+      {
+        "termo": "Co-creation",
+        "descricao": "Collaborative creation process in a team, where multiple developers work together on the same project."
+      },
+      {
+        "termo": "Copyright",
+        "descricao": "Copyright on creative content. It is important to respect the usage rights of third-party materials."
+      },
+      {
+        "termo": "AI-assisted creation",
+        "descricao": "Use of artificial intelligence to assist in the creation process, generating images, sounds, or texts."
+      },
+      {
+        "termo": "Debugging",
+        "descricao": "Process of finding and correcting errors (bugs) in the code or created experience."
+      },
+      {
+        "termo": "DM (Direct Message)",
+        "descricao": "Private direct message between users. During the Jam, DMs are disabled for greater safety."
+      },
+      {
+        "termo": "Roblox Expedition",
+        "descricao": "Educational project that connects learning tracks, Game Jams, and in-person meetings to teach creation on Roblox."
+      },
+      {
+        "termo": "Roblox Expedition On The Road",
+        "descricao": "In-person events held in different Brazilian capitals as part of the Roblox Expedition."
+      },
+      {
+        "termo": "Experience",
+        "descricao": "Term used in Roblox to refer to games or worlds created on the platform (we don't use 'game')."
+      },
+      {
+        "termo": "Age group",
+        "descricao": "User age category on Roblox (13-15, 16-17, 18+), which determines who they can interact with."
+      },
+      {
+        "termo": "Free to Use",
+        "descricao": "Resources that can be used for free, usually found in the Roblox Toolbox with appropriate license."
+      },
+      {
+        "termo": "Game Jam",
+        "descricao": "Intensive game creation event in a limited time, where teams develop complete experiences in 72 hours."
+      },
+      {
+        "termo": "In-person immersion",
+        "descricao": "Physical in-person event where participants meet personally for practical activities."
+      },
+      {
+        "termo": "Jam",
+        "descricao": "Abbreviation for Game Jam, an event for creating experiences in a limited time."
+      },
+      {
+        "termo": "Logs",
+        "descricao": "Records of conversations and activities maintained to ensure safety and transparency in official channels."
+      },
+      {
+        "termo": "Moderated",
+        "descricao": "Environment supervised by moderators who ensure that rules are followed and the environment is safe."
+      },
+      {
+        "termo": "Narrative",
+        "descricao": "Story told by the experience, including characters, plot, and elements that involve the player."
+      },
+      {
+        "termo": "Community Standards",
+        "descricao": "Standards of behavior established by the Roblox platform that all users must follow."
+      },
+      {
+        "termo": "Plugins",
+        "descricao": "Extensions of Roblox Studio that add extra features to facilitate creation."
+      },
+      {
+        "termo": "Portfolio",
+        "descricao": "Set of created projects that demonstrate the skills and work developed by the creator."
+      },
+      {
+        "termo": "Prototype",
+        "descricao": "Initial functional version of an experience that demonstrates the main idea and allows basic interaction."
+      },
+      {
+        "termo": "Public",
+        "descricao": "Experience published on Roblox that is publicly visible and can be found by any user."
+      },
+      {
+        "termo": "Redistribution",
+        "descricao": "Sharing of assets created by others. It is important to check if the material allows redistribution."
+      },
+      {
+        "termo": "Roblox",
+        "descricao": "Online gaming and creation platform where users can create, share, and play experiences developed by other users."
+      },
+      {
+        "termo": "Roblox Studio",
+        "descricao": "Official Roblox creation tool that allows building any type of experience, from simple games to complex worlds."
+      },
+      {
+        "termo": "Scripts",
+        "descricao": "Programming code that controls behaviors, interactions, and functionalities within an experience on Roblox."
+      },
+      {
+        "termo": "Digital safety",
+        "descricao": "Practices and knowledge to stay safe in the online environment, protecting personal information and avoiding risks."
+      },
+      {
+        "termo": "Submission",
+        "descricao": "Official delivery of the created project through the Jam form, including link, description, and team responsibilities."
+      },
+      {
+        "termo": "Roblox Terms of Use",
+        "descricao": "Rules and guidelines established by the Roblox platform that all users must follow when using the platform."
+      },
+      {
+        "termo": "Screen time",
+        "descricao": "Time spent in front of screens and devices. The Expedition transforms this time into productive learning."
+      },
+      {
+        "termo": "Toolbox",
+        "descricao": "Roblox Studio resource library containing models, sounds, and ready-made scripts that can be used for free."
+      },
+      {
+        "termo": "Track",
+        "descricao": "Learning path organized by difficulty levels, including Backpacking (beginner), Camping (intermediate), and Survival (advanced)."
+      },
+      {
+        "termo": "Trusted Connection",
+        "descricao": "Secure link between two Roblox accounts that informs the platform that these people know each other in real life, allowing interaction even between different age groups."
+      },
+      {
+        "termo": "Unlisted",
+        "descricao": "Experience published on Roblox that does not appear in public searches, being accessible only through a direct link."
+      },
+      {
+        "termo": "Username",
+        "descricao": "Unique username on the Roblox platform, used for identification and logging into the account."
+      },
+      {
+        "termo": "72 hours",
+        "descricao": "Standard duration period of a Game Jam, during which teams develop their experiences from scratch."
+      }
+    ]
+  },
+  "forms": {
+    "contact": {
+      "title": "Receive news firsthand",
+      "fields": {
+        "nome": {
+          "label": "Name",
+          "placeholder": "Your name",
+          "required": true
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Your email",
+          "required": true
+        },
+        "idade": {
+          "label": "Age",
+          "placeholder": "Your age",
+          "required": true
+        },
+        "emailResponsavel": {
+          "label": "Guardian's Email",
+          "placeholder": "guardian@email.com",
+          "required": true
+        }
+      },
+      "submit": "Send",
+      "success": "Thank you! We will be in touch soon."
+    },
+    "contactPopup": {
+      "title": "Talk to Mastertech",
+      "whatsapp": {
+        "label": "Contact via WhatsApp",
+        "number": "+5511919522455"
+      },
+      "form": {
+        "fields": {
+          "nome": {
+            "label": "Name",
+            "placeholder": "Your name",
+            "required": true
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "Your email",
+            "required": true
+          },
+          "assunto": {
+            "label": "Subject",
+            "placeholder": "Select a subject",
+            "options": [
+              "Backpacking",
+              "Camping",
+              "Survival",
+              "Others"
+            ],
+            "required": true
+          },
+          "mensagem": {
+            "label": "Message",
+            "placeholder": "Your message",
+            "required": true
+          }
+        },
+        "submit": "Send"
+      }
+    },
+    "emailGate": {
+      "existing": {
+        "title": "Special Member Area",
+        "description": "You are entering a special area for Roblox Expedition members.\nConfirm your email to continue.",
+        "button": "Confirm and Access"
+      },
+      "new": {
+        "title": "Not part of the Expedition yet?",
+        "description": "Sign up to access our complete content library.",
+        "button": "Sign Up and Access"
+      },
+      "fields": {
+        "nome": {
+          "placeholder": "Your name",
+          "required": true
+        },
+        "email": {
+          "placeholder": "Your email",
+          "required": true
+        }
+      }
+    }
+  },
+  "biblioteca": {
+    "sections": {
+      "tutorial": {
+        "label": "CONTENTS",
+        "title": "Roblox Studio Tutorial",
+        "color": "rgb(255, 194, 231)"
+      },
+      "mochilao": {
+        "label": "CONTENTS",
+        "title": "Backpacking",
+        "color": "rgb(83, 0, 255)"
+      },
+      "acampamento": {
+        "label": "CONTENTS",
+        "title": "Camping",
+        "color": "rgb(255, 61, 0)"
+      },
+      "sobrevivencia": {
+        "label": "CONTENTS",
+        "title": "Survival",
+        "color": "rgb(216, 243, 31)"
+      }
+    },
+    "publicos": {
+      "criadores": {
+        "label": "Content for creators",
+        "trilhas": {
+          "tutorial": {
+            "nome": "Roblox Studio Tutorial",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Tutorial 1",
+                "pdf": "/pdfs/tutorial1.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Tutorial 2",
+                "pdf": "/pdfs/tutorial2.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "mochilao": {
+            "nome": "Backpacking",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Game Conception",
+                "pdf": "/pdfs/concepcao.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Environment Building",
+                "pdf": "/pdfs/construcao.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 3,
+                "titulo": "Character Creation",
+                "pdf": "/pdfs/personagens.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 4,
+                "titulo": "Content 4",
+                "pdf": "/pdfs/conteudo4.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 5,
+                "titulo": "Content 5",
+                "pdf": "/pdfs/conteudo5.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "acampamento": {
+            "nome": "Camping",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "AI-Assisted Creation",
+                "pdf": "/pdfs/ia.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Collaboration and Co-creation",
+                "pdf": "/pdfs/colaboracao.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 3,
+                "titulo": "Testing and Debugging",
+                "pdf": "/pdfs/teste.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "sobrevivencia": {
+            "nome": "Survival",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Publishing and Narrative",
+                "pdf": "/pdfs/publicacao.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Reflection and Sharing",
+                "pdf": "/pdfs/reflexao.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          }
+        }
+      },
+      "educadores": {
+        "label": "Content for educators",
+        "trilhas": {
+          "tutorial": {
+            "nome": "Roblox Studio Tutorial",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Educator Tutorial 1",
+                "pdf": "/pdfs/tutorial-educador1.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "mochilao": {
+            "nome": "Backpacking",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Educator Content 1",
+                "pdf": "/pdfs/educador1.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Educator Content 2",
+                "pdf": "/pdfs/educador2.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "acampamento": {
+            "nome": "Camping",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Educator Content 3",
+                "pdf": "/pdfs/educador3.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "sobrevivencia": {
+            "nome": "Survival",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Educator Content 4",
+                "pdf": "/pdfs/educador4.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          }
+        }
+      },
+      "pais": {
+        "label": "Content for parents, mothers, and guardians",
+        "trilhas": {
+          "tutorial": {
+            "nome": "Roblox Studio Tutorial",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Parent Tutorial 1",
+                "pdf": "/pdfs/tutorial-pais1.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "mochilao": {
+            "nome": "Backpacking",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Parent Content 1",
+                "pdf": "/pdfs/pais1.pdf",
+                "imagem": "/placeholder.jpg"
+              },
+              {
+                "id": 2,
+                "titulo": "Parent Content 2",
+                "pdf": "/pdfs/pais2.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "acampamento": {
+            "nome": "Camping",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Parent Content 3",
+                "pdf": "/pdfs/pais3.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          },
+          "sobrevivencia": {
+            "nome": "Survival",
+            "conteudos": [
+              {
+                "id": 1,
+                "titulo": "Parent Content 4",
+                "pdf": "/pdfs/pais4.pdf",
+                "imagem": "/placeholder.jpg"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

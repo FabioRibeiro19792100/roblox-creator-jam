@@ -1,0 +1,45 @@
+.language-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 1rem;
+}
+
+.language-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.language-toggle span {
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.language-toggle span.active {
+  opacity: 1;
+  font-weight: 700;
+}
+
+@media (max-width: 767px) {
+  .language-toggle {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    right: 60px; /* Posiciona à esquerda do menu hambúrguer */
+    transform: translateY(-50%);
+    border-color: rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+

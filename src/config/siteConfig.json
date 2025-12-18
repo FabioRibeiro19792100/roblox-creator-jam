@@ -1,4 +1,27 @@
 {
+  "ui": {
+    "header": {
+      "nav": {
+        "home": "Início",
+        "expedition": "A Expedição",
+        "library": "Biblioteca",
+        "contact": "Contato",
+        "more": "Mais",
+        "tracks": "Trilhas",
+        "activities": "Atividades",
+        "events": "Eventos"
+      },
+      "tracks": {
+        "learning": "Aprendizado",
+        "practice": "Prática",
+        "experience": "Vivência"
+      },
+      "cta": {
+        "line1": "Quer criar?",
+        "line2": "Desce pro play."
+      }
+    }
+  },
   "colors": {
     "primary": "rgb(83, 0, 255)",
     "secondary": "rgb(60, 254, 207)",

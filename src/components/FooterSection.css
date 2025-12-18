@@ -93,7 +93,7 @@
 
 .footer-container-wrapper {
   width: 100%;
-  background: linear-gradient(180deg, #fff7c2 0%, #f5d800 90%);
+  background: #f5d800;
   margin-top: 0;
   color: #050505;
 }
@@ -220,7 +220,7 @@
   cursor: pointer;
   transition: box-shadow 0.25s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(180deg, #ffffff 0%, #d9f124 100%);
+  background: #c8e7ff;
   min-height: 280px;
   display: flex;
   flex-direction: column;

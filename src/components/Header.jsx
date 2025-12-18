@@ -4,6 +4,7 @@ import { scrollToElementById } from '../utils/scrollHelpers'
 import { useSiteConfig } from '../config/useSiteConfig'
 import useMediaQuery from '../hooks/useMediaQuery'
 import AnimatedLogo from './AnimatedLogo'
+import LanguageToggle from './utilitarios/LanguageToggle'
 import './Header.css'
 
 const HAMBURGER_COLOR = '#fff'
@@ -197,28 +198,28 @@ function Header() {
 
           {/* Menu "Mais" para itens escondidos */}
           {hiddenItems.length > 0 && (
-            <li 
-              className="nav-item-with-dropdown"
-              onMouseEnter={() => setIsMoreOpen(true)}
-              onMouseLeave={(e) => {
-                const relatedTarget = e.relatedTarget
-                if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
-                  setIsMoreOpen(false)
-                }
+          <li 
+            className="nav-item-with-dropdown"
+            onMouseEnter={() => setIsMoreOpen(true)}
+            onMouseLeave={(e) => {
+              const relatedTarget = e.relatedTarget
+              if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
+                setIsMoreOpen(false)
+              }
+            }}
+          >
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                setIsMoreOpen(!isMoreOpen)
               }}
             >
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setIsMoreOpen(!isMoreOpen)
-                }}
-              >
-                Mais ▾
-              </a>
-              <ul
-                className={`nav-dropdown ${isMoreOpen ? 'nav-dropdown-open' : ''}`}
-              >
+              {config?.ui?.header?.nav?.more || 'Mais'} ▾
+            </a>
+            <ul
+              className={`nav-dropdown ${isMoreOpen ? 'nav-dropdown-open' : ''}`}
+            >
                 {hiddenItems.map((item, index) => (
                   <li key={`more-${index}`}>
                     {item.isLink ? (
@@ -266,7 +267,7 @@ function Header() {
                 setIsMissoesOpen(!isMissoesOpen)
               }}
             >
-              Trilhas
+              {config?.ui?.header?.nav?.tracks || 'Trilhas'}
             </a>
             <ul
               className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
@@ -277,7 +278,7 @@ function Header() {
                   handleNavClick('biblioteca', e)
                   setIsMissoesOpen(false)
                 }}>
-                  Aprendizado
+                  {config?.ui?.header?.tracks?.learning || 'Aprendizado'}
                 </a>
               </li>
               <li>
@@ -286,7 +287,7 @@ function Header() {
                   handleNavClick('jam', e)
                   setIsMissoesOpen(false)
                 }}>
-                  Prática
+                  {config?.ui?.header?.tracks?.practice || 'Prática'}
                 </a>
               </li>
               <li>
@@ -295,7 +296,7 @@ function Header() {
                   handleNavClick('expedicao-na-estrada', e)
                   setIsMissoesOpen(false)
                 }}>
-                  Vivência
+                  {config?.ui?.header?.tracks?.experience || 'Vivência'}
                 </a>
               </li>
             </ul>
@@ -303,7 +304,7 @@ function Header() {
 
           <li>
             <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
-              Contato
+              {config?.ui?.header?.nav?.contact || 'Contato'}
             </a>
           </li>
 
@@ -371,22 +372,22 @@ function Header() {
         <>
           <li>
             <a href="/" onClick={(e) => handleNavClick('home', e)}>
-              Início
+              {config?.ui?.header?.nav?.home || 'Início'}
             </a>
           </li>
           <li>
             <a href="#expedicao-na-estrada-content" onClick={(e) => handleExpedicaoNaEstradaScroll('expedicao-na-estrada-content', e)}>
-              Atividades
+              {config?.ui?.header?.nav?.activities || 'Atividades'}
             </a>
           </li>
           <li>
             <a href="#eventos-na-estrada" onClick={(e) => handleExpedicaoNaEstradaScroll('eventos-na-estrada', e)}>
-              Eventos
+              {config?.ui?.header?.nav?.events || 'Eventos'}
             </a>
           </li>
           <li>
             <a href="#footer-container-wrapper" onClick={(e) => handleExpedicaoNaEstradaScroll('footer-container-wrapper', e)}>
-              Contato
+              {config?.ui?.header?.nav?.contact || 'Contato'}
             </a>
           </li>
         </>
@@ -439,28 +440,28 @@ function Header() {
 
         {/* Menu "Mais" para itens escondidos na Jam */}
         {hiddenJamItems.length > 0 && (
-            <li 
-              className="nav-item-with-dropdown"
-              onMouseEnter={() => setIsMoreOpen(true)}
-              onMouseLeave={(e) => {
-                const relatedTarget = e.relatedTarget
-                if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
-                  setIsMoreOpen(false)
-                }
+          <li 
+            className="nav-item-with-dropdown"
+            onMouseEnter={() => setIsMoreOpen(true)}
+            onMouseLeave={(e) => {
+              const relatedTarget = e.relatedTarget
+              if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
+                setIsMoreOpen(false)
+              }
+            }}
+          >
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                setIsMoreOpen(!isMoreOpen)
               }}
             >
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setIsMoreOpen(!isMoreOpen)
-                }}
-              >
-                Mais ▾
-              </a>
-              <ul
-                className={`nav-dropdown ${isMoreOpen ? 'nav-dropdown-open' : ''}`}
-              >
+              {config?.ui?.header?.nav?.more || 'Mais'} ▾
+            </a>
+            <ul
+              className={`nav-dropdown ${isMoreOpen ? 'nav-dropdown-open' : ''}`}
+            >
                 {hiddenJamItems.map((item, index) => (
                   <li key={`more-jam-${index}`}>
                     {item.isLink ? (
@@ -504,7 +505,7 @@ function Header() {
               setIsMissoesOpen(!isMissoesOpen)
             }}
           >
-            Trilhas
+            {config?.ui?.header?.nav?.tracks || 'Trilhas'}
           </a>
           <ul
             className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
@@ -517,7 +518,7 @@ function Header() {
                 handleNavClick('biblioteca', e)
                 setIsMissoesOpen(false)
               }}>
-                Aprendizado
+                {config?.ui?.header?.tracks?.learning || 'Aprendizado'}
               </a>
             </li>
             <li>
@@ -526,7 +527,7 @@ function Header() {
                 handleNavClick('jam', e)
                 setIsMissoesOpen(false)
               }}>
-                Prática
+                {config?.ui?.header?.tracks?.practice || 'Prática'}
               </a>
             </li>
             <li>
@@ -535,14 +536,14 @@ function Header() {
                 handleNavClick('expedicao-na-estrada', e)
                 setIsMissoesOpen(false)
               }}>
-                Vivência
+                {config?.ui?.header?.tracks?.experience || 'Vivência'}
               </a>
             </li>
           </ul>
         </li>
         <li>
           <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
-            Contato
+            {config?.ui?.header?.nav?.contact || 'Contato'}
           </a>
         </li>
       </>
@@ -577,6 +578,9 @@ function Header() {
         >
           <ul className="nav-list">{renderNavLinks()}</ul>
         </nav>
+        
+        <LanguageToggle />
+
         <span id="missoes" className="sr-only" aria-hidden="true">
           Missões
         </span>

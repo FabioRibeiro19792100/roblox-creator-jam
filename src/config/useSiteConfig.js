@@ -1,10 +1,9 @@
 // Hook para usar siteConfig com suporte a alterações do admin
 import { useState, useEffect } from 'react'
-import defaultConfig from './siteConfig.json'
+import defaultConfigPt from './siteConfig.json'
+import defaultConfigEn from './siteConfig.en.json'
 
 // Função para fazer merge profundo (deep merge)
-// target = defaultConfig (base completa)
-// source = savedConfig (alterações do admin)
 function deepMerge(target, source) {
   if (!isObject(target) || !isObject(source)) {
     return target
@@ -12,20 +11,16 @@ function deepMerge(target, source) {
   
   const output = { ...target }
   
-  // Primeiro, garantir que todas as chaves do target estão no output
   Object.keys(target).forEach(key => {
     if (isObject(target[key]) && isObject(source[key])) {
       output[key] = deepMerge(target[key], source[key])
     } else if (Array.isArray(target[key])) {
-      // Se target tem array e source também tem array não vazio, usar source
-      // Se source não tem ou está vazio, usar target
       if (Array.isArray(source[key]) && source[key].length > 0) {
         output[key] = source[key]
       } else {
         output[key] = target[key]
       }
     } else {
-      // Para valores primitivos, usar source se existir e não for vazio, senão target
       if (source[key] !== undefined && source[key] !== null && source[key] !== '') {
         output[key] = source[key]
       } else {
@@ -34,7 +29,6 @@ function deepMerge(target, source) {
     }
   })
   
-  // Depois, adicionar chaves que existem só no source (caso raro, mas pode acontecer)
   Object.keys(source).forEach(key => {
     if (!(key in output)) {
       output[key] = source[key]
@@ -49,35 +43,48 @@ function isObject(item) {
 }
 
 export function useSiteConfig() {
-  const [config, setConfig] = useState(() => {
-    // Carregar configuração inicial do localStorage e fazer merge com padrão
+  const [config, setConfig] = useState(defaultConfigPt)
+  const [language, setLanguage] = useState(() => {
     try {
-      const savedConfig = localStorage.getItem('siteConfig')
+      return localStorage.getItem('siteLanguage') || 'pt'
+    } catch {
+      return 'pt'
+    }
+  })
+
+  // Efeito para carregar a configuração correta baseada no idioma
+  useEffect(() => {
+    const baseConfig = language === 'en' ? defaultConfigEn : defaultConfigPt
+    
+    try {
+      const savedConfig = localStorage.getItem(`siteConfig_${language}`)
       if (savedConfig) {
         const parsed = JSON.parse(savedConfig)
-        // Fazer merge profundo: defaultConfig como base, savedConfig sobrescreve
-        // Isso garante que sempre temos todos os dados do defaultConfig
-        return deepMerge(defaultConfig, parsed)
+        setConfig(deepMerge(baseConfig, parsed))
+      } else {
+        setConfig(baseConfig)
       }
     } catch (e) {
       console.error('Erro ao carregar configuração salva:', e)
+      setConfig(baseConfig)
     }
-    return defaultConfig
-  })
+  }, [language])
 
+  // Efeito para escutar mudanças no localStorage (idioma e config)
   useEffect(() => {
-    // Listener para detectar mudanças no localStorage (quando admin salva)
     const handleStorageChange = (e) => {
-      if (e.key === 'siteConfig') {
+      if (e.key === 'siteLanguage') {
+        setLanguage(e.newValue || 'pt')
+      } else if (e.key === `siteConfig_${language}` || e.key === 'siteConfig') {
+        // Se a config do idioma atual mudou (admin salvou)
+        // Nota: 'siteConfig' legado mantido para compatibilidade se necessário
+        const baseConfig = language === 'en' ? defaultConfigEn : defaultConfigPt
         try {
           if (e.newValue) {
             const parsed = JSON.parse(e.newValue)
-            // Fazer merge profundo para garantir dados completos
-            const merged = deepMerge(defaultConfig, parsed)
-            setConfig(merged)
+            setConfig(deepMerge(baseConfig, parsed))
           } else {
-            // Se foi removido, voltar ao padrão
-            setConfig(defaultConfig)
+            setConfig(baseConfig)
           }
         } catch (error) {
           console.error('Erro ao atualizar configuração:', error)
@@ -85,40 +92,37 @@ export function useSiteConfig() {
       }
     }
 
-    // Escutar mudanças no localStorage (de outras abas/janelas)
     window.addEventListener('storage', handleStorageChange)
 
-    // Também verificar mudanças na mesma aba (polling a cada 2 segundos)
+    // Polling para detectar mudanças na mesma aba (setLanguage não dispara storage event na mesma aba, mas localStorage sim)
     const intervalId = setInterval(() => {
       try {
-        const savedConfig = localStorage.getItem('siteConfig')
-        if (savedConfig) {
-          const parsed = JSON.parse(savedConfig)
-          // Fazer merge profundo para garantir dados completos
-          const merged = deepMerge(defaultConfig, parsed)
-          const currentConfigStr = JSON.stringify(config)
-          const mergedConfigStr = JSON.stringify(merged)
-          if (currentConfigStr !== mergedConfigStr) {
-            setConfig(merged)
-          }
-        } else if (config !== defaultConfig) {
-          // Se foi removido do localStorage, voltar ao padrão
-          setConfig(defaultConfig)
+        const currentStoredLang = localStorage.getItem('siteLanguage') || 'pt'
+        if (currentStoredLang !== language) {
+          setLanguage(currentStoredLang)
         }
-      } catch (e) {
-        // Ignorar erros silenciosamente
-      }
-    }, 2000)
+      } catch {}
+    }, 500)
 
     return () => {
       window.removeEventListener('storage', handleStorageChange)
       clearInterval(intervalId)
     }
-  }, [config])
+  }, [language])
 
   return config
 }
 
-// Exportar também o config padrão para uso direto
-export { defaultConfig as siteConfig }
+// Função auxiliar para mudar o idioma
+export const setSiteLanguage = (lang) => {
+  try {
+    localStorage.setItem('siteLanguage', lang)
+    // Dispara evento customizado para notificar componentes na mesma aba imediatamente se necessário,
+    // embora o polling/state resolva.
+    window.dispatchEvent(new Event('storage'))
+  } catch (e) {
+    console.error('Erro ao salvar idioma:', e)
+  }
+}
 
+export { defaultConfigPt as siteConfig, defaultConfigEn as siteConfigEn }

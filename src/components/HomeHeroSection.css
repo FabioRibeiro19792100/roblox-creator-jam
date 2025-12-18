@@ -87,7 +87,7 @@
 .home-hero-description {
   width: 100%;
   max-width: 420px;
-  margin-top: 0.5rem;
+  margin-top: 0; /* Remove a margem superior padrão para aproximar do título */
 }
 
 .home-hero-description-paragraph {
@@ -104,7 +104,7 @@
 
 /* CTA Area */
 .home-hero-cta {
-  margin-top: 1rem;
+  margin-top: 2rem; /* Aumenta a distância entre a descrição e o botão */
 }
 
 .home-hero-roblox-button {

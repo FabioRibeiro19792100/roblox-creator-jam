@@ -22,6 +22,7 @@ function PremiacaoSection() {
                   </div>
                   <div className="premiacao-titulo-box">
                     <h3 className="premiacao-titulo">{item.titulo}</h3>
+                    <img src="/images/trophy.png" alt="" className="premiacao-trophy-icon" />
                   </div>
                 </div>
                 <p className="premiacao-descricao">{item.descricao}</p>
