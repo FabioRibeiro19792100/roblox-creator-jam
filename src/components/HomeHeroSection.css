@@ -35,7 +35,7 @@
   max-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Mudado de center para flex-start */
   /* Removemos o padding fixo daqui pois ele já é injetado via style inline na section/inner pelo JS */
   /* padding: 4rem 1.5rem;  <-- REMOVIDO */
   box-sizing: border-box;
@@ -44,11 +44,12 @@
 .home-hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Mudado de center para flex-start */
   align-items: flex-start;
   /* Gap ajustado para melhor ritmo vertical */
   gap: 1.25rem; 
   width: 100%;
+  margin-top: 2rem; /* Adiciona um pequeno espaçamento inicial */
 }
 
 .home-hero-header {
@@ -80,17 +81,7 @@
   border-width: 0;
 }
 
-/* Título Principal - H1 - Muito mais impacto */
-.home-hero-title {
-  font-size: 2.5rem; /* Igual ao manifesto no mobile */
-  font-weight: 900;
-  color: #fff;
-  margin: 0;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  text-align: left;
-  max-width: 12ch; /* Limita largura para quebrar bonito */
-}
+/* Título Principal - H1 - removido para HeroTitle.css */
 
 /* Descrição */
 .home-hero-description {
@@ -150,9 +141,7 @@
     width: 150px; 
   }
   
-  .home-hero-title {
-    font-size: 3rem; 
-  }
+  /* .home-hero-title removido */
 
   .home-hero-description-paragraph {
     font-size: 1.125rem;
@@ -174,10 +163,7 @@
     width: 170px; 
   }
 
-  .home-hero-title {
-    font-size: 4rem; 
-    letter-spacing: -0.04em;
-  }
+  /* .home-hero-title removido */
 
   .home-hero-content {
     gap: 2rem;
@@ -198,10 +184,7 @@
     width: 180px; 
   }
   
-  .home-hero-title {
-    font-size: 4.5rem;
-    letter-spacing: -0.05em;
-  }
+  /* .home-hero-title removido */
 
   .home-hero-content {
     gap: 2.5rem;
@@ -214,9 +197,7 @@
     width: 220px; 
   }
 
-  .home-hero-title {
-    font-size: 5.5rem; /* Igual ao manifesto no large desktop */
-  }
+  /* .home-hero-title removido */
   
   .home-hero-description-paragraph {
     font-size: 1.35rem;
@@ -239,10 +220,7 @@
     margin-bottom: 0 !important;
   }
 
-  .home-hero-title {
-    font-size: 3rem !important; 
-    letter-spacing: -0.03em;
-  }
+  /* .home-hero-title removido */
 
   .home-hero-description-paragraph {
     font-size: 1.125rem !important;
@@ -261,9 +239,7 @@
   .home-hero-logo {
     width: 100px !important;
   }
-  .home-hero-title {
-    font-size: 2.25rem !important;
-  }
+  /* .home-hero-title removido */
   .home-hero-description-paragraph {
     font-size: 1rem !important;
     margin-bottom: 0.5rem !important;

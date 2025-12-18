@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
+import HeroTitle from './HeroTitle'
 import './HomeHeroSection.css'
 
 function HomeHeroSection() {
   const config = useSiteConfig()
   const imageUrl = `/images/hero.png`
-  const logoUrl = `/images/logo.png`
+  const logoUrl = `/images/hero-logo.png`
   const siteHorizontalPadding = 'var(--site-horizontal-padding, 1.5rem)'
   const heroHorizontalPadding = 'var(--hero-horizontal-padding, 2rem)'
   const heroVerticalPadding = 'var(--hero-vertical-padding, var(--hero-horizontal-padding, 2rem))'
@@ -94,7 +95,7 @@ function HomeHeroSection() {
       aria-label="Hero principal"
     >
       <div className="home-hero-container">
-        <div className="home-hero-inner">
+        <div className="home-hero-inner" style={{ paddingTop: '0' }}>
           <div className="home-hero-content">
             <div className="home-hero-header">
               <span className="home-hero-expedicao-roblox">
@@ -107,11 +108,10 @@ function HomeHeroSection() {
                 data-animate-id="hero-logo"
               />
             </div>
-            <h1 className="home-hero-title" data-align="content" data-animate-id="hero-title">
-              <span className="title-line-1">{config?.hero?.home?.title?.line1 || 'Criar é'}</span>
-              <br className="mobile-only" />
-              <span className="title-line-2">{config?.hero?.home?.title?.line2 || 'o novo jogar'}</span>
-            </h1>
+            <HeroTitle 
+              line1={config?.hero?.home?.title?.line1} 
+              line2={config?.hero?.home?.title?.line2} 
+            />
             <div className="home-hero-description" data-animate-id="hero-description">
               <p className="home-hero-description-paragraph">
                 {config?.hero?.home?.description?.[0] || "Ao longo de 2026, 10 mil jovens vão sair do 'só jogar' pra publicar seus próprios mundos no Roblox."}

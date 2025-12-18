@@ -3,6 +3,7 @@ import { NavigationContext, InscricaoModalContext, resolvePageFromHash, ContactM
 import { scrollToElementById } from '../utils/scrollHelpers'
 import { useSiteConfig } from '../config/useSiteConfig'
 import useMediaQuery from '../hooks/useMediaQuery'
+import AnimatedLogo from './AnimatedLogo'
 import './Header.css'
 
 const HAMBURGER_COLOR = '#fff'
@@ -560,8 +561,12 @@ function Header() {
         }
       >
         <div className="logo" onClick={(e) => handleNavClick('home', e)}>
-          <span className="logo-roblox">Roblox</span>
-          <span className="logo-creator-jam">Creator Jam</span>
+          <div className="logo-icon-wrapper">
+             <AnimatedLogo />
+          </div>
+          <div className="logo-text-wrapper">
+            <span className="logo-roblox">Roblox</span>
+          </div>
         </div>
 
         <nav

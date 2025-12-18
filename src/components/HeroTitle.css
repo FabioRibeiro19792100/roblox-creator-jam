@@ -1,0 +1,122 @@
+/* Título Principal - H1 - Muito mais impacto */
+.hero-title-module {
+  font-size: 2.5rem; /* Igual ao manifesto no mobile */
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-align: left;
+  max-width: 12ch; /* Limita largura para quebrar bonito */
+  overflow: visible; /* Permite que as letras "voem" de fora */
+}
+
+/* Configuração base dos caracteres */
+.hero-title-char {
+  display: inline-block;
+  opacity: 0; /* Começa invisível */
+  will-change: transform, opacity;
+  transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(0.5); /* Posição inicial caótica */
+}
+
+/* Espaço precisa ter display para não colapsar layout */
+.hero-title-space {
+  display: inline-block;
+  width: 0.3em;
+}
+
+/* A Animação "Corrida para o Sofá" */
+.hero-title-char.animate {
+  animation: rushToSofa 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: var(--d); /* Stagger leve */
+}
+
+@keyframes rushToSofa {
+  /* 0%: Estado inicial definido no CSS base (caótico e transparente) */
+  0% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(0.5);
+  }
+  
+  /* 20%: Chegada explosiva ao centro (overshoot) */
+  20% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1.2);
+  }
+
+  /* 30%: Rebote inicial */
+  30% {
+    transform: scale(0.9);
+  }
+
+  /* 40% - 70%: A "Briga" pelo lugar (Jostling/Empurrão) */
+  45% {
+    transform: translate(var(--jit-x), var(--jit-y)) rotate(5deg);
+  }
+  55% {
+    transform: translate(calc(var(--jit-x) * -1), calc(var(--jit-y) * -1)) rotate(-5deg);
+  }
+  65% {
+    transform: translate(var(--jit-x), var(--jit-y)) rotate(2deg);
+  }
+
+  /* 100%: Acomodação final (Limpo) */
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0) scale(1);
+  }
+}
+
+/* Respeita preferência por movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-char {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 768px) {
+  .hero-title-module {
+    font-size: 3rem; 
+  }
+}
+
+/* Small Desktop / Laptop */
+@media (min-width: 1024px) {
+  .hero-title-module {
+    font-size: 4rem; 
+    letter-spacing: -0.04em;
+  }
+}
+
+/* Desktop Padrão */
+@media (min-width: 1280px) {
+  .hero-title-module {
+    font-size: 4.5rem;
+    letter-spacing: -0.05em;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .hero-title-module {
+    font-size: 5.5rem;
+  }
+}
+
+/* Telas com pouca altura (Laptops pequenos, Landscape Mobile, Tablets) */
+@media (max-height: 820px) {
+  .hero-title-module {
+    font-size: 3rem !important; 
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Telas MUITO baixas (Mobile Landscape extremo) */
+@media (max-height: 600px) {
+  .hero-title-module {
+    font-size: 2.25rem !important;
+  }
+}

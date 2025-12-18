@@ -423,16 +423,19 @@
     flex-direction: row;
     align-items: center;
     gap: 4rem;
+    flex-wrap: wrap; /* Garante que quebre linha se necessário */
   }
 
   .expedicao-na-estrada-accordion-text-wrapper {
     flex: 1;
-    max-width: 50%;
+    max-width: none; /* Remove limitação rígida */
+    min-width: 300px; /* Garante tamanho mínimo legível */
   }
 
   .expedicao-na-estrada-accordion-image-wrapper {
     flex: 1;
-    max-width: 50%;
+    max-width: none; /* Remove limitação rígida */
+    min-width: 300px;
     margin-top: 0;
   }
 
