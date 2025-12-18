@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { enviarInscricaoParaSheets } from '../services/googleSheetsService'
 import './ExpedicaoInscricaoForm.css'
 
 function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description, tipoInscricao, eventoSelecionado, eventosDisponiveis }) {
@@ -13,6 +14,7 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [hasRobloxAccount, setHasRobloxAccount] = useState(false)
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
 
   useEffect(() => {
     // Sempre começar no passo 1 (pergunta se tem conta)
@@ -109,28 +111,31 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     e.stopPropagation()
 
     if (validate()) {
       setIsSubmitting(true)
 
-      // Salvar dados no localStorage
-      localStorage.setItem('expedicao_email', formData.email)
-      localStorage.setItem('expedicao_nome', formData.nome)
-      localStorage.setItem('expedicao_roblox_id', formData.robloxAlias)
-      localStorage.setItem('expedicao_perfil', formData.perfil)
-      if (formData.eventoId) {
-        localStorage.setItem('expedicao_evento_id', formData.eventoId)
-      }
-
-      // Simular envio (em produção, enviar para API)
-      setTimeout(() => {
-        setIsSubmitting(false)
-        if (onSuccess) {
-          onSuccess(formData)
+      try {
+        // Salvar dados no localStorage
+        localStorage.setItem('expedicao_email', formData.email)
+        localStorage.setItem('expedicao_nome', formData.nome)
+        localStorage.setItem('expedicao_roblox_id', formData.robloxAlias)
+        localStorage.setItem('expedicao_perfil', formData.perfil)
+        if (formData.eventoId) {
+          localStorage.setItem('expedicao_evento_id', formData.eventoId)
         }
+
+        // Enviar para Google Sheets
+        await enviarInscricaoParaSheets(formData, tipoInscricao || 'geral')
+
+        setIsSubmitting(false)
+
+        // Mostrar modal de sucesso
+        setShowSuccessModal(true)
+
         // Resetar formulário
         setFormData({
           nome: '',
@@ -139,8 +144,25 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
           perfil: '',
           eventoId: eventoSelecionado ? (eventoSelecionado.id || eventoSelecionado) : ''
         })
+
+        // Fechar modal de sucesso após 3 segundos
+        setTimeout(() => {
+          setShowSuccessModal(false)
+          if (onSuccess) {
+            onSuccess(formData)
+          }
+          onClose()
+        }, 3000)
+      } catch (error) {
+        console.error('Erro ao enviar inscrição:', error)
+        setIsSubmitting(false)
+
+        // Mesmo com erro, permite fechar (dados estão salvos localmente)
+        if (onSuccess) {
+          onSuccess(formData)
+        }
         onClose()
-      }, 500)
+      }
     }
   }
 
@@ -346,6 +368,19 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
           </div>
         )}
       </div>
+
+      {/* Modal de Sucesso */}
+      {showSuccessModal && (
+        <div className="expedicao-success-overlay">
+          <div className="expedicao-success-modal">
+            <div className="expedicao-success-icon">✓</div>
+            <h3 className="expedicao-success-title">Cadastro realizado com sucesso!</h3>
+            <p className="expedicao-success-message">
+              Seus dados foram salvos. Em breve você receberá mais informações sobre a Expedição Roblox.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

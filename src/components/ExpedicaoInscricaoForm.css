@@ -404,3 +404,127 @@
   }
 }
 
+/* Modal de Sucesso */
+.expedicao-success-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem;
+}
+
+.expedicao-success-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  padding: 3rem 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.expedicao-success-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00aa00, #00dd00);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 170, 0, 0.3);
+  animation: checkPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s both;
+}
+
+@keyframes checkPop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.expedicao-success-title {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.expedicao-success-message {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .expedicao-success-modal {
+    padding: 3.5rem 2.5rem;
+  }
+
+  .expedicao-success-icon {
+    width: 100px;
+    height: 100px;
+    font-size: 4rem;
+  }
+
+  .expedicao-success-title {
+    font-size: 2rem;
+  }
+
+  .expedicao-success-message {
+    font-size: 1.25rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .expedicao-success-modal {
+    padding: 4rem 3rem;
+  }
+
+  .expedicao-success-icon {
+    width: 120px;
+    height: 120px;
+    font-size: 5rem;
+  }
+
+  .expedicao-success-title {
+    font-size: 2.25rem;
+  }
+
+  .expedicao-success-message {
+    font-size: 1.375rem;
+  }
+}

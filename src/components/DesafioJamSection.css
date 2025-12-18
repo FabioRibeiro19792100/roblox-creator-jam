@@ -11,7 +11,7 @@
   max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
-  padding: 4rem 1.5rem 0 1.5rem;
+  padding: 2rem 1.5rem 0 1.5rem;
 }
 
 .desafio-jam-header {
@@ -42,9 +42,6 @@
   line-height: 1.6;
   color: #333;
   margin: 0;
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
-  text-decoration-thickness: 1px;
 }
 
 .desafio-jam-content {
@@ -80,7 +77,7 @@
 /* Tablet */
 @media (min-width: 768px) {
   .desafio-jam-container {
-    padding: 5rem 2rem 0 2rem;
+    padding: 2.5rem 2rem 0 2rem;
   }
 
   .desafio-jam-title {
@@ -99,7 +96,6 @@
 
   .desafio-jam-intro p {
     font-size: 1.3rem;
-    text-underline-offset: 0.35em;
   }
 
   .desafio-jam-content {
@@ -121,7 +117,7 @@
 /* Desktop */
 @media (min-width: 1024px) {
   .desafio-jam-container {
-    padding: 6rem 2rem 0 2rem;
+    padding: 3rem 2rem 0 2rem;
   }
 
   .desafio-jam-title {
@@ -144,7 +140,6 @@
 
   .desafio-jam-intro p {
     font-size: 1.4rem;
-    text-underline-offset: 0.4em;
   }
 
   .desafio-jam-content {

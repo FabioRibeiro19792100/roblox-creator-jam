@@ -15,7 +15,7 @@ function ContactPopup({ isOpen, onClose }) {
   const handleMethodSelect = (method) => {
     setContactMethod(method)
     if (method === 'whatsapp') {
-      window.open('https://wa.me/5511998901551', '_blank')
+      window.open('https://wa.me/5511919522455', '_blank')
     }
   }
 

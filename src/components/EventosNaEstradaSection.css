@@ -92,15 +92,15 @@
 
 .eventos-na-estrada-card {
   background: rgb(60, 254, 207);
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  flex: 0 0 350px;
-  min-width: 350px;
-  max-width: 350px;
+  flex: 0 0 300px;
+  min-width: 300px;
+  max-width: 300px;
   box-sizing: border-box;
-  min-height: 500px;
+  min-height: auto;
 }
 
 .eventos-na-estrada-header {
@@ -114,18 +114,12 @@
   font-weight: 900;
   color: #000;
   margin: 0;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
 }
 
 .eventos-na-estrada-data {
   font-size: 1.125rem;
   color: #000;
   margin: 0;
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
 }
 
 .eventos-na-estrada-separator {
@@ -229,11 +223,11 @@
   }
 
   .eventos-na-estrada-card {
-    padding: 2.5rem 2rem;
-    flex: 0 0 400px;
-    min-width: 400px;
-    max-width: 400px;
-    min-height: 550px;
+    padding: 2rem;
+    flex: 0 0 320px;
+    min-width: 320px;
+    max-width: 320px;
+    min-height: auto;
   }
 
   .eventos-na-estrada-sessoes {
@@ -302,11 +296,11 @@
   }
 
   .eventos-na-estrada-card {
-    padding: 3rem 2.5rem;
-    flex: 0 0 400px;
-    min-width: 400px;
-    max-width: 400px;
-    min-height: 600px;
+    padding: 2.5rem;
+    flex: 0 0 350px;
+    min-width: 350px;
+    max-width: 350px;
+    min-height: auto;
   }
 
   .eventos-na-estrada-sessoes {

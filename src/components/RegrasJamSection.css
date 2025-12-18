@@ -76,9 +76,6 @@
   line-height: 1.6;
   color: #ccc;
   margin: 0 0 0.5rem 0;
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
-  text-decoration-thickness: 1px;
 }
 
 .regra-descricao:last-of-type {

@@ -179,11 +179,12 @@ function FooterSection() {
             {config?.footer?.final?.text || 'Expedição Roblox é um projeto da Mastertech junto com o Roblox'}
           </p>
           <div className="footer-final-social">
-            {config?.footer?.final?.social?.map((social, index) => (
-              <a key={index} href={social.url || '#'} className="footer-social-link" aria-label={social.name} target="_blank" rel="noreferrer noopener">
-                {social.name}
-              </a>
-            ))}
+            <a href="https://www.instagram.com/mastertech.tech/" className="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+            <a href="https://wa.me/5511919522455" className="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>

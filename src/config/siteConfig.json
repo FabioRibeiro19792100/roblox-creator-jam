@@ -475,8 +475,8 @@
   "convideAmigos": {
     "title": "Convide seus amigos(as)",
     "description": [
-      "A cada 3 amigos(as) indicados que se inscrevam em alguma ação da expedição,",
-      "você ganha acesso a eventos exclusivos como mentoria com especialistas sobre criação no Roblox."
+      "Compartilhe a Expedição Roblox com seus amigos(as) e convide-os",
+      "para participar das ações e trilhas de aprendizado."
     ],
     "form": {
       "emailLabel": "Email do amigo(a)",
@@ -673,7 +673,7 @@
       "title": "Fale com a Mastertech",
       "whatsapp": {
         "label": "Contato por WhatsApp",
-        "number": "+5511998901551"
+        "number": "+5511919522455"
       },
       "form": {
         "fields": {
@@ -1043,11 +1043,8 @@
       "trustedConnectionIntro": "Um vínculo seguro entre duas contas que informa ao Roblox que essas pessoas se conhecem na vida real e podem conversar e interagir mesmo estando em faixas etárias que normalmente não conversam."
     },
     "escolhaTema": {
-      "title": "Qual vai ser\no tema da Jam?",
-      "intro": [
-        "Cada participante escolhe um tema no momento da inscrição.",
-        "O tema escolhido não pode ser alterado depois da formação da equipe."
-      ],
+      "title": "Quais serão os possíveis temas das experiências?",
+      "intro": [],
       "temas": [
         {
           "tema": "Empatia",
@@ -1143,13 +1140,7 @@
             "Termos de Uso do Roblox",
             "Padrões da Comunidade",
             "regras de participação da Jam"
-          ],
-          "descricaoFinal": "Os canais oficiais da Jam são moderados, com DMs desativadas."
-        },
-        {
-          "numero": 6,
-          "titulo": "Ambiente seguro",
-          "descricao": "Toda a comunicação oficial ocorre no Discord da Jam, no canal da sua equipe e nos canais públicos. Logs ficam ativos para manter tudo seguro."
+          ]
         }
       ]
     },

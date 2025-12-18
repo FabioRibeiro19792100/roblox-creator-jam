@@ -97,9 +97,6 @@
   line-height: 1.6;
   color: #333;
   margin: 0;
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
-  text-decoration-thickness: 1px;
 }
 
 
@@ -135,7 +132,6 @@
 
   .hero-description p {
     font-size: 1.3rem;
-    text-underline-offset: 0.35em;
   }
 
 }
@@ -176,7 +172,6 @@
 
   .hero-description p {
     font-size: 1.4rem;
-    text-underline-offset: 0.4em;
   }
 
 }
