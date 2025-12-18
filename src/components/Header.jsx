@@ -1,9 +1,8 @@
 import { useState, useContext, useEffect, useRef, useMemo } from 'react'
-import { NavigationContext, InscricaoModalContext, resolvePageFromHash } from '../App'
+import { NavigationContext, InscricaoModalContext, resolvePageFromHash, ContactModalContext } from '../App'
 import { scrollToElementById } from '../utils/scrollHelpers'
 import { useSiteConfig } from '../config/useSiteConfig'
 import useMediaQuery from '../hooks/useMediaQuery'
-import { ContactModalContext } from '../context/ContactModalContext'
 import './Header.css'
 
 const HAMBURGER_COLOR = '#fff'

@@ -7,6 +7,7 @@
   --sweep-color: #39ff14;
   --sweep-duration: 0.4s;
   --sweep-easing: cubic-bezier(0.215, 0.610, 0.355, 1);
+  cursor: pointer;
 }
 
 .manifesto-section.manifesto-open {
@@ -17,6 +18,7 @@
 .manifesto-section:hover,
 .manifesto-section.manifesto-open {
   background: #d32f2f;
+  cursor: pointer;
 }
 
 
@@ -98,6 +100,7 @@
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
   padding: 0;
+  cursor: default; /* Volta ao cursor padrão no conteúdo */
 }
 
 .manifesto-open .manifesto-content {

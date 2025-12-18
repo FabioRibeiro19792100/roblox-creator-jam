@@ -1,40 +1,32 @@
-import { useContext } from 'react'
-import { ContactModalContext } from '../App'
 import { useSiteConfig } from '../config/useSiteConfig'
-import './ExpedicaoNaEstradaHeroSection.css'
+import './ExpedicaoNaEstradaContentSection.css'
 
 function ExpedicaoNaEstradaHeroSection() {
   const config = useSiteConfig()
-  const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
-  
   const expedicaoNaEstrada = config?.expedicaoNaEstrada || {}
-  const hero = expedicaoNaEstrada?.hero || {}
-  
-  const imageUrl = hero?.image || `/images/5.webp`
+  const content = expedicaoNaEstrada?.content || {}
 
   return (
-    <section id="expedicao-na-estrada-hero" className="expedicao-na-estrada-hero-section" style={{ backgroundImage: `url(${imageUrl})` }}>
-      <div className="expedicao-na-estrada-hero-container">
-        <div className="expedicao-na-estrada-hero-content">
-          <div className="expedicao-na-estrada-hero-title">
-            <h1 className="expedicao-na-estrada-title-line-1">{hero?.title?.line1 || 'Expedição'}</h1>
-            <h1 className="expedicao-na-estrada-title-line-2">{hero?.title?.line2 || 'Roblox'}</h1>
-            <h2 className="expedicao-na-estrada-title-line-3">{hero?.title?.line3 || 'na Estrada'}</h2>
-          </div>
-
-          <div className="expedicao-na-estrada-hero-description">
-            <p>
-              {hero?.description || 'Nesses encontros vamos reunir pais, responsáveis e jovens criativos para construir ambientes que ampliem a noção de segurança digital e que sejam divertidos e significativos como experiência de aprendizado.'}
-            </p>
-          </div>
-
-          <div className="expedicao-na-estrada-hero-cta">
-            <button 
-              className="expedicao-na-estrada-cta-button"
-              onClick={openContactModal}
-            >
-              {hero?.ctaText || 'Quero saber mais'}
-            </button>
+    <section id="expedicao-na-estrada-content" className="expedicao-na-estrada-content-section expedicao-na-estrada-hero-only">
+      <div className="expedicao-na-estrada-content-container">
+        {/* Top Section: Title and Description */}
+        <div className="expedicao-na-estrada-content-header">
+          <div className="expedicao-na-estrada-content-title-section">
+            <div className="expedicao-na-estrada-content-col-1">
+              <div className="expedicao-na-estrada-content-title-wrapper">
+                <h1 className="expedicao-na-estrada-content-title-line-1">{content?.title?.line1 || expedicaoNaEstrada?.hero?.title?.line1 || 'Expedição'}</h1>
+                <h1 className="expedicao-na-estrada-content-title-line-2">{content?.title?.line2 || expedicaoNaEstrada?.hero?.title?.line2 || 'Roblox'}</h1>
+                <h2 className="expedicao-na-estrada-content-title-line-3">{content?.title?.line3 || expedicaoNaEstrada?.hero?.title?.line3 || 'na Estrada'}</h2>
+              </div>
+              <div className="expedicao-na-estrada-content-intro">
+                <p className="expedicao-na-estrada-content-description">
+                  {content?.description || 'Nas capitais, o projeto abre sua programação com encontros que combinam criação no Roblox, participação das famílias e introdução aos quatro formatos que compõem a experiência.'}
+                </p>
+              </div>
+            </div>
+            <div className="expedicao-na-estrada-content-image">
+              <img src="/images/1.webp" alt="Expedição Roblox na Estrada" />
+            </div>
           </div>
         </div>
       </div>
@@ -43,4 +35,3 @@ function ExpedicaoNaEstradaHeroSection() {
 }
 
 export default ExpedicaoNaEstradaHeroSection
-

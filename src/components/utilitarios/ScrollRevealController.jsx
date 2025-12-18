@@ -124,6 +124,7 @@ const ScrollRevealController = () => {
             el.closest('.coordinate-grid-overlay') || 
             el.closest('.bounding-box-kit') ||
             el.closest('.animator-demo') ||
+            el.closest('.home-hero-description') || // IGNORAR HERO DESCRIPTION
             el.classList.contains('scroll-reveal-word')) return;
         
         if (window.getComputedStyle(el).display === 'none') return;

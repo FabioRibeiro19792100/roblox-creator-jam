@@ -16,13 +16,17 @@ function ManifestoSection() {
       className={`manifesto-section sweep-fill ${isOpen ? 'manifesto-open sweep-fill-active' : ''}`}
       role="region"
       aria-labelledby="manifesto-title"
+      onClick={toggleAccordion}
     >
       <div className="manifesto-container">
         <div className={`manifesto-accordion-item ${isOpen ? 'manifesto-open' : ''}`}>
           <h2 id="manifesto-title" className="manifesto-heading">
             <button
               className="manifesto-header plus-indicator-trigger"
-              onClick={toggleAccordion}
+              onClick={(e) => {
+                e.stopPropagation()
+                toggleAccordion()
+              }}
               aria-expanded={isOpen}
               aria-controls="manifesto-content"
             >
@@ -34,7 +38,11 @@ function ManifestoSection() {
             </button>
           </h2>
           {isOpen && (
-            <div className="manifesto-content" id="manifesto-content">
+            <div 
+              className="manifesto-content" 
+              id="manifesto-content"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="manifesto-body">
                 <div className="manifesto-column">
                   {config?.manifesto?.content?.[0]?.paragraphs?.map((para, index) => (

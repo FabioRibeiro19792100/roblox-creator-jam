@@ -16,7 +16,7 @@ function OQueERobloxStudioSection() {
   }
 
   return (
-    <section id="o-que-e-roblox-studio" className="o-que-roblox-studio-section">
+      <section id="o-que-e-roblox-studio" className="o-que-roblox-studio-section">
       {/* Background Layer */}
       <div 
         className="o-que-roblox-studio-background" 
@@ -53,13 +53,13 @@ function OQueERobloxStudioSection() {
             {config?.robloxStudio?.title || 'O que é o Roblox Studios'}
           </h2>
           
-          <div className="o-que-roblox-studio-text">
-            {config?.robloxStudio?.description?.map((text, index) => (
-              <p key={index} className="o-que-roblox-studio-paragraph">
-                {text}
-              </p>
-            ))}
-          </div>
+            <div className="o-que-roblox-studio-text">
+              {config?.robloxStudio?.description?.map((text, index) => (
+                <p key={index} className="o-que-roblox-studio-paragraph">
+                  {text}
+                </p>
+              ))}
+            </div>
         </div>
       </div>
 
@@ -67,12 +67,12 @@ function OQueERobloxStudioSection() {
       <div 
         className={`o-que-roblox-studio-play-centered ${isPlaying ? 'content-hidden' : ''}`} 
         onClick={handlePlay}
-      >
-        <div className="play-button">
-          <span className="play-icon">▶</span>
+              >
+                <div className="play-button">
+                  <span className="play-icon">▶</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   )
 }
 

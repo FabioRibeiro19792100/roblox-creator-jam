@@ -1,26 +1,44 @@
 .home-hero-section {
-  /* Fallback inicial: desconta header e eventos */
-  min-height: calc(100vh - var(--header-height, 60px) - var(--events-height, 48px));
+  /* Garante altura total do viewport */
+  height: 100vh;
+  height: 100dvh;
+  min-height: 600px;
   position: relative;
   z-index: var(--layer-hero, 0);
   width: 100%;
   background: #000;
-  overflow: visible;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-bottom: 0;
 }
 
-.home-hero-inner {
-  width: 100%;
+.home-hero-container {
   max-width: var(--container-max-width, 1200px);
+  width: 100%;
+  margin: 0 auto;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 1.5rem; /* Padding adicionado */
-  box-sizing: border-box; /* Garante que o padding não aumente o width total */
+  padding: 0; /* Container central não deve ter padding se o inner já tiver ou se a section tiver */
+}
+
+.home-hero-inner {
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Removemos o padding fixo daqui pois ele já é injetado via style inline na section/inner pelo JS */
+  /* padding: 4rem 1.5rem;  <-- REMOVIDO */
+  box-sizing: border-box;
 }
 
 .home-hero-content {
@@ -121,56 +139,72 @@
 /* Tablet Landscape */
 @media (min-width: 768px) {
   .home-hero-inner {
-    padding: 0 2rem;
+    padding: 0; /* REMOVIDO padding lateral neste intervalo (768px - 1278px) conforme solicitado */
+  }
+
+  .home-hero-content {
+    gap: 1.5rem; 
+  }
+  
+  .home-hero-logo {
+    width: 150px; 
+  }
+  
+  .home-hero-title {
+    font-size: 3rem; 
+  }
+
+  .home-hero-description-paragraph {
+    font-size: 1.125rem;
+  }
+  
+  .home-hero-roblox-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Small Desktop / Laptop (Intervalo problemático identificado: 1024px - 1278px) */
+@media (min-width: 1024px) {
+  .home-hero-inner {
+    padding: 0; /* Mantém zero padding até 1278px */
+  }
+
+  .home-hero-logo {
+    width: 170px; 
+  }
+
+  .home-hero-title {
+    font-size: 4rem; 
+    letter-spacing: -0.04em;
   }
 
   .home-hero-content {
     gap: 2rem;
   }
-  
-  .home-hero-logo {
-    width: 160px; 
-  }
-  
-  .home-hero-title {
-    font-size: 3.5rem; /* Igual ao manifesto no tablet */
-  }
 
-  .home-hero-description-paragraph {
-    font-size: 1.25rem;
-  }
-  
-  .home-hero-roblox-button {
-    padding: 1.25rem 2.5rem;
-    font-size: 1.125rem;
-  }
-
-  .home-hero-inner {
-    padding: 0 2rem;
+  .home-hero-description {
+    max-width: 440px; 
   }
 }
 
-/* Desktop */
-@media (min-width: 1024px) {
+/* Desktop Padrão (> 1278px) */
+@media (min-width: 1279px) {
   .home-hero-inner {
-    padding: 0 2rem;
+    padding: 0 2rem; /* Restaura padding padrão acima do intervalo problemático */
   }
 
   .home-hero-logo {
     width: 180px; 
   }
-
+  
   .home-hero-title {
-    font-size: 4.5rem; /* Igual ao manifesto no desktop */
+    font-size: 4.5rem;
     letter-spacing: -0.05em;
   }
 
   .home-hero-content {
     gap: 2.5rem;
-  }
-
-  .home-hero-description {
-    max-width: 460px; 
   }
 }
 
@@ -194,29 +228,47 @@
   }
 }
 
-/* Telas com pouca altura (Laptops pequenos e Landscape Mobile) */
-@media (max-height: 700px) {
+/* Telas com pouca altura (Laptops pequenos, Landscape Mobile, Tablets) */
+@media (max-height: 820px) {
   .home-hero-content {
     gap: 1rem !important;
   }
   
   .home-hero-logo {
-    width: 120px !important; 
+    width: 130px !important; 
     margin-bottom: 0 !important;
   }
 
   .home-hero-title {
-    font-size: 3rem !important; /* Aumentado de 2.5rem */
+    font-size: 3rem !important; 
+    letter-spacing: -0.03em;
   }
 
   .home-hero-description-paragraph {
-    font-size: 1rem !important;
+    font-size: 1.125rem !important;
     line-height: 1.4 !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
   }
   
   .home-hero-roblox-button {
-    padding: 0.8rem 1.5rem !important;
+    padding: 1rem 2rem !important;
     font-size: 1rem !important;
+  }
+}
+
+/* Telas MUITO baixas (Mobile Landscape extremo) */
+@media (max-height: 600px) {
+  .home-hero-logo {
+    width: 100px !important;
+  }
+  .home-hero-title {
+    font-size: 2.25rem !important;
+  }
+  .home-hero-description-paragraph {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .home-hero-cta {
+    margin-top: 0.5rem !important;
   }
 }
