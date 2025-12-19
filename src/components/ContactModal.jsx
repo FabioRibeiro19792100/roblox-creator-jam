@@ -11,8 +11,10 @@ function ContactModal({ isOpen, onClose, tipoInscricao, eventoSelecionado, event
 
   const handleFormSuccess = (formData) => {
     // Formulário foi enviado com sucesso
-    setIsFormSubmitted(true)
-    setShowInvite(true)
+    // Fechar modal diretamente sem mostrar tela de "Obrigado"
+    if (onClose) {
+      onClose()
+    }
   }
 
   const handleInviteChange = (e) => {

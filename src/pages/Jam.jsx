@@ -13,8 +13,8 @@ function Jam() {
       <Header />
       <HeroSection />
       <ComoParticiparSection />
-      <EscolhaTemaSection />
       <RegrasJamSection />
+      <EscolhaTemaSection />
       <EntregaDesafioSection />
       <PremiacaoSection />
       <FooterSection />

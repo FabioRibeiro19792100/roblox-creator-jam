@@ -75,7 +75,7 @@
         "line2": "o novo jogar"
       },
       "description": [
-        "Ao longo de 2026, 10 mil jovens vão transformar sua paixão por jogar em criação, publicando seus próprios jogos no Roblox."
+        "Ao longo de 2026, 10 mil jovens de 13 a 18 anos vão transformar sua paixão por jogar em criação, publicando seus próprios jogos no Roblox."
       ]
     },
     "biblioteca": {
@@ -177,10 +177,6 @@
         {
           "label": "Premiação",
           "anchor": "#premiacao"
-        },
-        {
-          "label": "Datas e Canais",
-          "anchor": "#datas-canais"
         }
       ]
     }
@@ -1018,7 +1014,8 @@
   "jam": {
     "hero": {
       "title": "Roblox Creator Jam",
-      "subtitle": "Crie, compartilhe e ganhe prêmios"
+      "subtitle": "Crie, compartilhe e ganhe prêmios",
+      "cta": "Quero começar a criar"
     },
     "comoParticipar": {
       "title": "Como Participar",

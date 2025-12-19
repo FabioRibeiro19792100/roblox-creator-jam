@@ -14,7 +14,7 @@ function InscricaoModal({ isOpen, onClose, tipoInscricao, eventoSelecionado, eve
       onClose={onClose}
       onSuccess={handleSuccess}
       title="Deixe o seu nome na lista"
-      description="Preencha o formulário para se inscrever no evento."
+      description={<>Preencha o formulário para receber<br />novas informações em primeira mão.</>}
       tipoInscricao={tipoInscricao}
       eventoSelecionado={eventoSelecionado}
       eventosDisponiveis={eventosDisponiveis}

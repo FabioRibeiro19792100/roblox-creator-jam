@@ -87,16 +87,17 @@
 .como-participar-badge {
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.25rem 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid #fff;
   border-radius: 2px;
   background: transparent;
   font-family: inherit;
   margin-left: auto;
   margin-right: 1rem;
+  opacity: 1;
 }
 
 .como-participar-arrow {

@@ -14,14 +14,13 @@ function EmailGatePopup({ onEmailSubmitted, onClose }) {
   }, [])
 
   const handleSuccess = (formData) => {
-    // Formulário enviado com sucesso
-    if (onEmailSubmitted) {
-      onEmailSubmitted(formData.email)
-    }
+    // Formulário enviado com sucesso - mas NÃO dar acesso ainda
+    // O modal de sucesso já foi mostrado, apenas fechar o popup
     setIsOpen(false)
     if (onClose) {
       onClose()
     }
+    // NÃO chamar onEmailSubmitted aqui - a biblioteca não deve abrir ainda
   }
 
   return (

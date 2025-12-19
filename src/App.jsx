@@ -134,11 +134,13 @@ function App() {
         <MaterialModalContext.Provider value={{ openMaterialModal }}>
         <InscricaoModalContext.Provider value={inscricaoModalValue}>
           {currentPage === 'jam' ? <Jam /> : currentPage === 'biblioteca' ? <Biblioteca /> : currentPage === 'expedicao-na-estrada' ? <ExpedicaoNaEstrada /> : <Home />}
-          <ContactModal 
-            isOpen={isContactModalOpen} 
-            onClose={closeContactModal}
-            tipoInscricao={currentPage === 'jam' ? 'jam' : currentPage === 'expedicao-na-estrada' ? 'estrada' : null}
-          />
+          {currentPage !== 'biblioteca' && (
+            <ContactModal 
+              isOpen={isContactModalOpen} 
+              onClose={closeContactModal}
+              tipoInscricao={currentPage === 'jam' ? 'jam' : currentPage === 'expedicao-na-estrada' ? 'estrada' : null}
+            />
+          )}
           <MaterialModal 
             isOpen={isMaterialModalOpen} 
             onClose={closeMaterialModal}

@@ -93,6 +93,48 @@ function Header() {
     setIsMoreOpen(false)
   }
 
+  // Função helper para renderizar itens do dropdown de trilhas
+  const renderTrilhasDropdownItems = () => (
+    <>
+      <li className={activeTrilha === 'aprendizado' ? 'nav-dropdown-item-active' : ''}>
+        <a href="#biblioteca" onClick={(e) => {
+          e.preventDefault()
+          handleNavClick('biblioteca', e)
+          setIsMissoesOpen(false)
+        }}>
+          {config?.ui?.header?.tracks?.learning || 'Aprendizado'}
+          {activeTrilha === 'aprendizado' && (
+            <span className="nav-dropdown-you-are-here">você está aqui</span>
+          )}
+        </a>
+      </li>
+      <li className={activeTrilha === 'pratica' ? 'nav-dropdown-item-active' : ''}>
+        <a href="#jam" onClick={(e) => {
+          e.preventDefault()
+          handleNavClick('jam', e)
+          setIsMissoesOpen(false)
+        }}>
+          {config?.ui?.header?.tracks?.practice || 'Prática'}
+          {activeTrilha === 'pratica' && (
+            <span className="nav-dropdown-you-are-here">você está aqui</span>
+          )}
+        </a>
+      </li>
+      <li className={activeTrilha === 'vivencia' ? 'nav-dropdown-item-active' : ''}>
+        <a href="#expedicao-na-estrada" onClick={(e) => {
+          e.preventDefault()
+          handleNavClick('expedicao-na-estrada', e)
+          setIsMissoesOpen(false)
+        }}>
+          {config?.ui?.header?.tracks?.experience || 'Vivência'}
+          {activeTrilha === 'vivencia' && (
+            <span className="nav-dropdown-you-are-here">você está aqui</span>
+          )}
+        </a>
+      </li>
+    </>
+  )
+
   const scrollToTop = (e) => {
     e.preventDefault()
     if (currentPage !== 'home') {
@@ -110,6 +152,17 @@ function Header() {
   const isHomePage = currentPage === 'home' || (!currentPage && window.location.hash !== '#jam' && window.location.hash !== '#biblioteca' && window.location.hash !== '#expedicao-na-estrada')
   const isBibliotecaPage = currentPage === 'biblioteca' || window.location.hash === '#biblioteca'
   const isExpedicaoNaEstradaPage = currentPage === 'expedicao-na-estrada' || window.location.hash === '#expedicao-na-estrada'
+  const isJamPage = currentPage === 'jam' || window.location.hash === '#jam'
+  
+  // Determina qual trilha está ativa
+  const getActiveTrilha = () => {
+    if (isBibliotecaPage) return 'aprendizado'
+    if (isJamPage) return 'pratica'
+    if (isExpedicaoNaEstradaPage) return 'vivencia'
+    return null
+  }
+  
+  const activeTrilha = getActiveTrilha()
   const { openContactModal } = useContext(ContactModalContext) || { openContactModal: () => {} }
   const { openInscricaoModal } = useContext(InscricaoModalContext) || { openInscricaoModal: () => {} }
   const hasHeaderAnimated =
@@ -227,33 +280,7 @@ function Header() {
                   <ul
                     className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
                   >
-                    <li>
-                      <a href="#biblioteca" onClick={(e) => {
-                        e.preventDefault()
-                        handleNavClick('biblioteca', e)
-                        setIsMissoesOpen(false)
-                      }}>
-                        {config?.ui?.header?.tracks?.learning || 'Aprendizado'}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#jam" onClick={(e) => {
-                        e.preventDefault()
-                        handleNavClick('jam', e)
-                        setIsMissoesOpen(false)
-                      }}>
-                        {config?.ui?.header?.tracks?.practice || 'Prática'}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#expedicao-na-estrada" onClick={(e) => {
-                        e.preventDefault()
-                        handleNavClick('expedicao-na-estrada', e)
-                        setIsMissoesOpen(false)
-                      }}>
-                        {config?.ui?.header?.tracks?.experience || 'Vivência'}
-                      </a>
-                    </li>
+                    {renderTrilhasDropdownItems()}
                   </ul>
                 </li>
               )

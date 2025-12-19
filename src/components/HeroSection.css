@@ -21,10 +21,18 @@
 }
 
 .hero-left {
-  padding: 2rem 1.5rem;
+  padding: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 100%;
+}
+
+.hero-content-wrapper {
+  max-width: var(--container-max-width, 1200px);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem var(--site-horizontal-padding, 1.5rem) 2rem;
 }
 
 .hero-right {
@@ -37,7 +45,7 @@
 .hero-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .hero-header {
@@ -97,42 +105,42 @@
   margin-top: 2rem;
 }
 
-.cta-button {
-  background: #000;
-  border: none;
+.hero-cta-button {
+  background: rgb(83, 0, 255);
   color: #fff;
+  border: none;
+  padding: 1rem 2rem;
   font-size: 1.5rem;
   font-weight: 700;
-  text-transform: none;
-  padding: 1rem 2rem;
-  padding-left: 20px;
   cursor: pointer;
-  display: inline-block;
-  transition: all 0.2s ease;
-  box-shadow: none;
-  text-align: left;
-  width: 100%;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: none;
+  font-family: inherit;
 }
 
-.cta-button:hover {
-  background: #333;
+.hero-cta-button:hover {
+  background: rgb(100, 20, 255);
   transform: translateY(-2px);
-  box-shadow: none;
+  box-shadow: 0 10px 30px rgba(83, 0, 255, 0.4);
 }
 
-.cta-button:active {
+.hero-cta-button:active {
   transform: translateY(0);
   box-shadow: none;
 }
 
 /* Description */
 .hero-description {
-  max-width: 388px;
-  margin-top: 1rem;
+  max-width: 538px; /* 489px * 1.10 = 537.9px */
+  margin-top: 0.5rem;
 }
 
 .hero-content {
-  max-width: 85%;
+  width: 100%;
+  max-width: 100%;
 }
 
 .hero-description p {
@@ -153,8 +161,8 @@
     order: -1;
   }
   
-  .hero-left {
-    padding: 2rem 1.5rem;
+  .hero-content-wrapper {
+    padding: 2.5rem var(--site-horizontal-padding, 2rem) 2rem;
   }
 }
 
@@ -165,7 +173,7 @@
   }
 
   .hero-left {
-    padding: 2rem 2rem;
+    padding: 2rem var(--site-horizontal-padding, 2rem);
   }
 
   .hero-right {
@@ -173,7 +181,7 @@
   }
 
   .hero-content {
-    gap: 2.5rem;
+    gap: 1.25rem;
   }
 
   .hero-logo {
@@ -188,11 +196,9 @@
     font-size: 3.5rem;
   }
 
-  .cta-button {
-    font-size: 1.75rem;
-    padding: 1.25rem 2.5rem;
-    padding-left: 20px;
-    width: auto;
+  .hero-cta-button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
   }
 
   .hero-description p {
@@ -207,12 +213,12 @@
     padding: 80px 0 0;
   }
 
-  .hero-left {
-    padding: 2rem 2rem;
+  .hero-content-wrapper {
+    padding: 3rem var(--site-horizontal-padding, 2rem) 2rem;
   }
 
   .hero-content {
-    gap: 3rem;
+    gap: 1.5rem;
   }
 
   .hero-logo {
@@ -227,15 +233,13 @@
     font-size: 4.5rem;
   }
 
-  .cta-button {
-    font-size: 2rem;
-    padding: 1.5rem 3rem;
-    padding-left: 20px;
-    width: auto;
+  .hero-cta-button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
   }
 
   .hero-description {
-    max-width: 452px;
+    max-width: 626px; /* 569px * 1.10 = 625.9px */
   }
 
   .hero-description p {
@@ -264,17 +268,15 @@
     font-size: 5.5rem;
   }
 
-  .cta-button {
-    font-size: 2.25rem;
-    padding: 1.75rem 3.5rem;
-    padding-left: 20px;
-    width: auto;
+  .hero-cta-button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
   }
 }
 
 /* Touch optimizations */
 @media (hover: none) and (pointer: coarse) {
-  .cta-button {
+  .hero-cta-button {
     min-height: 48px;
   }
 }

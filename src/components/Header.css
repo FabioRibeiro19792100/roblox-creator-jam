@@ -160,13 +160,15 @@
 }
 
 .nav-dropdown li a {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 0.75rem 1.5rem;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.14rem;
   transition: background 0.2s ease;
+  gap: 0.25rem;
 }
 
 .nav-dropdown li a:hover {
@@ -176,6 +178,18 @@
 
 .nav-dropdown li a::after {
   display: none;
+}
+
+.nav-dropdown-item-active a {
+  background: rgba(83, 0, 255, 0.2);
+}
+
+.nav-dropdown-you-are-here {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  margin-top: 0.125rem;
 }
 
 .header-cta-wrapper {

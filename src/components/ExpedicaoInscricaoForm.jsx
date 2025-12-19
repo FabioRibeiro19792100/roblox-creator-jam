@@ -130,18 +130,8 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
           eventoId: eventoSelecionado ? (eventoSelecionado.id || eventoSelecionado) : ''
         })
 
-        // Se tem callback onSuccess, não mostrar modal de sucesso (deixa o componente pai gerenciar)
-        if (onSuccess) {
-          onSuccess(formData)
-          onClose()
-        } else {
-          // Mostrar modal de sucesso apenas se não houver callback
-          setShowSuccessModal(true)
-          setTimeout(() => {
-            setShowSuccessModal(false)
-            onClose()
-          }, 3000)
-        }
+        // Mostrar modal de sucesso (não chamar onSuccess ainda, aguardar usuário fechar o modal)
+        setShowSuccessModal(true)
       } catch (error) {
         console.error('Erro ao enviar inscrição:', error)
         setIsSubmitting(false)
@@ -326,12 +316,25 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
 
       {/* Modal de Sucesso */}
       {showSuccessModal && (
-        <div className="expedicao-success-overlay">
-          <div className="expedicao-success-modal">
+        <div className="expedicao-success-overlay" onClick={() => {
+          setShowSuccessModal(false)
+          onClose()
+        }}>
+          <div className="expedicao-success-modal" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="expedicao-success-close"
+              onClick={() => {
+                setShowSuccessModal(false)
+                onClose()
+              }}
+              aria-label="Fechar"
+            >
+              ×
+            </button>
             <div className="expedicao-success-icon">✓</div>
             <h3 className="expedicao-success-title">Cadastro realizado com sucesso!</h3>
             <p className="expedicao-success-message">
-              Seus dados foram salvos. Em breve você receberá mais informações sobre a Expedição Roblox.
+              Consulte seu email e fique por dentro dos próximos passos.
             </p>
           </div>
         </div>

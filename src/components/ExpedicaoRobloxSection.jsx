@@ -115,7 +115,13 @@ function ExpedicaoRobloxSection() {
                     {trilha01?.description || 'Year-over-year pupils expand, apply and deepen their knowledge of STEAM concepts.\n\nThey build increasing sophistication, independence and fluency in approaching problems hands-on, and cultivate effective habits of systematic creativity, critical thinking, collaboration and communication.'}
                   </p>
                   <div className="expedicao-accordion-cta">
-                    <button className="expedicao-accordion-button" onClick={openContactModal}>
+                    <button 
+                      className="expedicao-accordion-button" 
+                      onClick={() => {
+                        navigateTo('biblioteca')
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+                      }}
+                    >
                       {trilha01?.cta || 'Quero começar a criar'}
                     </button>
                   </div>

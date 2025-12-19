@@ -1,16 +1,23 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import BubbleButton from './utilitarios/BubbleButton'
+import { NavigationContext } from '../App'
 import { useSiteConfig } from '../config/useSiteConfig'
 import './TrilhasSection.css'
 
 function TrilhasSection() {
   const config = useSiteConfig()
+  const { navigateTo } = useContext(NavigationContext) || { navigateTo: () => {} }
   const [isOpen, setIsOpen] = useState(false)
   
   const trilha01 = config?.expedicaoRoblox?.trilhas?.find(t => t.id === 'trilha-01') || {}
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen)
+  }
+
+  const handleQueroComecar = () => {
+    navigateTo('biblioteca')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -35,6 +42,7 @@ function TrilhasSection() {
                 <BubbleButton 
                   color="#000" 
                   style={{ '--button-action-color': '#14ffec', '--button-text-color': '#fff' }}
+                  onClick={handleQueroComecar}
                 >
                   {trilha01.cta || 'Quero começar a criar'}
                 </BubbleButton>

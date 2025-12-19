@@ -1,14 +1,14 @@
 .regras-jam-section {
-  background: #5300ff !important;
+  background: #d9f124 !important;
   padding: 0;
   position: relative;
   width: 100%;
   transition: background 0.3s ease;
-  --sweep-color: #7a3fff;
+  --sweep-color: #b8d91a;
   --sweep-duration: 0.4s;
   --sweep-easing: cubic-bezier(0.215, 0.610, 0.355, 1);
   cursor: pointer;
-  color: #fff;
+  color: #000;
   opacity: 1;
 }
 
@@ -19,7 +19,7 @@
 
 .regras-jam-section:hover,
 .regras-jam-section.regras-open {
-  background: #6a1fff;
+  background: #c4e01f;
   cursor: pointer;
 }
 
@@ -70,7 +70,7 @@
 .regras-jam-heading .regras-jam-title-text {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #fff;
+  color: #000;
   line-height: 1.1;
   letter-spacing: -1px;
   margin: 0;
@@ -81,31 +81,32 @@
 .regras-jam-section:hover .regras-jam-heading .regras-jam-title-text,
 .regras-jam-section.regras-open .regras-jam-heading .regras-jam-title-text,
 .regras-jam-header:focus-visible .regras-jam-title-text {
-  color: #fff;
+  color: #000;
 }
 
 .regras-jam-badge {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #fff;
+  color: #000;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.25rem 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid #000;
   border-radius: 2px;
   background: transparent;
   font-family: inherit;
   margin-left: auto;
   margin-right: 1rem;
+  opacity: 1;
 }
 
 .regras-jam-arrow {
   flex-shrink: 0;
   --plus-size: 2.5rem;
   --plus-stroke: 3px;
-  --plus-color: rgba(255, 255, 255, 0.8);
-  --plus-hover-color: #fff;
-  --plus-open-color: #fff;
+  --plus-color: rgba(0, 0, 0, 0.8);
+  --plus-hover-color: #000;
+  --plus-open-color: #000;
   --plus-hover-rotate: 90deg;
   --plus-open-rotate: 0deg;
   --plus-hover-scale: 1.1;
