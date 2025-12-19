@@ -13,6 +13,8 @@ function HomeHeroSection() {
 
   // Estados para dimensões dinâmicas
   const [paddingTop, setPaddingTop] = useState('108px') // Fallback inicial
+  const [logoScale, setLogoScale] = useState(1) // Escala do logo (1 = 100%, 0.5 = 50%)
+  const [contentTranslateY, setContentTranslateY] = useState(0) // Translação do conteúdo para cima
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -66,6 +68,42 @@ function HomeHeroSection() {
     }
   }, [])
 
+  // Efeito para animação de scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const hero = document.getElementById('home-hero')
+      if (!hero) return
+
+      const rect = hero.getBoundingClientRect()
+      const heroHeight = hero.offsetHeight || window.innerHeight
+      const windowHeight = window.innerHeight
+      
+      // Calcula o progresso do scroll dentro da seção hero
+      // Quando a seção está totalmente visível: rect.top = 0, scrollProgress = 0
+      // Quando a seção sai da tela: rect.top = -heroHeight, scrollProgress = 1
+      const scrollProgress = Math.max(0, Math.min(1, (-rect.top) / heroHeight))
+      
+      // Logo reduz de 100% até 50% (0.5)
+      // scrollProgress vai de 0 (topo) até 1 (fim da seção)
+      const newLogoScale = 1 - (scrollProgress * 0.5) // De 1.0 até 0.5
+      setLogoScale(Math.max(0.5, Math.min(1, newLogoScale)))
+      
+      // Conteúdo sobe progressivamente (até -80px no máximo para não subir demais)
+      const maxTranslateY = -80
+      const newTranslateY = scrollProgress * maxTranslateY
+      setContentTranslateY(Math.max(maxTranslateY, Math.min(0, newTranslateY)))
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll, { passive: true })
+    handleScroll() // Executa inicialmente
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [])
+
   // Efeito de Scale-to-fit removido para evitar problemas de bounding box
   // A adaptação agora é feita puramente via CSS (media queries)
   
@@ -106,18 +144,26 @@ function HomeHeroSection() {
                 alt="Logo Expedição Roblox" 
                 className="home-hero-logo"
                 data-animate-id="hero-logo"
+                style={{ 
+                  transform: `scale(${logoScale})`,
+                  transformOrigin: 'top left',
+                  transition: 'transform 0.1s ease-out'
+                }}
               />
             </div>
-            <HeroTitle 
-              line1={config?.hero?.home?.title?.line1} 
-              line2={config?.hero?.home?.title?.line2} 
-            />
-            <div className="home-hero-description" data-animate-id="hero-description">
+            <div 
+              style={{
+                transform: `translateY(${contentTranslateY}px)`,
+                transition: 'transform 0.1s ease-out'
+              }}
+            >
+              <HeroTitle 
+                line1={config?.hero?.home?.title?.line1} 
+                line2={config?.hero?.home?.title?.line2} 
+              />
+              <div className="home-hero-description" data-animate-id="hero-description">
               <p className="home-hero-description-paragraph">
                 {config?.hero?.home?.description?.[0] || "Ao longo de 2026, 10 mil jovens vão sair do 'só jogar' pra publicar seus próprios mundos no Roblox."}
-              </p>
-              <p className="home-hero-description-paragraph">
-                {config?.hero?.home?.description?.[1] || 'Passo a passo, do primeiro clique no Studio até ver amigos jogando algo que você criou.'}
               </p>
               <div className="home-hero-cta">
                 <button 
@@ -126,6 +172,7 @@ function HomeHeroSection() {
                 >
                   Crie sua conta no Roblox
                 </button>
+              </div>
               </div>
             </div>
           </div>

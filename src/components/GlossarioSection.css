@@ -34,7 +34,7 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 2.1rem 1.5rem;
+  padding: 2.1rem 0; /* Sem padding lateral - footer-container já fornece o padding base igual ao expedicao-roblox-container */
 }
 
 .glossario-accordion-item {
@@ -48,7 +48,7 @@
   width: 100%;
   background: transparent;
   border: none;
-  padding: 0;
+  padding: 1.25rem 0; /* Sem padding lateral - alinhado com os verbetes */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,7 +69,7 @@
 }
 
 .glossario-accordion-title {
-  font-size: 1.75rem !important;
+  font-size: 2.5rem !important; /* Igual ao footer-links-title */
   font-weight: 900 !important;
   color: #000;
   line-height: 0.95;
@@ -126,7 +126,7 @@
 
 .glossario-accordion-open .glossario-accordion-content {
   max-height: 8000px;
-  padding: 2rem 0 0 0;
+  padding: 2rem 0 0 0; /* Revertido para o estado original */
   opacity: 1;
 }
 
@@ -177,11 +177,16 @@
 /* Tablet */
 @media (min-width: 768px) {
   .glossario-container {
-    padding: 2.6rem 2rem;
+    padding: 2.6rem 0; /* Sem padding lateral - footer-container já fornece o padding base igual ao expedicao-roblox-container */
+  }
+
+  .glossario-accordion-header {
+    padding: 1.5rem 0; /* Sem padding lateral - alinhado com os verbetes */
   }
 
   .glossario-accordion-title {
-    font-size: 2.45rem !important;
+    font-size: 3.5rem !important; /* Igual ao footer-links-title */
+    letter-spacing: -1px;
   }
 
   .glossario-accordion-subtitle {
@@ -193,7 +198,7 @@
   }
 
   .glossario-accordion-open .glossario-accordion-content {
-    padding: 2.5rem 0 0 0;
+    padding: 2.5rem 0 0 0; /* Revertido para o estado original */
   }
 
   .glossario-list {
@@ -219,11 +224,16 @@
 /* Desktop */
 @media (min-width: 1024px) {
   .glossario-container {
-    padding: 3.1rem 2rem;
+    padding: 3.1rem 0; /* Sem padding lateral - footer-container já fornece o padding base igual ao expedicao-roblox-container */
+  }
+
+  .glossario-accordion-header {
+    padding: 1.75rem 0; /* Sem padding lateral - alinhado com os verbetes */
   }
 
   .glossario-accordion-title {
-    font-size: 3.15rem !important;
+    font-size: 4.5rem !important; /* Igual ao footer-links-title */
+    letter-spacing: -1px;
   }
 
   .glossario-accordion-subtitle {
@@ -235,7 +245,7 @@
   }
 
   .glossario-accordion-open .glossario-accordion-content {
-    padding: 3rem 0 0 0;
+    padding: 3rem 0 0 0; /* Revertido para o estado original */
   }
 
   .glossario-list {

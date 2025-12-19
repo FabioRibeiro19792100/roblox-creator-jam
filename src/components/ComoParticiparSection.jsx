@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
+import '../components/utilitarios/AnimationBase.css'
 import './ComoParticiparSection.css'
 import './RegrasPareamentoSection.css'
 import './TrustedConnectionSection.css'
@@ -17,7 +18,12 @@ const splitByPeriod = (text) => {
 
 function ComoParticiparSection() {
   const config = useSiteConfig()
+  const [isOpen, setIsOpen] = useState(false)
   const [openStep, setOpenStep] = useState(null)
+
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen)
+  }
 
   const toggleStep = (stepNumber) => {
     setOpenStep(openStep === stepNumber ? null : stepNumber)
@@ -29,12 +35,39 @@ function ComoParticiparSection() {
   const trustedConnectionIntro = config.jam?.comoParticipar?.trustedConnectionIntro || ''
 
   return (
-    <section id="como-participar" className="como-participar-section">
+    <section 
+      id="como-participar" 
+      className={`como-participar-section sweep-fill ${isOpen ? 'como-participar-open sweep-fill-active' : ''}`}
+      role="region"
+      aria-labelledby="como-participar-title"
+      onClick={toggleAccordion}
+    >
       <div className="como-participar-container">
-        <h2 className="como-participar-title">
-          {config.jam?.comoParticipar?.title || 'Como Participar'}
-        </h2>
-        <div className="como-participar-content">
+        <div className={`como-participar-accordion-item ${isOpen ? 'como-participar-open' : ''}`}>
+          <h2 id="como-participar-title" className="como-participar-heading">
+            <button
+              className="como-participar-header plus-indicator-trigger"
+              onClick={(e) => {
+                e.stopPropagation()
+                toggleAccordion()
+              }}
+              aria-expanded={isOpen}
+              aria-controls="como-participar-content"
+            >
+              <span className="como-participar-title-text">{config.jam?.comoParticipar?.title || 'Como Participar'}</span>
+              <span className="como-participar-badge">em breve</span>
+              <span className={`como-participar-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
+              <span className="sr-only">
+                {isOpen ? 'Ocultar como participar' : 'Mostrar como participar'}
+              </span>
+            </button>
+          </h2>
+          {isOpen && (
+            <div 
+              className="como-participar-content" 
+              id="como-participar-content"
+              onClick={(e) => e.stopPropagation()}
+            >
           <div className="steps-accordion">
             {steps.map((step) => (
               <div
@@ -110,6 +143,8 @@ function ComoParticiparSection() {
               </div>
             ))}
           </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

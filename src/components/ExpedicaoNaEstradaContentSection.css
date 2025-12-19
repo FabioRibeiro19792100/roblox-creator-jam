@@ -54,6 +54,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 0;
 }
 
 .expedicao-na-estrada-content-image {
@@ -314,6 +315,7 @@
   .expedicao-na-estrada-content-title-line-2,
   .expedicao-na-estrada-content-title-line-3 {
     font-size: 3.5rem;
+    letter-spacing: -1px;
   }
 
   .expedicao-na-estrada-content-intro {
@@ -397,6 +399,7 @@
   .expedicao-na-estrada-content-title-line-2,
   .expedicao-na-estrada-content-title-line-3 {
     font-size: 4.5rem;
+    letter-spacing: -1px;
   }
 
   .expedicao-na-estrada-content-description {
@@ -441,6 +444,7 @@
 
   .expedicao-na-estrada-accordion-title-large {
     font-size: 4.5rem;
+    letter-spacing: -1px;
   }
 
   .expedicao-na-estrada-accordion-text {
@@ -471,6 +475,7 @@
   .expedicao-na-estrada-content-title-line-2,
   .expedicao-na-estrada-content-title-line-3 {
     font-size: 5.5rem;
+    letter-spacing: -1px;
   }
 
   .expedicao-na-estrada-content-description {

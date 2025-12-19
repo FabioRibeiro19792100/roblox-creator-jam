@@ -164,7 +164,7 @@
   background: #000;
   border: none;
   color: #fff;
-  font-size: 1.125rem;
+  font-size: 1.5rem; /* Padronizado com corpo de texto */
   font-weight: 700;
   text-transform: none;
   padding: 1rem 2rem;
@@ -200,6 +200,7 @@
   .manifesto-heading .manifesto-title-text {
     font-size: 3.5rem;
     font-weight: 900;
+    letter-spacing: -1px;
   }
 
   .manifesto-arrow {
@@ -244,7 +245,7 @@
   }
 
   .manifesto-button {
-    font-size: 1.3rem;
+    font-size: 1.3rem; /* Mesmo tamanho do corpo de texto neste breakpoint */
     padding: 1.25rem 2.5rem;
   }
   
@@ -266,6 +267,7 @@
   .manifesto-heading .manifesto-title-text {
     font-size: 4.5rem;
     font-weight: 900;
+    letter-spacing: -1px;
   }
 
   .manifesto-arrow {
@@ -310,7 +312,7 @@
   }
 
   .manifesto-button {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Mesmo tamanho do corpo de texto neste breakpoint */
     padding: 1.5rem 3rem;
   }
   
@@ -324,6 +326,7 @@
   .manifesto-heading .manifesto-title-text {
     font-size: 5.5rem;
     font-weight: 900;
+    letter-spacing: -1px;
   }
 
   .manifesto-arrow {

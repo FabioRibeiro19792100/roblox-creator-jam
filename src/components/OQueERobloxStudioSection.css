@@ -123,7 +123,7 @@
 }
 
 .o-que-roblox-studio-content {
-  max-width: 360px;
+  max-width: 432px; /* 360px * 1.2 = 432px (20% maior) */
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -144,26 +144,28 @@
 
 /* Typography */
 .o-que-roblox-studio-title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 900;
   color: #fff;
-  margin: 0;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  text-shadow: none;
+  margin: 0 0 2rem 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .o-que-roblox-studio-text {
-  margin-top: 0.5rem;
+  margin-top: 0; /* Espaçamento já definido no título (margin-bottom: 2rem) */
 }
 
 .o-que-roblox-studio-paragraph {
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 1.5rem;
+  line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
   margin: 0 0 1rem 0;
   text-shadow: none;
-  font-weight: 400;
 }
 
 .o-que-roblox-studio-paragraph:last-child {
@@ -237,10 +239,11 @@
 
   .o-que-roblox-studio-title {
     font-size: 2.5rem;
+    letter-spacing: -1px;
   }
 
   .o-que-roblox-studio-paragraph {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   
   .o-que-roblox-studio-content {
@@ -265,6 +268,26 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .o-que-roblox-studio-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: -1px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .o-que-roblox-studio-title {
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
+    letter-spacing: -1px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .o-que-roblox-studio-title {
+    font-size: 5.5rem;
+    letter-spacing: -1px;
+    margin-bottom: 3rem;
   }
 }

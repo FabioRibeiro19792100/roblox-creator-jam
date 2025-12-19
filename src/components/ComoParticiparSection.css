@@ -2,28 +2,126 @@
   background: #5300ff;
   padding: 0;
   position: relative;
+  width: 100%;
+  transition: background 0.3s ease;
+  --sweep-color: #7a3fff;
+  --sweep-duration: 0.4s;
+  --sweep-easing: cubic-bezier(0.215, 0.610, 0.355, 1);
+  cursor: pointer;
   color: #fff;
+}
+
+.como-participar-section.como-participar-open {
+  background: #ffffff;
+  overflow: visible;
+}
+
+.como-participar-section:hover,
+.como-participar-section.como-participar-open {
+  background: #6a1fff;
+  cursor: pointer;
 }
 
 .como-participar-container {
   max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
-  padding: 4rem 1.5rem 0 1.5rem;
+  padding: 2.1rem 1.5rem;
 }
 
-.como-participar-title {
+.como-participar-accordion-item {
   background: transparent;
-  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+  padding: 0;
+  overflow: visible;
+}
+
+.como-participar-heading {
+  margin: 0;
+}
+
+.como-participar-heading .como-participar-header {
+  width: 100%;
+}
+
+.como-participar-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s ease;
+  font-family: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+.como-participar-header:hover {
+  background: transparent;
+}
+
+.como-participar-heading .como-participar-title-text {
   font-size: 2.5rem;
   font-weight: 900;
-  text-transform: none;
-  padding: 0;
-  width: 100%;
-  margin: 0 0 2rem 0;
+  color: #fff;
+  line-height: 1.1;
   letter-spacing: -1px;
-  line-height: 0.95;
-  border: none;
+  margin: 0;
+  font-family: inherit;
+  transition: color 0.3s ease;
+}
+
+.como-participar-section:hover .como-participar-heading .como-participar-title-text,
+.como-participar-section.como-participar-open .como-participar-heading .como-participar-title-text,
+.como-participar-header:focus-visible .como-participar-title-text {
+  color: #fff;
+}
+
+.como-participar-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  background: transparent;
+  font-family: inherit;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.como-participar-arrow {
+  flex-shrink: 0;
+  --plus-size: 2.5rem;
+  --plus-stroke: 3px;
+  --plus-color: rgba(255, 255, 255, 0.8);
+  --plus-hover-color: #fff;
+  --plus-open-color: #fff;
+  --plus-hover-rotate: 90deg;
+  --plus-open-rotate: 45deg;
+  --plus-hover-scale: 1.1;
+}
+
+.como-participar-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+  cursor: default;
+}
+
+.como-participar-open .como-participar-content {
+  max-height: 5000px;
+  padding: 2rem 0 0 0;
+  background: transparent;
 }
 
 /* Steps Accordion */
@@ -63,6 +161,8 @@
   line-height: 1;
   min-width: 40px;
   flex-shrink: 0;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .step-title {
@@ -71,6 +171,8 @@
   font-weight: 600;
   color: #000;
   line-height: 1.4;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .step-arrow {
@@ -81,6 +183,8 @@
   line-height: 1;
   min-width: 24px;
   text-align: center;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .step-icon {
@@ -118,6 +222,8 @@
   text-decoration: underline;
   text-underline-offset: 0.3em;
   text-decoration-thickness: 1px;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .step-description-paragraph:last-of-type {
@@ -137,15 +243,21 @@
   font-weight: 700;
   color: #000;
   margin: 0 0 1rem 0;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .checagem-idade-wrapper .regras-table th {
   color: #333;
   border-bottom: 1px solid #999;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .checagem-idade-wrapper .regras-table td {
   color: #333;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .checagem-idade-wrapper .regras-table tbody tr {
@@ -154,6 +266,8 @@
 
 .checagem-idade-wrapper .regras-table .faixa-etaria {
   color: #333;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .conexao-confiavel-wrapper {
@@ -169,6 +283,8 @@
 
 .conexao-confiavel-wrapper .trusted-connection-intro .step-description-paragraph {
   font-size: 1.05rem;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .conexao-confiavel-wrapper .qa-grid {
@@ -201,6 +317,8 @@
   line-height: 1.3;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  filter: blur(6px);
+  user-select: none;
 }
 
 .conexao-confiavel-wrapper .qa-answer {
@@ -214,6 +332,8 @@
   color: #333;
   margin: 0;
   text-decoration: none;
+  filter: blur(6px);
+  user-select: none;
 }
 
 @media (min-width: 768px) {
@@ -236,15 +356,23 @@
     padding: 5rem 2rem 0 2rem;
   }
 
+  .como-participar-header {
+    margin-bottom: 2rem;
+  }
+
   .como-participar-title {
     padding: 0;
     font-size: 3.5rem;
-    margin: 0 0 2.5rem 0;
+    letter-spacing: -1px;
   }
 
-  .como-participar-content {
-    padding: 3rem 0;
+  .como-participar-badge {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.9rem;
   }
+
+.como-participar-content {
+  padding: 0 0 3rem 0;
 
   .step-header {
     padding: 1.5rem 2rem;
@@ -279,17 +407,34 @@
 /* Desktop */
 @media (min-width: 1024px) {
   .como-participar-container {
-    padding: 6rem 2rem 0 2rem;
+    padding: 3.1rem 2rem;
   }
 
-  .como-participar-title {
+  .como-participar-header {
     padding: 0;
+  }
+
+  .como-participar-heading .como-participar-title-text {
     font-size: 4.5rem;
-    margin: 0 0 3rem 0;
+    font-weight: 900;
+    letter-spacing: -1px;
+  }
+
+  .como-participar-arrow {
+    --plus-size: 4.5rem;
   }
 
   .como-participar-content {
-    padding: 4rem 0;
+    padding: 0;
+  }
+
+  .como-participar-open .como-participar-content {
+    padding: 3rem 0 0 0;
+  }
+
+  .como-participar-badge {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
   }
 
   .step-header {
@@ -342,8 +487,19 @@
 
 /* Large Desktop */
 @media (min-width: 1440px) {
-  .como-participar-title {
+  .como-participar-heading .como-participar-title-text {
     font-size: 5.5rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+  }
+
+  .como-participar-arrow {
+    --plus-size: 5.5rem;
+  }
+
+  .como-participar-badge {
+    font-size: 0.95rem;
+    padding: 0.45rem 1.1rem;
   }
 }
 

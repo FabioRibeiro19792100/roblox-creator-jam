@@ -97,20 +97,36 @@
   line-height: 1.6;
 }
 
-.expedicao-roblox-title {
+.expedicao-roblox-main-title {
   font-size: 2.5rem;
   font-weight: 900;
+  color: #000;
+  margin: 0 0 1rem 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.expedicao-roblox-title {
+  font-size: 1.75rem;
+  font-weight: 600;
   color: #000;
   margin: 0 0 2rem 0;
   line-height: 0.95;
   letter-spacing: -1px;
-  display: flex;
-  flex-direction: column;
+  text-transform: none;
+  display: block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .expedicao-title-line-1,
 .expedicao-title-line-2 {
-  display: block;
+  display: inline;
 }
 
 .expedicao-roblox-description {
@@ -126,7 +142,7 @@
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  padding: 0 0 2rem 0;
+  padding: 0 0 4rem 0; /* Dobrado de 2rem para 4rem */
   margin-top: 0;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
@@ -314,7 +330,7 @@
   background: #000;
   border: none;
   color: #fff;
-  font-size: 1.125rem;
+  font-size: 1.5rem; /* Padronizado com corpo de texto */
   font-weight: 700;
   text-transform: none;
   padding: 1rem 2rem;
@@ -342,7 +358,7 @@
   background: #000;
   border: none;
   color: #fff;
-  font-size: 1.125rem;
+  font-size: 1.5rem; /* Padronizado com corpo de texto */
   font-weight: 700;
   text-transform: none;
   padding: 1rem 2rem;
@@ -432,9 +448,15 @@
     font-size: 1.82rem;
   }
 
-  .expedicao-roblox-title {
+  .expedicao-roblox-main-title {
     font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .expedicao-roblox-title {
+    font-size: 2.45rem;
     margin-bottom: 2.5rem;
+    letter-spacing: -1px;
   }
 
   .expedicao-roblox-description {
@@ -443,7 +465,7 @@
   }
 
   .expedicao-features {
-    padding: 1rem 0 2rem 0;
+    padding: 1rem 0 4rem 0; /* Dobrado de 2rem para 4rem */
   }
 
   .expedicao-feature-box {
@@ -464,7 +486,7 @@
 
   .expedicao-accordion-button,
   .expedicao-accordion-link {
-    font-size: 1.3rem;
+    font-size: 1.3rem; /* Mesmo tamanho do corpo de texto neste breakpoint */
     padding: 1.25rem 2.5rem;
   }
 
@@ -492,9 +514,15 @@
     font-size: 1.96rem;
   }
 
-  .expedicao-roblox-title {
+  .expedicao-roblox-main-title {
     font-size: 4.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .expedicao-roblox-title {
+    font-size: 3.15rem;
     margin-bottom: 3rem;
+    letter-spacing: -1px;
   }
 
   .expedicao-roblox-description {
@@ -503,7 +531,7 @@
   }
 
   .expedicao-features {
-    padding: 1rem 0 2rem 0;
+    padding: 1rem 0 4rem 0; /* Dobrado de 2rem para 4rem */
   }
 
   .expedicao-feature-box {
@@ -524,7 +552,7 @@
 
   .expedicao-accordion-button,
   .expedicao-accordion-link {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Mesmo tamanho do corpo de texto neste breakpoint */
     padding: 1.5rem 3rem;
   }
 
@@ -582,8 +610,15 @@
     font-size: 2.1rem;
   }
 
-  .expedicao-roblox-title {
+  .expedicao-roblox-main-title {
     font-size: 5.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .expedicao-roblox-title {
+    font-size: 3.85rem;
+    margin-bottom: 3rem;
+    letter-spacing: -1px;
   }
 
   .expedicao-roblox-description {
@@ -596,7 +631,7 @@
 
   .expedicao-accordion-button,
   .expedicao-accordion-link {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Mesmo tamanho do corpo de texto neste breakpoint */
   }
 
   .expedicao-feature-text {

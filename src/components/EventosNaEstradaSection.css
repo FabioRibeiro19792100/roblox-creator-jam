@@ -216,6 +216,7 @@
 
   .eventos-na-estrada-title {
     font-size: 3.5rem;
+    letter-spacing: -1px;
   }
 
   .eventos-na-estrada-grid {
@@ -279,6 +280,7 @@
 
   .eventos-na-estrada-title {
     font-size: 4.5rem;
+    letter-spacing: -1px;
   }
 
   .eventos-na-estrada-controls {
@@ -340,6 +342,7 @@
 @media (min-width: 1440px) {
   .eventos-na-estrada-title {
     font-size: 5.5rem;
+    letter-spacing: -1px;
   }
 }
 

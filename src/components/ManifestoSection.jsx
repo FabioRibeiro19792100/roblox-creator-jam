@@ -10,6 +10,9 @@ function ManifestoSection() {
     setIsOpen(!isOpen)
   }
 
+  // Debug: verificar se o componente está renderizando
+  console.log('ManifestoSection renderizando', { config: config?.manifesto })
+
   return (
     <section 
       id="manifesto" 

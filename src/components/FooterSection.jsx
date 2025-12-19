@@ -108,7 +108,13 @@ function FooterSection() {
     }
   })) || []
 
-  const trilhas = config?.expedicaoRoblox?.trilhas || []
+  const trilhas = config?.footer?.centralExpedicao?.trilhas || []
+
+  // Debug: verificar se as trilhas estão sendo carregadas
+  useEffect(() => {
+    console.log('FooterSection - centralExpedicao:', config?.footer?.centralExpedicao)
+    console.log('FooterSection - trilhas:', trilhas)
+  }, [config, trilhas])
 
   // Helper for CTA buttons
   const openMaterialModal = (type) => {

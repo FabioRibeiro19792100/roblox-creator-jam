@@ -75,8 +75,7 @@
         "line2": "o novo jogar"
       },
       "description": [
-        "Ao longo de 2026, 10 mil jovens vão sair do 'só jogar' pra publicar seus próprios mundos no Roblox.",
-        "Passo a passo, do primeiro clique no Studio até ver amigos jogando algo que você criou."
+        "Ao longo de 2026, 10 mil jovens vão sair do 'só jogar' pra publicar seus próprios mundos no Roblox."
       ]
     },
     "biblioteca": {
@@ -103,9 +102,8 @@
           "anchor": "#expedicao-roblox"
         },
         {
-          "label": "Biblioteca",
-          "anchor": "#biblioteca",
-          "isLink": true
+          "label": "Manifesto",
+          "anchor": "#manifesto"
         },
         {
           "label": "Contato",
@@ -469,10 +467,39 @@
       }
     },
     "centralExpedicao": {
-      "title": "Contato",
+      "title": "Central da Expedição",
       "links": [
         {
           "text": "Converse com a Mastertech",
+          "action": "contact"
+        },
+        {
+          "text": "Perguntas frequentes",
+          "action": "faq"
+        }
+      ],
+      "separator": true,
+      "callsTitle": "Escolha uma das trilhas",
+      "trilhas": [
+        {
+          "id": "trilha-01",
+          "label": "APRENDIZADO",
+          "title": "Aprenda Roblox Studio do zero em nossas trilhas de conteúdos",
+          "description": "As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.",
+          "action": "contact"
+        },
+        {
+          "id": "trilha-02",
+          "label": "PRÁTICA",
+          "title": "Inscreva-se numa jam e crie experiências jogáveis de verdade;",
+          "description": "Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.",
+          "action": "jam"
+        },
+        {
+          "id": "trilha-03",
+          "label": "VIVÊNCIA",
+          "title": "Participe da imersão presencial em um evento na sua capital.",
+          "description": "Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.",
           "action": "contact"
         }
       ]

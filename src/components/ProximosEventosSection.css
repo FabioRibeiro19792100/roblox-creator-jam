@@ -129,7 +129,7 @@
 .proximos-eventos-calendar-title {
   font-size: 2rem;
   font-weight: 900;
-  color: #39ff14;
+  color: #fff;
   margin: 0 0 2rem 0;
   line-height: 0.95;
   letter-spacing: -1px;
@@ -145,7 +145,7 @@
   display: flex;
   gap: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(57, 255, 20, 0.35);
+  border-bottom: 1px solid rgba(83, 0, 255, 0.35);
 }
 
 .proximos-eventos-item:last-child {
@@ -156,7 +156,7 @@
 .proximos-eventos-date {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #39ff14;
+  color: #fff;
   min-width: 120px;
   flex-shrink: 0;
 }
@@ -168,7 +168,7 @@
 .proximos-eventos-event-title {
   font-size: 1.125rem;
   font-weight: 400;
-  color: #39ff14;
+  color: #fff;
   margin: 0 0 0.25rem 0;
   line-height: 1.4;
 }
@@ -176,7 +176,7 @@
 .proximos-eventos-location {
   font-size: 1rem;
   font-weight: 400;
-  color: #39ff14;
+  color: #fff;
   margin: 0;
 }
 

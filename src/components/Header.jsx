@@ -308,25 +308,6 @@ function Header() {
             </a>
           </li>
 
-          {config?.menu?.home?.cta && (
-            <li className="header-nav-cta-item">
-              <button
-                type="button"
-                className="header-cta-button"
-                onClick={(e) => {
-                  e.preventDefault()
-                  openInscricaoModal()
-                }}
-              >
-                <span className="header-cta-inner">
-                  <span className="header-cta-label" style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
-                     {config.menu.home.cta.line1 && <span style={{ fontSize: '0.8em', opacity: 0.9 }}>{config.menu.home.cta.line1}</span>}
-                     <span>{config.menu.home.cta.line2 || 'Desce pro play.'}</span>
-                  </span>
-                </span>
-              </button>
-            </li>
-          )}
         </>
       )
     }
@@ -578,6 +559,24 @@ function Header() {
         >
           <ul className="nav-list">{renderNavLinks()}</ul>
         </nav>
+
+        {isHomePage && config?.menu?.home?.cta && (
+          <div className="header-cta-wrapper">
+            <div className="header-cta-button">
+              <span className="header-cta-line-1">{config.menu.home.cta.line1 || 'Quer criar?'}</span>
+              <a 
+                href={config.menu.home.cta.anchor || '#expedicao-roblox'} 
+                className="header-cta-link"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection((config.menu.home.cta.anchor || '#expedicao-roblox').replace('#', ''))
+                }}
+              >
+                {config.menu.home.cta.line2 || 'Desce pro play.'}
+              </a>
+            </div>
+          </div>
+        )}
         
         <LanguageToggle />
 

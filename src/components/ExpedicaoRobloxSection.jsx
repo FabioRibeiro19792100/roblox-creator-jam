@@ -63,10 +63,10 @@ function ExpedicaoRobloxSection() {
   return (
     <section id="expedicao-roblox" className="expedicao-roblox-section">
       <div className="expedicao-roblox-container">
-        <h2 className="expedicao-roblox-title">
-          <span className="expedicao-title-line-1">{expedicaoData?.title?.line1 || 'Gratuito, online'}</span>
-          <span className="expedicao-title-line-2">{expedicaoData?.title?.line2 || 'e sem pré-requisitos.'}</span>
-        </h2>
+        <h2 className="expedicao-roblox-main-title">Quer criar com a gente?</h2>
+        <h3 className="expedicao-roblox-title">
+          <span className="expedicao-title-line-1">{expedicaoData?.title?.line1 || 'Gratuito, online'}</span> <span className="expedicao-title-line-2">{expedicaoData?.title?.line2 || 'e sem pré-requisitos.'}</span>
+        </h3>
 
         <p className="expedicao-roblox-subtitle">{expedicaoData?.subtitle || 'As trilhas da expedição'}</p>
         <div className="expedicao-features">

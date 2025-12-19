@@ -3,7 +3,7 @@ import './HeroSection.css'
 
 function HeroSection() {
   const config = useSiteConfig()
-  const imageUrl = `/images/6.webp?t=${new Date().getTime()}`
+  const imageUrl = `/images/robloxian-fall.png`
 
   return (
     <section id="hero" className="hero-section" style={{ backgroundImage: `url(${imageUrl})` }}>

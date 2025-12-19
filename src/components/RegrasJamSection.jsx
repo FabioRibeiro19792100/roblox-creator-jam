@@ -1,8 +1,15 @@
+import { useState } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
+import '../components/utilitarios/AnimationBase.css'
 import './RegrasJamSection.css'
 
 function RegrasJamSection() {
   const config = useSiteConfig()
+  const [isOpen, setIsOpen] = useState(false)
+  
+  const toggleAccordion = () => {
+    setIsOpen(!isOpen)
+  }
   
   // Função para quebrar texto em parágrafos separados por pontos
   const splitByPeriod = (text) => {
@@ -18,13 +25,39 @@ function RegrasJamSection() {
   const regras = config.jam?.regras?.regras || []
 
   return (
-    <section id="regras-jam" className="regras-jam-section">
+    <section 
+      id="regras-jam" 
+      className={`regras-jam-section sweep-fill ${isOpen ? 'regras-open sweep-fill-active' : ''}`}
+      role="region"
+      aria-labelledby="regras-title"
+      onClick={toggleAccordion}
+    >
       <div className="regras-jam-container">
-        <h2 className="regras-jam-title">
-          {config.jam?.regras?.title || 'Regras'}
-        </h2>
-        
-        <div className="regras-jam-content">
+        <div className={`regras-jam-accordion-item ${isOpen ? 'regras-open' : ''}`}>
+          <h2 id="regras-title" className="regras-jam-heading">
+            <button
+              className="regras-jam-header plus-indicator-trigger"
+              onClick={(e) => {
+                e.stopPropagation()
+                toggleAccordion()
+              }}
+              aria-expanded={isOpen}
+              aria-controls="regras-content"
+            >
+              <span className="regras-jam-title-text">{config.jam?.regras?.title || 'Regras'}</span>
+              <span className="regras-jam-badge">em breve</span>
+              <span className={`regras-jam-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
+              <span className="sr-only">
+                {isOpen ? 'Ocultar regras' : 'Mostrar regras'}
+              </span>
+            </button>
+          </h2>
+          {isOpen && (
+            <div 
+              className="regras-jam-content" 
+              id="regras-content"
+              onClick={(e) => e.stopPropagation()}
+            >
           {regras.map((regra) => (
             <div key={regra.numero} className="regra-item">
               <div className="regra-header">
@@ -82,6 +115,8 @@ function RegrasJamSection() {
               </div>
             </div>
           ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

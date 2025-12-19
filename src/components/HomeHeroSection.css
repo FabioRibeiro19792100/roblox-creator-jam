@@ -49,7 +49,7 @@
   /* Gap ajustado para melhor ritmo vertical */
   gap: 1.25rem; 
   width: 100%;
-  margin-top: 2rem; /* Adiciona um pequeno espaçamento inicial */
+  margin-top: 0.5rem; /* Reduzido para subir o conteúdo */
 }
 
 .home-hero-header {
@@ -61,7 +61,7 @@
 
 /* Logo ajustado para não brigar com o título */
 .home-hero-logo {
-  width: 140px; 
+  width: 81px; /* 140px * 0.8 * 0.85 * 0.85 = 80.92px (redução acumulada) */
   height: auto;
   object-fit: contain;
   display: block;
@@ -87,7 +87,7 @@
 .home-hero-description {
   width: 100%;
   max-width: 420px;
-  margin-top: 0; /* Remove a margem superior padrão para aproximar do título */
+  margin-top: 2rem; /* Padronizado com footer CTA */
 }
 
 .home-hero-description-paragraph {
@@ -104,7 +104,7 @@
 
 /* CTA Area */
 .home-hero-cta {
-  margin-top: 2rem; /* Aumenta a distância entre a descrição e o botão */
+  margin-top: 3.5rem; /* Espaçamento aumentado para mover o botão uma linha para baixo */
 }
 
 .home-hero-roblox-button {
@@ -112,7 +112,7 @@
   color: #fff;
   border: none;
   padding: 1rem 2rem;
-  font-size: 1rem;
+  font-size: 1.5rem; /* Padronizado com corpo de texto */
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -138,7 +138,7 @@
   }
   
   .home-hero-logo {
-    width: 150px; 
+    width: 87px; /* 150px * 0.8 * 0.85 * 0.85 = 86.7px (redução acumulada) */
   }
   
   /* .home-hero-title removido */
@@ -149,7 +149,7 @@
   
   .home-hero-roblox-button {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: 1.5rem; /* Padronizado com corpo de texto */
   }
 }
 
@@ -160,7 +160,7 @@
   }
 
   .home-hero-logo {
-    width: 170px; 
+    width: 99px; /* 170px * 0.8 * 0.85 * 0.85 = 98.26px (redução acumulada) */
   }
 
   /* .home-hero-title removido */
@@ -181,7 +181,7 @@
   }
 
   .home-hero-logo {
-    width: 180px; 
+    width: 104px; /* 180px * 0.8 * 0.85 * 0.85 = 104.04px (redução acumulada) */
   }
   
   /* .home-hero-title removido */
@@ -194,7 +194,7 @@
 /* Large Desktop */
 @media (min-width: 1440px) {
   .home-hero-logo {
-    width: 220px; 
+    width: 128px; /* 220px * 0.8 * 0.85 * 0.85 = 127.16px (redução acumulada) */
   }
 
   /* .home-hero-title removido */
@@ -216,7 +216,7 @@
   }
   
   .home-hero-logo {
-    width: 130px !important; 
+    width: 75px !important; /* 130px * 0.8 * 0.85 * 0.85 = 75.14px (redução acumulada) */
     margin-bottom: 0 !important;
   }
 
@@ -230,18 +230,18 @@
   
   .home-hero-roblox-button {
     padding: 1rem 2rem !important;
-    font-size: 1rem !important;
+    font-size: 1.5rem !important; /* Padronizado com corpo de texto */
   }
 }
 
 /* Telas MUITO baixas (Mobile Landscape extremo) */
 @media (max-height: 600px) {
   .home-hero-logo {
-    width: 100px !important;
+    width: 58px !important; /* 100px * 0.8 * 0.85 * 0.85 = 57.8px (redução acumulada) */
   }
   /* .home-hero-title removido */
   .home-hero-description-paragraph {
-    font-size: 1rem !important;
+    font-size: 1.5rem !important; /* Padronizado com corpo de texto */
     margin-bottom: 0.5rem !important;
   }
   .home-hero-cta {

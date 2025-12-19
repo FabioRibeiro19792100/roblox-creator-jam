@@ -101,6 +101,7 @@
   .entrega-desafio-title {
     font-size: 3.5rem;
     margin: 0 0 2.5rem 0;
+    letter-spacing: -1px;
   }
 
   .entrega-desafio-content {
@@ -174,6 +175,7 @@
   .entrega-desafio-title {
     font-size: 4.5rem;
     margin: 0 0 3rem 0;
+    letter-spacing: -1px;
   }
 
   .entrega-desafio-content {
@@ -242,6 +244,7 @@
 @media (min-width: 1440px) {
   .entrega-desafio-title {
     font-size: 5.5rem;
+    letter-spacing: -1px;
   }
 }
 

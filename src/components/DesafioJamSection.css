@@ -83,6 +83,7 @@
   .desafio-jam-title {
     font-size: 3.5rem;
     margin: 0 0 2.5rem 0;
+    letter-spacing: -1px;
   }
 
   .desafio-jam-header {
@@ -123,6 +124,7 @@
   .desafio-jam-title {
     font-size: 4.5rem;
     margin: 0 0 3rem 0;
+    letter-spacing: -1px;
   }
 
   .desafio-jam-header {
@@ -162,6 +164,7 @@
 @media (min-width: 1440px) {
   .desafio-jam-title {
     font-size: 5.5rem;
+    letter-spacing: -1px;
   }
 }
 
