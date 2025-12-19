@@ -15,7 +15,7 @@ const trilhasData = [
   {
     id: 'trilha-card-02',
     label: 'PRÁTICA',
-    title: 'Inscreva-se numa jam e crie experiências jogáveis de verdade;',
+    title: 'Inscreva-se numa jam e crie experiências jogáveis de verdade',
     description:
       'Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.'
   },

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
 import Header from '../components/Header'
 import BibliotecaHeroSection from '../components/BibliotecaHeroSection'
-import FooterSimplificado from '../components/FooterSimplificado'
+import FooterSection from '../components/FooterSection'
 import EmailGatePopup from '../components/EmailGatePopup'
 import './Biblioteca.css'
 
@@ -133,7 +133,9 @@ function Biblioteca() {
                 onClick={() => handlePublicoSelect(key)}
               >
                 <span className="biblioteca-badge-em-breve">EM BREVE</span>
-                <h3 className="biblioteca-selecao-card-title">{publico.label}</h3>
+                <div className="biblioteca-selecao-card-content">
+                  <h3 className="biblioteca-selecao-card-title">{publico.label}</h3>
+                </div>
               </div>
             ))}
           </div>
@@ -486,7 +488,7 @@ function Biblioteca() {
         </div>
       )}
       
-      <FooterSimplificado />
+      <FooterSection />
     </div>
   )
 }

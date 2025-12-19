@@ -3,7 +3,7 @@ import { enviarInscricaoParaSheets } from '../services/googleSheetsService'
 import './ExpedicaoInscricaoForm.css'
 
 function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description, tipoInscricao, eventoSelecionado, eventosDisponiveis }) {
-  const [step, setStep] = useState(1) // 1: Pergunta conta Roblox, 2: Formulário completo
+  const [step, setStep] = useState(2) // Sempre começar direto no formulário completo
   const [formData, setFormData] = useState({
     nome: '',
     email: '',
@@ -13,12 +13,11 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
   })
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [hasRobloxAccount, setHasRobloxAccount] = useState(false)
   const [showSuccessModal, setShowSuccessModal] = useState(false)
 
   useEffect(() => {
-    // Sempre começar no passo 1 (pergunta se tem conta)
-    setStep(1)
+    // Sempre começar direto no formulário completo
+    setStep(2)
 
     // Carregar dados salvos se existirem
     const savedEmail = localStorage.getItem('expedicao_email')
@@ -44,17 +43,6 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
     }
   }, [isOpen, eventoSelecionado])
 
-  const handleRobloxAccountCheck = (hasAccount) => {
-    if (hasAccount) {
-      localStorage.setItem('roblox_cadastrado', 'true')
-      setHasRobloxAccount(true)
-      setStep(2) // Ir para passo 2: formulário completo
-    } else {
-      // Abrir cadastro do Roblox em nova aba
-      window.open('https://www.roblox.com/signup', '_blank')
-      // Não avança, espera usuário criar conta e clicar novamente em "Sim, já tenho conta"
-    }
-  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -95,7 +83,7 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
     if (!formData.robloxAlias.trim()) {
       newErrors.robloxAlias = 'Campo obrigatório'
     } else if (!validateRobloxAlias(formData.robloxAlias)) {
-      newErrors.robloxAlias = 'Alias inválido. Use apenas letras, números e underscore (3-20 caracteres)'
+      newErrors.robloxAlias = 'Username inválido. Use apenas letras, números e underscore (3-20 caracteres)'
     }
 
     if (!formData.perfil) {
@@ -133,9 +121,6 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
 
         setIsSubmitting(false)
 
-        // Mostrar modal de sucesso
-        setShowSuccessModal(true)
-
         // Resetar formulário
         setFormData({
           nome: '',
@@ -145,14 +130,18 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
           eventoId: eventoSelecionado ? (eventoSelecionado.id || eventoSelecionado) : ''
         })
 
-        // Fechar modal de sucesso após 3 segundos
-        setTimeout(() => {
-          setShowSuccessModal(false)
-          if (onSuccess) {
-            onSuccess(formData)
-          }
+        // Se tem callback onSuccess, não mostrar modal de sucesso (deixa o componente pai gerenciar)
+        if (onSuccess) {
+          onSuccess(formData)
           onClose()
-        }, 3000)
+        } else {
+          // Mostrar modal de sucesso apenas se não houver callback
+          setShowSuccessModal(true)
+          setTimeout(() => {
+            setShowSuccessModal(false)
+            onClose()
+          }, 3000)
+        }
       } catch (error) {
         console.error('Erro ao enviar inscrição:', error)
         setIsSubmitting(false)
@@ -179,36 +168,7 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
           ×
         </button>
 
-        {step === 1 ? (
-          // PASSO 1: Pergunta se tem conta Roblox
-          <div className="expedicao-inscricao-step" key="step-1">
-            <h2 className="expedicao-inscricao-title">
-              Você tem conta no Roblox?
-            </h2>
-            <p className="expedicao-inscricao-description">
-              Para participar da Expedição Roblox, você precisa ter uma conta no Roblox.
-              <br />
-              <br />
-              Se ainda não tem, clique em "Criar conta" para abrir o cadastro em uma nova aba. Depois de criar, volte aqui e clique em "Sim, já tenho conta".
-            </p>
-
-            <div className="expedicao-inscricao-buttons">
-              <button
-                className="expedicao-inscricao-btn-primary"
-                onClick={() => handleRobloxAccountCheck(true)}
-              >
-                Sim, já tenho conta
-              </button>
-
-              <button
-                className="expedicao-inscricao-btn-secondary"
-                onClick={() => handleRobloxAccountCheck(false)}
-              >
-                Criar conta no Roblox
-              </button>
-            </div>
-          </div>
-        ) : (
+        {step === 2 && (
           // PASSO 2: Formulário completo de inscrição
           <div className="expedicao-inscricao-step" key="step-2">
             <h2 className="expedicao-inscricao-title">
@@ -257,7 +217,7 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
 
               <div className="expedicao-inscricao-field">
                 <label htmlFor="robloxAlias" className="expedicao-inscricao-label">
-                  Username do Roblox <span className="required">*</span>
+                  @ no Roblox <span className="required">*</span>
                 </label>
                 <input
                   type="text"
@@ -291,7 +251,7 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
                   <option value="">Selecione seu perfil</option>
                   <option value="tutor">Tutor(a) de jogador(a)</option>
                   <option value="jovem">Jovem e futuro creator</option>
-                  <option value="educador">Educador interessado</option>
+                  <option value="educador">Educador(a) interessado(a)</option>
                 </select>
                 {errors.perfil && <span className="expedicao-inscricao-error">{errors.perfil}</span>}
               </div>

@@ -4,7 +4,8 @@ import { scrollToElementById } from '../utils/scrollHelpers'
 import { useSiteConfig } from '../config/useSiteConfig'
 import useMediaQuery from '../hooks/useMediaQuery'
 import AnimatedLogo from './AnimatedLogo'
-import LanguageToggle from './utilitarios/LanguageToggle'
+// LanguageToggle removido
+// import LanguageToggle from './utilitarios/LanguageToggle'
 import './Header.css'
 
 const HAMBURGER_COLOR = '#fff'
@@ -150,9 +151,6 @@ function Header() {
     // Usando config da Main para gerar links dinamicamente
     if (isHomePage) {
       let items = config?.menu?.home?.items || []
-      
-      // Filtrar "Contato" da lista do JSON se ele já for renderizado hardcoded abaixo
-      items = items.filter(item => item.label !== 'Contato')
 
       let visibleItems = items
       let hiddenItems = []
@@ -180,6 +178,83 @@ function Header() {
                   }}>
                     {item.label}
                   </a>
+                </li>
+              )
+            }
+            // Se for "Próximos eventos", abre o popup
+            if (item.isEventos) {
+              return (
+                <li key={index}>
+                  <a href="#" onClick={(e) => {
+                    e.preventDefault()
+                    const eventosSection = document.querySelector('.proximos-eventos-section')
+                    if (eventosSection) {
+                      const toggleButton = eventosSection.querySelector('.proximos-eventos-header')
+                      if (toggleButton) {
+                        toggleButton.click()
+                      }
+                    }
+                    setIsMenuOpen(false)
+                  }}>
+                    {item.label}
+                  </a>
+                </li>
+              )
+            }
+            // Se for "Trilhas da expedição", abre dropdown
+            if (item.isTrilhas) {
+              return (
+                <li 
+                  key={index}
+                  className="nav-item-with-dropdown"
+                  onMouseEnter={() => setIsMissoesOpen(true)}
+                  onMouseLeave={(e) => {
+                    const relatedTarget = e.relatedTarget
+                    if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
+                      setIsMissoesOpen(false)
+                    }
+                  }}
+                >
+                  <a
+                    href="#trilhas"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setIsMissoesOpen(!isMissoesOpen)
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                  <ul
+                    className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
+                  >
+                    <li>
+                      <a href="#biblioteca" onClick={(e) => {
+                        e.preventDefault()
+                        handleNavClick('biblioteca', e)
+                        setIsMissoesOpen(false)
+                      }}>
+                        {config?.ui?.header?.tracks?.learning || 'Aprendizado'}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#jam" onClick={(e) => {
+                        e.preventDefault()
+                        handleNavClick('jam', e)
+                        setIsMissoesOpen(false)
+                      }}>
+                        {config?.ui?.header?.tracks?.practice || 'Prática'}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#expedicao-na-estrada" onClick={(e) => {
+                        e.preventDefault()
+                        handleNavClick('expedicao-na-estrada', e)
+                        setIsMissoesOpen(false)
+                      }}>
+                        {config?.ui?.header?.tracks?.experience || 'Vivência'}
+                      </a>
+                    </li>
+                  </ul>
                 </li>
               )
             }
@@ -234,6 +309,20 @@ function Header() {
                       }}>
                         {item.label}
                       </a>
+                    ) : item.isEventos ? (
+                      <a href="#" onClick={(e) => {
+                        e.preventDefault()
+                        const eventosSection = document.querySelector('.proximos-eventos-section')
+                        if (eventosSection) {
+                          const toggleButton = eventosSection.querySelector('.proximos-eventos-header')
+                          if (toggleButton) {
+                            toggleButton.click()
+                          }
+                        }
+                        setIsMoreOpen(false)
+                      }}>
+                        {item.label}
+                      </a>
                     ) : (
                       <a href={item.anchor || '#'} onClick={(e) => {
                         if (item.anchor) {
@@ -250,72 +339,18 @@ function Header() {
             </li>
           )}
           
-          <li 
-            className="nav-item-with-dropdown"
-            onMouseEnter={() => setIsMissoesOpen(true)}
-            onMouseLeave={(e) => {
-                const relatedTarget = e.relatedTarget
-                if (!relatedTarget || (!e.currentTarget.contains(relatedTarget))) {
-                  setIsMissoesOpen(false)
-                }
-              }}
-          >
-            <a
-              href="#trilhas"
-              onClick={(e) => {
-                e.preventDefault()
-                setIsMissoesOpen(!isMissoesOpen)
-              }}
-            >
-              {config?.ui?.header?.nav?.tracks || 'Trilhas'}
-            </a>
-            <ul
-              className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
-            >
-              <li>
-                <a href="#biblioteca" onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick('biblioteca', e)
-                  setIsMissoesOpen(false)
-                }}>
-                  {config?.ui?.header?.tracks?.learning || 'Aprendizado'}
-                </a>
-              </li>
-              <li>
-                <a href="#jam" onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick('jam', e)
-                  setIsMissoesOpen(false)
-                }}>
-                  {config?.ui?.header?.tracks?.practice || 'Prática'}
-                </a>
-              </li>
-              <li>
-                <a href="#expedicao-na-estrada" onClick={(e) => {
-                  e.preventDefault()
-                  handleNavClick('expedicao-na-estrada', e)
-                  setIsMissoesOpen(false)
-                }}>
-                  {config?.ui?.header?.tracks?.experience || 'Vivência'}
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
-              {config?.ui?.header?.nav?.contact || 'Contato'}
-            </a>
-          </li>
-
         </>
       )
     }
 
     if (isBibliotecaPage) {
+      // Filtrar itens para ocultar temporariamente: Tutorial, Mochilão, Acampamento, Sobrevivência
+      const itemsToHide = ['Tutorial Roblox Studios', 'Mochilão', 'Acampamento', 'Sobrevivência']
+      const filteredItems = config?.menu?.biblioteca?.items?.filter(item => !itemsToHide.includes(item.label)) || []
+      
       return (
         <>
-           {config?.menu?.biblioteca?.items?.map((item, index) => {
+           {filteredItems.map((item, index) => {
               if (item.isLink) {
                 return (
                   <li key={index}>
@@ -357,8 +392,8 @@ function Header() {
             </a>
           </li>
           <li>
-            <a href="#expedicao-na-estrada-content" onClick={(e) => handleExpedicaoNaEstradaScroll('expedicao-na-estrada-content', e)}>
-              {config?.ui?.header?.nav?.activities || 'Atividades'}
+            <a href="#programacao" onClick={(e) => handleExpedicaoNaEstradaScroll('programacao', e)}>
+              {config?.ui?.header?.nav?.programacao || 'Programação'}
             </a>
           </li>
           <li>
@@ -495,9 +530,6 @@ function Header() {
         }
       >
         <div className="logo" onClick={(e) => handleNavClick('home', e)}>
-          <div className="logo-icon-wrapper">
-             <AnimatedLogo />
-          </div>
           <div className="logo-text-wrapper">
             <span className="logo-roblox">Roblox</span>
           </div>
@@ -505,14 +537,19 @@ function Header() {
 
         <nav
           id="header-mobile-nav"
-          className={`nav ${isMobileViewport ? 'nav-mobile' : 'nav-desktop'}${isMobileViewport && isMenuOpen ? ' nav-open' : ''}`}
+          className={`nav ${isMobileViewport && isMenuOpen ? 'nav-open' : ''}`}
           aria-label="Menu principal"
           aria-hidden={isMobileViewport ? !isMenuOpen : false}
         >
           <ul className="nav-list">{renderNavLinks()}</ul>
         </nav>
 
-        {isHomePage && config?.menu?.home?.cta && (
+        <div className="header-animated-logo-separate">
+          <AnimatedLogo />
+        </div>
+
+        {/* CTA oculto por ora */}
+        {/* {isHomePage && config?.menu?.home?.cta && (
           <div className="header-cta-wrapper">
             <div className="header-cta-button">
               <span className="header-cta-line-1">{config.menu.home.cta.line1 || 'Quer criar?'}</span>
@@ -528,9 +565,10 @@ function Header() {
               </a>
             </div>
           </div>
-        )}
+        )} */}
         
-        <LanguageToggle />
+        {/* LanguageToggle removido */}
+        {/* <LanguageToggle /> */}
 
         <span id="missoes" className="sr-only" aria-hidden="true">
           Missões

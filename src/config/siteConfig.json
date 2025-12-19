@@ -98,12 +98,18 @@
           "anchor": "#home-hero"
         },
         {
-          "label": "A Expedição",
-          "anchor": "#expedicao-roblox"
-        },
-        {
           "label": "Manifesto",
           "anchor": "#manifesto"
+        },
+        {
+          "label": "Trilhas da expedição",
+          "anchor": "#trilhas",
+          "isTrilhas": true
+        },
+        {
+          "label": "Próximos eventos",
+          "anchor": "#proximos-eventos",
+          "isEventos": true
         },
         {
           "label": "Contato",
@@ -239,7 +245,7 @@
   },
   "expedicaoRoblox": {
     "title": {
-      "line1": "Gratuito, online",
+      "line1": "É gratuito, online",
       "line2": "e sem pré-requisitos."
     },
     "subtitle": "As trilhas da expedição",
@@ -255,7 +261,7 @@
       {
         "id": "trilha-02",
         "label": "PRÁTICA",
-        "title": "Inscreva-se numa jam e crie experiências jogáveis de verdade;",
+        "title": "Inscreva-se numa jam e crie experiências jogáveis de verdade",
         "description": "Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.",
         "action": "jam"
       },
@@ -456,14 +462,14 @@
   "footer": {
     "cta": {
       "title": "É mãe, pai, ou responsável?",
-      "text": "Temos um material pra você.",
+      "text": "Temos uma trilha pra você.",
       "links": {
         "download": "baixar",
         "video": "assista o vídeo"
       }
     },
     "centralExpedicao": {
-      "title": "Central da Expedição",
+      "title": "Contato",
       "links": [
         {
           "text": "Converse com a Mastertech",
@@ -481,21 +487,21 @@
           "id": "trilha-01",
           "label": "APRENDIZADO",
           "title": "Aprenda Roblox Studio do zero em nossas trilhas de conteúdos",
-          "description": "As trilhas misturam curso online, desafios mensais e eventos ao vivo pra transformar tempo de tela em portfólio, segurança digital e histórias que você assina com seu nome.",
+          "description": "",
           "action": "contact"
         },
         {
           "id": "trilha-02",
           "label": "PRÁTICA",
-          "title": "Inscreva-se numa jam e crie experiências jogáveis de verdade;",
-          "description": "Participe de Game Jams onde você desenvolve experiências completas em 72 horas, trabalhando em equipe e criando projetos reais para o Roblox.",
+          "title": "Inscreva-se numa jam e crie experiências jogáveis de verdade",
+          "description": "",
           "action": "jam"
         },
         {
           "id": "trilha-03",
           "label": "VIVÊNCIA",
           "title": "Participe da imersão presencial em um evento na sua capital.",
-          "description": "Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.",
+          "description": "",
           "action": "contact"
         }
       ]

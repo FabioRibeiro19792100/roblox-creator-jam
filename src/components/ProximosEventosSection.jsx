@@ -89,8 +89,9 @@ function ProximosEventosSection() {
   return (
     <>
       <section 
-        className={`proximos-eventos-section sweep-fill ${!isVisible ? 'hidden' : ''}`}
-        style={sectionStyle}
+        id="proximos-eventos"
+        className={`proximos-eventos-section sweep-fill hidden`}
+        style={{ display: 'none' }}
         aria-labelledby={sectionHeadingId}
       >
         <h2 className="sr-only" id={sectionHeadingId}>

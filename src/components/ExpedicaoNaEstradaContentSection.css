@@ -1,8 +1,21 @@
 .expedicao-na-estrada-atividades-section {
-  padding: 0;
-  background: rgb(216, 243, 31);
+  padding: 2rem 0;
+  background: rgb(83, 0, 255);
   position: relative;
   width: 100%;
+}
+
+.expedicao-na-estrada-programacao-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 2rem 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .expedicao-na-estrada-content-section {
@@ -21,6 +34,10 @@
   width: 100%;
   margin: 0 auto;
   padding: 1rem 1.5rem 0 1.5rem; /* Reduzido ainda mais (era 2rem) */
+}
+
+.expedicao-na-estrada-atividades-section .expedicao-na-estrada-content-container {
+  padding: 2rem 1.5rem;
 }
 
 /* Top Section: Title and Description */
@@ -298,8 +315,21 @@
 
 /* Tablet */
 @media (min-width: 768px) {
+  .expedicao-na-estrada-atividades-section {
+    padding: 3rem 0;
+  }
+
+  .expedicao-na-estrada-programacao-title {
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+  }
+
   .expedicao-na-estrada-content-container {
     padding: 1.25rem 2rem 0 2rem; /* Reduzido ainda mais (era 2.5rem) */
+  }
+
+  .expedicao-na-estrada-atividades-section .expedicao-na-estrada-content-container {
+    padding: 2.5rem 2rem;
   }
 
   .expedicao-na-estrada-hero-logo {
@@ -404,8 +434,21 @@
 
 /* Desktop */
 @media (min-width: 1024px) {
+  .expedicao-na-estrada-atividades-section {
+    padding: 4rem 0;
+  }
+
+  .expedicao-na-estrada-programacao-title {
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
+  }
+
   .expedicao-na-estrada-content-container {
     padding: 1.5rem 2rem 0 2rem; /* Reduzido ainda mais (era 3rem) */
+  }
+
+  .expedicao-na-estrada-atividades-section .expedicao-na-estrada-content-container {
+    padding: 3rem 2rem;
   }
 
   .expedicao-na-estrada-hero-logo {
@@ -503,6 +546,10 @@
 
 /* Large Desktop */
 @media (min-width: 1440px) {
+  .expedicao-na-estrada-programacao-title {
+    font-size: 5.5rem;
+    margin-bottom: 3rem;
+  }
   .expedicao-na-estrada-content-section {
     padding: 7rem 0;
   }

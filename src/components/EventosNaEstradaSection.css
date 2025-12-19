@@ -8,104 +8,33 @@
   max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.eventos-na-estrada-section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  padding: 2.1rem 1.5rem;
 }
 
 .eventos-na-estrada-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #000;
-  margin: 0;
+  margin: 0 0 2rem 0;
   line-height: 0.95;
   letter-spacing: -1px;
 }
 
-.eventos-na-estrada-controls {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.eventos-na-estrada-scroll-btn {
-  background: rgba(0, 0, 0, 0.1);
-  color: #000;
-  border: none;
-  width: 40px;
-  height: 40px;
-  font-size: 2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-  font-family: inherit;
-  line-height: 1;
-  opacity: 0.7;
-}
-
-.eventos-na-estrada-scroll-btn:hover {
-  background: rgba(0, 0, 0, 0.2);
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-.eventos-na-estrada-grid-wrapper {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 1rem;
-}
-
 .eventos-na-estrada-grid {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  width: max-content;
-  padding-left: 2.5rem; /* Ajustado - um pouco mais à direita que antes */
-  padding-right: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
-}
-
-.eventos-na-estrada-card-first {
-  margin-left: 0; /* Garantir que o primeiro card está alinhado à esquerda */
-}
-
-.eventos-na-estrada-grid-wrapper::-webkit-scrollbar {
-  height: 8px;
-}
-
-.eventos-na-estrada-grid-wrapper::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.eventos-na-estrada-grid-wrapper::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .eventos-na-estrada-card {
   background: rgb(60, 254, 207);
-  padding: 1.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  flex: 0 0 300px;
-  min-width: 300px;
-  max-width: 300px;
   box-sizing: border-box;
-  min-height: 300px; /* Altura reduzida pela metade */
-  justify-content: space-between; /* Distribui o conteúdo */
+  min-height: 200px;
 }
 
 .eventos-na-estrada-header {
@@ -127,25 +56,6 @@
   margin: 0;
 }
 
-.eventos-na-estrada-cta {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: inherit;
-  margin-top: auto; /* Empurra para o final do card */
-  width: 100%;
-  text-align: center;
-}
-
-.eventos-na-estrada-cta:hover {
-  background: #333;
-  transform: translateY(-2px);
-}
 
 .eventos-na-estrada-separator {
   width: 100%;
@@ -232,33 +142,23 @@
   }
 
   .eventos-na-estrada-container {
-    padding: 0 2rem;
-  }
-
-  .eventos-na-estrada-section-header {
-    margin-bottom: 2rem;
+    padding: 2.6rem 2rem;
   }
 
   .eventos-na-estrada-title {
     font-size: 3.5rem;
     letter-spacing: -1px;
+    margin-bottom: 2.5rem;
   }
 
   .eventos-na-estrada-grid {
-    gap: 2.5rem;
-    padding-left: 3rem; /* Ajustado - um pouco mais à direita que antes no tablet */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
 
   .eventos-na-estrada-card {
     padding: 2rem;
-    flex: 0 0 320px;
-    min-width: 320px;
-    max-width: 320px;
-    min-height: 320px; /* Altura reduzida pela metade para tablet */
-  }
-
-  .eventos-na-estrada-sessoes {
-    padding-top: 2.5rem;
+    min-height: 220px;
   }
 
   .eventos-na-estrada-cidade {
@@ -269,24 +169,12 @@
     font-size: 1.3rem;
   }
 
-  .eventos-na-estrada-local {
-    min-height: 90px;
+  .eventos-na-estrada-convite-title {
+    font-size: 3.5rem;
   }
 
-  .eventos-na-estrada-local-nome {
-    font-size: 1.25rem;
-  }
-
-  .eventos-na-estrada-local-endereco {
-    font-size: 1.25rem;
-  }
-
-  .eventos-na-estrada-sessao-nome {
-    font-size: 1.125rem;
-  }
-
-  .eventos-na-estrada-sessao-horario {
-    font-size: 1rem;
+  .eventos-na-estrada-convite-description {
+    font-size: 1.3rem;
   }
 }
 
@@ -297,43 +185,23 @@
   }
 
   .eventos-na-estrada-container {
-    padding: 0 2rem;
-  }
-
-  .eventos-na-estrada-section-header {
-    margin-bottom: 2.5rem;
+    padding: 3.1rem 2rem;
   }
 
   .eventos-na-estrada-title {
     font-size: 4.5rem;
     letter-spacing: -1px;
-  }
-
-  .eventos-na-estrada-controls {
-    gap: 1rem;
-  }
-
-  .eventos-na-estrada-scroll-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 2rem;
+    margin-bottom: 3rem;
   }
 
   .eventos-na-estrada-grid {
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
-    padding-left: 3.5rem; /* Ajustado - um pouco mais à direita que antes no desktop */
   }
 
   .eventos-na-estrada-card {
     padding: 2.5rem;
-    flex: 0 0 350px;
-    min-width: 350px;
-    max-width: 350px;
-    min-height: 350px; /* Altura reduzida pela metade para desktop */
-  }
-
-  .eventos-na-estrada-sessoes {
-    padding-top: 3rem;
+    min-height: 240px;
   }
 
   .eventos-na-estrada-cidade {
@@ -344,25 +212,207 @@
     font-size: 1.3rem;
   }
 
-  .eventos-na-estrada-local {
-    min-height: 100px;
+  .eventos-na-estrada-convite-title {
+    font-size: 4.5rem;
   }
+}
 
-  .eventos-na-estrada-local-nome {
-    font-size: 1.375rem;
-  }
+.eventos-na-estrada-convite {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
 
-  .eventos-na-estrada-local-endereco {
-    font-size: 1.375rem;
-  }
+.eventos-na-estrada-convite-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 1rem 0;
+  line-height: 0.95;
+  letter-spacing: -1px;
+}
 
-  .eventos-na-estrada-sessao-nome {
-    font-size: 1.125rem;
-  }
+.eventos-na-estrada-convite-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin: 0 0 2rem 0;
+  text-align: left;
+}
 
-  .eventos-na-estrada-sessao-horario {
-    font-size: 1rem;
+@media (min-width: 768px) {
+  .eventos-na-estrada-convite-description {
+    font-size: 1.3rem;
   }
+}
+
+@media (min-width: 1024px) {
+  .eventos-na-estrada-convite-description {
+    font-size: 1.4rem;
+  }
+}
+
+.eventos-na-estrada-convite-description span {
+  display: inline;
+}
+
+.eventos-na-estrada-convite-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.eventos-na-estrada-convite-form-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.eventos-na-estrada-convite-input {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #000;
+  color: #000;
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  font-family: inherit;
+  flex: 1;
+  min-width: 250px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.eventos-na-estrada-convite-input:focus {
+  outline: none;
+  border-bottom-color: rgba(0, 0, 0, 0.6);
+}
+
+.eventos-na-estrada-convite-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.eventos-na-estrada-convite-input.error {
+  border-bottom-color: #c00000;
+}
+
+.eventos-na-estrada-convite-error {
+  font-size: 0.875rem;
+  color: #c00000;
+  text-align: left;
+  width: 100%;
+}
+
+.eventos-na-estrada-convite-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.eventos-na-estrada-convite-submit:hover:not(:disabled) {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+.eventos-na-estrada-convite-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.eventos-na-estrada-thank-you-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.eventos-na-estrada-thank-you-modal {
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  max-width: 550px;
+  width: 100%;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  padding: 2rem;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.eventos-na-estrada-thank-you-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #000;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+  font-family: inherit;
+}
+
+.eventos-na-estrada-thank-you-close:hover {
+  opacity: 1;
+}
+
+.eventos-na-estrada-thank-you-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #000;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.eventos-na-estrada-thank-you-message {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
 }
 
 /* Large Desktop */
@@ -370,6 +420,10 @@
   .eventos-na-estrada-title {
     font-size: 5.5rem;
     letter-spacing: -1px;
+  }
+
+  .eventos-na-estrada-convite-title {
+    font-size: 5.5rem;
   }
 }
 

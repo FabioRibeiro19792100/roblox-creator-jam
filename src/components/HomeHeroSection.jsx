@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
+import { InscricaoModalContext } from '../App'
 import HeroTitle from './HeroTitle'
 import './HomeHeroSection.css'
 
 function HomeHeroSection() {
   const config = useSiteConfig()
+  const { openInscricaoModal } = useContext(InscricaoModalContext) || { openInscricaoModal: () => {} }
   const imageUrl = `/images/hero.png`
   const logoUrl = `/images/hero-logo.png`
   const siteHorizontalPadding = 'var(--site-horizontal-padding, 1.5rem)'
@@ -113,7 +115,8 @@ function HomeHeroSection() {
   }
 
   const handleCadastrarRoblox = () => {
-    window.open('https://www.roblox.com/', '_blank')
+    // Abre o modal de inscrição
+    openInscricaoModal()
   }
 
   return (
@@ -157,11 +160,11 @@ function HomeHeroSection() {
                 transition: 'transform 0.1s ease-out'
               }}
             >
-              <HeroTitle 
-                line1={config?.hero?.home?.title?.line1} 
-                line2={config?.hero?.home?.title?.line2} 
-              />
-              <div className="home-hero-description" data-animate-id="hero-description">
+            <HeroTitle 
+              line1={config?.hero?.home?.title?.line1} 
+              line2={config?.hero?.home?.title?.line2} 
+            />
+            <div className="home-hero-description" data-animate-id="hero-description">
               <p className="home-hero-description-paragraph">
                 {config?.hero?.home?.description?.[0] || "Ao longo de 2026, 10 mil jovens vão transformar sua paixão por jogar em criação, publicando seus próprios jogos no Roblox."}
               </p>
@@ -170,7 +173,7 @@ function HomeHeroSection() {
                   className="home-hero-roblox-button"
                   onClick={handleCadastrarRoblox}
                 >
-                  Crie sua conta no Roblox
+                  Quero saber mais
                 </button>
               </div>
               </div>

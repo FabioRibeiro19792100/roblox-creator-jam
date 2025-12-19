@@ -120,7 +120,7 @@
 }
 
 .manifesto-column {
-  padding-left: 1.5rem;
+  padding-left: 0; /* Remove padding para alinhar com o título */
   position: relative;
 }
 
@@ -132,6 +132,18 @@
   width: 1px;
   height: 50%;
   background: rgba(0, 0, 0, 0.25);
+}
+
+.manifesto-column:first-child::before {
+  display: none; /* Remove a linha da primeira coluna */
+}
+
+.manifesto-column:first-child {
+  padding-right: 1.5rem; /* Adiciona padding-right para igualar a largura útil */
+}
+
+.manifesto-column:not(:first-child) {
+  padding-left: 1.5rem; /* Mantém padding na segunda coluna */
 }
 
 .manifesto-section.manifesto-open .manifesto-column::before {
@@ -232,8 +244,13 @@
     display: flex;
   }
 
-  .manifesto-column {
-    padding-left: 2rem;
+  .manifesto-column:first-child {
+    padding-left: 0; /* Alinha com o título */
+    padding-right: 2rem; /* Adiciona padding-right para igualar a largura útil */
+  }
+
+  .manifesto-column:not(:first-child) {
+    padding-left: 2rem; /* Mantém padding na segunda coluna */
   }
 
   .manifesto-column::before {
@@ -299,8 +316,13 @@
     display: flex;
   }
 
-  .manifesto-column {
-    padding-left: 2.5rem;
+  .manifesto-column:first-child {
+    padding-left: 0; /* Alinha com o título */
+    padding-right: 2.5rem; /* Adiciona padding-right para igualar a largura útil */
+  }
+
+  .manifesto-column:not(:first-child) {
+    padding-left: 2.5rem; /* Mantém padding na segunda coluna */
   }
 
   .manifesto-column::before {

@@ -36,10 +36,13 @@ function ExpedicaoNaEstradaAtividadesSection() {
   ]
 
   return (
-    <section id="expedicao-na-estrada-content" className="expedicao-na-estrada-atividades-section">
-      <div className="expedicao-na-estrada-content-container" style={{ paddingTop: '0' }}>
+    <section id="programacao" className="expedicao-na-estrada-atividades-section">
+      <div className="expedicao-na-estrada-content-container">
+        <h2 className="expedicao-na-estrada-programacao-title">Programação</h2>
         <div className="expedicao-na-estrada-features">
-          {atividades.map((atividade, index) => (
+          {atividades.map((atividade, index) => {
+            const atividadeNumber = String(index + 1).padStart(2, '0')
+            return (
             <div 
               key={atividade.id}
               id={atividade.id}
@@ -50,7 +53,7 @@ function ExpedicaoNaEstradaAtividadesSection() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
                 <div className="expedicao-na-estrada-feature-content">
-                  <span className="expedicao-na-estrada-feature-label">{atividade.title.split(' ')[0] === 'Mundos' ? 'ATIVIDADE 01' : atividade.title.split(' ')[0] === 'Construtores' ? 'ATIVIDADE 02' : atividade.title.split(' ')[0] === 'Cidadania' ? 'ATIVIDADE 03' : 'ATIVIDADE 04'}</span>
+                  <span className="expedicao-na-estrada-feature-label">ATIVIDADE {atividadeNumber}</span>
                   <p className="expedicao-na-estrada-feature-text">{atividade.title}</p>
                 </div>
                 <span className="expedicao-na-estrada-arrow">{openIndex === index ? '−' : '+'}</span>
@@ -80,7 +83,8 @@ function ExpedicaoNaEstradaAtividadesSection() {
                 </div>
               )}
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

@@ -47,23 +47,34 @@
   flex-direction: column;
   margin-bottom: 0.5rem;
   flex-shrink: 0;
+  position: relative;
 }
 
 .biblioteca-hero-expedicao-roblox {
-  font-size: 0.875rem;
-  font-weight: 900;
-  color: #000;
-  line-height: 1;
-  letter-spacing: -1px;
-  text-decoration: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
+  border-width: 0;
+}
+
+.biblioteca-hero-logo {
+  width: 81px; /* Tamanho mobile - igual ao home */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
 .biblioteca-hero-title {
   font-size: 2.5rem;
   font-weight: 900;
   color: #000;
-  margin: 0 0 1.5rem 0;
+  margin: 0.5rem 0 1.5rem 0; /* Adicionado margin-top para empurrar o texto para baixo */
   line-height: 0.95;
   letter-spacing: -1px;
   display: flex;
@@ -109,12 +120,13 @@
     padding-top: 4.5rem; /* 3 dedos = 60px aproximadamente */
   }
 
-  .biblioteca-hero-expedicao-roblox {
-    font-size: 1rem;
+  .biblioteca-hero-logo {
+    width: 87px; /* Tamanho tablet - igual ao home */
   }
 
   .biblioteca-hero-title {
     font-size: 3.5rem;
+    margin-top: 0.75rem; /* Adicionado margin-top para empurrar o texto para baixo */
     margin-bottom: 2rem;
     letter-spacing: -1px;
   }
@@ -137,18 +149,26 @@
     padding-top: 5rem; /* 3 dedos = 60px aproximadamente */
   }
 
-  .biblioteca-hero-expedicao-roblox {
-    font-size: 1.125rem;
+  .biblioteca-hero-logo {
+    width: 99px; /* Tamanho desktop - igual ao home */
   }
 
   .biblioteca-hero-title {
     font-size: 4.5rem;
+    margin-top: 1rem; /* Adicionado margin-top para empurrar o texto para baixo */
     margin-bottom: 2.5rem;
     letter-spacing: -1px;
   }
 
   .biblioteca-hero-description-paragraph {
     font-size: 1.4rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1440px) {
+  .biblioteca-hero-logo {
+    width: 128px; /* Tamanho large desktop - igual ao home */
   }
 }
 

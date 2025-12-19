@@ -7,13 +7,13 @@ import Admin from './pages/Admin'
 import ContactModal from './components/ContactModal'
 import MaterialModal from './components/MaterialModal'
 import InscricaoModal from './components/InscricaoModal'
-import { DebugKit } from './components/utilitarios/DebugKit'
-import { BoundingBoxKit } from './components/utilitarios/BoundingBoxKit'
-import { CoordinateGridKit } from './components/utilitarios/CoordinateGridKit'
-import { ScreenSizeKit } from './components/utilitarios/ScreenSizeKit'
-import AnimatorDemo from './components/utilitarios/AnimatorDemo'
+// Debug kits removidos
+// import { DebugKit } from './components/utilitarios/DebugKit'
+// import { BoundingBoxKit } from './components/utilitarios/BoundingBoxKit'
+// import { CoordinateGridKit } from './components/utilitarios/CoordinateGridKit'
+// import { ScreenSizeKit } from './components/utilitarios/ScreenSizeKit'
+// import AnimatorDemo from './components/utilitarios/AnimatorDemo'
 import AutoAnimatorObserver from './components/utilitarios/AutoAnimatorObserver'
-import ScrollRevealController from './components/utilitarios/ScrollRevealController'
 import IntroController from './components/utilitarios/IntroController'
 import './components/utilitarios/AnimationBase.css'
 import './App.css'
@@ -145,10 +145,11 @@ function App() {
             type={materialModalType}
             onSuccess={handleMaterialSuccess}
           />
-          <DebugKit />
-          <BoundingBoxKit />
-          <CoordinateGridKit />
-          <ScreenSizeKit />
+          {/* Debug kits removidos */}
+          {/* <DebugKit /> */}
+          {/* <BoundingBoxKit /> */}
+          {/* <CoordinateGridKit /> */}
+          {/* <ScreenSizeKit /> */}
           {/* <AnimatorDemo /> */}
           <InscricaoModal
             isOpen={isInscricaoModalOpen}
@@ -156,7 +157,6 @@ function App() {
             tipoInscricao="geral"
           />
           <IntroController key={currentPage} />
-          <ScrollRevealController />
         </InscricaoModalContext.Provider>
         </MaterialModalContext.Provider>
         </ContactModalContext.Provider>

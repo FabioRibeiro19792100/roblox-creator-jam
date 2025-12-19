@@ -64,7 +64,11 @@ function FooterCard({ card, onClick, index, totalCards }) {
       </div>
       <div className="footer-card-content">
         <h4 className="footer-card-title">{card.title}</h4>
-        <p className="footer-card-description">{card.description}</p>
+        {card.description && card.description.trim() && (
+          <p className="footer-card-description">
+            {card.description?.split('\n\n')[0] || card.description?.split('\n')[0] || card.description}
+          </p>
+        )}
       </div>
     </div>
   )
@@ -116,10 +120,12 @@ function FooterSection() {
     console.log('FooterSection - trilhas:', trilhas)
   }, [config, trilhas])
 
-  // Helper for CTA buttons
-  const openMaterialModal = (type) => {
-      // Implementar lógica de modal de materiais se houver
-      console.log('Open material modal:', type)
+  // Helper for CTA buttons - navega para página de conteúdos
+  const handleCtaClick = () => {
+    navigateTo('biblioteca')
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 100)
   }
 
   return (
@@ -131,8 +137,9 @@ function FooterSection() {
           </div>
           <div className="footer-cta-content">
             <p className="footer-cta-text">
-              {config?.footer?.cta?.text || 'Temos um material pra você.'} <br />
-              Clique para <button className="footer-link-button" onClick={() => openMaterialModal('download')}>{config?.footer?.cta?.links?.download || 'baixar'}</button> ou <button className="footer-link-button" onClick={() => openMaterialModal('video')}>{config?.footer?.cta?.links?.video || 'assista o vídeo'}</button>
+              <button className="footer-link-button" onClick={handleCtaClick}>
+                {config?.footer?.cta?.text || 'Temos uma trilha pra você.'}
+              </button>
             </p>
           </div>
         </div>
@@ -181,16 +188,38 @@ function FooterSection() {
       </div>
       <div className="footer-final">
         <div className="footer-final-container">
-          <p className="footer-final-text">
-            {config?.footer?.final?.text || 'Expedição Roblox é um projeto da Mastertech junto com o Roblox'}
-          </p>
-          <div className="footer-final-social">
-            <a href="https://www.instagram.com/mastertech.tech/" className="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-              Instagram
-            </a>
-            <a href="https://wa.me/5511919522455" className="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
-              WhatsApp
-            </a>
+          <div className="footer-final-col footer-final-col-1">
+            <p 
+              className="footer-final-text"
+              dangerouslySetInnerHTML={{ 
+                __html: (config?.footer?.final?.text || 'Expedição Roblox é um projeto da Mastertech<br />junto com o Roblox').replace(/\n/g, '<br />')
+              }}
+            />
+            <p className="footer-copyright">
+              Mastertech 2025. Todos os direitos reservados.
+            </p>
+          </div>
+          <div className="footer-final-col footer-final-col-2">
+            <div className="footer-contact-info">
+              <p className="footer-contact-address">
+                Av. Brigadeiro Luis Antônio, 2696<br />
+                Bela Vista<br />
+                CEP 01402-000
+              </p>
+              <p className="footer-contact-phone">
+                TEL <a href="tel:+5511919522455" className="footer-contact-link">+55 11 91952-2455</a>
+              </p>
+            </div>
+          </div>
+          <div className="footer-final-col footer-final-col-3">
+            <div className="footer-final-social">
+              <a href="https://www.instagram.com/mastertech.tech/" className="footer-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                Instagram
+              </a>
+              <a href="https://wa.me/5511919522455" className="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </div>
