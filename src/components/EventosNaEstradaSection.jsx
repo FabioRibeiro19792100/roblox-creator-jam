@@ -1,5 +1,6 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useSiteConfig } from '../config/useSiteConfig'
+import InscricaoModal from './InscricaoModal'
 import './EventosNaEstradaSection.css'
 
 function EventosNaEstradaSection() {
@@ -7,6 +8,8 @@ function EventosNaEstradaSection() {
   const expedicaoNaEstrada = config?.expedicaoNaEstrada || {}
   const eventos = expedicaoNaEstrada?.eventos || []
   const gridRef = useRef(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [eventoSelecionado, setEventoSelecionado] = useState(null)
 
   const scrollLeft = () => {
     if (gridRef.current) {
@@ -19,6 +22,16 @@ function EventosNaEstradaSection() {
       gridRef.current.scrollBy({ left: 400, behavior: 'smooth' })
     }
   }
+
+  const handleCtaClick = (evento) => {
+    setEventoSelecionado(evento)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setEventoSelecionado(null)
+  }
   
   // Fallback com 6 eventos se não houver dados
   const eventosData = eventos.length > 0 ? eventos : [
@@ -27,8 +40,8 @@ function EventosNaEstradaSection() {
       cidade: 'Rio de Janeiro',
       data: '11 de abril de 2026',
       local: {
-        nome: 'Senac Candelária',
-        endereco: 'Avenida Presidente Vargas, 1500, 2º andar, Centro'
+        nome: 'Local a definir',
+        endereco: ''
       },
       sessoes: [
         {
@@ -48,8 +61,8 @@ function EventosNaEstradaSection() {
       cidade: 'São Paulo',
       data: '05 de maio de 2026',
       local: {
-        nome: 'Centro de Convenções Anhembi',
-        endereco: 'Av. Olavo Fontoura, 1209, Santana, São Paulo - SP, 02012-021'
+        nome: 'Local a definir',
+        endereco: ''
       },
       sessoes: [
         {
@@ -69,8 +82,8 @@ function EventosNaEstradaSection() {
       cidade: 'Recife',
       data: '26 de setembro de 2026',
       local: {
-        nome: 'Centro de Convenções de Pernambuco',
-        endereco: 'Complexo de Salgadinho, Av. Prof. Andrade Bezerra, s/n, Salgadinho, Olinda - PE'
+        nome: 'Local a definir',
+        endereco: ''
       },
       sessoes: [
         {
@@ -90,8 +103,8 @@ function EventosNaEstradaSection() {
       cidade: 'Manaus',
       data: '22 de agosto de 2026',
       local: {
-        nome: 'Centro de Convenções Manaus',
-        endereco: 'Av. Amazonas, 6200, Gameleira, Manaus - AM'
+        nome: 'Local a definir',
+        endereco: ''
       },
       sessoes: [
         {
@@ -111,8 +124,8 @@ function EventosNaEstradaSection() {
       cidade: 'Brasília',
       data: '30 de maio de 2026',
       local: {
-        nome: 'Centro de Convenções Ulysses Guimarães',
-        endereco: 'SDC - Eixo Monumental, Lote 05, Asa Norte, Brasília - DF, 70070-350'
+        nome: 'Local a definir',
+        endereco: ''
       },
       sessoes: [
         {
@@ -132,8 +145,8 @@ function EventosNaEstradaSection() {
       cidade: 'Porto Alegre',
       data: '17 de outubro de 2026',
       local: {
-        nome: 'Fabrica Fundação',
-        endereco: 'R. Prof. Pedro Viriato Parigot de Souza, 5300, Campo Comprido, Porto Alegre - RS'
+        nome: 'Local a definir',
+        endereco: ''
       },
       sessoes: [
         {
@@ -175,17 +188,30 @@ function EventosNaEstradaSection() {
         
         <div className="eventos-na-estrada-grid-wrapper" ref={gridRef}>
           <div className="eventos-na-estrada-grid">
-            {eventosData.map((evento) => (
-              <div key={evento.id} className="eventos-na-estrada-card">
+            {eventosData.map((evento, index) => (
+              <div key={evento.id} className={`eventos-na-estrada-card ${index === 0 ? 'eventos-na-estrada-card-first' : ''}`}>
                 <div className="eventos-na-estrada-header">
                   <h3 className="eventos-na-estrada-cidade">{evento.cidade}</h3>
                   <p className="eventos-na-estrada-data">{evento.data}</p>
                 </div>
+                <button 
+                  className="eventos-na-estrada-cta"
+                  onClick={() => handleCtaClick(evento)}
+                >
+                  Deixar nome na lista
+                </button>
               </div>
             ))}
           </div>
         </div>
       </div>
+      <InscricaoModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        tipoInscricao="estrada"
+        eventoSelecionado={eventoSelecionado}
+        eventosDisponiveis={eventosData}
+      />
     </section>
   )
 }

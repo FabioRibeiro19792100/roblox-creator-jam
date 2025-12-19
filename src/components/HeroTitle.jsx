@@ -25,7 +25,7 @@ const HeroTitle = ({ line1, line2 }) => {
         '--dx': `${Math.random() * 200 - 100}px`,
         '--dy': `${Math.random() * 200 - 100}px`,
         '--r': `${Math.random() * 90 - 45}deg`,
-        '--d': `${index * 0.05}s`, // Stagger sequencial
+        '--d': `${index * 0.1}s`, // Stagger sequencial (dobrado)
         '--jit-x': `${Math.random() * 10 - 5}px`, // Jitter aleatório para o efeito de empurrão
         '--jit-y': `${Math.random() * 10 - 5}px`
       };

@@ -135,7 +135,7 @@ function ProximosEventosSection() {
             onClick={(e) => e.stopPropagation()}
           >
             <button 
-              className="proximos-eventos-close modal-close-button"
+              className="proximos-eventos-close"
               onClick={() => setIsOpen(false)}
               aria-label="Fechar"
               ref={closeButtonRef}

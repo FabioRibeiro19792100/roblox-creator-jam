@@ -5,6 +5,7 @@ function ExpedicaoNaEstradaHeroSection() {
   const config = useSiteConfig()
   const expedicaoNaEstrada = config?.expedicaoNaEstrada || {}
   const content = expedicaoNaEstrada?.content || {}
+  const logoUrl = `/images/hero-logo.png`
 
   return (
     <section id="expedicao-na-estrada-content" className="expedicao-na-estrada-content-section expedicao-na-estrada-hero-only">
@@ -13,6 +14,16 @@ function ExpedicaoNaEstradaHeroSection() {
         <div className="expedicao-na-estrada-content-header">
           <div className="expedicao-na-estrada-content-title-section">
             <div className="expedicao-na-estrada-content-col-1">
+              <div className="expedicao-na-estrada-hero-header">
+                <span className="expedicao-na-estrada-hero-expedicao-roblox">
+                  {config?.hero?.home?.label || 'EXPEDIÇÃO ROBLOX'}
+                </span>
+                <img 
+                  src={logoUrl} 
+                  alt="Logo Expedição Roblox" 
+                  className="expedicao-na-estrada-hero-logo"
+                />
+              </div>
               <div className="expedicao-na-estrada-content-title-wrapper">
                 <h1 className="expedicao-na-estrada-content-title-line-1">{content?.title?.line1 || expedicaoNaEstrada?.hero?.title?.line1 || 'Expedição'}</h1>
                 <h1 className="expedicao-na-estrada-content-title-line-2">{content?.title?.line2 || expedicaoNaEstrada?.hero?.title?.line2 || 'Roblox'}</h1>

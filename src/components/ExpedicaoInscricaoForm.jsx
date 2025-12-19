@@ -313,14 +313,9 @@ function ExpedicaoInscricaoForm({ isOpen, onClose, onSuccess, title, description
                         {eventoSelecionado.data && (
                           <p className="expedicao-inscricao-evento-data">{eventoSelecionado.data}</p>
                         )}
-                        {eventoSelecionado.local && (
-                          <p className="expedicao-inscricao-evento-local">{eventoSelecionado.local.nome}</p>
-                        )}
-                        {eventoSelecionado.sessaoNome && (
-                          <p className="expedicao-inscricao-evento-sessao">
-                            <strong>{eventoSelecionado.sessaoNome}</strong> - {eventoSelecionado.sessaoHorario}
-                          </p>
-                        )}
+                        <p className="expedicao-inscricao-evento-local">
+                          {eventoSelecionado.local?.nome || 'Local a definir'}
+                        </p>
                       </div>
                       <input
                         type="hidden"

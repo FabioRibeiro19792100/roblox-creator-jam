@@ -1,16 +1,15 @@
 .regras-jam-section {
-  background: #e0e0e0;
-  background-image:
-    radial-gradient(circle, #b0b0b0 1px, transparent 1px);
-  background-size: 30px 30px;
+  background: #5300ff !important;
   padding: 0;
   position: relative;
   width: 100%;
   transition: background 0.3s ease;
-  --sweep-color: #b0b0b0;
+  --sweep-color: #7a3fff;
   --sweep-duration: 0.4s;
   --sweep-easing: cubic-bezier(0.215, 0.610, 0.355, 1);
   cursor: pointer;
+  color: #fff;
+  opacity: 1;
 }
 
 .regras-jam-section.regras-open {
@@ -20,7 +19,7 @@
 
 .regras-jam-section:hover,
 .regras-jam-section.regras-open {
-  background: #d0d0d0;
+  background: #6a1fff;
   cursor: pointer;
 }
 
@@ -71,7 +70,7 @@
 .regras-jam-heading .regras-jam-title-text {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #000;
+  color: #fff;
   line-height: 1.1;
   letter-spacing: -1px;
   margin: 0;
@@ -82,17 +81,17 @@
 .regras-jam-section:hover .regras-jam-heading .regras-jam-title-text,
 .regras-jam-section.regras-open .regras-jam-heading .regras-jam-title-text,
 .regras-jam-header:focus-visible .regras-jam-title-text {
-  color: #000;
+  color: #fff;
 }
 
 .regras-jam-badge {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #666;
+  color: #fff;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.25rem 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 2px;
   background: transparent;
   font-family: inherit;
@@ -104,12 +103,29 @@
   flex-shrink: 0;
   --plus-size: 2.5rem;
   --plus-stroke: 3px;
-  --plus-color: #3c3c3c;
-  --plus-hover-color: #000;
-  --plus-open-color: #000;
+  --plus-color: rgba(255, 255, 255, 0.8);
+  --plus-hover-color: #fff;
+  --plus-open-color: #fff;
   --plus-hover-rotate: 90deg;
-  --plus-open-rotate: 45deg;
+  --plus-open-rotate: 0deg;
   --plus-hover-scale: 1.1;
+}
+
+.regras-jam-arrow.plus-indicator-open {
+  transform: rotate(0deg) scale(1) !important;
+}
+
+.regras-jam-arrow.plus-indicator-open::before {
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+.regras-jam-arrow.plus-indicator-open::after {
+  opacity: 1 !important;
+  width: 100% !important;
+  height: var(--plus-stroke) !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 .regras-jam-content {

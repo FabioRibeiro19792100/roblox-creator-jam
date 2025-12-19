@@ -36,12 +36,13 @@ function ExpedicaoNaEstradaAtividadesSection() {
   ]
 
   return (
-    <section className="expedicao-na-estrada-atividades-section">
-      <div className="expedicao-na-estrada-content-container" style={{ paddingTop: '2rem' }}>
+    <section id="expedicao-na-estrada-content" className="expedicao-na-estrada-atividades-section">
+      <div className="expedicao-na-estrada-content-container" style={{ paddingTop: '0' }}>
         <div className="expedicao-na-estrada-features">
           {atividades.map((atividade, index) => (
             <div 
-              key={atividade.id} 
+              key={atividade.id}
+              id={atividade.id}
               className={`expedicao-na-estrada-accordion-item ${openIndex === index ? 'expedicao-na-estrada-accordion-open' : ''}`}
             >
               <button

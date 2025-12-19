@@ -1,40 +1,16 @@
 .glossario-section {
   width: 100%;
   background: #ffffff;
-  padding: 0;
+  padding: 2.1rem 0;
   margin: 0;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.3s ease, color 0.3s ease;
-  --sweep-color: rgba(211, 47, 47, 0.95);
-  --sweep-duration: 0.45s;
-  --sweep-easing: cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.glossario-section.glossario-open {
-  background: #d32f2f;
-  overflow: visible;
-}
-
-.glossario-section:hover,
-.glossario-section.glossario-open {
-  background: #d32f2f;
-}
-
-.glossario-section:hover .glossario-accordion-title,
-.glossario-section:hover .glossario-accordion-subtitle,
-.glossario-section:hover .glossario-accordion-arrow,
-.glossario-section:hover .glossario-accordion-item,
-.glossario-section:hover .glossario-termo,
-.glossario-section:hover .glossario-descricao {
-  color: #fff;
+  min-height: 120px;
 }
 
 .glossario-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width, 1200px);
   width: 100%;
   margin: 0 auto;
-  padding: 2.1rem 0; /* Sem padding lateral - footer-container já fornece o padding base igual ao expedicao-roblox-container */
+  padding: 0;
 }
 
 .glossario-accordion-item {
@@ -48,7 +24,7 @@
   width: 100%;
   background: transparent;
   border: none;
-  padding: 1.25rem 0; /* Sem padding lateral - alinhado com os verbetes */
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -69,7 +45,7 @@
 }
 
 .glossario-accordion-title {
-  font-size: 2.5rem !important; /* Igual ao footer-links-title */
+  font-size: 1.75rem !important;
   font-weight: 900 !important;
   color: #000;
   line-height: 0.95;
@@ -82,7 +58,7 @@
   font-size: 1.125rem;
   font-weight: 400;
   font-style: normal;
-  color: #3c3c3c;
+  color: #666;
   line-height: 1.4;
   font-family: inherit;
   margin: 0;
@@ -95,42 +71,29 @@
 .glossario-accordion-arrow {
   font-size: 2.5rem;
   font-weight: 100;
-  color: #3c3c3c;
+  color: #666;
   line-height: 1;
-  transition: transform 0.3s ease, color 0.3s ease;
+  transition: transform 0.3s ease;
   flex-shrink: 0;
   min-width: 30px;
   text-align: center;
 }
 
-.glossario-section.glossario-open .glossario-accordion-title,
-.glossario-section.glossario-open .glossario-accordion-subtitle {
-  color: #fff;
-}
-
-.glossario-section.glossario-open .glossario-accordion-arrow {
-  color: #fff;
-}
-
-.glossario-section.glossario-open .glossario-item {
-  color: #fff;
-}
-
 .glossario-accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  padding: 0;
-  opacity: 0;
+  padding: 2rem 2rem 0 2rem;
+  animation: fadeIn 0.3s ease;
 }
 
-.glossario-accordion-open .glossario-accordion-content {
-  max-height: 8000px;
-  padding: 2rem 0 0 0; /* Revertido para o estado original */
-  opacity: 1;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* @keyframes fadeIn removed as it is replaced by transition */
 
 .glossario-list {
   display: grid;
@@ -169,24 +132,20 @@
   font-family: inherit;
 }
 
-.glossario-section.glossario-open .glossario-termo,
-.glossario-section.glossario-open .glossario-descricao {
-  color: #fff;
-}
 
 /* Tablet */
 @media (min-width: 768px) {
-  .glossario-container {
-    padding: 2.6rem 0; /* Sem padding lateral - footer-container já fornece o padding base igual ao expedicao-roblox-container */
+  .glossario-section {
+    padding: 2.6rem 0;
+    min-height: 140px;
   }
 
   .glossario-accordion-header {
-    padding: 1.5rem 0; /* Sem padding lateral - alinhado com os verbetes */
+    padding: 1.25rem 2.5rem;
   }
 
   .glossario-accordion-title {
-    font-size: 3.5rem !important; /* Igual ao footer-links-title */
-    letter-spacing: -1px;
+    font-size: 2.45rem !important;
   }
 
   .glossario-accordion-subtitle {
@@ -197,9 +156,18 @@
     font-size: 3.5rem;
   }
 
-  .glossario-accordion-open .glossario-accordion-content {
-    padding: 2.5rem 0 0 0; /* Revertido para o estado original */
+  .glossario-accordion-content {
+    padding: 2.5rem 2.5rem 0 2.5rem;
   }
+
+  .glossario-accordion-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .glossario-accordion-arrow {
+    font-size: 3.5rem;
+  }
+
 
   .glossario-list {
     grid-template-columns: 1fr 1fr;
@@ -223,17 +191,17 @@
 
 /* Desktop */
 @media (min-width: 1024px) {
-  .glossario-container {
-    padding: 3.1rem 0; /* Sem padding lateral - footer-container já fornece o padding base igual ao expedicao-roblox-container */
+  .glossario-section {
+    padding: 3.1rem 0;
+    min-height: 160px;
   }
 
   .glossario-accordion-header {
-    padding: 1.75rem 0; /* Sem padding lateral - alinhado com os verbetes */
+    padding: 1.5rem 3rem;
   }
 
   .glossario-accordion-title {
-    font-size: 4.5rem !important; /* Igual ao footer-links-title */
-    letter-spacing: -1px;
+    font-size: 3.15rem !important;
   }
 
   .glossario-accordion-subtitle {
@@ -244,9 +212,18 @@
     font-size: 4.5rem;
   }
 
-  .glossario-accordion-open .glossario-accordion-content {
-    padding: 3rem 0 0 0; /* Revertido para o estado original */
+  .glossario-accordion-content {
+    padding: 3rem 3rem 0 3rem;
   }
+
+  .glossario-accordion-subtitle {
+    font-size: 1.375rem;
+  }
+
+  .glossario-accordion-arrow {
+    font-size: 4.5rem;
+  }
+
 
   .glossario-list {
     grid-template-columns: 1fr 1fr;

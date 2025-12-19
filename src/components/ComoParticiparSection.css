@@ -1,5 +1,5 @@
 .como-participar-section {
-  background: #5300ff;
+  background: #5300ff !important;
   padding: 0;
   position: relative;
   width: 100%;
@@ -9,6 +9,7 @@
   --sweep-easing: cubic-bezier(0.215, 0.610, 0.355, 1);
   cursor: pointer;
   color: #fff;
+  opacity: 1;
 }
 
 .como-participar-section.como-participar-open {
@@ -106,8 +107,25 @@
   --plus-hover-color: #fff;
   --plus-open-color: #fff;
   --plus-hover-rotate: 90deg;
-  --plus-open-rotate: 45deg;
+  --plus-open-rotate: 0deg;
   --plus-hover-scale: 1.1;
+}
+
+.como-participar-arrow.plus-indicator-open {
+  transform: rotate(0deg) scale(1) !important;
+}
+
+.como-participar-arrow.plus-indicator-open::before {
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+.como-participar-arrow.plus-indicator-open::after {
+  opacity: 1 !important;
+  width: 100% !important;
+  height: var(--plus-stroke) !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 .como-participar-content {

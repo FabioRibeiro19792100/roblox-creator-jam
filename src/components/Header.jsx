@@ -474,54 +474,6 @@ function Header() {
             </li>
         )}
         
-        <li 
-          className="nav-item-with-dropdown"
-          onMouseEnter={() => setIsMissoesOpen(true)}
-          onMouseLeave={() => setIsMissoesOpen(false)}
-        >
-          <a
-            href="#trilhas"
-            onClick={(e) => {
-              e.preventDefault()
-              setIsMissoesOpen(!isMissoesOpen)
-            }}
-          >
-            {config?.ui?.header?.nav?.tracks || 'Trilhas'}
-          </a>
-          <ul
-            className={`nav-dropdown ${isMissoesOpen ? 'nav-dropdown-open' : ''}`}
-            onMouseEnter={() => setIsMissoesOpen(true)}
-            onMouseLeave={() => setIsMissoesOpen(false)}
-          >
-            <li>
-              <a href="#biblioteca" onClick={(e) => {
-                e.preventDefault()
-                handleNavClick('biblioteca', e)
-                setIsMissoesOpen(false)
-              }}>
-                {config?.ui?.header?.tracks?.learning || 'Aprendizado'}
-              </a>
-            </li>
-            <li>
-              <a href="#jam" onClick={(e) => {
-                e.preventDefault()
-                handleNavClick('jam', e)
-                setIsMissoesOpen(false)
-              }}>
-                {config?.ui?.header?.tracks?.practice || 'Prática'}
-              </a>
-            </li>
-            <li>
-              <a href="#expedicao-na-estrada" onClick={(e) => {
-                e.preventDefault()
-                handleNavClick('expedicao-na-estrada', e)
-                setIsMissoesOpen(false)
-              }}>
-                {config?.ui?.header?.tracks?.experience || 'Vivência'}
-              </a>
-            </li>
-          </ul>
-        </li>
         <li>
           <a href="#footer-container-wrapper" onClick={(e) => handleHomeScroll('footer-container-wrapper', e)}>
             {config?.ui?.header?.nav?.contact || 'Contato'}

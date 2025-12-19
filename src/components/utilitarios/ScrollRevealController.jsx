@@ -76,7 +76,7 @@ const ScrollRevealController = () => {
                  
                  // Anima com delay escalonado (stagger)
                  // Delay base pequeno + incremento por palavra
-                 const delay = index * 30; // 30ms entre cada palavra
+                 const delay = index * 60; // 60ms entre cada palavra (dobrado)
                  
                  setTimeout(() => {
                     manager.animate(wordId, 
@@ -85,7 +85,7 @@ const ScrollRevealController = () => {
                         { opacity: 1, transform: 'translateY(0)' }
                       ], 
                       { 
-                        duration: 600, // Duração um pouco menor por palavra para ficar dinâmico
+                        duration: 1200, // Duração dobrada (600ms * 2)
                         fill: 'forwards', 
                         easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)' 
                       }

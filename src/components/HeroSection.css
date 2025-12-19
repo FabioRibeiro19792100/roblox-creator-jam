@@ -3,29 +3,68 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(216, 243, 31);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #fff;
   padding: 40px 0 0;
   position: relative;
   overflow: hidden;
 }
 
 .hero-container {
-  max-width: var(--container-max-width, 1200px);
   width: 100%;
-  margin: 0 auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  padding: 0;
   position: relative;
   z-index: 2;
+}
+
+.hero-left {
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-right {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 40px);
 }
 
 .hero-content {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.hero-logo {
+  width: 81px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.hero-expedicao-roblox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* Titles */
@@ -38,7 +77,7 @@
 .title-roblox {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #fff;
+  color: #000;
   margin: 0;
   line-height: 0.95;
   letter-spacing: -1px;
@@ -47,7 +86,7 @@
 .title-creator-jam {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #fff;
+  color: #000;
   margin: 0;
   line-height: 0.95;
   letter-spacing: -1px;
@@ -88,7 +127,7 @@
 
 /* Description */
 .hero-description {
-  max-width: 510px;
+  max-width: 388px;
   margin-top: 1rem;
 }
 
@@ -99,10 +138,25 @@
 .hero-description p {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: #fff;
+  color: #000;
   margin: 0;
 }
 
+/* Mobile - Stack vertically */
+@media (max-width: 767px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-right {
+    min-height: 300px;
+    order: -1;
+  }
+  
+  .hero-left {
+    padding: 2rem 1.5rem;
+  }
+}
 
 /* Tablet */
 @media (min-width: 768px) {
@@ -110,13 +164,20 @@
     padding: 100px 0 3rem;
   }
 
-  .hero-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  .hero-left {
+    padding: 2rem 2rem;
+  }
+
+  .hero-right {
+    min-height: calc(100vh - 100px);
   }
 
   .hero-content {
     gap: 2.5rem;
+  }
+
+  .hero-logo {
+    width: 87px;
   }
 
   .title-roblox {
@@ -146,13 +207,16 @@
     padding: 80px 0 0;
   }
 
-  .hero-container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  .hero-left {
+    padding: 2rem 2rem;
   }
 
   .hero-content {
     gap: 3rem;
+  }
+
+  .hero-logo {
+    width: 99px;
   }
 
   .title-roblox {
@@ -171,17 +235,27 @@
   }
 
   .hero-description {
-    max-width: 595px;
+    max-width: 452px;
   }
 
   .hero-description p {
     font-size: 1.4rem;
   }
+}
 
+/* Desktop Padrão (> 1278px) */
+@media (min-width: 1279px) {
+  .hero-logo {
+    width: 104px;
+  }
 }
 
 /* Large Desktop */
 @media (min-width: 1440px) {
+  .hero-logo {
+    width: 128px;
+  }
+
   .title-roblox {
     font-size: 5.5rem;
   }

@@ -45,7 +45,7 @@ function RegrasJamSection() {
               aria-controls="regras-content"
             >
               <span className="regras-jam-title-text">{config.jam?.regras?.title || 'Regras'}</span>
-              <span className="regras-jam-badge">em breve</span>
+              <span className="regras-jam-badge">mais informações em breve</span>
               <span className={`regras-jam-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
               <span className="sr-only">
                 {isOpen ? 'Ocultar regras' : 'Mostrar regras'}

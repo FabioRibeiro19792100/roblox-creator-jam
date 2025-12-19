@@ -49,15 +49,33 @@ function ExpedicaoRobloxSection() {
   }
 
   const toggleTrilhas = () => {
-    setIsTrilhasOpen(!isTrilhasOpen)
+    const newState = !isTrilhasOpen
+    setIsTrilhasOpen(newState)
+    // Fechar os outros acordeões quando abrir este
+    if (newState) {
+      setIsJamOpen(false)
+      setIsImersaoOpen(false)
+    }
   }
 
   const toggleJam = () => {
-    setIsJamOpen(!isJamOpen)
+    const newState = !isJamOpen
+    setIsJamOpen(newState)
+    // Fechar os outros acordeões quando abrir este
+    if (newState) {
+      setIsTrilhasOpen(false)
+      setIsImersaoOpen(false)
+    }
   }
 
   const toggleImersao = () => {
-    setIsImersaoOpen(!isImersaoOpen)
+    const newState = !isImersaoOpen
+    setIsImersaoOpen(newState)
+    // Fechar os outros acordeões quando abrir este
+    if (newState) {
+      setIsTrilhasOpen(false)
+      setIsJamOpen(false)
+    }
   }
 
   return (
@@ -92,9 +110,6 @@ function ExpedicaoRobloxSection() {
             >
               <div className="expedicao-accordion-layout">
                 <div className="expedicao-accordion-text-col">
-                  <h3 className="expedicao-accordion-heading-large">
-                    {trilha01?.heading || 'Take Pupils on a Learning Journey'}
-                  </h3>
                   <p className="expedicao-accordion-text-editorial">
                     {trilha01?.description || 'Year-over-year pupils expand, apply and deepen their knowledge of STEAM concepts.\n\nThey build increasing sophistication, independence and fluency in approaching problems hands-on, and cultivate effective habits of systematic creativity, critical thinking, collaboration and communication.'}
                   </p>
@@ -137,9 +152,6 @@ function ExpedicaoRobloxSection() {
             >
               <div className="expedicao-accordion-layout">
                 <div className="expedicao-accordion-text-col">
-                  <h3 className="expedicao-accordion-heading-large">
-                    {trilha02?.heading || 'Criar durante uma Creator Jam'}
-                  </h3>
                   <p className="expedicao-accordion-text-editorial">
                     {trilha02?.description || 'Participe de uma Creator Jam e desenvolva uma experiência jogável em 72 horas, seguindo um tema e regras definidas.\n\nVocê terá a oportunidade de trabalhar em equipe, testar suas habilidades e receber feedback da comunidade.'}
                   </p>
@@ -186,9 +198,6 @@ function ExpedicaoRobloxSection() {
             >
               <div className="expedicao-accordion-layout">
                 <div className="expedicao-accordion-text-col">
-                  <h3 className="expedicao-accordion-heading-large">
-                    {trilha03?.heading || 'Experiências presenciais na estrada'}
-                  </h3>
                   <p className="expedicao-accordion-text-editorial">
                     {trilha03?.description || 'Consulte em breve o calendário do Expedição Roblox na Estrada para eventos presenciais na sua cidade.\n\nConecte-se com outros criadores, aprenda com especialistas e vivencie a comunidade Roblox de perto.'}
                   </p>

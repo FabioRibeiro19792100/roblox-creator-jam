@@ -16,7 +16,7 @@ const IntroController = () => {
             { opacity: 1, transform: 'translateY(0) scale(1)' }
           ], 
           { 
-            duration: 800, 
+            duration: 1600, 
             fill: 'forwards',
             easing: 'cubic-bezier(0.25, 1, 0.5, 1)' 
           }
@@ -35,12 +35,12 @@ const IntroController = () => {
               { opacity: 1, transform: 'translateY(0)' }
             ], 
             { 
-              duration: 800, 
+              duration: 1600, 
               fill: 'forwards',
               easing: 'cubic-bezier(0.215, 0.610, 0.355, 1.000)' 
             }
           );
-        }, 150);
+        }, 300);
       }
 
       // --- 3. Animação de Elementos Secundários ---
@@ -57,10 +57,10 @@ const IntroController = () => {
               { opacity: 1 }
             ],
             {
-              duration: 1000,
+              duration: 2000,
               fill: 'forwards',
               easing: 'ease-out',
-              delay: 300 + (index * 100) // Efeito cascata suave
+              delay: 600 + (index * 200) // Efeito cascata suave
             }
           );
         }

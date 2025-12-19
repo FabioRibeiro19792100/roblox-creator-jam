@@ -12,7 +12,7 @@ function GlossarioSection() {
 
   return (
     <section
-      className={`glossario-section sweep-fill ${isOpen ? 'glossario-open sweep-fill-active' : ''}`}
+      className="glossario-section"
       role="region"
       aria-labelledby="glossario-accordion-header"
     >
@@ -31,16 +31,18 @@ function GlossarioSection() {
             </div>
             <span className="glossario-accordion-arrow">{isOpen ? '−' : '+'}</span>
           </button>
-          <div className="glossario-accordion-content" id={contentId}>
-            <div className="glossario-list">
-              {termos.map((item, index) => (
-                <div key={index} className="glossario-item">
-                  <dt className="glossario-termo">{item.termo}</dt>
-                  <dd className="glossario-descricao">{item.descricao}</dd>
-                </div>
-              ))}
+          {isOpen && (
+            <div className="glossario-accordion-content" id={contentId}>
+              <div className="glossario-list">
+                {termos.map((item, index) => (
+                  <div key={index} className="glossario-item">
+                    <dt className="glossario-termo">{item.termo}</dt>
+                    <dd className="glossario-descricao">{item.descricao}</dd>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

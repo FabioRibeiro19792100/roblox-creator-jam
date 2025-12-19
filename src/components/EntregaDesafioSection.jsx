@@ -35,12 +35,31 @@ function EntregaDesafioSection() {
           </div>
 
           <div className="entregas-list">
-            {entregas.map((item, index) => (
-              <div key={item.number || index} className="entrega-item">
-                <div className="entrega-number">{item.number}</div>
-                <div className="entrega-text">{typeof item.text === 'string' ? item.text : item.text}</div>
-              </div>
-            ))}
+            {entregas.map((item, index) => {
+              const text = typeof item.text === 'string' ? item.text : item.text
+              const hasStrong = text.includes('<strong>')
+              
+              return (
+                <div key={item.number || index} className="entrega-item">
+                  <div className="entrega-number">{item.number}</div>
+                  <div className="entrega-text">
+                    {hasStrong ? (
+                      <>
+                        {text.split(/(<strong>.*?<\/strong>)/g).map((part, partIndex) => {
+                          if (part.startsWith('<strong>') && part.endsWith('</strong>')) {
+                            const content = part.replace(/<\/?strong>/g, '')
+                            return <strong key={partIndex}>{content}</strong>
+                          }
+                          return <span key={partIndex}>{part}</span>
+                        })}
+                      </>
+                    ) : (
+                      text
+                    )}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

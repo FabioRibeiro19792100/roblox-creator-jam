@@ -74,8 +74,12 @@
   flex-direction: row;
   gap: 2rem;
   width: max-content;
-  padding-left: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
+  padding-left: 2.5rem; /* Ajustado - um pouco mais à direita que antes */
   padding-right: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
+}
+
+.eventos-na-estrada-card-first {
+  margin-left: 0; /* Garantir que o primeiro card está alinhado à esquerda */
 }
 
 .eventos-na-estrada-grid-wrapper::-webkit-scrollbar {
@@ -100,7 +104,8 @@
   min-width: 300px;
   max-width: 300px;
   box-sizing: border-box;
-  min-height: auto;
+  min-height: 300px; /* Altura reduzida pela metade */
+  justify-content: space-between; /* Distribui o conteúdo */
 }
 
 .eventos-na-estrada-header {
@@ -120,6 +125,26 @@
   font-size: 1.125rem;
   color: #000;
   margin: 0;
+}
+
+.eventos-na-estrada-cta {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  margin-top: auto; /* Empurra para o final do card */
+  width: 100%;
+  text-align: center;
+}
+
+.eventos-na-estrada-cta:hover {
+  background: #333;
+  transform: translateY(-2px);
 }
 
 .eventos-na-estrada-separator {
@@ -221,6 +246,7 @@
 
   .eventos-na-estrada-grid {
     gap: 2.5rem;
+    padding-left: 3rem; /* Ajustado - um pouco mais à direita que antes no tablet */
   }
 
   .eventos-na-estrada-card {
@@ -228,7 +254,7 @@
     flex: 0 0 320px;
     min-width: 320px;
     max-width: 320px;
-    min-height: auto;
+    min-height: 320px; /* Altura reduzida pela metade para tablet */
   }
 
   .eventos-na-estrada-sessoes {
@@ -295,6 +321,7 @@
 
   .eventos-na-estrada-grid {
     gap: 3rem;
+    padding-left: 3.5rem; /* Ajustado - um pouco mais à direita que antes no desktop */
   }
 
   .eventos-na-estrada-card {
@@ -302,7 +329,7 @@
     flex: 0 0 350px;
     min-width: 350px;
     max-width: 350px;
-    min-height: auto;
+    min-height: 350px; /* Altura reduzida pela metade para desktop */
   }
 
   .eventos-na-estrada-sessoes {

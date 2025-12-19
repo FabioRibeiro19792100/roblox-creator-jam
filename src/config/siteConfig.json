@@ -75,7 +75,7 @@
         "line2": "o novo jogar"
       },
       "description": [
-        "Ao longo de 2026, 10 mil jovens vão sair do 'só jogar' pra publicar seus próprios mundos no Roblox."
+        "Ao longo de 2026, 10 mil jovens vão transformar sua paixão por jogar em criação, publicando seus próprios jogos no Roblox."
       ]
     },
     "biblioteca": {
@@ -161,10 +161,6 @@
           "anchor": "#escolha-tema"
         },
         {
-          "label": "Desafio",
-          "anchor": "#desafio-jam"
-        },
-        {
           "label": "Regras",
           "anchor": "#regras-jam"
         },
@@ -223,13 +219,13 @@
           "Nós somos a Mastertech, uma escola de inovação e de ensino de tecnologias, e estamos lançando um novo projeto.",
           "Ao longo de 2026 vamos liderar experiências no Roblox Studio que estimulam imaginação, criação e descoberta, fortalecendo habilidades criativas em um ambiente divertido e seguro.",
           "O projeto reúne trilhas formativas para jovens e educadores explorarem conceitos educacionais por meio da criação, além de imersões que revelam as possibilidades dos jogos digitais como laboratório de aprendizado sobre novas tecnologias.",
-          "A Expedição, realizada em parceria com a Roblox, é uma iniciativa nacional aberta a todos e sem pré-requisitos, com atividades quase totalmente online.",
-          "Sim, quase. Porque teremos também eventos presenciais em seis capitais brasileiras."
+          "A Expedição, realizada em parceria com a Roblox, é uma iniciativa nacional aberta a todos e sem pré-requisitos, com atividades quase totalmente online."
         ]
       },
       {
         "column": 2,
         "paragraphs": [
+          "Sim, quase. Porque teremos também eventos presenciais em seis capitais brasileiras.",
           "Nesses encontros vamos reunir pais, responsáveis e jovens criativos para construir ambientes que ampliem a noção de segurança digital e que sejam divertidos e significativos como experiência de aprendizado.",
           "Quer criar com a gente?",
           "Desce pro play.",
@@ -252,7 +248,7 @@
         "id": "trilha-01",
         "label": "APRENDIZADO",
         "title": "Aprenda Roblox Studio do zero em nossas trilhas de conteúdos",
-        "description": "Baixe o plugin exclusivo da Mastertech para fazer suas primeiras criações e aprender de um jeito diferente. Além disso consuma conteúdos conceituais e práticos para que você possa compreender mais sobre o universo de criações digitais e Roblox",
+        "description": "Baixe o plugin exclusivo da Mastertech para fazer suas primeiras criações e aprender de um jeito diferente.\n\nAlém disso consuma conteúdos conceituais e práticos para que você possa compreender mais sobre o universo de criações digitais e Roblox",
         "cta": "Quero começar a criar",
         "action": "contact"
       },
@@ -320,8 +316,8 @@
         "cidade": "Rio de Janeiro",
         "data": "11 de abril de 2026",
         "local": {
-          "nome": "Senac Candelária",
-          "endereco": "Avenida Presidente Vargas, 1500, 2º andar, Centro"
+          "nome": "Local a definir",
+          "endereco": ""
         },
         "sessoes": [
           {
@@ -341,8 +337,8 @@
         "cidade": "São Paulo",
         "data": "05 de maio de 2026",
         "local": {
-          "nome": "Centro de Convenções Anhembi",
-          "endereco": "Av. Olavo Fontoura, 1209, Santana, São Paulo - SP, 02012-021"
+          "nome": "Local a definir",
+          "endereco": ""
         },
         "sessoes": [
           {
@@ -362,8 +358,8 @@
         "cidade": "Manaus",
         "data": "22 de agosto de 2026",
         "local": {
-          "nome": "Centro de Convenções Manaus",
-          "endereco": "Av. Amazonas, 6200, Gameleira, Manaus - AM"
+          "nome": "Local a definir",
+          "endereco": ""
         },
         "sessoes": [
           {
@@ -383,8 +379,8 @@
         "cidade": "Brasília",
         "data": "30 de maio de 2026",
         "local": {
-          "nome": "Centro de Convenções Ulysses Guimarães",
-          "endereco": "SDC - Eixo Monumental, Lote 05, Asa Norte, Brasília - DF, 70070-350"
+          "nome": "Local a definir",
+          "endereco": ""
         },
         "sessoes": [
           {
@@ -404,8 +400,8 @@
         "cidade": "Recife",
         "data": "26 de setembro de 2026",
         "local": {
-          "nome": "Centro de Convenções de Pernambuco",
-          "endereco": "Complexo de Salgadinho, Av. Prof. Andrade Bezerra, s/n, Salgadinho, Olinda - PE"
+          "nome": "Local a definir",
+          "endereco": ""
         },
         "sessoes": [
           {
@@ -425,8 +421,8 @@
         "cidade": "Porto Alegre",
         "data": "17 de outubro de 2026",
         "local": {
-          "nome": "Fabrica Fundação",
-          "endereco": "R. Prof. Pedro Viriato Parigot de Souza, 5300, Campo Comprido, Porto Alegre - RS"
+          "nome": "Local a definir",
+          "endereco": ""
         },
         "sessoes": [
           {
@@ -1196,18 +1192,19 @@
     },
     "entrega": {
       "title": "Entrega do\ndesafio",
-      "intro": [
-        "A entrega é realizada por meio do formulário oficial de submissão.",
-        "No formulário, a equipe insere: <strong>a divisão de responsabilidades,</strong> Indicando o papel de cada participante no desenvolvimento do projeto."
-      ],
+      "intro": [],
       "entregas": [
         {
           "number": 1,
-          "text": "o link da experiência publicada"
+          "text": "A entrega da Jam é o protótipo funcional publicado no Roblox Studio, uma experiência que apresenta a ideia da equipe em funcionamento e oferece ao jogador uma forma concreta de interagir com o tema escolhido."
         },
         {
           "number": 2,
-          "text": "A descrição da ideia, com conceito da experiência, o tema escolhido e a ação central proposta ao jogador."
+          "text": "A entrega é realizada por meio do formulário oficial de submissão."
+        },
+        {
+          "number": 3,
+          "text": "No formulário, a equipe insere: <strong>a divisão de responsabilidades,</strong> Indicando o papel de cada participante no desenvolvimento do projeto."
         }
       ]
     },

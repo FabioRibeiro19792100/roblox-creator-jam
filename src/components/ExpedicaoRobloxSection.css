@@ -144,7 +144,8 @@
   width: 100%;
   padding: 0 0 4rem 0; /* Dobrado de 2rem para 4rem */
   margin-top: 0;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.5s ease;
+  box-shadow: none !important; /* Removido completamente */
 }
 
 .expedicao-feature-box {
@@ -153,13 +154,15 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+  transition: transform 0.35s ease, opacity 0.35s ease;
   transform: scale(1);
   opacity: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+  box-shadow: none !important; /* Removido completamente */
+  outline: none; /* Removido outline */
 }
 
 .expedicao-feature-content {
@@ -200,7 +203,7 @@
 
 .expedicao-feature-box:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: none !important; /* Removido completamente */
 }
 
 .expedicao-feature-box:hover .expedicao-feature-text {
@@ -240,12 +243,13 @@
 
 .expedicao-accordion-item {
   width: 100%;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s ease;
+  box-shadow: none !important; /* Removido completamente */
 }
 
 .expedicao-accordion-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: none; /* Removido para evitar linha visual */
 }
 
 .expedicao-accordion-content {
@@ -254,6 +258,8 @@
   transition: max-height 0.3s ease, padding 0.3s ease;
   padding: 0;
   background: #ffffff;
+  border: none; /* Garantir que não há borda */
+  box-shadow: none; /* Garantir que não há sombra */
 }
 
 .expedicao-accordion-open .expedicao-accordion-content {
@@ -262,6 +268,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-top: 0; /* Garantir que não há espaço entre o botão e o conteúdo */
+  border-top: none; /* Garantir que não há borda superior */
 }
 
 .expedicao-accordion-item:last-child .expedicao-accordion-content {
@@ -401,7 +409,7 @@
 .expedicao-accordion-image-col {
   width: 100%;
   position: relative;
-  margin-top: 2rem; /* Give space for backdrop on mobile */
+  margin-top: 0; /* Alinhado com o topo do texto */
 }
 
 .expedicao-accordion-backdrop {
@@ -416,7 +424,8 @@
 
 .expedicao-accordion-image {
   width: 100%;
-  height: auto;
+  height: 300px; /* Altura fixa para todas as imagens */
+  object-fit: cover; /* Mantém proporção e corta se necessário */
   position: relative;
   z-index: 1;
   display: block;
@@ -502,6 +511,10 @@
   .expedicao-feature-label {
     font-size: 0.875rem;
   }
+
+  .expedicao-accordion-image {
+    height: 350px; /* Altura fixa para tablet */
+  }
 }
 
 /* Desktop */
@@ -573,7 +586,7 @@
   .expedicao-accordion-layout {
     flex-direction: row;
     gap: 4rem;
-    align-items: center;
+    align-items: flex-start; /* Alinhado com o topo da imagem */
   }
 
   .expedicao-accordion-text-col {
@@ -601,6 +614,10 @@
 
   .expedicao-accordion-text-editorial {
     font-size: 1.25rem;
+  }
+
+  .expedicao-accordion-image {
+    height: 400px; /* Altura fixa para desktop */
   }
 }
 
@@ -653,5 +670,9 @@
   
   .expedicao-accordion-text-editorial {
     font-size: 1.4rem;
+  }
+
+  .expedicao-accordion-image {
+    height: 450px; /* Altura fixa para large desktop */
   }
 }

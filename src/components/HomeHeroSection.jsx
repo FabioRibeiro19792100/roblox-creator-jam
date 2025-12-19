@@ -163,7 +163,7 @@ function HomeHeroSection() {
               />
               <div className="home-hero-description" data-animate-id="hero-description">
               <p className="home-hero-description-paragraph">
-                {config?.hero?.home?.description?.[0] || "Ao longo de 2026, 10 mil jovens vão sair do 'só jogar' pra publicar seus próprios mundos no Roblox."}
+                {config?.hero?.home?.description?.[0] || "Ao longo de 2026, 10 mil jovens vão transformar sua paixão por jogar em criação, publicando seus próprios jogos no Roblox."}
               </p>
               <div className="home-hero-cta">
                 <button 

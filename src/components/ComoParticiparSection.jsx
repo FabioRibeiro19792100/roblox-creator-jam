@@ -55,7 +55,7 @@ function ComoParticiparSection() {
               aria-controls="como-participar-content"
             >
               <span className="como-participar-title-text">{config.jam?.comoParticipar?.title || 'Como Participar'}</span>
-              <span className="como-participar-badge">em breve</span>
+              <span className="como-participar-badge">mais informações em breve</span>
               <span className={`como-participar-arrow plus-indicator ${isOpen ? 'plus-indicator-open' : ''}`} aria-hidden="true" />
               <span className="sr-only">
                 {isOpen ? 'Ocultar como participar' : 'Mostrar como participar'}
